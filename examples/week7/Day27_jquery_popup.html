@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>jQuery - Dropdown Menu</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .popupTrigger {
+        cursor: pointer;
+      }
+
+      #popupContainer {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #popupContainer.popupOpen {
+        display: flex;
+      }
+
+      #popupBackground {
+        background-color: rgba(255, 0, 0, 0.5);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      #popup {
+        background-color: white;
+        border: 3px solid black;
+        border-radius: 24px;
+        padding: 36px;
+        position: relative;
+        text-align: center;
+        min-width: 400px;
+        z-index: 1;
+      }
+      #popup .closePopup {
+        cursor: pointer;
+        margin-top: 40px;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello there!</h1>
+    <div class='popupTrigger'>Click on me to open a popup!</div>
+    <div id="popupContainer">
+      <div id="popupBackground" class="closePopup"></div>
+      <div id="popup">
+        <div>Congrats! You opened a popup!</div>
+        <div class="closePopup">Close</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.popupTrigger').click(
+        function() {
+          $('#popupContainer').addClass('popupOpen');
+        }
+      );
+      $('.closePopup').click(
+        function() {
+          $('#popupContainer').removeClass('popupOpen');
+        }
+      );
+    </script>
+  </body>
+</html>

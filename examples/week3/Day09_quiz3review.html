@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Quiz 3 review</title>
+    <style>
+      #boxShadowExample {
+        /*background: linear-gradient(to top left, red, green);*/
+        background: radial-gradient(red, green, yellow);
+        border: 1px solid black;
+
+        /* offset-x, offset-y, blur-radius, spread-radius */
+        /* rgba red: 0-255, green: 0-255, blue: 0-255, alpha: 0-1 */
+        box-shadow: 10px 50px 10px 10px rgba(0,0,0,0.9);
+
+        /* top-left, top-right, bottom-right, bottom-left */
+        border-radius: 5px 15px 30px 50px;
+        display: inline-block;
+        /* top, right, bottom, left */
+        padding: 70px;
+        margin: 50px;
+      }
+
+      #shadow {
+        text-shadow: 2px 2px 2px white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxShadowExample">
+      Box <span id="shadow">Shadow</span> Example
+    </div>
+  </body>
+</html>

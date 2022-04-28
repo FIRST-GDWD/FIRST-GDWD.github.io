@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Bouncing Ball example</title>
+    <style>
+      #fence {
+        border: 5px dashed black;
+        height: 500px;
+        position: relative;
+        width: 600px;
+      }
+      #ball {
+        background-color: red;
+        border-radius: 50%;
+        height: 50px;
+        position: relative;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fence">
+      <div id="ball"></div>
+    </div>
+    <script type="text/javascript">
+      let ball = document.getElementById('ball');
+
+      let ballX = 0;
+      let ballY = 0;
+      let ballXVelocity = 2;
+      let ballYVelocity = 2;
+
+      function moveBall() {
+        ball.style.left = ballX + 'px';
+        ball.style.top = ballY + 'px';
+
+        // ballX = ballX + ballXVelocity;
+        ballX += ballXVelocity;
+        ballY += ballYVelocity;
+
+        // || is the OR operator
+        // && is the AND operator
+        if (ballX + 50 > 600 || ballX < 0) {
+          // ballXVelocity = ballXVelocity * -1;
+          ballXVelocity *= -1;
+        }
+        if (ballY + 50 > 500 || ballY < 0) {
+          ballYVelocity *= -1;
+        }
+
+      }
+
+      setInterval(moveBall, 10);
+    </script>
+  </body>
+</html>

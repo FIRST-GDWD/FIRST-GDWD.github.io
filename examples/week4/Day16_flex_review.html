@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>More Flex examples</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .myFlexContainer {
+        background-color: grey;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .block {
+        background-color: lavender;
+
+        font-weight: bold;
+        padding: 30px;
+        margin: 12px;
+      }
+      .myFlexChild1 {
+        flex-basis: 30%;
+      }
+      .myFlexChild2 {
+        flex-basis: 30%;
+      }
+      .myFlexChild3 {
+        flex-basis: 30%;
+      }
+      .myFlexChild4 {
+        flex-basis: 30%;
+      }
+      .myFlexChild5 {
+        flex-basis: 30%;
+      }
+      .myFlexChild6 {
+        flex-basis: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="myFlexContainer">
+      <div class="block myFlexChild1">Flex Child 1</div>
+      <div class="block myFlexChild2">Flex Child 2</div>
+      <div class="block myFlexChild3">Flex Child 3</div>
+      <div class="block myFlexChild4">Flex Child 4</div>
+      <div class="block myFlexChild5">Flex Child 5</div>
+      <div class="block myFlexChild6">Flex Child 6</div>
+    </div>
+  </body>
+</html>

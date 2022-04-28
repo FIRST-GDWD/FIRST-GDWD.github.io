@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>HELLO WORLD</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #hero {
+        align-items: center;
+        background-color: pink;
+        display: flex;
+        height: 500px;
+        justify-content: center;
+      }
+      #countdown {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hero">
+      <h1 id="countdown">PLACEHOLDER</h1>
+    </div>
+    <script type="text/javascript">
+      let deadline = new Date('April 21, 2022 13:00:00');
+
+      function setCountdown() {
+        let now = new Date();
+
+        // # of milliseconds between deadline and now
+        let timeLeft = deadline.getTime() - now.getTime();
+
+        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        let minutes = Math.floor(
+          (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        let seconds = Math.floor(
+          (timeLeft % (1000 * 60)) / 1000
+        );
+
+        document.getElementById('countdown').innerHTML =
+          days + ' days ' + hours + ' hours ' + minutes + ' minutes '
+            + seconds + ' seconds ';
+      }
+
+      setInterval(setCountdown, 1000);
+    </script>
+  </body>
+</html>

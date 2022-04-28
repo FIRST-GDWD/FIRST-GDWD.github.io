@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Grid Examples</title>
+    <style>
+      .block {
+        padding: 20px;
+      }
+      .block1 {
+        background-color: red;
+        /* grid-column: 1 / 4; */
+        grid-area: footer;
+      }
+      .block2 {
+        background-color: blue;
+        /* grid-column: 2 / 4;
+        grid-row: 2 / 6; */
+        grid-area: picCol2;
+      }
+      .block3 {
+        background-color: green;
+        grid-area: sidenav;
+        /* grid-column: 1;
+        grid-row: 2 / 4; */
+      }
+      .block4 {
+        background-color: orange;
+        grid-area: header1;
+      }
+      .block5 {
+        background-color: yellow;
+        grid-area: nav;
+      }
+      .block6 {
+        background-color: purple;
+        grid-area: picCol1;
+      }
+      .block7 {
+        background-color: black;
+        color: white;
+      }
+      .myGrid {
+        display: grid;
+        /* repeat(#, repeating values) */
+        grid-template-columns: 1fr 400px 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        gap: 20px 10px;
+        grid-template-areas:
+            "header1 header1 header1"
+            "nav nav nav"
+            "sidenav picCol1 picCol2"
+            "sidenav picCol1 picCol2"
+            "sidenav picCol1 picCol2"
+            "footer footer .";
+      }
+      img {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="myGrid">
+      <div class="block block1">1</div>
+      <div class="block block2">
+        <img src="../images/cat.png" alt="cat" />
+        <img src="../images/cat.png" alt="cat" />
+        <img src="../images/cat.png" alt="cat" />
+        <img src="../images/cat.png" alt="cat" />
+      </div>
+      <div class="block block3">3</div>
+      <div class="block block4">4</div>
+      <div class="block block5">5</div>
+      <div class="block block6">
+        <img src="../images/dog.jpeg" alt="dog" />
+        <img src="../images/dog.jpeg" alt="dog" />
+        <img src="../images/dog.jpeg" alt="dog" />
+        <img src="../images/dog.jpeg" alt="dog" />
+        <img src="../images/dog.jpeg" alt="dog" />
+      </div>
+      <div class="block block7">7</div>
+    </div>
+  </body>
+</html>

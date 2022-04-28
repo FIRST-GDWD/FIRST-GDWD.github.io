@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Grid Examples</title>
+    <style>
+      .myGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+      }
+      .header {
+        background-color: lightgreen;
+        padding: 36px;
+        grid-column: 1 / 4;
+        grid-row: 1;
+      }
+      .nav {
+        background-color: #DDFFDD;
+        padding: 36px;
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .content {
+        padding: 36px;
+        grid-column: 2 / 4;
+        grid-row: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="myGrid">
+      <div class="header">
+        <h1>This is how page layouts can be done with grids (and lines)</h1>
+      </div>
+      <div class="nav">
+        Nav goes here
+      </div>
+      <div class="content">
+        <div>
+          Cillum instituendarum commodo aute laboris, veniam ingeniis
+          familiaritatem. Sint non proident e deserunt consectetur hic
+          vidisse. Ea duis senserit deserunt.Cernantur anim
+          expetendis, consequat quem ullamco, occaecat ea multos
+          eiusmod eu veniam laboris o iudicem. Deserunt tempor dolore
+          laboris illum, ab nostrud te singulis. Ingeniis export ita
+          doctrina voluptatibus hic officia o irure, eu nostrud
+          consectetur, nam iis enim dolor minim.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

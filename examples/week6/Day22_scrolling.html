@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Scrolling Examples</title>
+    <style>
+      .block {
+        background-color: lightgreen;
+        margin: 12px;
+        padding: 30px 60px;
+      }
+      .otherBlock {
+        background-color: skyblue;
+        margin: 12px;
+        padding: 60px;
+      }
+      .horizontalScroll .block,
+      .horizontalScroll .otherBlock {
+        display: inline-block;
+      }
+
+      /*
+        The key properties required to implement a horizontal scroll container
+          are overflow-x: scroll; (to activate the scrollbar)
+          and white-space: nowrap; (to actually allow the container to overflow)
+      */
+      .horizontalScroll {
+        margin-bottom: 60px;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      /*
+        The key properties required to implement a vertical scroll container
+          are overflow-y: scroll; (to activate the scrollbar)
+          and a height (to force container content to overflow)
+      */
+      .verticalScroll {
+        height: 500px;
+        margin-bottom: 60px;
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>This is an example of a horizontal scrolling container</h2>
+    <div class="horizontalScroll">
+      <div class="block">1</div>
+      <div class="otherBlock">2</div>
+      <div class="block">3</div>
+      <div class="block">4</div>
+      <div class="block">5</div>
+      <div class="otherBlock">6</div>
+      <div class="block">7</div>
+    </div>
+    <h2>This is an example of a vertical scrolling container</h2>
+    <div class="verticalScroll">
+      <div class="otherBlock">1</div>
+      <div class="otherBlock">2</div>
+      <div class="block">3</div>
+      <div class="otherBlock">4</div>
+      <div class="block">5</div>
+      <div class="block">6</div>
+      <div class="otherBlock">7</div>
+    </div>
+  </body>
+</html>

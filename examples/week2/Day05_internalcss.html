@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Internal CSS Example</title>
+    <style>
+      div div {
+        color: red;
+        font-size: 48px;
+      }
+
+      #firstDiv {
+        color: blue;
+      }
+
+      .highlight {
+        background-color: yellow;
+      }
+
+      .card {
+        border-radius: 24px;
+        /* offset-x, offset-y, blur-radius, spread-radius */
+        box-shadow: 10px 10px 12px 4px rgba(0, 0, 0, 0.5);
+        margin: 24px;
+        margin-bottom: 48px;
+        padding: 36px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.
+    </div>
+
+    <div id="firstDiv" class="card">
+      This is my first interally styled div
+    </div>
+    <div>This is another div</div>
+    <div class="highlight card">
+      This is another div
+    </div>
+    <div class="highlight">
+      This is another div
+    </div>
+  </body>
+</html>

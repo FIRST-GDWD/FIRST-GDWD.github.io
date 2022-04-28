@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Animation example</title>
+    <style>
+      @keyframes toRed {
+        0%, 100% {
+          color: black;
+        }
+        25% {
+          color: blue;
+          transform: scale(2);
+        }
+        50% {
+          color: red;
+        }
+        75% {
+          color: green;
+        }
+      }
+
+      #animation1 {
+        animation: toRed 1s infinite;
+      }
+
+      #box {
+        box-sizing: border-box;
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        animation: toCircle 5s infinite ease-in-out;
+        animation-delay: 5s;
+      }
+
+      @keyframes toCircle {
+        0%, 100% {
+          background-color: red;
+          border-radius: 0px;
+        }
+        25% {
+          border-radius: 50% 0% 50% 75%;
+        }
+        50% {
+          background-color: blue;
+          border-radius: 100%;
+        }
+        75% {
+          transform: translateX(400px) rotate(180deg);
+        }
+      }
+
+      #kitty {
+        margin-top: 200px;
+        height: 200px;
+        animation: bounce 5s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translate(0, 0);
+        }
+        10%, 30%, 50% {
+          transform: translateY(-200px);
+        }
+        20%, 40%, 60% {
+          transform: translateY(0px);
+        }
+      }
+
+      #button {
+        border-radius: 24px;
+        background-color: lightgreen;
+        display: inline-block;
+        padding: 20px;
+        cursor: pointer;
+      }
+      #button:hover {
+        animation: shake 5s 1;
+      }
+      @keyframes shake {
+        0%, 100% {
+          transform: rotate(0) translateX(0);
+        }
+        5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85% {
+          transform: rotate(5deg) translateX(-5px);
+        }
+        10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% {
+          transform: rotate(-5deg) translateX(5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="animation1">This is a basic animation.</h1>
+    <div id="box"></div>
+    <img id="kitty" src="../images/cat.png" alt="cat" />
+    <div id="button">Click Me!</div>
+  </body>
+</html>

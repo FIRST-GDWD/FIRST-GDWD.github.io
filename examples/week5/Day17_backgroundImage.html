@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Background Image Examples</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      h2:not(:first-child) {
+        margin-top: 60px;
+      }
+
+      div {
+        border: 1px solid black;
+        height: 300px;
+      }
+
+      .example1 {
+        background-image: url("../images/dice.png");
+      }
+      .example2 {
+        /* first image is drawn on top of the second */
+        background-image: url("../images/dice.png"), url("../images/abstract8.jpg");
+      }
+      .example3 {
+        background-image: url("../images/abstract8.jpg");
+        /* image is stretched to fill its container in both x and y directions*/
+        background-size: 100% 100%;
+      }
+      .example4 {
+        background-image: url("../images/abstract8.jpg");
+        /* image will be anchored to the right side of the container */
+        /* other valid keywords: left, right, top, bottom, center */
+        /* can also be combined: e.g. top right */
+        background-position: right;
+        /* image will not repeat across background */
+        background-repeat: no-repeat;
+        /* image will grow proportionally
+            until it hits the bounds of the container */
+        /* other valid keywords: cover
+          (image will grow proportionally until it fills both the
+            x and y directions; if container doesn't match proportions,
+              image will be cropped/cut off) */
+        background-size: contain;
+      }
+      .example5 {
+        /* the background shorthand notation allows you to set all of the
+          background- properties together */
+        background:
+          /* background-position background-repeat background-image */
+          center no-repeat url("../images/dice.png"),
+          /* background-position/background-size background-image */
+          /* note that background-size can only appear after
+              background-position, followed by a slash (/) */
+          left/100% 100% url("../images/abstract8.jpg");
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Basic background-image example</h2>
+    <div class="example1"></div>
+    <h2>Basic background-image example with two images</h2>
+    <p>
+      Note that the first image is drawn on top, and the second is drawn behind
+    </p>
+    <div class="example2"></div>
+    <h2>Example of background-image stretched to fill container with background-size</h2>
+    <div class="example3"></div>
+    <h2>Example of background-image used with position, repeat, and size properties</h2>
+    <div class="example4"></div>
+    <h2>Example of using the background shorthand notation</h2>
+    <div class="example5"></div>
+  </body>
+</html>

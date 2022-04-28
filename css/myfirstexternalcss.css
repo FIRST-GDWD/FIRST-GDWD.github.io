@@ -1,0 +1,8 @@
+.card {
+  border-radius: 24px;
+  /* offset-x, offset-y, blur-radius, spread-radius */
+  box-shadow: 10px 10px 12px 4px rgba(0, 0, 0, 0.5);
+  margin: 24px;
+  margin-bottom: 48px;
+  padding: 36px;
+}

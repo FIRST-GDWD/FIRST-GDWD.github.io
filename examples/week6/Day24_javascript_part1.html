@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Javascript Examples - Part 1</title>
+    <style>
+      #bounceBox {
+        border: 5px solid black;
+        height: 500px;
+        margin-top: 24px;
+        position: relative;
+        width: 800px;
+      }
+      #ball {
+        background-color: red;
+        border-radius: 100%;
+        height: 50px;
+        position: relative;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <input type="button" id="button1" value="Click 1">
+    <input type="button" id="button2" value="Click 2">
+    <input type="button" id="button3" value="Click 3">
+
+    <input type="button" id="backgroundButton" value="Let's change colors!">
+
+    <div id="bounceBox">
+      <div id="ball"></div>
+    </div>
+
+    <script type="text/javascript">
+      // This is an example of a traditional function declaration
+      function renderText(text) {
+        console.log(text);
+      }
+
+      // This is an example of how to call our newly created function
+      renderText('testing testing');
+
+      // This is an example of how to use getElementById
+      // to get access to our HTML element objects
+      let button1 = document.getElementById('button1');
+      let button2 = document.getElementById('button2');
+      let button3 = document.getElementById('button3');
+
+      // This is an example of how to create an Array
+      // using the literal notation (i.e. using the brackets [])
+      let buttonList = [button1, button2, button3];
+
+      // This is an example of a for-loop using the Array we just created
+      for (let i = 0; i < buttonList.length; i++) {
+        let currentButton = buttonList[i]
+
+        // This is an example of assigning an Event Callback function,
+        // specifically for the onclick Event
+        currentButton.onclick =
+          // This is an example of a function expression,
+          // a quick way of declaring an anonymous function
+          () => renderText(currentButton.id + ' was clicked');
+      }
+
+      // This is another traditional function declaration,
+      // this time with two input parameters
+      function getRandomNumberBetween(lowValue, highValue) {
+        // get the range between the high and low values
+        var range = highValue - lowValue;
+        // use Math.random(), which returns a decimal value between 0.0 and 1.0
+        // and multiply that by our range obtained above
+        // to get a random value within that range
+        var randomValue = Math.random() * range;
+        // add our random range value to the lowValue, and then use
+        // Math.floor to convert the random value to an integer
+        // (e.g. Math.floor(145.4) would return 145)
+        // and finally, return that integer value
+        return Math.floor(lowValue + randomValue);
+      }
+
+      // This is another traditional function declaration,
+      // this time with no input parameters.
+      function setRandomBackgroundColor() {
+        // getElementsByTagName returns an Array of values that match the
+        // input tag name, even if only one value is found, so we need to
+        // use square brackets to access the Array elements.
+        // In this case, we're grabbing the first element via [0]
+        // to get the body element in our web page.
+        let body = document.getElementsByTagName('body')[0];
+        let r = getRandomNumberBetween(0, 255);
+        let g = getRandomNumberBetween(0, 255);
+        let b = getRandomNumberBetween(0, 255);
+        // the statement below is an example of a special type of
+        // string formatting syntax called a "template literal".
+        // when you use backquotes, you can "escape" back into code,
+        // and insert your variable values into the string.
+        // the template below will yield a value like 'rgb(120, 24, 287)'
+        // (except that the rgb values will be random)
+        body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      }
+
+      // we're getting the backgroundButton via getElementById,
+      // and then setting the callback function for the onclick event
+      // to be the setRandomBackgroundColor function we defined above.
+      // Notice that there are no parentheses after the name;
+      // that is because we are not executing it, instead, we're passing
+      // the function in as an object to be the onclick callback function.
+      let backgroundButton = document.getElementById('backgroundButton');
+      backgroundButton.onclick = setRandomBackgroundColor;
+
+      // In the next few lines, we're declaring variables that
+      // we will use to make a ball bounce around the screen.
+      let ball = document.getElementById('ball');
+      let ballX = 0;
+      let ballY = 0;
+      let ballXVel = 2;
+      let ballYVel = 2;
+
+      // setInterval is a built-in function that you can use
+      // to call a function repeatedly every X milliseconds
+      setInterval(
+        // the first parameter is the callback function.
+        // in this case, we're creating an anonymous callback function
+        () => {
+          // we're setting the top and left CSS properties here.
+          // first, we use the dot operator to access the style property
+          // then, we use the dot operator again to access the top and left
+          // CSS properties inside of the style object
+          ball.style.top = ballY + 'px';
+          ball.style.left = ballX + 'px';
+
+          // we're incrementing our ball's x and y coordinates
+          // by our velocity variables
+          ballX += ballXVel;
+          ballY += ballYVel;
+
+          // if the ball's x and y coordinates pass the boundaries of our
+          // #bounceBox, we need to reverse the velocity to the other direction
+          if (ballX+50 > 800 || ballX < 0) {
+            ballXVel *= -1;
+          }
+          if (ballY+50 > 500 || ballY < 0) {
+            ballYVel *= -1;
+          }
+        },
+        // in the second parameter, we specify the number of milliseconds
+        // of each interval; when the interval complete, the callback function
+        // will be executed again.
+        10
+      );
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Responsive Flexbox Example</title>
+    <style>
+      /*
+        This CSS selector targets EVERY SINGLE element in the document,
+        and forces their width and height properties
+          to affect the border box, rather than the content box
+      */
+      * {
+        box-sizing: border-box;
+      }
+      /* This CSS selector targets all <body> tags (there should only be one)
+        and sets its margin to 0 on all sides */
+      body {
+        margin: 0;
+      }
+      /* This CSS selector targets all <header> tags,
+        and sets the background color to skyblue, the font size to 24px,
+        and the vertical padding to 12px and the horiz. padding to 48px */
+      header {
+        background-color: skyblue;
+        font-size: 24px;
+        padding: 12px 48px;
+      }
+      /* This CSS selector targets all elements that have the normalLink class,
+          as well as all elements that have the importantLink class,
+        and sets their vertical padding to 12px
+        and their horizontal padding to 24px */
+      .normalLink,
+      .importantLink {
+        padding: 12px 24px;
+      }
+      /* This CSS selector targets all elements in the hover state
+          that have the normalLink class,
+        as well as all elements in the hover state
+          that have the importantLink class,
+        and changes the cursor to the pointer, and sets their opacity to 60% */
+      .normalLink:hover,
+      .importantLink:hover {
+        cursor: pointer;
+        opacity: 60%;
+      }
+      /* This CSS selector targets all elements with the normalLink class,
+        and sets their background color to coral */
+      .normalLink {
+        background-color: coral;
+      }
+      /* This CSS selector targets all elements with the normalLink class,
+        and sets their background color to gold */
+      .importantLink {
+        background-color: gold;
+      }
+      /* This CSS selector targets all <nav> tags,
+        and turns them into a Flexbox container
+          by setting their display to flex */
+      nav {
+        display: flex;
+      }
+      /* This CSS selector targets all elements with the normalLink class
+          that are inside of a <nav> tag,
+        as well as all elements with the importantLink class
+          that are inside of a <nav> tag,
+        and sets their flex-grow to 1 (via the flex shorthand)
+          (which only works if it is a child of a Flexbox container)
+        and sets their text-align to center */
+      nav .normalLink,
+      nav .importantLink {
+        flex: 1;
+        text-align: center;
+      }
+      /* This CSS selector targets all <main> tags,
+        and sets their vertical padding to 12px
+          and their horiz. padding to 48px */
+      main {
+        padding: 12px 48px;
+      }
+      /* This CSS selector targets all <footer> tags,
+        and sets their background color to lavender,
+        and turns them into a Flexbox container by setting their display to flex
+        and sets the flex-wrap to wrap */
+      footer {
+        background-color: lavender;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      /* This CSS selector targets all <p> tags inside of a <footer> tag,
+        and sets their flex-basis to 100%,
+          (which only works if it is a child of a Flexbox container)
+        and their text-align to center */
+      footer p {
+        flex-basis: 100%;
+        text-align: center;
+      }
+      /* This CSS selector targets all elements with the importantLink class
+          that are inside of a <footer> tag,
+        and sets their flex-grow to 2 (via the flex shorthand)
+          (which only works if it is a child of a Flexbox container)
+        and sets their text-align to center */
+      footer .importantLink {
+        flex: 2;
+        text-align: center;
+      }
+
+
+
+      /* This is the breakpoint for tablet */
+      /* The styles within this media query will only be applied
+        on a screen where the width is at least 480px and at most 799px */
+      @media screen and (min-width: 480px) and (max-width: 799px) {
+        /* This CSS selector targets all <header> tags (within the media query)
+          and sets their font-size to 18px */
+        header {
+          font-size: 18px;
+        }
+        /* This CSS selector targets all <header> and <main> tags
+            (within the media query)
+          and sets their vertical padding to 4px
+            and their horiz padding to 36px */
+        header,
+        main {
+          padding: 4px 36px;
+        }
+        /* This CSS selector targets all <nav> tags (within the media query)
+          and sets their flex-wrap to wrap
+            (this only works if <nav> is already a Flexbox container) */
+        nav {
+          flex-wrap: wrap;
+        }
+        /* This CSS selector targets all elements with the importantLink class
+            that are inside of a <nav> tag (within the media query)
+          and sets their flex-basis to 100%
+            (which only works if it is a child of a Flexbox container)
+          and their padding to 16px on all sides */
+        nav .importantLink {
+          flex-basis: 100%;
+          padding: 16px;
+        }
+        /* This CSS selector targets all elements with the normalLink class
+            that are inside of a <nav> tag (within the media query)
+          and sets their flex-basis to 33.33%
+            (which only works if it is a child of a Flexbox container)
+          and their padding to 20px on all sides */
+        nav .normalLink {
+          flex-basis: 33.33%;
+          padding: 20px;
+        }
+        /* This CSS selector targets all <p> tags
+            that are inside of a <footer> tag (within the media query)
+          and sets their order to 2
+            (which only works if it is a child of a Flexbox container) */
+        footer p {
+          order: 2;
+        }
+        /* This CSS selector targets all elements with the importantLink class
+            that are inside of a <footer> tag (within the media query)
+          and sets their order to 1
+            (which only works if it is a child of a Flexbox container)
+          and sets their padding to 36px on all sides */
+        footer .importantLink {
+          order: 1;
+          padding: 36px;
+        }
+      }
+
+      /* This is the breakpoint for mobile */
+      /* The styles within this media query will only be applied
+        on a screen where the width is at most 479px */
+      @media screen and (max-width: 479px) {
+        /* This CSS selector targets all <header> tags (within the media query)
+          and sets their font-size to 14px,
+          and sets their vertical padding to 4px and horiz padding to 24px */
+        header {
+          font-size: 14px;
+          padding: 4px 24px;
+        }
+        /* This CSS selector targets all <header> and <main> tags
+            (within the media query)
+          and sets their vertical padding to 4px
+            and their horiz padding to 24px */
+        header,
+        main {
+          padding: 4px 24px;
+        }
+        /* This CSS selector targets all <nav> and <footer> tags
+            (within the media query)
+          and sets their flex-direction to column
+            (this only works if they are already Flexbox containers)*/
+        nav,
+        footer {
+          flex-direction: column;
+        }
+        /* This CSS selector targets all elements with the importantLink class
+            that are inside of a <footer> tag (within the media query)
+          and sets their order to 1
+            (which only works if it is a child of a Flexbox container) */
+        footer .importantLink {
+          order: 1;
+        }
+        /* This CSS selector targets all elements with the importantLink class
+            that are the last child of their parent,
+            and that are also inside of a <footer> tag (within the media query)
+          and sets their order to 3
+            (which only works if it is a child of a Flexbox container) */
+        footer .importantLink:last-child {
+          order: 3;
+        }
+        /* This CSS selector targets all <p> tags
+            that are inside of a <footer> tag (within the media query)
+          and sets their order to 2
+            (which only works if it is a child of a Flexbox container) */
+        footer p {
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Response Flexbox Example</h1>
+    </header>
+    <nav>
+      <div class="importantLink">Important Link 1</div>
+      <div class="normalLink">Link 1</div>
+      <div class="normalLink">Link 2</div>
+      <div class="normalLink">Link 3</div>
+      <div class="importantLink">Important Link 2</div>
+    </nav>
+    <main>
+      <p>
+        Ad summis do dolore est tamen officia ne tamen culpa,
+        probant illum nulla pariatur quem qui litteris malis te
+        ullamco transferrem. Sunt eiusmod quo quae aute, nam enim
+        non tamen. Non quorum culpa eram officia ut mandaremus
+        noster appellat, multos se qui elit doctrina, id irure
+        occaecat.Incurreret philosophari a nescius de dolore admodum
+        praesentibus id dolor aliquip qui arbitrantur e dolor
+        cernantur ut officia. Litteris tamen minim a dolor, ut dolor
+        quem se appellat ut in summis praesentibus, quid eu non anim
+        occaecat. Nisi e incididunt.
+      </p>
+    </main>
+    <footer>
+      <p>Thanks for stopping by.  Hope this helped!</p>
+      <div class="importantLink">Other Important Link 1</div>
+      <div class="importantLink">Other Important Link 2</div>
+    </footer>
+  </body>
+</html>

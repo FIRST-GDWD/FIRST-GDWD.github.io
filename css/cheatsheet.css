@@ -1,0 +1,124 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+
+main {
+  padding-bottom: 48px;
+}
+
+section {
+  padding-bottom: 24px;
+}
+
+.contentContainer {
+  display: flex;
+}
+
+.content {
+  flex: 2;
+}
+
+.legend {
+  flex: 1;
+}
+
+.code {
+  font-family: Courier New;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.indent1 {
+  padding-left: 2em;
+}
+
+.indent2 {
+  padding-left: 4em;
+}
+
+.openingTag,
+.closingTag,
+.attrName,
+.assnOperator,
+.attrValue,
+.htmlParent,
+.htmlChild,
+.cssPropName,
+.cssAssnOperator,
+.cssPropValue,
+.cssAssnTerminator,
+.cssSelHtml,
+.cssSelId,
+.cssSelClass,
+.cssDecStart,
+.cssDecEnd
+ {
+  cursor: crosshair;
+}
+
+.openingTagHighlight {
+  background-color: yellow;
+}
+
+.closingTagHighlight {
+  background-color: gold;
+}
+
+.attrNameHighlight {
+  color: blue;
+  font-weight: bold;
+}
+
+.assnOperatorHighlight {
+  color: indigo;
+  font-weight: bold;
+}
+
+.attrValueHighlight {
+  color: red;
+  font-weight: bold;
+}
+
+.htmlParentHighlight {
+  text-shadow: 1px 1px 2px purple;
+}
+
+.htmlChildHighlight {
+  text-decoration: underline;
+}
+
+.cssPropNameHighlight {
+  background-color: yellowgreen;
+}
+
+.cssAssnOperatorHighlight {
+  background-color: skyblue;
+}
+
+.cssPropValueHighlight {
+  background-color: lightgreen;
+}
+
+.cssAssnTerminatorHighlight {
+  background-color: aquamarine;
+}
+
+.cssSelHtmlHighlight {
+  background-color: pink;
+}
+
+.cssSelIdHighlight {
+  background-color: deeppink;
+}
+
+.cssSelClassHighlight {
+  background-color: lightcoral;
+}
+
+.cssDecStartHighlight {
+  background-color: cyan;
+}
+
+.cssDecEndHighlight {
+  background-color: darkturquoise;
+}

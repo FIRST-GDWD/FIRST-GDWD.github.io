@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Forms Example - Part 1</title>
+  </head>
+  <body>
+    <h1>Let's look at forms!</h1>
+    <form>
+      <h2>Text Input</h2>
+      <p>What is your name?</p>
+      <div>
+        <label for="firstNameId">First Name:</label>
+        <input type="text" id="firstNameId" name="firstName">
+      </div>
+      <div>
+        <label for="lastNameId">Last Name:</label>
+        <input type="text" id="lastNameId" name="lastName">
+      </div>
+      <h2>Textarea Input</h2>
+      <div>
+        <label for="codeFeelingsId">How do you feel about programming?</label>
+        <br>
+        <textarea id="codeFeelingsId" name="codeFeelings" rows="5" cols="30">Default text</textarea>
+      </div>
+      <h2>Radio Input</h2>
+      <p>What program are you in?</p>
+      <div>
+        <input type="radio" id="raspRadio" name="program" value="rasp">
+        <label for="raspRadio">Recording Arts and Show Production</label>
+      </div>
+      <div>
+        <input type="radio" id="dfvpRadio" name="program" value="dfvp">
+        <label for="dfvpRadio">Digital Filmmaking and Video Production</label>
+      </div>
+      <div>
+        <input type="radio" id="gdwdRadio" name="program" value="gdwd">
+        <label for="gdwdRadio">Graphic Design and Web Development</label>
+      </div>
+      <h2>Checkbox Input</h2>
+      <p>How do you get to class?</p>
+      <div>
+        <input type="checkbox" id="bikeCheckbox" name="vehicleOption1" value="bike">
+        <label for="bikeCheckbox">Bike</label>
+      </div>
+      <div>
+        <input type="checkbox" id="busCheckbox" name="vehicleOption2" value="bus">
+        <label for="busCheckbox">Bus</label>
+      </div>
+      <div>
+        <input type="checkbox" id="carCheckbox" name="vehicleOption3" value="car">
+        <label for="carCheckbox">Car</label>
+      </div>
+      <div>
+        <input type="checkbox" id="bedCheckbox" name="vehicleOption4" value="bed">
+        <label for="bedCheckbox">I roll out of bed and open my laptop</label>
+      </div>
+      <h2>Date Input</h2>
+      <div>
+        <label for="dateId">What is your birthday?</label>
+        <input type="date" id="dateId" name="bday">
+      </div>
+      <h2>Dropdown (&lt;select&gt;) Input</h2>
+      <div>
+        <label for="foodGroupId">What is your favorite food group?</label>
+        <select id="foodGroupId" name="foodgroup">
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegatables</option>
+          <option value="meats">Meat</option>
+          <option value="grains">Grains</option>
+          <option value="dairy">Dairy</option>
+        </select>
+      </div>
+    </form>
+  </body>
+</html>
