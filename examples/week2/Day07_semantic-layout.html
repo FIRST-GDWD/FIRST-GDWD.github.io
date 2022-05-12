@@ -4,81 +4,124 @@
     <title>Semantic Layout Example</title>
     <style>
       body {
-        margin: 0;
+        font-family: Verdana, san-serif;
+        margin: 0px;
+      }
+      header {
+        background-color: red;
+        text-align: center;
+        padding-top: 48px;
+        padding-bottom: 24px;
+      }
+      header img {
+        border: 10px solid black;
+        border-radius: 50%;
+      }
+      nav {
+        background-color: red;
+        border-top: 4px solid white;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
         text-align: center;
       }
-
-      header {
-        background: red;
-      }
-
-      #nav {
-        background: orange;
-      }
-
-      #main {
-        /*
-          The two properties below are required to have the article and sidebar
-          sit side-by-side; it's rather silly, but it's because there's a single
-          character of whitespace between the article and sidebar when they're
-          put on different lines, and setting font-size to 0 reduces the size
-          of that whitespace to 0 as well.  But the problem with that approach
-          is that you have to manually reset the font-size in the children to
-          be non-zero again.
-          It's because of reasons like this that we don't create layouts using
-          this approach anymore.  We'll learn better options later in the
-          course.
-        */
-        box-sizing: border-box;
-        font-size: 0;
-      }
-
-      #article {
-        background: green;
-        box-sizing: border-box;
+      nav ul li {
         display: inline-block;
-        font-size: 12px;
-        padding: 24px;
-        width: 60%;
+        margin: 0px 12px;
+        padding: 12px 8px;
       }
-
+      nav ul li a {
+        color: black;
+        display: inline-block;
+        text-decoration: none;
+      }
+      nav ul li:hover {
+        background-color: black;
+      }
+      nav ul li:hover a {
+        color: white;
+      }
+      nav ul li:active {
+        background-color: orange;
+      }
+      aside,
       section {
-        background: lightgreen;
-      }
-
-      #sidebar {
-        background: skyblue;
-        box-sizing: border-box;
         display: inline-block;
-        font-size: 12px;
-        width: 40%;
       }
-
-      #footer {
-        background: pink;
+      aside {
+        padding-top: 12px;
+        vertical-align: top;
+        width: 25%;
       }
-
+      section {
+        width: 70%;
+      }
+      footer {
+        background-color: red;
+        padding: 12px 24px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <header>HEADER</header>
-    <nav id="nav">NAVIGATION BAR</nav>
-    <main id="main">
-      <article id="article">
-        <h1>OREOS are the best dessert</h1>
-        <section>
-          <h2>Reason 1: the cookies</h2>
-          alsdfjalksdfjladsjfas;fjsaljfsf
-          <h3>Chocolate cookies</h3>
-          aldkjfal;jdafasdsadlfjasfsafsa
-          <h3>Golden cookies</h3>
-        </section>
-        <section>
-          <h2>Reason 2: the cream</h2>
-        </section>
-      </article>
-      <aside id="sidebar">SIDEBAR</aside>
+    <header>
+      <img src="../../images/minion.png" alt="minion">
+      <h1>Symphori Games</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <aside>
+        <ol>
+          <li>Greeting</li>
+          <li>Conversation</li>
+          <li>Farewell</li>
+        </ol>
+      </aside>
+      <section>
+        <h2>General Outline</h2>
+        <p>
+          Ex summis quamquam doctrina te excepteur summis dolore
+          nostrud aliqua, non malis appellat eu ex sint mentitum
+          familiaritatem nam legam quibusdam o senserit, eiusmod ut
+          summis quibusdam, tempor fabulas praetermissum de ita iis
+          tractavissent. Tempor te mentitum non tempor, sint eiusmod
+          proident. Ubi multos fabulas coniunctione, laborum duis
+          proident.Amet occaecat ex admodum, hic aute laboris
+          imitarentur do nam pariatur cohaerescant, tempor o ita
+          dolore constias qui eiusmod sempiternum ab laboris, non esse
+          tempor esse mentitum ea ipsum quibusdam excepteur, nam nisi
+          culpa hic occaecat. Arbitror eruditionem id expetendis,
+          litteris fidelissimae quo expetendis e hic enim aute malis
+          quamquam, cillum in ne multos laboris. O ut export export
+          quem te voluptate nulla proident quamquam.
+        </p>
+        <p>
+          Illum hic ita quis offendit. Summis vidisse se dolore legam
+          do litteris quae ea proident fidelissimae o anim consequat
+          exquisitaque in qui aute anim te possumus. Duis constias est
+          adipisicing. Sunt senserit e mandaremus.Ea dolor fabulas
+          cupidatat ad deserunt malis summis est fugiat ubi te malis
+          despicationes sed in illum aliquip quibusdam. Quid senserit
+          nostrud, illum aut officia eu et irure despicationes id do
+          dolore appellat probant, do enim domesticarum, fugiat
+          consequat domesticarum, et constias relinqueret est
+          mandaremus noster laborum. Aliqua firmissimum ingeniis
+          aliqua constias e officia sunt quem laborum minim, nostrud
+          concursionibus nam laborum, multos appellat nam
+          despicationes, quis constias ne nisi eram, eram arbitror id
+          multos malis de deserunt noster aut nostrud sempiternum,
+          commodo dolore commodo.
+        </p>
+      </section>
     </main>
-    <footer id="footer">FOOTER</footer>
+    <footer>This is a footer.</footer>
   </body>
 </html>
