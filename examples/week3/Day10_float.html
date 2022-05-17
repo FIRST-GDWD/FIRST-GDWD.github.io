@@ -3,34 +3,103 @@
   <head>
     <title>Float and Clear Examples</title>
     <style>
-      #floatLeft {
-        background: skyblue;
-        display: inline-block;
+      img {
+        width: 200px;
         float: left;
-        margin: 8px;
+        margin: 0px 12px 0px 0px;
+        opacity: 50%;
       }
-
-      #floatRight {
-        background: red;
-        display: inline-block;
+      p {
+        background-color: pink;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: rgba(0,0,255,0.5);
+        text-align: center;
+        font-size: 36px;
+      }
+      .floatLeft {
+        float: left;
+      }
+      .floatRight {
         float: right;
-        margin: 8px;
       }
-
-      #clear {
+      .clear {
         clear: both;
+      }
+      .column {
+        box-sizing: border-box;
+        float: left;
+        width: 50%;
+        padding: 16px;
+      }
+      * {
+        box-sizing: border-box;
       }
     </style>
   </head>
   <body>
-    <div id="floatLeft">This text is floated left</div>
-    <div id="floatRight">This text is floated right</div>
-    <div id="floatLeft">More floated text</div>
-    <div id="floatLeft">More floated text</div>
-    <div id="floatLeft">More floated text</div>
-    <div id="clear">This text will clear the floats</div>
-    <div id="floatLeft">More floated text</div>
-    <div id="floatLeft">More floated text</div>
-    <div id="floatLeft">More floated text</div>
+    <img src="../../images/cat.png" alt="kitty">
+    <p>
+      E de concursionibus. Qui export consequat cernantur,
+      excepteur in legam consequat. Ea quorum nisi non cernantur.
+      Aliquip minim quo quamquam concursionibus ita do labore ne
+      quis.Eu fugiat tractavissent, de eram singulis ea de
+      incurreret do appellat qui non summis consequat laboris.
+      Possumus fugiat malis probant quis qui de id familiaritatem.
+      Appellat o quem ingeniis, se se duis fugiat velit ex
+      doctrina an excepteur, iis sunt iudicem te nostrud enim
+      proident qui ullamco nulla esse ubi dolore, ipsum eiusmod ut
+      enim summis, est quamquam de ingeniis. Do dolor culpa ita
+      mandaremus qui dolor aut litteris, magna a officia te elit
+      id quamquam velit ne incididunt graviterque quo nam multos
+      proident pariatur ubi quorum familiaritatem constias minim
+      appellat, quid officia imitarentur, ex sunt e quid.
+    </p>
+    <div class="box floatLeft">1</div>
+    <div class="box floatLeft">2</div>
+    <div class="box floatLeft">3</div>
+    <div class="box floatLeft">4</div>
+    <div class="box floatLeft">5</div>
+    <div class="clear"></div>
+    <div class="box floatRight">6</div>
+    <div class="box floatRight">7</div>
+    <div class="box floatRight">8</div>
+    <div class="box floatRight">9</div>
+    <div class="clear"></div>
+    <p class="column">
+      Aliquip distinguantur iis deserunt non sed an voluptatibus.
+      Iudicem nam possumus si de quae e fore sed malis
+      tractavissent possumus quae laboris se est irure probant.
+      Quem laboris familiaritatem ita excepteur minim amet
+      consequat elit, ex quae irure fugiat vidisse ita senserit
+      magna si consequat familiaritatem.Quo id minim laboris ita
+      export ingeniis efflorescere ea laboris irure multos do
+      noster ad quis a mentitum in ipsum, do sint incididunt
+      probant, appellat sint incurreret te tempor fabulas
+      proident, an magna senserit. Doctrina quorum ut admodum
+      distinguantur, non ut quorum quorum aute, est eram fugiat
+      duis possumus, se de culpa officia. Malis singulis
+      firmissimum.
+    </p>
+    <p class="column">
+      Sunt incurreret offendit, fabulas distinguantur ex commodo
+      in id quis velit ad constias, incurreret quid magna
+      incurreret veniam qui qui nisi aliqua ab singulis nam hic
+      enim ingeniis, est id nisi tamen export o o quamquam o
+      pariatur. Ne e esse culpa dolor. Ex dolore senserit
+      despicationes. Iudicem quis quid do cillum id ipsum e
+      iudicem, ingeniis hic dolore, non quorum mandaremus
+      cernantur ubi ubi dolor fidelissimae ita fore officia
+      despicationes in nam ipsum excepteur transferrem, expetendis
+      ipsum labore officia fugiat.Arbitror a constias. Officia
+      sunt illum admodum summis quo cillum fabulas sempiternum,
+      ita an quem anim noster ubi ipsum hic qui aliqua deserunt
+      ubi quibusdam graviterque ex offendit, litteris si quorum
+      eiusmod, officia ea summis pariatur o nostrud veniam te
+      doctrina arbitrantur. Quo sunt quem culpa laboris.
+    </p>
   </body>
 </html>
