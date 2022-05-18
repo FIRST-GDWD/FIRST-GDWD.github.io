@@ -3,7 +3,7 @@
   <head>
     <title>HTML Tables Example</title>
     <style>
-      /* "Ugly" table CSS */
+      /* Ugly table CSS */
       #uglyTable,
       #uglyTable caption,
       #uglyTable th,
@@ -16,10 +16,16 @@
         margin-bottom: 48px;
       }
       #uglyColSpan {
-        background: #F0F0FF;
+        background-color: gray;
+      }
+      #uglyTableRow {
+        background-color: pink;
+      }
+      #uglyTableCell {
+        background-color: skyblue;
       }
 
-      /* "Pretty" table CSS */
+      /* Pretty table CSS */
       #prettyTable {
         border-collapse: collapse;
       }
@@ -28,7 +34,7 @@
         padding-right: 24px;
       }
       #prettyTable td {
-        padding: 4px 0;
+        padding: 4px 0px;
       }
       #prettyTable tr:nth-child(even) {
         background-color: #F0F0F0;
@@ -47,7 +53,7 @@
         <col>
       </colgroup>
       <thead>
-        <tr>
+        <tr id="uglyTableRow">
           <th>First Name</th>
           <th>Last Name</th>
           <th>Favorite Animal</th>
@@ -56,7 +62,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>John</td>
+          <td id="uglyTableCell">John</td>
           <td>Smith</td>
           <td>Dog</td>
           <td>Fettuccine</td>
@@ -65,7 +71,7 @@
           <td>Jane</td>
           <td>Doe</td>
           <td>Panther</td>
-          <td>Steak</td>
+          <td>Mashed pototoes</td>
         </tr>
         <tr>
           <td>Victor</td>
@@ -101,7 +107,7 @@
           <td>Jane</td>
           <td>Doe</td>
           <td>Panther</td>
-          <td>Steak</td>
+          <td>Mashed pototoes</td>
         </tr>
         <tr>
           <td>Victor</td>
