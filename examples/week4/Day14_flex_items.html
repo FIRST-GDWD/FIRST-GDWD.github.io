@@ -73,28 +73,7 @@
     </style>
   </head>
   <body>
-    <h2>Flex Item order property</h2>
-    <h3>No ordering</h3>
-    <div class="container flexwrap">
-      <div class="flexChild">A (order:0;)</div>
-      <div class="flexChild">B (order:0;)</div>
-      <div class="flexChild">C (order:0;)</div>
-      <div class="flexChild">D (order:0;)</div>
-    </div>
-    <h3>Reverse ordering (manually)</h3>
-    <div class="container flexwrap">
-      <div class="flexChild flexChildOrder4">A (order:4;)</div>
-      <div class="flexChild flexChildOrder3">B (order:3;)</div>
-      <div class="flexChild flexChildOrder2">C (order:2;)</div>
-      <div class="flexChild flexChildOrder1">D (order:1;)</div>
-    </div>
-    <h3>Custom ordering</h3>
-    <div class="container flexwrap">
-      <div class="flexChild flexChildOrder2">A (order:2;)</div>
-      <div class="flexChild flexChildOrder3">B (order:3;)</div>
-      <div class="flexChild">C (order:0;)</div>
-      <div class="flexChild flexChildOrder3">D (order:3;)</div>
-    </div>
+
     <h2>Flex Item flex-grow property</h2>
     <h3>flex-grow: 1;</h3>
     <div class="container">
@@ -114,7 +93,8 @@
       <div class="flexChild flexChildGrow1">1</div>
       <div class="flexChild flexChildGrow5">5</div>
     </div>
-    <h2>Flex Item flex-shrink property</h2>
+
+    <!-- <h2>Flex Item flex-shrink property</h2>
     <h3>flex-shrink: 1;</h3>
     <div class="container">
       <div class="flexChild flexChildShrink1">1</div>
@@ -132,7 +112,7 @@
       <div class="flexChild flexChildShrink1">1</div>
       <div class="flexChild flexChildShrink1">1</div>
       <div class="flexChild flexChildShrink5">5</div>
-    </div>
+    </div> -->
     <h2>Flex Item flex-basis property</h2>
     <h3>flex-basis: 30%;</h3>
     <div class="container">
@@ -145,7 +125,8 @@
       <div class="flexChild flexChildBasis200px">flex-basis:200px;</div>
       <div class="flexChild flexChildGrow1">flex-grow:1;</div>
     </div>
-    <h2>Flex Item flex property (flex-grow, flex-shrink, flex-basis)</h2>
+
+    <h2>Flex Item flex shorthand property (flex-grow)</h2>
     <h3>(flex:1;) and (flex:2;)</h3>
     <div class="container">
       <div class="flexChild flexChildFlex1">flex:1;</div>
@@ -156,6 +137,28 @@
       <div class="flexChild flexChildBasis200px">flex-basis:200px;</div>
       <div class="flexChild flexChildFlex1">flex:1;</div>
       <div class="flexChild flexChildFlex1">flex:1;</div>
+    </div>
+    <h2>Flex Item order property</h2>
+    <h3>No ordering (default)</h3>
+    <div class="container flexwrap">
+      <div class="flexChild">A {order:0;}</div>
+      <div class="flexChild">B {order:0;}</div>
+      <div class="flexChild">C {order:0;}</div>
+      <div class="flexChild">D {order:0;}</div>
+    </div>
+    <h3>Reverse ordering (manually)</h3>
+    <div class="container flexwrap">
+      <div class="flexChild flexChildOrder4">A {order:4;}</div>
+      <div class="flexChild flexChildOrder3">B {order:3;}</div>
+      <div class="flexChild flexChildOrder2">C {order:2;}</div>
+      <div class="flexChild flexChildOrder1">D {order:1;}</div>
+    </div>
+    <h3>Custom ordering</h3>
+    <div class="container flexwrap">
+      <div class="flexChild flexChildOrder2">A {order:2;}</div>
+      <div class="flexChild flexChildOrder3">B {order:3;}</div>
+      <div class="flexChild">C {order:0;}</div>
+      <div class="flexChild flexChildOrder3">D {order:3;}</div>
     </div>
   </body>
 </html>
