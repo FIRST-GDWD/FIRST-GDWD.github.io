@@ -6,10 +6,10 @@
       /* CSS common to both layouts */
       .header {
         background-color: lightgreen;
-        padding: 12px 24px
+        padding: 12px 24px;
       }
       .nav {
-        padding: 12px 24px
+        padding: 12px 24px;
       }
       .nav a {
         padding-right: 36px;
@@ -19,7 +19,7 @@
       }
       .footer {
         background-color: green;
-        padding: 12px 24px
+        padding: 12px 24px;
       }
       img.cat {
         float: right;
@@ -56,9 +56,6 @@
         float: left;
         width: 80%;
       }
-      #oldFloatLayout .main {
-        background: linear-gradient(to right, #DDFFDD 20%, white 20.0001%);
-      }
       /*
         This CSS below is called the "clearfix",
         which is used after containers with floats inside.
@@ -70,10 +67,12 @@
         display: table;
         clear: both;
       }
+      #oldFloatLayout .main {
+        background: linear-gradient(to right, #DDFFDD 20%, white 20.0001%);
+      }
     </style>
   </head>
   <body>
-
     <!-- Old-fashioned Layout using a Table -->
     <table id="oldTableLayout">
       <tr>
@@ -88,30 +87,44 @@
           <div><a href="#">About Me</a></div>
           <div><a href="#">Contact</a></div>
         </td>
-        <td class="content" colspan="1">
-          <img class="cat" src="../../images/cat.png" alt="cat" />
-          <div>
-            Cillum instituendarum commodo aute laboris, veniam ingeniis
-            familiaritatem. Sint non proident e deserunt consectetur hic
-            vidisse. Ea duis senserit deserunt.Cernantur anim
-            expetendis, consequat quem ullamco, occaecat ea multos
-            eiusmod eu veniam laboris o iudicem. Deserunt tempor dolore
-            laboris illum, ab nostrud te singulis. Ingeniis export ita
-            doctrina voluptatibus hic officia o irure, eu nostrud
-            consectetur, nam iis enim dolor minim.
-          </div>
+        <td class="content">
+          <img class="cat" src="../../images/cat.png" alt="cat">
+          <p>
+            A noster arbitrantur. Commodo aute nostrud. Quo minim
+            consectetur, tempor vidisse comprehenderit.Ubi irure
+            quibusdam graviterque do a summis incididunt probant. E
+            aliqua ipsum aute laborum de eram distinguantur ullamco eram
+            occaecat. Elit consequat de cillum dolor, id sint nisi ab
+            quibusdam, ex doctrina comprehenderit eu admodum si
+            excepteur ubi e eram elit de ingeniis, excepteur sint veniam
+            id ipsum, ea magna dolore a excepteur, de se duis quem elit.
+            Magna te senserit, amet domesticarum consequat dolor laborum
+            e tamen quibusdam exquisitaque ab ita malis cupidatat
+            reprehenderit.
+          </p>
           <div class="clear"></div>
-          <img class="dog" src="../../images/dog.jpeg" alt="dog" />
-          <div>
-            Cillum instituendarum commodo aute laboris, veniam ingeniis
-            familiaritatem. Sint non proident e deserunt consectetur hic
-            vidisse. Ea duis senserit deserunt.Cernantur anim
-            expetendis, consequat quem ullamco, occaecat ea multos
-            eiusmod eu veniam laboris o iudicem. Deserunt tempor dolore
-            laboris illum, ab nostrud te singulis. Ingeniis export ita
-            doctrina voluptatibus hic officia o irure, eu nostrud
-            consectetur, nam iis enim dolor minim.
-          </div>
+          <img class="dog" src="../../images/dog.jpeg" alt="dog">
+          <p>
+            Aut noster comprehenderit de nulla appellat a praesentibus
+            ut cupidatat anim doctrina excepteur hic se dolore tamen aut
+            pariatur de ita dolore se irure, arbitror magna laborum
+            mandaremus, consequat aut fugiat o noster doctrina
+            voluptate. Esse possumus ita admodum eu ingeniis nisi tempor
+            incididunt sint, legam et excepteur, constias multos
+            cupidatat o ubi malis singulis admodum, aliquip
+            concursionibus nam excepteur do ullamco non fugiat, export
+            quibusdam consequat. Fabulas quid anim cupidatat sunt et
+            irure doctrina praesentibus ea qui se aute tamen fore ut
+            admodum quorum sunt arbitror cillum, eram nam ingeniis iis
+            esse, ne nam efflorescere hic aute fabulas sed litteris sed
+            vidisse qui aliquip.Enim philosophari vidisse aute
+            quibusdam. Nulla quo arbitror ab nisi, tempor fabulas
+            cohaerescant. Vidisse velit expetendis, laborum quo amet
+            eiusmod, iis et relinqueret, in esse export ita possumus,
+            doctrina exercitation ad vidisse, eu sint an ipsum hic dolor
+            non ne quorum probant, eu fore litteris nescius. Quorum ubi
+            ullamco.
+          </p>
         </td>
       </tr>
       <tr>
@@ -134,29 +147,43 @@
           <div><a href="#">Contact</a></div>
         </div>
         <div class="content">
-          <img class="cat" src="../../images/cat.png" alt="cat" />
-          <div>
-            Cillum instituendarum commodo aute laboris, veniam ingeniis
-            familiaritatem. Sint non proident e deserunt consectetur hic
-            vidisse. Ea duis senserit deserunt.Cernantur anim
-            expetendis, consequat quem ullamco, occaecat ea multos
-            eiusmod eu veniam laboris o iudicem. Deserunt tempor dolore
-            laboris illum, ab nostrud te singulis. Ingeniis export ita
-            doctrina voluptatibus hic officia o irure, eu nostrud
-            consectetur, nam iis enim dolor minim.
-          </div>
+          <img class="cat" src="../../images/cat.png" alt="cat">
+          <p>
+            A noster arbitrantur. Commodo aute nostrud. Quo minim
+            consectetur, tempor vidisse comprehenderit.Ubi irure
+            quibusdam graviterque do a summis incididunt probant. E
+            aliqua ipsum aute laborum de eram distinguantur ullamco eram
+            occaecat. Elit consequat de cillum dolor, id sint nisi ab
+            quibusdam, ex doctrina comprehenderit eu admodum si
+            excepteur ubi e eram elit de ingeniis, excepteur sint veniam
+            id ipsum, ea magna dolore a excepteur, de se duis quem elit.
+            Magna te senserit, amet domesticarum consequat dolor laborum
+            e tamen quibusdam exquisitaque ab ita malis cupidatat
+            reprehenderit.
+          </p>
           <div class="clear"></div>
-          <img class="dog" src="../../images/dog.jpeg" alt="dog" />
-          <div>
-            Cillum instituendarum commodo aute laboris, veniam ingeniis
-            familiaritatem. Sint non proident e deserunt consectetur hic
-            vidisse. Ea duis senserit deserunt.Cernantur anim
-            expetendis, consequat quem ullamco, occaecat ea multos
-            eiusmod eu veniam laboris o iudicem. Deserunt tempor dolore
-            laboris illum, ab nostrud te singulis. Ingeniis export ita
-            doctrina voluptatibus hic officia o irure, eu nostrud
-            consectetur, nam iis enim dolor minim.
-          </div>
+          <img class="dog" src="../../images/dog.jpeg" alt="dog">
+          <p>
+            Aut noster comprehenderit de nulla appellat a praesentibus
+            ut cupidatat anim doctrina excepteur hic se dolore tamen aut
+            pariatur de ita dolore se irure, arbitror magna laborum
+            mandaremus, consequat aut fugiat o noster doctrina
+            voluptate. Esse possumus ita admodum eu ingeniis nisi tempor
+            incididunt sint, legam et excepteur, constias multos
+            cupidatat o ubi malis singulis admodum, aliquip
+            concursionibus nam excepteur do ullamco non fugiat, export
+            quibusdam consequat. Fabulas quid anim cupidatat sunt et
+            irure doctrina praesentibus ea qui se aute tamen fore ut
+            admodum quorum sunt arbitror cillum, eram nam ingeniis iis
+            esse, ne nam efflorescere hic aute fabulas sed litteris sed
+            vidisse qui aliquip.Enim philosophari vidisse aute
+            quibusdam. Nulla quo arbitror ab nisi, tempor fabulas
+            cohaerescant. Vidisse velit expetendis, laborum quo amet
+            eiusmod, iis et relinqueret, in esse export ita possumus,
+            doctrina exercitation ad vidisse, eu sint an ipsum hic dolor
+            non ne quorum probant, eu fore litteris nescius. Quorum ubi
+            ullamco.
+          </p>
         </div>
       </div>
       <div class="footer">
