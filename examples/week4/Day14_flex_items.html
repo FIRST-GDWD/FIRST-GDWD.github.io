@@ -73,7 +73,24 @@
     </style>
   </head>
   <body>
+    <h1>Flex Item Properties</h1>
 
+    <p>
+      There are four Flex Item properties we'll learning about
+      in our class.  These properties are:
+      <b>flex-grow, flex-basis, order, and the flex shorthand property.</b>
+    </p>
+    <p>
+      These properties can only be used on child elements <em>INSIDE</em>
+      Flex Containers.  Also, these child elements must be direct descendants
+      of the parent Flex Container; in other words, they won't work on
+      grandchildren or their descendants.
+    </p>
+    <p>
+      Remember, to turn on flex behavior for a container, you must set
+      <b>display: flex;</b>
+      on the element with CSS.
+    </p>
     <h2>Flex Item flex-grow property</h2>
     <h3>flex-grow: 1;</h3>
     <div class="container">
@@ -125,19 +142,6 @@
       <div class="flexChild flexChildBasis200px">flex-basis:200px;</div>
       <div class="flexChild flexChildGrow1">flex-grow:1;</div>
     </div>
-
-    <h2>Flex Item flex shorthand property (flex-grow)</h2>
-    <h3>(flex:1;) and (flex:2;)</h3>
-    <div class="container">
-      <div class="flexChild flexChildFlex1">flex:1;</div>
-      <div class="flexChild flexChildFlex2">flex:2;</div>
-      <div class="flexChild flexChildFlex1">flex:1;</div>
-    </div>
-    <div class="container">
-      <div class="flexChild flexChildBasis200px">flex-basis:200px;</div>
-      <div class="flexChild flexChildFlex1">flex:1;</div>
-      <div class="flexChild flexChildFlex1">flex:1;</div>
-    </div>
     <h2>Flex Item order property</h2>
     <h3>No ordering (default)</h3>
     <div class="container flexwrap">
@@ -159,6 +163,19 @@
       <div class="flexChild flexChildOrder3">B {order:3;}</div>
       <div class="flexChild">C {order:0;}</div>
       <div class="flexChild flexChildOrder3">D {order:3;}</div>
+    </div>
+
+    <h2>Flex Item flex shorthand property (flex-grow)</h2>
+    <h3>(flex:1;) and (flex:2;)</h3>
+    <div class="container">
+      <div class="flexChild flexChildFlex1">flex:1;</div>
+      <div class="flexChild flexChildFlex2">flex:2;</div>
+      <div class="flexChild flexChildFlex1">flex:1;</div>
+    </div>
+    <div class="container">
+      <div class="flexChild flexChildBasis200px">flex-basis:200px;</div>
+      <div class="flexChild flexChildFlex1">flex:1;</div>
+      <div class="flexChild flexChildFlex1">flex:1;</div>
     </div>
   </body>
 </html>
