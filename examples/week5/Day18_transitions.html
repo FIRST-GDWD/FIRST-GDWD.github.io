@@ -4,56 +4,59 @@
     <title>Transitions Example</title>
     <style>
       #transition1 {
-        transition: color 1s;
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-delay: 0.5s;
       }
       #transition1:hover {
         color: red;
       }
-
-      #transition2 {
-        transition-property: transform;
-        transition-duration: 2s;
-        /* ease, ease-in, ease-out, linear */
-        transition-timing-function: ease;
-        transition-delay: 1s;
-        transform-origin: left;
-      }
-      #transition2:hover {
-        transform: scale(5);
-      }
-
       #box {
         box-sizing: border-box;
         height: 200px;
         width: 200px;
         background-color: red;
         transition:
-          border-radius 2s ease-in,
-          background-color 2s;
+          background-color 2s,
+          border-radius 2s;
       }
       #box:hover {
         background-color: blue;
-        border-radius: 100%;
+        border-radius: 50%;
       }
-
-      #kitty {
-        height: 200px;
-        transition: transform 2s, opacity 2s;
+      img {
+        width: 250px;
+        transition: transform 1s;
       }
-      #kitty:hover {
-        transform: translateY(200px) scale(2) rotate(180deg);
-        opacity: 0.25;
+      img:hover {
+        transform: scale(3) rotate(360deg);
       }
     </style>
   </head>
   <body>
     <h1 id="transition1">
-      This is a basic trasition.
-    <h1>
-    <h2 id="transition2">
-      This is another transition
-    <h2>
+      This is a basic transition.
+    </h1>
     <div id="box"></div>
-    <img id="kitty" src="../images/cat.png" alt="cat" />
+    <img src="../../images/cat.png" alt="cat">
+    <p>
+      Ita expetendis et deserunt, senserit a quis doctrina.
+      Officia est nisi, ne probant transferrem si do mandaremus a
+      cupidatat, vidisse legam cupidatat. Ut aute constias,
+      expetendis et deserunt, iis quem litteris fidelissimae ut
+      est vidisse relinqueret. O ullamco hic vidisse, ne sunt
+      vidisse ubi laborum ut noster ab est aute nisi dolore
+      arbitror sed hic nostrud de admodum aut veniam arbitror e
+      eruditionem hic export constias senserit o aut si
+      concursionibus.Litteris a fore, culpa ubi iis tamen
+      mentitum, si pariatur tractavissent, quem qui singulis hic
+      fugiat. Ingeniis legam fugiat sed anim se nam aliqua export
+      ab arbitror id deserunt enim ut constias tractavissent, aut
+      laboris arbitrantur. Iis legam litteris ita et cernantur
+      graviterque quo vidisse duis duis constias fugiat, arbitror
+      magna veniam eiusmod duis. Labore arbitror ubi anim tempor
+      do amet ea nam export nostrud, e nulla consequat singulis,
+      nostrud elit admodum laborum.
+    </p>
   </body>
 </html>
