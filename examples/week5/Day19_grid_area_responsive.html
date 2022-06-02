@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Grid Area (Responsive)</title>
+    <style>
+      .myGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas:
+          "myHeader myHeader myHeader"
+          "sidenav  content  content";
+      }
+      header {
+        background-color: lightgreen;
+        padding: 36px;
+        grid-area: myHeader;
+      }
+      nav {
+        background-color: #DDFFDD;
+        padding: 36px;
+        grid-area: sidenav;
+      }
+      main {
+        padding: 36px;
+        grid-area: content;
+      }
+      @media screen and (max-width: 480px) {
+        .myGrid {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "myHeader"
+            "sidenav"
+            "content";
+        }
+        header,
+        nav,
+        main {
+          padding: 18px;
+        }
+        header,
+        nav {
+          text-align: center;
+        }
+        header h1 {
+          font-size: 24px;
+          margin: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="myGrid">
+      <header>
+        <h1>Grid Areas Responsive Demo</h1>
+      </header>
+      <nav>NAVIGATION GOES HERE</nav>
+      <main>
+        <p>
+          Malis laboris aliquip de ubi esse graviterque. Qui vidisse
+          se iudicem iis nam in nisi admodum ab ut si aliqua dolore
+          culpa, legam an mandaremus an illum. Nisi aut arbitror do
+          nulla. Sed amet admodum illustriora hic nulla commodo
+          vidisse, ea voluptate eu excepteur, de fugiat nulla sed
+          officia, nisi laborum fabulas, quid iis incurreret est ipsum
+          an arbitror aute irure senserit dolore te do iis nisi noster
+          eram.Si eiusmod qui excepteur. Summis fidelissimae pariatur
+          minim nostrud. Nulla ubi cernantur iis te quibusdam sed
+          senserit sed fabulas nisi aliquip arbitror hic excepteur
+          fore nescius, a o noster quibusdam, aute nostrud
+          despicationes, in eram offendit fabulas, voluptate de illum
+          mentitum. Quae incididunt aut despicationes.
+        </p>
+        <p>
+          An cernantur a nostrud sed laboris aute export excepteur
+          aute. Te et enim nisi enim, ullamco hic offendit. Ab irure
+          enim a cernantur.Ab ipsum singulis exquisitaque ab ad
+          incididunt ea possumus. Aut dolor laboris consectetur. Quem
+          occaecat ut eram irure ea quo nisi magna est pariatur, an
+          multos ita tempor, et malis illum sint appellat, ut occaecat
+          te singulis, nisi fabulas sed despicationes quo do cupidatat
+          a aliquip, de noster an veniam.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>
