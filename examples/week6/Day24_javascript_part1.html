@@ -14,7 +14,7 @@
         background-color: red;
         border-radius: 100%;
         height: 50px;
-        position: relative;
+        position: absolute;
         width: 50px;
       }
     </style>
@@ -27,9 +27,9 @@
 
     <input type="button" id="backgroundButton" value="Let's change colors!">
 
-    <div id="bounceBox">
-      <div id="ball"></div>
-    </div>
+
+    s<div id="ball"></div>
+
 
     <script type="text/javascript">
       // This is an example of a traditional function declaration
@@ -116,33 +116,34 @@
       let ballXVel = 2;
       let ballYVel = 2;
 
+      function updateBall() {
+        // we're setting the top and left CSS properties here.
+        // first, we use the dot operator to access the style property
+        // then, we use the dot operator again to access the top and left
+        // CSS properties inside of the style object
+        ball.style.top = ballY + 'px';
+        ball.style.left = ballX + 'px';
+
+        // we're incrementing our ball's x and y coordinates
+        // by our velocity variables
+        ballX += ballXVel;
+        ballY += ballYVel;
+
+        // if the ball's x and y coordinates pass the boundaries of our
+        // #bounceBox, we need to reverse the velocity to the other direction
+        if (ballX+50 > window.innerWidth || ballX < 0) {
+          ballXVel *= -1;
+        }
+        if (ballY+50 > window.innerHeight || ballY < 0) {
+          ballYVel *= -1;
+        }
+      }
+
       // setInterval is a built-in function that you can use
       // to call a function repeatedly every X milliseconds
       setInterval(
         // the first parameter is the callback function.
-        // in this case, we're creating an anonymous callback function
-        () => {
-          // we're setting the top and left CSS properties here.
-          // first, we use the dot operator to access the style property
-          // then, we use the dot operator again to access the top and left
-          // CSS properties inside of the style object
-          ball.style.top = ballY + 'px';
-          ball.style.left = ballX + 'px';
-
-          // we're incrementing our ball's x and y coordinates
-          // by our velocity variables
-          ballX += ballXVel;
-          ballY += ballYVel;
-
-          // if the ball's x and y coordinates pass the boundaries of our
-          // #bounceBox, we need to reverse the velocity to the other direction
-          if (ballX+50 > 800 || ballX < 0) {
-            ballXVel *= -1;
-          }
-          if (ballY+50 > 500 || ballY < 0) {
-            ballYVel *= -1;
-          }
-        },
+        updateBall,
         // in the second parameter, we specify the number of milliseconds
         // of each interval; when the interval complete, the callback function
         // will be executed again.
