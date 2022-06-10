@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Bouncing Ball</title>
+    <style>
+      #ball {
+        background-color: red;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ball"></div>
+    <script type="text/javascript">
+      let ball = document.getElementById("ball");
+      let ballX = 0;
+      let ballY = 0;
+      let ballXVel = 2;
+      let ballYVel = 5;
+
+      function updateBall() {
+        ball.style.top = ballY + "px";
+        ball.style.left = ballX + "px";
+
+        // ball += ballXVel; is equivalent to
+        // ballX = ballX + ballXVel;
+        ballX += ballXVel;
+        ballY += ballYVel;
+
+        if (
+          ballX > window.innerWidth - 50
+          || ballX < 0
+        ) {
+          ballXVel *= -1;
+        }
+
+        if (
+          ballY > window.innerHeight - 50
+          || ballY < 0
+        ) {
+          ballYVel *= -1;
+        }
+      }
+
+      setInterval(updateBall, 10);
+    </script>
+  </body>
+</html>
