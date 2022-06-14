@@ -30,17 +30,11 @@
         ballX += ballXVel;
         ballY += ballYVel;
 
-        if (
-          ballX > window.innerWidth - 50
-          || ballX < 0
-        ) {
+        if (ballX > window.innerWidth - 50 || ballX < 0) {
           ballXVel *= -1;
         }
 
-        if (
-          ballY > window.innerHeight - 50
-          || ballY < 0
-        ) {
+        if (ballY > window.innerHeight - 50 || ballY < 0) {
           ballYVel *= -1;
         }
       }

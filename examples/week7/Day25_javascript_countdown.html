@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>HELLO WORLD</title>
+    <title>COUNTDOWN</title>
     <style>
       body {
         margin: 0;
       }
       #hero {
-        align-items: center;
-        background-color: pink;
         display: flex;
-        height: 500px;
         justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-color: pink;
       }
       #countdown {
         display: inline-block;
@@ -23,7 +23,9 @@
       <h1 id="countdown">PLACEHOLDER</h1>
     </div>
     <script type="text/javascript">
-      let deadline = new Date('April 21, 2022 13:00:00');
+      let deadline = new Date("June 23, 2022 23:00:00");
+      let countdown = document.getElementById("countdown");
+      countdown.innerHTML = "";
 
       function setCountdown() {
         let now = new Date();
@@ -42,9 +44,8 @@
           (timeLeft % (1000 * 60)) / 1000
         );
 
-        document.getElementById('countdown').innerHTML =
-          days + ' days ' + hours + ' hours ' + minutes + ' minutes '
-            + seconds + ' seconds ';
+        countdown.innerHTML =
+          `${days}d ${hours}h ${minutes}m ${seconds}s left`;
       }
 
       setInterval(setCountdown, 1000);
