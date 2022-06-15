@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>HELLO WORLD</title>
-    <link type="text/css" rel="stylesheet" href="../../css/slideshow.css">
+    <title>Javascript Slideshow</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      #slideshow {
+        height: 400px;
+        text-align: center;
+      }
+
+      .slideshowImage {
+        height: 380px;
+      }
+    </style>
   </head>
   <body>
     <div id="slideshow">
-      <img id="slide1" class="slideshowImage" src="../../images/cat.png" />
-      <img id="slide2" class="slideshowImage" src="../../images/dog.jpeg" />
-      <img id="slide3" class="slideshowImage" src="../../images/forest.gif" />
-      <img id="slide4" class="slideshowImage" src="../../images/clouds.gif" />
+      <img id="slide1" class="slideshowImage" src="../../images/cat.png" alt="cat">
+      <img id="slide2" class="slideshowImage" src="../../images/dog.jpeg" alt="dog">
+      <img id="slide3" class="slideshowImage" src="../../images/forest.gif" alt="forest">
+      <img id="slide4" class="slideshowImage" src="../../images/clouds.gif" alt="clouds">
     </div>
     <input
       type="button"
       id="previous"
       value="Previous"
-      onclick="showPreviousSlide()"
-    >
+      onclick="showPreviousSlide()">
     <input
       type="button"
       id="next"
       value="Next"
-      onclick="showNextSlide()"
-    >
+      onclick="showNextSlide()">
 
-    <script type="text/javascript" src="../../js/slideshow.js"></script>
+    <script type="text/javascript">
+      let slideshow = document.getElementById("slideshow");
+      let slide1 = document.getElementById("slide1");
+      let slide2 = document.getElementById("slide2");
+      let slide3 = document.getElementById("slide3");
+      let slide4 = document.getElementById("slide4");
+
+      let slides = [slide1, slide2, slide3, slide4];
+
+      let currentSlideIndex = 0;
+
+      function showCurrentSlide() {
+        if (currentSlideIndex < 0) {
+          currentSlideIndex = slides.length - 1;
+        }
+
+        if (currentSlideIndex >= slides.length) {
+          currentSlideIndex = 0;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+          let loopSlide = slides[i];
+          if (i != currentSlideIndex) {
+            loopSlide.style.display = "none";
+          } else {
+            loopSlide.style.display = "inline-block";
+          }
+        }
+      }
+
+      showCurrentSlide();
+
+      function showNextSlide() {
+        currentSlideIndex++;
+        showCurrentSlide();
+      }
+
+      function showPreviousSlide() {
+        currentSlideIndex--;
+        showCurrentSlide();
+      }
+    </script>
   </body>
 </html>

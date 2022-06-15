@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Arrays and Loops</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let myFirstArray = ["My name is", "Ryan", "!!!"];
+
+      console.log(myFirstArray);
+
+      console.log("First value: " + myFirstArray[0]);
+      console.log("Last value: " + myFirstArray[2]);
+      console.log("Array length: " + myFirstArray.length);
+
+      let i = 0;
+      while (i < myFirstArray.length) {
+        console.log(myFirstArray[i]);
+        i = i + 1;
+      }
+
+      for (let i = 0; i < myFirstArray.length; i++) {
+        console.log(myFirstArray[i]);
+      }
+    </script>
+  </body>
+</html>

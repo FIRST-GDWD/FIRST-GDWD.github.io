@@ -1,8 +1,12 @@
+body {
+  text-align: center;
+}
+
 #slideshow {
   height: 400px;
   text-align: center;
 }
 
 .slideshowImage {
-  width: 500px;
+  height: 380px;
 }
