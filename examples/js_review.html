@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>jQuery Template</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+      .blueText {
+        color: blue;
+      }
+      .greenText {
+        color: green;
+      }
+      .redText {
+        color: red;
+      }
+      .boldText {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <script type="text/javascript">
+      function onHover() {
+        let hasBlueClass = $(this).hasClass("blueText");
+        let hasGreenClass = $(this).hasClass("greenText");
+        let hasRedClass = $(this).hasClass("redText");
+
+        if (hasRedClass) {
+          $(this).addClass("blueText");
+          $(this).removeClass("redText");
+        } else if (hasGreenClass) {
+          $(this).addClass("redText");
+          $(this).removeClass("greenText");
+        } else if (hasBlueClass) {
+          $(this).addClass("greenText");
+          $(this).removeClass("blueText");
+        } else {
+          $(this).addClass("blueText");
+        }
+
+        $(this).addClass("boldText");
+      }
+      function offHover() {
+        $(this).removeClass("boldText");
+      }
+      $("p").hover(onHover, offHover);
+    </script>
+  </body>
+</html>
