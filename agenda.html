@@ -19,26 +19,51 @@
       .warning {
         background-color: red;
       }
+      .rainbowy {
+        animation: tasteTheRainbow 0.5s infinite;
+        padding: 12px;
+        text-shadow: 1px 1px 4px white;
+      }
+      @keyframes tasteTheRainbow {
+        0%, 100% {
+          background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+        }
+        17% {
+          background: linear-gradient(to right, orange, yellow, green, blue, purple, red);
+        }
+        34% {
+          background: linear-gradient(to right, yellow, green, blue, purple, red, orange);
+        }
+        50% {
+          background: linear-gradient(to right, green, blue, purple, red, orange, yellow);
+        }
+        67% {
+          background: linear-gradient(to right, blue, purple, red, orange, yellow, green);
+        }
+        84% {
+          background: linear-gradient(to right, purple, red, orange, yellow, green, blue);
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>Agenda for Day 30 (6/21)</h1>
+    <h1>Agenda for Day 31 (6/22)</h1>
     <div id="agenda">
       <h2>Announcements (6:05)</h2>
       <h3>(if you're not here by 6:10, you're tardy!)</h3>
-      <h2>Period 1 (6:10-6:50): Lab Time</h2>
-      <h2>Period 2 (7:00-7:50): KAHOOTS!</h2>
-      <h2>Period 3 (8:00-9:50): MORE KAHOOTS! | Lab Time</h2>
-      <h2>Period 4 (10:10-11): Flexbox Review</h2>
+      <h2>Period 1 (6:10-6:50): Intro to Lockdown Browser | Lab Time</h2>
+      <h2>Period 2 (7:00-7:50): JS Review</h2>
+      <h2>Period 3 (8:00-9:50): <span class="rainbowy">Final Exam</span></h2>
+      <h2>Period 4 (10:10-11): The Last Lab Time</h2>
     </div>
 
     <h1>Coming Soon</h1>
     <div id="agenda">
-      <h2 class="highlight">Assignment 18 (Bootstrap) Due Tonight</h2>
-      <h2 class="highlight">Final Exam TOMORROW</h2>
-      <h2>Final Eval on Thursday</h2>
-      <h2 class="highlight">Final Project (Portfolio) Due Thursday, June 23rd</h2>
-      <h2 class="highlight">ALL Assignments Due Thursday, June 23rd</h2>
+      <h2 class="warning">Assignment 18 (Bootstrap) Due Yesterday</h2>
+      <h2 class="highlight">Final Exam TODAY</h2>
+      <h2 class="highlight">Final Eval TOMORROW</h2>
+      <h2 class="highlight">Final Project (Portfolio) Due TOMORROW</h2>
+      <h2 class="highlight">ALL Assignments Due TOMORROW</h2>
     </div>
 
     <h1>Course Breakdown</h1>
