@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title> GDWD 108 Setup</title>
+    <style>
+      img {
+        max-width: 100%;
+        padding: 24px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>GDWD 108 Setup</h1>
+    <h2>Installing MAMP</h2>
+    <ol>
+      <li>Download MAMP from <a href="https://www.mamp.info/en/downloads/">here</a></li>
+      <li>
+        Install MAMP.  You should see multiple screens like the screenshots below.  Make sure to grant MAMP any privileges it needs to run.
+        <br>
+        <img src="../../images/assignments/108/MAMP/01.png">
+        <p>You do not need to install MAMP PRO or Apple Bonjour.</p>
+        <img src="../../images/assignments/108/MAMP/02.png">
+        <p>Accept the license agreement.</p>
+        <img src="../../images/assignments/108/MAMP/03.png">
+        <p>Install at the default folder location.</p>
+        <img src="../../images/assignments/108/MAMP/04.png">
+        <p>Leave the default for the shortcut as well.</p>
+        <img src="../../images/assignments/108/MAMP/05.png">
+        <p>Check the box if you want a desktop icon.</p>
+        <img src="../../images/assignments/108/MAMP/06.png">
+        <p>Confirm the settings, and then click Install.</p>
+        <img src="../../images/assignments/108/MAMP/07.png">
+        <p>Click Finish once the installation process has completed.</p>
+        <img src="../../images/assignments/108/MAMP/08.png">
+      </li>
+      <li>
+        Start up MAMP.
+      </li>
+      <li>Click the Start Servers button. If successful, the button will change to green and say Stop Servers.
+        <img src="../../images/assignments/108/MAMP/10.png">
+      </li>
+      <li>Click the Open WebStart Page button. This will open up the start up page for MAMP.
+        <img src="../../images/assignments/108/MAMP/11.png">
+      </li>
+    </ol>
+    <h2>Creating a Database Table for Wordpress</h2>
+    <ol>
+      <li>
+        On the WebStart Page for MAMP, navigate down to the phpMyAdmin link, and click on it.
+        <br>
+        <img src="../../images/assignments/108/MAMP/12.png">
+      </li>
+      <li>This will open up phpMyAdmin, where you can manipulate and create databases.</li>
+      <li>Click on the Databases tab.<br>
+        <img src="../../images/assignments/108/MAMP/13.png">
+      </li>
+      <li>Type 'wordpress' as the name for the new database, and click Create.<br>
+        <img src="../../images/assignments/108/MAMP/13-1.png">
+      </li>
+      <li>You should see the following screen after successfully creating the database.<br>
+        <img src="../../images/assignments/108/MAMP/14.png">
+      </li>
+    </ol>
+    <h2>Installing WordPress</h2>
+    <ol>
+      <li>Download Wordpress from <a href="https://wordpress.org/download/#download-install">here</a>.</li>
+      <li>The zip file was likely saved to your Downloads folder, unless you have configured otherwise.</li>
+      <li>Unzip the WordPress zip file you downloaded.</li>
+      <li>Locate the htdocs folder inside of MAMP (If you followed the instructions above, it should probably be at C://MAMP/htdocs).</li>
+      <li>Move the folder called 'wordpress' (not 'wordpress-6.0', it should be inside of that) into the MAMP htdocs folder.
+        <img src="../../images/assignments/108/MAMP/11-1.png">
+      </li>
+      <li>Navigate to wordpress on your localhost.
+        <ul>
+          <li>On Windows, this should be found at: localhost/wordpress</li>
+          <li>On Mac, this should be found at: localhost:80/wordpress or localhost:8000/wordpress</li>
+        </ul>
+      </li>
+      <li>You should then see the following pages as you configure the install:<br>
+        <p>Select English as your language, and click Continue</p>
+        <img src="../../images/assignments/108/MAMP/16.png">
+        <p>This guide will provide you with the information you need here.  Just click Let's go!</p>
+        <img src="../../images/assignments/108/MAMP/17.png">
+        <p>Specify 'root' as the Username and Password. Everything else should be left as the defaults. Click Submit.</p>
+        <img src="../../images/assignments/108/MAMP/18.png">
+        <p>Click Run the installation.</p>
+        <img src="../../images/assignments/108/MAMP/19.png">
+        <p>Provide a Site Title, a personal Username and Password, and Email. Then click Install WordPress.</p>
+        <img src="../../images/assignments/108/MAMP/20.png">
+        <p>If successful, you should see the following.  Click Log In.</p>
+        <img src="../../images/assignments/108/MAMP/21.png">
+        <p>After logging in, you should see the following.</p>
+        <img src="../../images/assignments/108/MAMP/22.png">
+      </li>
+      <li>Congrats! You installed WordPress!
+    </ol>
+  </body>
+</html>
