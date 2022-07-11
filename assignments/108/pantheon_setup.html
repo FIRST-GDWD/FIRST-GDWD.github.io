@@ -4,14 +4,23 @@
     <title> GDWD 108 Pantheon Setup</title>
     <style>
       img {
-        max-width: 100%;
-        padding: 24px 0px;
+        width: 100%;
+        max-width: 800px;
+        padding: 12px;
+        margin: 12px 0 24px;
+        border: 3px dashed green;
       }
     </style>
   </head>
   <body>
     <h1>GDWD 108 Pantheon Setup</h1>
-    <h2>Setting up Pantheon and your first (live) WordPress site</h2>
+    <h2>Jump to...</h2>
+    <ul>
+      <li><a href="#part1">Part 1 - Setting up Pantheon and your first (live) WordPress site</a></li>
+      <li><a href="#part2">Part 2 - Creating a second WordPress site on Patheon for the AHR project.</a></li>
+      <li><a href="#part3">Part 3 (optional) - Importing your WordPress site from MAMP</a></li>
+    </ul>
+    <h2 id="part1">Setting up Pantheon and your first (live) WordPress site</h2>
     <ol>
       <li><a href="https://pantheon.io/register">Create an account for Pantheon here.</a></li>
       <li>Set up your new Pantheon site, by following the instructions as in the screenshots below.</li>
@@ -52,7 +61,7 @@
         Congrats! You set up your first WordPress site that is live on the web.
       </li>
     </ol>
-    <h2>Creating a second WordPress site on Patheon for the AHR project.</h2>
+    <h2 id="part2">Creating a second WordPress site on Patheon for the AHR project.</h2>
     <ol>
       <li>
         Navigate to the Pantheon Dashboard from your Pantheon Site Dashboard (distinct from the WordPress Dashboard), by clickingon your Username in the upper right corner, and clicking on My Dashboard.
@@ -70,7 +79,7 @@
         Return to step 5 of the previous section, and set up WordPress for the AHR site.
       </li>
     </ol>
-    <h2>Importing your WordPress site from MAMP</h2>
+    <h2 id="part3">Importing your WordPress site from MAMP</h2>
     <p>WordPress comes with some Import/Export functionality that can be used to copy a WordPress instance from one location to another, such as MAMP to Pantheon.</p>
     <p>The downside is: you will need to re-install all of the plugins you used on MAMP on your Pantheon WordPress sites.</p>
     <p>AND you'll also need to re-upload all of your images to your Pantheon WordPress sites.</p>
@@ -82,15 +91,15 @@
       <li>Remember where the export file was saved at.  It will be named something like "<i>sitename</i>.WordPress.2022-07-08.xml"</li>
       <li>Navigate to the Pantheon WordPress Dashboard of the site you want to Import to.</li>
       <li>Install ALL of the active Plugins used in the WordPress site you're importing from.</li>
-      <li>In the sidenav, under Tools, click Import. Then, under the WordPress section, click Install Now to install the Importer Tool.
+      <li>In the sidenav, under Tools, click Import. Then, under the WordPress section, click Install Now to install the Importer Tool.<br>
         <img src="../../images/assignments/108/Pantheon/13.png">
       </li>
       <li>
-        Then click the Run Importer link.
+        Then click the Run Importer link.<br>
         <img src="../../images/assignments/108/Pantheon/14.png">
       </li>
       <li>
-        Click "Choose File" to select the file we exported in steps 2 and 3. Then click "Upload file and import".
+        Click "Choose File" to select the file we exported in steps 2 and 3. Then click "Upload file and import".<br>
         <img src="../../images/assignments/108/Pantheon/15.png">
       </li>
       <li>After the upload and import, you'll see a status screen, describing what was imported. You will probably see a lot of messages about images being unable to be imported. That is to be expected.</li>
