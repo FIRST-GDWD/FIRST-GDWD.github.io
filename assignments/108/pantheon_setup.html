@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title> GDWD 108 Pantheon Setup</title>
+    <style>
+      img {
+        max-width: 100%;
+        padding: 24px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>GDWD 108 Pantheon Setup</h1>
+    <h2>Setting up Pantheon and your first (live) WordPress site</h2>
+    <ol>
+      <li><a href="https://pantheon.io/register">Create an account for Pantheon here.</a></li>
+      <li>Set up your new Pantheon site, by following the instructions as in the screenshots below.</li>
+      <li>
+        Select "Start a New Project"
+        <br>
+        <img src="../../images/assignments/108/Pantheon/01.png">
+      </li>
+      <li>
+        <p>Provide a name for your Pantheon site (this will go in the URL).</p>
+        <img src="../../images/assignments/108/Pantheon/02.png">
+      </li>
+      <li>
+        <p>Click Continue, and then click Deploy for WordPress.</p>
+        <img src="../../images/assignments/108/Pantheon/03.png">
+      </li>
+      <li>
+        <p>It will take a few minutes to install WordPress on Pantheon.</p>
+        <img src="../../images/assignments/108/Pantheon/04.png">
+      </li>
+      <li>
+        <p>After the install is complete, click the Visit your Pantheon Dashboard.</p>
+        <img src="../../images/assignments/108/Pantheon/05.png">
+      </li>
+      <li>
+        <p>Now, you'll go through the familiar WordPress setup. Select English, and then click Continue.</p>
+        <img src="../../images/assignments/108/Pantheon/06.png">
+      </li>
+      <li>
+        <p>Provide the WordPress Site Title, your preferred Username and Password, and an email address for password recovery. If you want your website to be accessible to search engines, check the box at the bottom.  Then click Install WordPress.</p>
+        <img src="../../images/assignments/108/Pantheon/07.png">
+      </li>
+      <li>
+        <p>Afterward, you should be directed to the WordPress dashboard.</p>
+        <img src="../../images/assignments/108/Pantheon/08.png">
+      </li>
+      <li>
+        Congrats! You set up your first WordPress site that is live on the web.
+      </li>
+    </ol>
+    <h2>Creating a second WordPress site on Patheon for the AHR project.</h2>
+    <ol>
+      <li>
+        Navigate to the Pantheon Dashboard from your Pantheon Site Dashboard (distinct from the WordPress Dashboard), by clickingon your Username in the upper right corner, and clicking on My Dashboard.
+        <br>
+        <img src="../../images/assignments/108/Pantheon/09.png">
+      </li>
+      <li>This will open up your Pantheon Dashboard, where you can see how many sites you have set up in Pantheon. You can have up to two "sandbox" sites for free.  The first site, which we just created will eventually be used for your Portfolio.  We're going to create your second site for the AHR project.</li>
+      <li>In the Sites tab, click the Create New Site button.<br>
+        <img src="../../images/assignments/108/Pantheon/10.png">
+      </li>
+      <li>Pick a name for your AHR site. It should include AHR in it, but it needs to be unique across the internet (and our class), so you may want to pick something like your name, followed by AHR.  Then click Continue.<br>
+        <img src="../../images/assignments/108/Pantheon/11.png">
+      </li>
+      <li>
+        Return to step 5 of the previous section, and set up WordPress for the AHR site.
+      </li>
+    </ol>
+    <h2>Importing your WordPress site from MAMP</h2>
+    <p>WordPress comes with some Import/Export functionality that can be used to copy a WordPress instance from one location to another, such as MAMP to Pantheon.</p>
+    <p>The downside is: you will need to re-install all of the plugins you used on MAMP on your Pantheon WordPress sites.</p>
+    <p>AND you'll also need to re-upload all of your images to your Pantheon WordPress sites.</p>
+    <ol>
+      <li>Navigate to the MAMP WordPress Dashboard of the site you want to Export</li>
+      <li>In the sidenav, under Tools, click Export. Under "Choose What to Export", make sure "All content" is selected.  Then click Download Export File.
+        <img src="../../images/assignments/108/Pantheon/12.png">
+      </li>
+      <li>Remember where the export file was saved at.  It will be named something like "<i>sitename</i>.WordPress.2022-07-08.xml"</li>
+      <li>Navigate to the Pantheon WordPress Dashboard of the site you want to Import to.</li>
+      <li>Install ALL of the active Plugins used in the WordPress site you're importing from.</li>
+      <li>In the sidenav, under Tools, click Import. Then, under the WordPress section, click Install Now to install the Importer Tool.
+        <img src="../../images/assignments/108/Pantheon/13.png">
+      </li>
+      <li>
+        Then click the Run Importer link.
+        <img src="../../images/assignments/108/Pantheon/14.png">
+      </li>
+      <li>
+        Click "Choose File" to select the file we exported in steps 2 and 3. Then click "Upload file and import".
+        <img src="../../images/assignments/108/Pantheon/15.png">
+      </li>
+      <li>After the upload and import, you'll see a status screen, describing what was imported. You will probably see a lot of messages about images being unable to be imported. That is to be expected.</li>
+      <li>Upload all the images you used on the site you imported from (at least, for all the pages you want working), and replace all the broken images with images from the Media Library</li>
+      <li>Congrats! You successfully imported a WordPress site from MAMP!</li>
+    </ol>
+  </body>
+</html>
