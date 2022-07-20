@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>UNDER MAINTENANCE</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        align-items: center;
+        background-color: lightgreen;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        width: 100vw;
+      }
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        position: relative;
+      }
+      #squareContainer {
+        display: inline-block;
+        position: absolute;
+        right: 6px;
+        top: -18px;
+      }
+      .square {
+        height: 12px;
+        position: absolute;
+        width: 12px;
+      }
+
+      .dg {
+        animation: swing 12s infinite linear;
+        animation-delay: 2s;
+        background-color: darkgreen;
+      }
+
+      .g {
+        background-color: green;
+      }
+
+      .yg {
+        animation: sway 12s infinite linear;
+        background-color: yellowgreen;
+      }
+
+      .r0 {
+        right: 0px;
+      }
+      .r1 {
+        right: 12px;
+      }
+      .r2 {
+        right: 24px;
+      }
+      .r3 {
+        right: 36px;
+      }
+      .r4 {
+        right: 48px;
+      }
+      .r5 {
+        right: 60px;
+      }
+      .r-1 {
+        right: -12px;
+      }
+      .r-2 {
+        right: -24px;
+      }
+      .r-3 {
+        right: -36px;
+      }
+      .r-4 {
+        right: -48px;
+      }
+      .r-5 {
+        right: -60px;
+      }
+      .t0 {
+        top: 0px;
+      }
+      .t1 {
+        top: 12px;
+      }
+      .t2 {
+        top: 24px;
+      }
+      .t3 {
+        top: 36px;
+      }
+      .t4 {
+        top: 48px;
+      }
+      .t5 {
+        top: 60px;
+      }
+      .t-1 {
+        top: -12px;
+      }
+      .t-2 {
+        top: -24px;
+      }
+      .t-3 {
+        top: -36px;
+      }
+      .t-4 {
+        top: -48px;
+      }
+      .t-5 {
+        top: -60px;
+      }
+
+      @keyframes sway {
+        0%, 100% {
+          transform: translateX(0px);
+          opacity: 0.8;
+        }
+        20% {
+          opacity: 0.5;
+        }
+        25% {
+          transform: translateX(-6px);
+        }
+        40% {
+          opacity: 0.335;
+        }
+        60% {
+          opacity: 0.8;
+        }
+        75% {
+          transform: translateX(6px);
+        }
+        80% {
+          opacity: 0.4;
+        }
+      }
+      @keyframes swing {
+        0%, 100% {
+          transform: translateY(0px);
+          opacity: 0.8;
+        }
+        25% {
+          transform: translateY(-6px);
+        }
+        50% {
+          opacity: 0.6;
+        }
+        75% {
+          transform: translateY(6px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div id="squareContainer">
+          <div class="square yg r0 t0"></div>
+          <div class="square dg r2 t0"></div>
+          <div class="square yg r4 t3"></div>
+          <div class="square g r-2 t0"></div>
+          <div class="square yg r1 t3"></div>
+          <div class="square dg r3 t3"></div>
+          <div class="square g r5 t1"></div>
+          <div class="square yg r-1 t1"></div>
+          <div class="square dg r0 t2"></div>
+          <div class="square yg r3 t2"></div>
+          <div class="square dg r4 t4"></div>
+          <div class="square yg r-2 t3"></div>
+          <div class="square yg r1 t4"></div>
+          <div class="square g r3 t4"></div>
+          <div class="square yg r5 t3"></div>
+          <div class="square yg r-1 t4"></div>
+          <div class="square g r0 t4"></div>
+          <div class="square g r2 t4"></div>
+          <div class="square dg r4 t5"></div>
+          <div class="square yg r-2 t5"></div>
+          <div class="square dg r1 t5"></div>
+          <div class="square yg r3 t5"></div>
+          <div class="square yg r5 t5"></div>
+          <div class="square dg r-1 t5"></div>
+        </div>
+        <h1>Sorry for the mess...</h1>
+        <p>
+          We're undergoing some construction on our site.
+          We hope to be back up and running soon!
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
