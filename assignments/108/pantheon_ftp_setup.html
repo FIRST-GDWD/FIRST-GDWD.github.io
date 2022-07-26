@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title> GDWD 108 Pantheon FTP Setup</title>
+    <style>
+      img {
+        width: 100%;
+        max-width: 800px;
+        padding: 12px;
+        margin: 12px 0 24px;
+        border: 3px dashed green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>GDWD 108 Pantheon FTP Setup</h1>
+    <h2>Jump to...</h2>
+    <ul>
+      <li><a href="#part1">Part 1 - Setting up Pantheon and your first (live) WordPress site</a></li>
+      <li><a href="#part2">Part 2 - Creating a second WordPress site on Patheon for the AHR project.</a></li>
+      <li><a href="#part3">Part 3 (optional) - Importing your WordPress site from MAMP</a></li>
+    </ul>
+    <h2 id="part1">Installing the "ftp-remote-edit" Package in Atom</h2>
+    <ol>
+      <li>Under Atom's Settings/Preferences, select the Install option</li>
+      <li>
+        Search for the "ftp-remote-edit" Package, and install it.
+        <br>
+        <img src="../../images/assignments/108/FTP/01.png">
+      </li>
+    </ol>
+    <h2 id="part2">Configuring the "ftp-remote-edit" Package in Atom</h2>
+    <ol>
+      <li>
+        <p>Toggle on the Ftp-Remote-Edit tab from the Packages menu.</p>
+        <img src="../../images/assignments/108/FTP/02.png">
+      </li>
+      <li>
+        <p>This will open up a new tab next to Projects in the left sidepanel.</p>
+        <p>Click the Edit Servers button in here.</p>
+        <img src="../../images/assignments/108/FTP/03.png">
+      </li>
+      <li>
+        <p>This will open up a dialog with a lot of information to populate. Pause for a moment here; we'll jump back to this dialog later.</p>
+        <img src="../../images/assignments/108/FTP/04.png">
+      </li>
+      <li>
+        <p>In Chrome, navigate and log in to your Pantheon Dashboard (the general one, not the site specific one).</p>
+        <p>From there, navigate to the Pantheon Dashboard for your AHR site.</p>
+        <img src="../../images/assignments/108/FTP/04-1.png">
+      </li>
+      <li>
+        <p>On your AHR Pantheon Dashboard, click the Connect with SFTP button.</p>
+        <img src="../../images/assignments/108/FTP/05.png">
+      </li>
+      <li>
+        <p>This will cause a popup to appear. You'll be jumping back and forth between this popup and the dialog in Atom</p>
+        <p>The important data points from this popup are Host, Username, Password, and Port.</p>
+        <img src="../../images/assignments/108/FTP/05-1.png">
+      </li>
+      <li>
+        <p>Go back to Atom, and click the New button.  Then populate the data in the dialog form.</p>
+        <p>"The name of the server" can be anything you like, though I would reference AHR somewhere in there.</p>
+        <p>The remaining underlined inputs in the screenshot below are data fields you select yourself.</p>
+        <p>The inputs with arrows pointing to them are data points that come from the Pantheon popup.</p>
+        <p>(don't forget about the Port! Although it only shows two digits, you may need to put four digits in there.)</p>
+        <img src="../../images/assignments/108/FTP/06.png">
+      </li>
+      <li>
+        <p>After you click the Save button, you should see a new folder structure in the Remote tab.  These are the folders found in your Pantheon server.</p>
+        <p>The WordPress-related folders can be found in the "code" folder.
+        <img src="../../images/assignments/108/FTP/07.png">
+      </li>
+      <li>
+        Congrats! You've now used FTP to connect with your Pantheon AHR site server!
+      </li>
+    </ol>
+    <h2 id="part3">Setting up Maintenance Mode on your Pantheon AHR site</h2>
+    <ol>
+      <li>
+        Using the Finder (Mac)/File Explorer (Windows), navigate to your MAMP /htdocs folder, and then to the /wordpress folder inside that (where we first created the .maintenance file).
+      </li>
+      <li>
+        <p>While having the Finder/File Explorer window open on top of Atom, drag the .maintenance file into the /code folder in Atom.</p>
+        <p>(Make sure the /code folder highlights in Atom before you release the mouse; otherwise it may just open the file in a new tab, rather than copying it to your Pantheon server.)</p>
+        <img src="../../images/assignments/108/FTP/07-1.png">
+      </li>
+      <li>
+        Once you've copied the file into the /code folder, visit your AHR site on Pantheon.  You should now see the generic maintenance message we saw at the start of the MAMP Maintenance Mode assignment.
+      </li>
+      <li>
+        <p>Now, copy over the maintenance.php and cookie_setter.php files from your local MAMP /wp-content folder to the Remote /wp-content folder as well.</p>
+        <img src="../../images/assignments/108/FTP/07-2.png">
+      </li>
+      <li>
+        <p>Now, visit your AHR site on Pantheon again, and refresh it.  You should see the upgraded web page you built from the previous assignment.</p>
+        <p>Congrats! You've now moved your maintenance page to the remote Pantheon WordPress server!</p>
+        <p>...but you're not quite done yet.  The cookie code doesn't work anymore, and we'll need to make a few changes to fix it.</p>
+      </li>
+    </ol>
+    <h2 id="part4">Fixing the cookie code</h2>
+    <ol>
+      <li>First, go to your maintenance.php file in the <b>Remote tab</b> (be careful not to accidentally edit the file from your local MAMP server!)</li>
+      <li><p>The "action" filepath we used in the form will not word on Patheon anymore, because there is no /wordpress/ in the folder structure on Pantheon.  So we need to remove it, as in the screenshot below.</p>
+        <img src="../../images/assignments/108/FTP/08.png">
+      </li>
+      <li>Next, go to the cookie_setter.php file.</li>
+      <li><p>Cookies in Pantheon need to be prefixed with "SESS" if we want to access them, so change the name of the cookie we're created to be "SESSusername", as in the screenshot below.</p>
+        <img src="../../images/assignments/108/FTP/09.png">
+      </li>
+      <li>
+        Then click the Run Importer link.<br>
+        <img src="../../images/assignments/108/Pantheon/14.png">
+      </li>
+      <li>
+        Click "Choose File" to select the file we exported in steps 2 and 3. Then click "Upload file and import".<br>
+        <img src="../../images/assignments/108/Pantheon/15.png">
+      </li>
+      <li>After the upload and import, you'll see a status screen, describing what was imported. You will probably see a lot of messages about images being unable to be imported. That is to be expected.</li>
+      <li>Upload all the images you used on the site you imported from (at least, for all the pages you want working), and replace all the broken images with images from the Media Library</li>
+      <li>Congrats! You successfully imported a WordPress site from MAMP!</li>
+    </ol>
+  </body>
+</html>
