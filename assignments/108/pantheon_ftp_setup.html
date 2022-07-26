@@ -16,11 +16,12 @@
     <h1>GDWD 108 Pantheon FTP Setup</h1>
     <h2>Jump to...</h2>
     <ul>
-      <li><a href="#part1">Part 1 - Setting up Pantheon and your first (live) WordPress site</a></li>
-      <li><a href="#part2">Part 2 - Creating a second WordPress site on Patheon for the AHR project.</a></li>
-      <li><a href="#part3">Part 3 (optional) - Importing your WordPress site from MAMP</a></li>
+      <li><a href="#part1">Part 1 - Installing the "ftp-remote-edit" Package in Atom</a></li>
+      <li><a href="#part2">Part 2 - Configuring the "ftp-remote-edit" Package in Atom</a></li>
+      <li><a href="#part3">Part 3 - Setting up Maintenance Mode on your Pantheon AHR site</a></li>
+      <li><a href="#part4">Part 4 - Fixing the cookie code</a></li>
     </ul>
-    <h2 id="part1">Installing the "ftp-remote-edit" Package in Atom</h2>
+    <h2 id="part1">Part 1 - Installing the "ftp-remote-edit" Package in Atom</h2>
     <ol>
       <li>Under Atom's Settings/Preferences, select the Install option</li>
       <li>
@@ -29,7 +30,7 @@
         <img src="../../images/assignments/108/FTP/01.png">
       </li>
     </ol>
-    <h2 id="part2">Configuring the "ftp-remote-edit" Package in Atom</h2>
+    <h2 id="part2">Part 2 - Configuring the "ftp-remote-edit" Package in Atom</h2>
     <ol>
       <li>
         <p>Toggle on the Ftp-Remote-Edit tab from the Packages menu.</p>
@@ -75,7 +76,7 @@
         Congrats! You've now used FTP to connect with your Pantheon AHR site server!
       </li>
     </ol>
-    <h2 id="part3">Setting up Maintenance Mode on your Pantheon AHR site</h2>
+    <h2 id="part3">Part 3 - Setting up Maintenance Mode on your Pantheon AHR site</h2>
     <ol>
       <li>
         Using the Finder (Mac)/File Explorer (Windows), navigate to your MAMP /htdocs folder, and then to the /wordpress folder inside that (where we first created the .maintenance file).
@@ -98,7 +99,7 @@
         <p>...but you're not quite done yet.  The cookie code doesn't work anymore, and we'll need to make a few changes to fix it.</p>
       </li>
     </ol>
-    <h2 id="part4">Fixing the cookie code</h2>
+    <h2 id="part4">Part 4 - Fixing the cookie code</h2>
     <ol>
       <li>First, go to your maintenance.php file in the <b>Remote tab</b> (be careful not to accidentally edit the file from your local MAMP server!)</li>
       <li><p>The "action" filepath we used in the form will not word on Patheon anymore, because there is no /wordpress/ in the folder structure on Pantheon.  So we need to remove it, as in the screenshot below.</p>
@@ -108,17 +109,17 @@
       <li><p>Cookies in Pantheon need to be prefixed with "SESS" if we want to access them, so change the name of the cookie we're created to be "SESSusername", as in the screenshot below.</p>
         <img src="../../images/assignments/108/FTP/09.png">
       </li>
-      <li>
-        Then click the Run Importer link.<br>
-        <img src="../../images/assignments/108/Pantheon/14.png">
+      <li>Finally, jump back to the maintenance.php file.</li>
+      <li><p>Since we changed the cookie name where we set the cookie, we also need to change the name where we access it.</p>
+        <p>So, change the references of the cookie name to "SESSusername" here as well, like in the screenshot below</p>
+        <img src="../../images/assignments/108/FTP/10.png">
       </li>
+      <li>After that, you can retest the cookie code; it should now work the same as it did locally in MAMP, except now it's working on your remote Pantheon site.</li>
       <li>
-        Click "Choose File" to select the file we exported in steps 2 and 3. Then click "Upload file and import".<br>
-        <img src="../../images/assignments/108/Pantheon/15.png">
+        <p>Congrats! You successfully implemented maintenance mode on Pantheon!</p>
+        <p>(Remember to delete or change the name of .maintenance to turn off maintenance mode on your site)
       </li>
-      <li>After the upload and import, you'll see a status screen, describing what was imported. You will probably see a lot of messages about images being unable to be imported. That is to be expected.</li>
-      <li>Upload all the images you used on the site you imported from (at least, for all the pages you want working), and replace all the broken images with images from the Media Library</li>
-      <li>Congrats! You successfully imported a WordPress site from MAMP!</li>
+
     </ol>
   </body>
 </html>
