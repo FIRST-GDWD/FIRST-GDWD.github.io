@@ -2,7 +2,11 @@
 <html lang="en-US">
   <head>
     <title>AGENDA</title>
+    <meta name="description" content="This is an amazing site; come visit!">
     <style>
+      body {
+        font-family: Verdana, sans-serif;
+      }
       ul {
         font-size: 24px;
       }
@@ -27,6 +31,17 @@
       h2 {
         margin-top: 24px
       }
+      .agendaItem {
+        font-size: 18px;
+        display: flex;
+      }
+      .agendaItem span:first-child {
+
+        width: 200px;
+      }
+      .agendaItem span:not(:first-child) {
+        flex: 1;
+      }
     </style>
   </head>
   <body>
@@ -40,12 +55,53 @@
       <h2>Period 4 (10:10-11): Lab Time </h2>
     </div>
 
-    <h1>Coming Soon</h1>
+    <h1>Assignments and Deliverables</h1>
     <div id="agenda">
-      <h2>Assignment 13 (Final Project Prep) - Due Tonight</h2>
+      <h2>Assignment 13 (Final Project Prep) - Now Due Tomorrow</h2>
       <h2>Next up: Portfolio Site Scaffolding &amp; Placeholders</h2>
     </div>
 
+    <h1>Coming Soon</h1>
+    <div id="agenda">
+      <div class="agendaItem">
+        <span>08/01 (Day 20)</span>
+        <span>SEO</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/02 (Day 21)</span>
+        <span>Finalize theme | Build out scaffolding (empty posts/page, menus)</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/03 (Day 22)</span>
+        <span>Populate site with placeholder content | Populate 1-2 pages w/ real content</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/04 (Day 23)</span>
+        <span>Portfolio Critique #1</span>
+      </div>
+      <br><br>
+      <div class="agendaItem">
+        <span>08/08 (Day 24)</span>
+        <span>WordPress Quiz #2 | Address critique feedback | Populate more pages w/ real content</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/09 (Day 25)</span>
+        <span>Portfolio Critique #2</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/10 (Day 26)</span>
+        <span>Resume Critique</span>
+      </div>
+      <div class="agendaItem">
+        <span>08/11 (Day 27)</span>
+        <span>Final Exam | Portfolio Critique #3</span>
+      </div>
+      <br><br>
+      <div class="agendaItem">
+        <span>08/15 (Day 20)</span>
+        <span>Final Eval | Final Project Due</span>
+      </div>
+    </div>
 
   </body>
 </html>
