@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>HELLO WORLD</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #duel {
+        display: flex;
+        justify-content: space-around;
+      }
+      #left,
+      #right {
+        width: 25%;
+      }
+      #rockLeft,
+      #paperLeft,
+      #scissorsLeft,
+      #rockRight,
+      #paperRight,
+      #scissorsRight {
+        display: none;
+        width: 100%;
+      }
+      #rockLeft.selected,
+      #paperLeft.selected,
+      #scissorsLeft.selected,
+      #rockRight.selected,
+      #paperRight.selected,
+      #scissorsRight.selected {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <div id="duel">
+      <div id="left">
+        <img id="rockLeft" src="../../images/RockL.png">
+        <img id="paperLeft" src="../../images/PaperL.png">
+        <img id="scissorsLeft" src="../../images/ScissorsL.png">
+      </div>
+      <div id="right">
+        <img id="rockRight" src="../../images/RockR.png">
+        <img id="paperRight" src="../../images/PaperR.png">
+        <img id="scissorsRight" src="../../images/ScissorsR.png">
+      </div>
+    </div>
+    <h3>You picked Paper</h3>
+    <h2 id="result"></h2>
+    <h2>Wanna play again?</h2>
+    <script type="text/javascript">
+      const ROCK = "rock";
+      const PAPER = "paper";
+      const SCISSORS = "scissors";
+      let yourPick = PAPER;
+      let myPick = "";
+      let chance = Math.random();
+      if (chance > 0.66) {
+        myPick = ROCK;
+      } else if (chance > 0.33) {
+        myPick = PAPER;
+      } else {
+        myPick = SCISSORS;
+      }
+
+      let rockLeft = document.getElementById("rockLeft");
+      let paperLeft = document.getElementById("paperLeft");
+      let scissorsLeft = document.getElementById("scissorsLeft");
+      let rockRight = document.getElementById("rockRight");
+      let paperRight = document.getElementById("paperRight");
+      let scissorsRight = document.getElementById("scissorsRight");
+
+      switch(yourPick) {
+        case ROCK:
+          rockLeft.classList.add("selected");
+          break;
+        case PAPER:
+          paperLeft.classList.add("selected");
+          break;
+        case SCISSORS:
+          scissorsLeft.classList.add("selected");
+          break;
+      }
+      switch(myPick) {
+        case ROCK:
+          rockRight.classList.add("selected");
+          break;
+        case PAPER:
+          paperRight.classList.add("selected");
+          break;
+        case SCISSORS:
+          scissorsRight.classList.add("selected");
+          break;
+      }
+
+      let result = document.getElementById("result");
+      if (myPick == yourPick) {
+        result.innerHTML = "It's a tie!";
+      } else {
+        if (myPick == PAPER && yourPick == ROCK) {
+          result.innerHTML = "You lose!";
+        } else if (myPick == PAPER && yourPick == SCISSORS) {
+          result.innerHTML = "You win!";
+        }
+
+        if (myPick == ROCK && yourPick == SCISSORS) {
+          result.innerHTML = "You lose!";
+        } else if (myPick == ROCK && yourPick == PAPER) {
+          result.innerHTML = "You win!";
+        }
+
+        if (myPick == SCISSORS && yourPick == PAPER) {
+          result.innerHTML = "You lose!";
+        } else if (myPick == SCISSORS && yourPick == ROCK) {
+          result.innerHTML = "You win!";
+        }
+      }
+    </script>
+  </body>
+</html>
