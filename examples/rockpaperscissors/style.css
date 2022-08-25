@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+#duel {
+  display: flex;
+  height: 30vw;
+  max-height: 400px;
+  justify-content: space-around;
+}
+#left,
+#right {
+  width: 25%;
+}
+#rockLeft,
+#paperLeft,
+#scissorsLeft,
+#rockRight,
+#paperRight,
+#scissorsRight {
+  display: none;
+  width: 100%;
+}
+#rockLeft.selected,
+#paperLeft.selected,
+#scissorsLeft.selected,
+#rockRight.selected,
+#paperRight.selected,
+#scissorsRight.selected {
+  display: block;
+}
