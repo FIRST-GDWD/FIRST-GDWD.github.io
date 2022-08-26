@@ -1,25 +1,80 @@
 body {
   text-align: center;
 }
+#game {
+  max-width: 1000px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 #duel {
   display: flex;
-  height: 30vw;
-  max-height: 400px;
   justify-content: space-around;
+  margin-bottom: 40px;
 }
 #left,
 #right {
   width: 25%;
 }
+#left {
+  transform-origin: -75%;
+}
+#right {
+  transform-origin: 175%;
+}
+
+#game.animate #left {
+  animation: leftShake 2s;
+}
+#game.animate #right {
+  animation: rightShake 2s;
+}
+
+@keyframes leftShake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  30%, 62%, 94% {
+    transform: rotate(-20deg);
+  }
+  37%, 69% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes rightShake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  30%, 62%, 94% {
+    transform: rotate(20deg);
+  }
+  37%, 69% {
+    transform: rotate(-10deg);
+  }
+}
+
 #rockLeft,
 #paperLeft,
 #scissorsLeft,
 #rockRight,
 #paperRight,
-#scissorsRight {
+#scissorsRight,
+#game.animate #paperLeft,
+#game.animate #scissorsLeft,
+#game.animate #paperRight,
+#game.animate #scissorsRight{
   display: none;
   width: 100%;
 }
+
+#game.animate #selections,
+#game.animate #result {
+  visibility: hidden;
+}
+
+#game.animate #rockLeft,
+#game.animate #rockRight,
 #rockLeft.selected,
 #paperLeft.selected,
 #scissorsLeft.selected,

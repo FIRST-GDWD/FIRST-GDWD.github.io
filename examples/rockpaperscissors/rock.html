@@ -6,20 +6,22 @@
   </head>
   <body>
     <h1>Rock, Paper, Scissors!</h1>
-    <div id="duel">
-      <div id="left">
-        <img id="rockLeft" src="../../images/RockL.png">
-        <img id="paperLeft" src="../../images/PaperL.png">
-        <img id="scissorsLeft" src="../../images/ScissorsL.png">
+    <div id="game" class="animate">
+      <div id="duel">
+        <div id="left">
+          <img id="rockLeft" src="../../images/RockL.png">
+          <img id="paperLeft" src="../../images/PaperL.png">
+          <img id="scissorsLeft" src="../../images/ScissorsL.png">
+        </div>
+        <div id="right">
+          <img id="rockRight" src="../../images/RockR.png">
+          <img id="paperRight" src="../../images/PaperR.png">
+          <img id="scissorsRight" src="../../images/ScissorsR.png">
+        </div>
       </div>
-      <div id="right">
-        <img id="rockRight" src="../../images/RockR.png">
-        <img id="paperRight" src="../../images/PaperR.png">
-        <img id="scissorsRight" src="../../images/ScissorsR.png">
-      </div>
+      <h3 id="selections">You picked <span id="yourPickText"></span>. I picked <span id="myPickText"></span>.</h3>
+      <h2 id="result"></h2>
     </div>
-    <h3>You picked <span id="yourPickText"></span></h3>
-    <h2 id="result"></h2>
     <h2>Wanna play again?</h2>
     <nav>
       <a href="rock.html">ROCK</a>
@@ -28,6 +30,7 @@
     </nav>
     <script src="logic.js"></script>
     <script type="text/javascript">
+      setUp();
       playGame(ROCK);
     </script>
   </body>
