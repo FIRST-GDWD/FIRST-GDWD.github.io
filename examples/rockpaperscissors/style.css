@@ -1,5 +1,26 @@
 body {
   text-align: center;
+  font-family: Verdana, sans-serif;
+}
+button {
+  background: linear-gradient(to bottom, skyblue, teal);
+  border: 0;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 150px;
+  color: white;
+  margin: 24px 12px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.1);
+}
+button:active {
+  background: linear-gradient(to top, skyblue, teal);
+}
+button:focus-visible {
+  outline: 0;
 }
 #popupContainer {
   position: absolute;
@@ -18,8 +39,8 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
-  background-color: black;
-  opacity: 0.5;
+  background-color: #000022;
+  opacity: 0.8;
   z-index: 10;
 }
 #popup {
