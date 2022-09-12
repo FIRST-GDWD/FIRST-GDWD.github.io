@@ -8,14 +8,14 @@
         position: relative;
       }
       #ball {
+        align-items: center;
         background-color: red;
         border-radius: 50%;
-        position: relative;
         display: flex;
-        justify-content: center;
-        align-items: center;
         font-weight: bold;
         font-family: Verdana;
+        justify-content: center;
+        position: relative;
       }
     </style>
   </head>
@@ -27,18 +27,17 @@
       // Initializing room and ball dimensions
       let roomWidth = 600;
       let roomHeight = 500;
-      let width = 50;
-      let height = 50;
+      let ballWidth = 50;
+      let ballHeight = 50;
 
       let room = document.getElementById('room');
       room.style.width = roomWidth + 'px';
       room.style.height = roomHeight + 'px';
 
       let ball = document.getElementById('ball');
-      ball.style.width = width + 'px';
-      ball.style.height = height + 'px';
+      ball.style.width = ballWidth + 'px';
+      ball.style.height = ballHeight + 'px';
 
-      // Initializing ball physics
       let ballX = 0;
       let ballY = 0;
       let ballXSpeed = 3;
@@ -55,23 +54,22 @@
         ballY += ballYSpeed;
 
         // checking for collisions against the walls
-        if (ballX < 0 || ballX + width > roomWidth) {
-          // if the ball has passed the right wall, reset it to the right wall
-          if (ballX + width > roomWidth) {
-            ballX = roomWidth - width;
-          // otherwise, reset the ball to the left wall
-          } else {
+        if (ballX < 0 || ballX + ballWidth > roomWidth) {
+          // if the ball has passed the left wall, reset it to the left wall
+          if (ballX < 0) {
             ballX = 0;
+          } else {  // otherwise, reset the ball to the right wall
+            ballX = roomWidth - ballWidth;
           }
           // reverse the ball's horizontal movement
           ballXSpeed *= -1;
         }
 
         // checking for collisions on the floor
-        if (ballY + height > roomHeight) {
+        if (ballY + ballHeight > roomHeight) {
           // if the ball has passed through the floor, reset it to the floor
-          if (ballY + height > roomHeight) {
-            ballY = roomHeight - height;
+          if (ballY + ballHeight > roomHeight) {
+            ballY = roomHeight - ballHeight;
           }
           // to simulate friction, we reduce the speed by a fraction,
           // as well as reversing the vertical movement to make it bounce
