@@ -3,12 +3,16 @@
   <head>
     <title>Examples Index</title>
     <style>
+      * {
+        box-sizing: border-box;
+        font-family: Verdana;
+      }
       .positionContainer {
         border: 1px solid black;
         margin-bottom: 48px;
         padding: 48px;
         position: relative;
-        max-width: 600px;
+        max-width: 650px;
       }
       .overflow {
         height: 300px;
@@ -21,8 +25,11 @@
       .orangeBox,
       .purpleBox {
         display: inline-block;
+        font-weight: bold;
         height: 100px;
         margin: 24px 24px 24px 0;
+        padding-top: 40px;
+        text-align: center;
         width: 100px;
       }
       .yellowBox {
@@ -30,6 +37,7 @@
       }
       .greenBox {
         background-color: green;
+        color: white;
       }
       .redBox {
         background-color: red;
@@ -53,13 +61,13 @@
       .absolute {
         left: 100px;
         position: absolute;
-        top: 140px;
+        top: 240px;
         z-index: -10;
       }
       .fixed {
         left: 420px;
         position: fixed;
-        top: 240px;
+        top: 300px;
         z-index: -10;
       }
       .sticky {
@@ -72,9 +80,10 @@
   <body>
 
     <div class="positionContainer">
+      <h3>The Biography of a Stubborn Red Box [FIXED]</h3>
       <div>
         I am a little red box with <b>fixed</b> positioning.
-        I used to be in the middle, but whatever.
+        I used to be in between those yellow blocks, but whatever.
         <br /><br />
         I don't care if other blocks take my space, but I'm not moving from
         this spot; everything else can move past me for all I care
@@ -84,51 +93,58 @@
         to stay in the back.
         <br /><br />
       </div>
-      <div class="yellowBox"></div>
-      <div class="redBox fixed"></div>
-      <div class="yellowBox"></div>
+      <div class="yellowBox">STATIC</div>
+      <div class="redBox fixed">FIXED</div>
+      <div class="yellowBox">STATIC</div>
     </div>
     <div class="positionContainer">
+      <h3>The Biography of a Dull Green Box [STATIC]</h3>
       <div>
         I am a little green box with the default <b>static</b> positioning.
         <br /><br />
         ...I don't have anything particularly exciting to say about myself.
       </div>
-      <div class="yellowBox"></div>
-      <div class="greenBox"></div>
-      <div class="yellowBox"></div>
+      <div class="yellowBox">STATIC</div>
+      <div class="greenBox">STATIC</div>
+      <div class="yellowBox">STATIC</div>
     </div>
     <div class="positionContainer">
+      <h3>The Biography of a Childish Orange Box [RELATIVE]</h3>
       <div>
-        I am a little orange box with <b>relative</b> positioning.
+        I am a little orange box with <b>relative</b> positioning. I used to be
+        in between those yellow boxes, but I'm too cool for them.
         <br /><br />
-        I won't give up my space, even if I move away from it,
+        Even so, I won't give up my space, even if I move away from it,
         because I'm possessive like that (and that's how <b>relative</b>
         positioning works).
         <br /><br />
         I'm an attention seeker, so I used <b>z-index: 10</b> to be out in
         front.
       </div>
-      <div class="yellowBox"></div>
-      <div class="orangeBox relative"></div>
-      <div class="yellowBox"></div>
+      <div class="yellowBox">STATIC</div>
+      <div class="orangeBox relative">RELATIVE</div>
+      <div class="yellowBox">STATIC</div>
     </div>
     <div class="positionContainer">
+      <h3>The Biography of a Timid Pink Box [ABSOLUTE]</h3>
       <div>
         I am a little pink box with <b>absolute</b> positioning.
         <br /><br />
-        I used to be in the middle, but I'm a bit of a pushover;
+        I used to be in between those yellow boxes, but I'm a bit of a pushover;
         other blocks always take up my space
         (because that's what happens with <b>absolute</b> positioning).
         <br /><br />
         I'm shy, so I used <b>z-index: -5</b> to hide out in back.
+        <br /><br />
+        <br /><br />
       </div>
-      <div class="yellowBox"></div>
-      <div class="pinkBox absolute"></div>
-      <div class="yellowBox"></div>
+      <div class="yellowBox">STATIC</div>
+      <div class="pinkBox absolute">ABSOLUTE</div>
+      <div class="yellowBox">STATIC</div>
     </div>
 
     <div class="positionContainer overflow">
+      <h3>The Biography of a Mature Purple Box [STICKY]</h3>
       <div>
         I am a little purple box with <b>sticky</b> positioning.
         <br /><br />
@@ -139,9 +155,9 @@
         I like to stand out, so I used <b>z-index: 5</b> to be out in
         front.
       </div>
-      <div class="yellowBox"></div>
-      <div class="purpleBox sticky"></div>
-      <div class="yellowBox"></div>
+      <div class="yellowBox">STATIC</div>
+      <div class="purpleBox sticky">STICKY</div>
+      <div class="yellowBox">STATIC</div>
       <div>
         Deserunt sunt appellat nescius, quamquam ipsum duis admodum
         anim. Ut ea exercitation. Non incurreret illustriora, quae
