@@ -3,10 +3,15 @@
   <head>
     <title>Bouncing Ball example</title>
     <style>
+      /* Set up a simple "room" for the ball to bounce around in */
       #room {
         border: 5px solid black;
         position: relative;
       }
+      /*
+        Style the ball, and include some flex properties in case you want to
+        put any content inside of the ball for fun :-)
+      */
       #ball {
         align-items: center;
         background-color: red;
@@ -20,6 +25,7 @@
     </style>
   </head>
   <body>
+    <!-- A simple parent and child pair is all we need for our simulation -->
     <div id="room">
       <div id="ball"></div>
     </div>
@@ -30,6 +36,7 @@
       let ballWidth = 50;
       let ballHeight = 50;
 
+      // Setting the dimensions above in their elements' style properties
       let room = document.getElementById('room');
       room.style.width = roomWidth + 'px';
       room.style.height = roomHeight + 'px';
@@ -38,6 +45,7 @@
       ball.style.width = ballWidth + 'px';
       ball.style.height = ballHeight + 'px';
 
+      // Initializing the physics simulation variables for the ball
       let ballX = 0;
       let ballY = 0;
       let ballXSpeed = 3;

@@ -3,9 +3,14 @@
   <head>
     <title>COUNTDOWN</title>
     <style>
+      /* Get rid of the margins added to the body from the browser */
       body {
         margin: 0;
       }
+      /*
+        Turn the hero container into a flexbox as tall as the browser window,
+        and center its contents both horizontally and vertically
+      */
       #hero {
         display: flex;
         justify-content: center;
@@ -16,11 +21,16 @@
     </style>
   </head>
   <body>
+    <!-- A simple hero component to host the placeholder countdown element -->
     <div id="hero">
       <h1 id="countdown">Loading countdown...</h1>
     </div>
     <script type="text/javascript">
 
+      /**********************************************************************
+        The following conversion and formatting methods are easy to mess
+        up when manually coding them, so its recommended to just copy them.
+      **********************************************************************/
       function convertToDaysLeft(milliseconds) {
         return Math.floor(milliseconds / (1000 * 60 * 60 * 24));
       }
@@ -47,25 +57,41 @@
         return `${days}d ${hours}h ${minutes}m ${seconds}s left`;
       }
 
+      /**********************************************************************
+        Main code for the countdown
+      **********************************************************************/
+      // Initialize the deadline variable with the date you want to count down to
       let deadline = new Date("November 28, 2022 13:00:00");
+
+      // Store the countdown element in a variable and clear its text content
       let countdown = document.getElementById("countdown");
       countdown.innerHTML = "";
 
+      /*
+        The setCountdown function obtains the current date/time,
+        calculates the time left between then and the deadline variable,
+        and then converts it into days, hours, minutes, and seconds.
+        Then it displays those values in the countdown element.
+      */
       function setCountdown() {
+        // Without any inputs, the Date() constructor returns the current datetime
         let now = new Date();
 
         // # of milliseconds between deadline and now
         let timeLeft = deadline.getTime() - now.getTime();
 
+        // Use the conversion methods from above to calculate each time unit
         let daysLeft = convertToDaysLeft(timeLeft);
         let hoursLeft = convertToHoursLeft(timeLeft);
         let minutesLeft = convertToMinutesLeft(timeLeft);
         let secondsLeft = convertToSecondsLeft(timeLeft);
 
+        // Use the formatting function to display the units calculated above
         countdown.innerHTML =
           formatCountdownText(daysLeft, hoursLeft, minutesLeft, secondsLeft);
       }
 
+      // Call the setCountdown method every second (i.e. every 1000 milliseconds)
       setInterval(setCountdown, 1000);
     </script>
   </body>
