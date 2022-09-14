@@ -1,0 +1,48 @@
+body {
+  height: 1500px;
+  position: relative;
+}
+
+nav {
+  background-color: yellow;
+}
+
+#navbar1 {
+  background: lightgreen;
+  position: fixed;
+  width: 100%;
+}
+
+#navbar2 {
+  background: skyblue;
+  position: relative;
+  top: 150px;
+}
+
+#navbar3 {
+  background: purple;
+  position: absolute;
+  bottom: 150px;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  display: inline;
+  padding: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  text-decoration: line-through;
+}
