@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <div id="game">
+      <h3 id="selections">You picked <span id="yourPickText"></span>. I picked <span id="myPickText"></span>.</h3>
+      <h2 id="result"></h2>
+    </div>
+
+    <script src="js/logic.js"></script>
+    <script type="text/javascript">
+      let yourPickText = document.getElementById("yourPickText");
+      let myPickText = document.getElementById("myPickText");
+      let resultText = document.getElementById("result");
+
+      let yourPick = getRandomPick();
+      let myPick = getRandomPick();
+      
+      yourPickText.innerHTML = yourPick;
+      myPickText.innerHTML = myPick;
+      resultText.innerHTML = getResultText(yourPick, myPick);
+    </script>
+  </body>
+</html>
