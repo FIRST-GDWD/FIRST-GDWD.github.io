@@ -152,7 +152,7 @@ function setUp() {
     this.classList.remove("animate");
   }
   // Get all elements with the 'closer' class, and iterate through them
-  // using a for loop, adding clic event listeners for all of them
+  // using a for loop, adding click event listeners for all of them
   let closers = document.querySelectorAll(".closer");
   for (let i = 0; i < closers.length; i++) {
     let closer = closers[i];
