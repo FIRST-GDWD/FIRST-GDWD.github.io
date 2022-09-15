@@ -45,7 +45,7 @@ function getResultText(computerPick, playerPick) {
 
   /*
     at this point, if the computer and player values were the same,
-    we would have already return a TIE, so we know they must be different now
+    we would have already returned a TIE, so we know they must be different now
   */
 
   /*
