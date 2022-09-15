@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>HELLO WORLD</title>
+    <title>CSS Transitions</title>
     <style>
-      #myId {
-        color: blue;
+      h1 {
+        color: black;
+        font-size: 36px;
+        transition: font-size 0.5s, color 0.5s;
       }
-      .italicText {
-        font-style: italic;
-      }
-      ul a {
-        color: red;
-      }
-      li.italicText a {
+      h1:hover {
         color: green;
+        font-size: 60px;
       }
-      a:hover {
-        background-color: skyblue;
+      #box {
+        box-sizing: border-box;
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        transition:
+          background-color 2s,
+          border-radius 2s;
       }
-      li:first-child {
-        background-color: black;
+      #box:hover {
+        background-color: blue;
+        border-radius: 50%;
       }
-      li:first-child a {
-        color: yellow;
+      #cat {
+        width: 250px;
+        transition: transform 1s, border-radius 1s;
       }
-      body ul li.italicText a:hover {
-
-      }
-      ul:last-child {
-        background-color: lavender;
-      }
-      li a:last-child {
-        font-weight: bold;
+      #cat:hover {
+        transform: scale(2) rotate(360deg);
+        border-radius: 36px;
       }
     </style>
   </head>
   <body>
-    <h1 id="myId" class="italicText">
-      Hello World! pseudo-class
-    </h1>
-    <p id="myParagraph" class="italicText">
-      Enim expetendis cernantur, et pariatur eruditionem. Anim o
-      admodum, elit proident philosophari ut deserunt ex sint,
-      consequat anim culpa in quorum, noster transferrem proident
-      eram expetendis, export qui ita esse cernantur de nescius
-      exquisitaque hic aliquip non quo malis amet iis cernantur.
-      Ubi fore cupidatat, eram fidelissimae quamquam aliqua
-      eiusmod, cernantur nam fugiat litteris o an o aliqua
-      appellat.Ingeniis tempor doctrina. E malis quem quid
-      cernantur. Laborum sunt deserunt arbitror. Offendit ubi
-      dolore, officia est illum, ubi summis tamen nisi cernantur
-      sed de dolore expetendis familiaritatem.
-    </p>
-    <a href="#">This is a link</a>
-    <ul>
-      <li>
-        <a href="#">List Item 1</a>
-      </li>
-      <li class="italicText">
-        <a id="myGreenItalicText" href="#">List Item 2</a>
-      </li>
-      <li>
-        <a href="#">List Item 3</a>
-      </li>
-    </ul>
+    <h1>Let's start simple</h1>
+    <div id="box"></div>
+    <img id="cat" src="../../images/cat.png">
   </body>
 </html>

@@ -1,5 +1,5 @@
 nav {
-  background-color: lightgreen;
+  background-color: yellow;
 }
 
 ul {
@@ -20,54 +20,30 @@ li {
 .dropdownContainer {
   position: relative;
 }
-/*
-.dropdownMenu {
-  background-color: skyblue;
-  position: absolute;
-  flex-direction: column;
-  width: 100%;
-  left: 0px;
-  top: 100%;
-} */
-
-/* .dropdownMenu {
-  background-color: skyblue;
-  position: absolute;
-  flex-direction: column;
-  width: 100%;
-  left: 0px;
-  top: 100%;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.dropdownContainer:hover .dropdownMenu,
-.dropdownMenu:hover {
-  visibility: visible;
-  opacity: 1;
-} */
 
 .dropdownMenu {
-  background-color: skyblue;
+  background-color: orange;
   position: absolute;
   flex-direction: column;
   width: 100%;
   left: 0px;
   top: 75%;
-  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s, visibility 0.5s, top 0.5s;
+  visibility: hidden;
+  transition:
+    opacity 0.5s,
+    visibility 0.5s,
+    top 0.5s;
 }
 
-.dropdownContainer:hover .dropdownMenu,
-.dropdownMenu:hover {
-  visibility: visible;
+.dropdownContainer:hover .dropdownMenu {
   opacity: 1;
+  visibility: visible;
   top: 100%;
 }
 
 /* this is referred to as a mobile breakpoint */
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   ul {
     flex-direction: column;
     align-items: center;
@@ -75,4 +51,4 @@ li {
   #home {
     margin-right: 0;
   }
-}
+} */
