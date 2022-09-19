@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Secular+One&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+a {
+  font-family: 'Secular One', sans-serif;
+}
+
+h4,
+p {
+  font-family: 'Assistant', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav,
+nav a,
+footer a {
+  color: indigo;
+}
+
+nav a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+#hero a,
+#threeCards a,
+#twoCards a {
+  background-color: white;
+  color: indigo;
+  border: 2px solid indigo;
+  border-radius: 24px;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 12px;
+  min-width: 150px;
+  transition: transform 0.25s;
+}
+
+#hero a:hover,
+#threeCards a:hover,
+#twoCards a:hover {
+  transform: scale(1.1);
+}
+
+body {
+  margin: 0;
+}
+
+#siteGrid {
+  display: grid;
+  grid-template-columns: 1fr 1000px 1fr;
+  grid-template-areas:
+    ". navArea ."
+    "heroArea heroArea heroArea"
+    ". threeCardsArea ."
+    ". galleryArea ."
+    ". twoCardsArea ."
+    ". footerArea .";
+}
+
+nav {
+  display: flex;
+  grid-area: navArea;
+  align-items: center;
+  margin: 0 24px;
+}
+
+nav ul,
+nav h2 {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+#navLinks,
+#navSocialMedia {
+  display: flex;
+  list-style-type: none;
+}
+
+#navSocialMedia {
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+#navSocialMedia i {
+  font-size: 20px;
+}
+
+#navLinks li,
+#navSocialMedia li {
+  padding: 0 4px;
+}
+
+#hero {
+  background-image: url("../assets/abstractBackground.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  grid-area: heroArea;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+
+#hero h1,
+#hero h4 {
+  color: white;
+}
+
+#threeCards {
+  display: flex;
+  grid-area: threeCardsArea;
+}
+
+.card {
+  color: indigo;
+  flex: 1;
+  text-align: center;
+  margin: 48px 24px 24px;
+  padding: 12px 12px 24px;
+  border: 2px solid indigo;
+  box-shadow: 4px 4px 8px 0px grey;
+}
+
+.card p {
+  font-size: 18px;
+  min-height: 60px;
+}
+
+#gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: galleryArea;
+  height: 50vh;
+}
+
+#twoCards {
+  display: flex;
+  grid-area: twoCardsArea;
+}
+
+footer {
+  display: flex;
+  grid-area: footerArea;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  #siteGrid {
+    grid-template-columns: 1fr ;
+    grid-template-areas:
+      "navArea"
+      "heroArea"
+      "threeCardsArea"
+      "galleryArea"
+      "twoCardsArea"
+      "footerArea";
+  }
+
+  nav,
+  #threeCards,
+  #twoCards {
+    flex-direction: column;
+  }
+
+  nav h2 {
+    padding-top: 12px;
+  }
+
+  #navLinks {
+    margin: 18px 0;
+  }
+
+  #navSocialMedia {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  #navSocialMedia i {
+    font-size: 28px;
+  }
+
+  .card {
+    margin: 24px 24px 0px;
+  }
+}
