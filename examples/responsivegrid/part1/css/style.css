@@ -50,8 +50,61 @@ footer a:hover {
 }
 
 /****************************************************************************
+  Grid styles
+****************************************************************************/
+
+/****************************************************************************
   Nav/Footer styles
 ****************************************************************************/
+nav {
+  align-items: center;
+  display: flex;
+  margin: 0 24px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+#navLinks,
+.socialMedia {
+  display: flex;
+  list-style-type: none;
+}
+
+#navLinks li,
+.socialMedia li {
+  padding: 0 4px;
+}
+
+nav .socialMedia {
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+.socialMedia i {
+  font-size: 20px;
+}
+
+nav,
+nav a,
+footer a {
+  color: indigo;
+}
+
+nav a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+nav ul,
+nav h2 {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
 
 /****************************************************************************
   Hero styles
