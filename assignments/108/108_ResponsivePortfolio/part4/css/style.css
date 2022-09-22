@@ -1,5 +1,5 @@
 /* Google Font API imports - found at https://fonts.google.com/ */
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto&display=swap');
 
 /*****************************************************************************
   Heading, Link, and Misc. Styles
@@ -49,18 +49,23 @@ footer a:hover {
   text-decoration: underline;
 }
 
+footer ul {
+  padding: 0;
+}
+
 /****************************************************************************
   Grid styles
 ****************************************************************************/
 #siteGrid {
   display: grid;
   grid-template-columns: 1fr 800px 1fr;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(50px, auto);
   grid-template-areas:
     "navArea navArea navArea"
     "heroArea heroArea heroArea"
     ". threeCardsArea ."
     ". galleryArea ."
+    ". carouselArea ."
     ". twoCardsArea ."
     "footerArea footerArea footerArea";
 }
@@ -75,6 +80,9 @@ nav {
 }
 #gallery {
   grid-area: galleryArea;
+}
+#carousel {
+  grid-area: carouselArea;
 }
 #twoCards {
   grid-area: twoCardsArea;
@@ -232,7 +240,6 @@ nav h2 {
   height: 266.6px;
   width: 266.6px;
   object-fit: cover;
-  object-position: 250px 125px;
 }
 
 #gallery3 {
@@ -270,6 +277,19 @@ nav h2 {
 }
 
 /****************************************************************************
+  Carousel Styles
+****************************************************************************/
+#carousel {
+  text-align: center;
+}
+
+#carousel img {
+  height: 50vw;
+  width: auto;
+  margin: 0 auto;
+}
+
+/****************************************************************************
   Media Query - Mobile Breakpoint
 ****************************************************************************/
 @media screen and (max-width: 800px) {
@@ -280,13 +300,24 @@ nav h2 {
       "heroArea"
       "threeCardsArea"
       "galleryArea"
+      "carouselArea"
       "twoCardsArea"
       "footerArea";
   }
+
+  #carousel img {
+    height: 50vh;
+  }
+
   nav,
   #threeCards,
   #twoCards {
     flex-direction: column;
+  }
+
+  nav h2,
+  nav ul {
+    margin: 4px 0;
   }
 
   #gallery1,
