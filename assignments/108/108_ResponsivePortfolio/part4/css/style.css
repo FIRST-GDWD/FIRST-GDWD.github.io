@@ -106,6 +106,10 @@ footer {
   justify-content: center;
 }
 
+#navLinks {
+  text-align: center;
+}
+
 #navLinks,
 .socialMedia {
   display: flex;
