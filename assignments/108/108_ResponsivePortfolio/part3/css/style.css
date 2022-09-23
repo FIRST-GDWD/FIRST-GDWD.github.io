@@ -99,7 +99,7 @@ footer {
 }
 
 #navLinks {
-  text-align: center;
+  justify-content: center;
 }
 
 #navLinks,
