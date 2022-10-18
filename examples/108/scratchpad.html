@@ -1,87 +1,43 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>HELLO WORLD</title>
-    <style></style>
-  </head>
-  <body>
-    <script type="text/javascript">
-      // console.log sends message to the developer tools' Console tab
-      console.log("Hello World, this is Ryan!");
 
-      // This code creates a variable called 'greeting'
-      // and assigns it a value of "Good Morning".
-      // Then, we log the 'greeting' variable to the console.
-      let greeting = "Good Morning";
-      console.log(greeting);
+pseudo-code
 
-      // Here we create a variable called 'myNumber', and set it to 5;
-      // however, then we change the value to 10.
-      // This is simply to illustrate that variables can change values
-      let myNumber = 5;
-      console.log(myNumber);
-      myNumber = 10;
-      console.log(myNumber);
+data types we know: Strings and Numbers
+new data type: Boolean -> true/false
 
-      /*
-        This is a multi-line comment.
-        In the code below, we take the current value of 'myNumber'
-        and subtract 7 from it, and store it in a new variable
-        called 'result'
-      */
-      let result = myNumber - 7;
-      console.log(result);
+if (it is raining) {
+  bring an umbrella
+  put on rain boots
+}
+else if (it is snowing) {
+  put on a sweater
+  put on snow boots
+} else {
+  put on sunscreen
+}
 
-      // This is a single line comment; you need '//' for each comment.
-      // The code below takes the current value of 'myNumber',
-      // adds 3 to it, and then stores the new value back in 'myNumber'.
-      myNumber = myNumber + 3;
-      console.log(myNumber);
+dog -> barks
+cat -> meows
+fox -> yip
 
-      // The commented code below uses a shorthand operator (+=)
-      // that produces the exact same result as the code above.
-      // myNumber += 3;
+if (animal is a dog) {
+  sound = bark
+} else if (animal is a cat) {
+  sound = meow
+} else if (animal is a fox) {
+  sound = yip
+}
 
-      /*
-        The function below is called 'addTwo', and accepts a single
-          input parameter called 'numberToAdd'.
-        An input parameter is a special variable that can only be used
-          inside a function, but its value comes from outside the
-          function, when the unction is executed.
-        This function returns the result of adding the number 2
-          to the 'numberToAdd' parameter value.
-      */
-      function addTwo(numberToAdd) {
-        return numberToAdd + 2;
-      }
-
-      // The 'sum' variable below will have the value 9
-      // after executing the 'addTwo' function with parameter 7
-      let sum = addTwo(7);
-      console.log(sum);
-
-      // The 'sum2' variable below will have the value 11
-      // after executing the 'addTwo' function with parameter of 'sum'
-      // which itself has the value of 9
-      let sum2 = addTwo(sum);
-      console.log(sum2);
-
-      /*
-        The function below is called 'displayPersonalizedGreeting',
-          and accepts a single input parameter called 'name'.
-        This function does not return any value, but instead logs
-          to the console the concatenation (i.e. combining) of the
-          string "Hello there, " with the value of name.
-      */
-      function displayPersonalizedGreeting(name) {
-        console.log("Hello there, " + name);
-      }
-
-      // the following function calls would result in:
-      // "Hello there, Roberto"
-      // "Hello there, Leon"
-      displayPersonalizedGreeting("Roberto");
-      displayPersonalizedGreeting("Leon");
-    </script>
-  </body>
-</html>
+switch(animal) {
+  case dog:
+    sound = bark
+    break;
+  case cat:
+    sound = meow
+    break;
+  case fox:
+    sound = yip
+    break;
+  default:
+    sound = bing
+    break;
+}
