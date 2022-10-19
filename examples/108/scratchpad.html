@@ -1,43 +1,17 @@
+Loops
 
-pseudo-code
+groceryList = [bananas, apples, oranges]
+totalPrice = $0.00
 
-data types we know: Strings and Numbers
-new data type: Boolean -> true/false
+totalPrice =
+  bananas.price + apples.price + oranges.price
 
-if (it is raining) {
-  bring an umbrella
-  put on rain boots
-}
-else if (it is snowing) {
-  put on a sweater
-  put on snow boots
-} else {
-  put on sunscreen
-}
+while we still have items in the groceryList
+  add the price of the item to totalPrice
 
-dog -> barks
-cat -> meows
-fox -> yip
+while (groceryList is not empty)
+  totalPrice = totalPrice + listItem.price
 
-if (animal is a dog) {
-  sound = bark
-} else if (animal is a cat) {
-  sound = meow
-} else if (animal is a fox) {
-  sound = yip
-}
+for (initialization; continue condition; update)
 
-switch(animal) {
-  case dog:
-    sound = bark
-    break;
-  case cat:
-    sound = meow
-    break;
-  case fox:
-    sound = yip
-    break;
-  default:
-    sound = bing
-    break;
-}
+for (let i = 0; i < groceryList.length; i++)

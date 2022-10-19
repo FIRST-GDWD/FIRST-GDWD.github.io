@@ -1,0 +1,43 @@
+
+pseudo-code
+
+data types we know: Strings and Numbers
+new data type: Boolean -> true/false
+
+if (it is raining) {
+  bring an umbrella
+  put on rain boots
+}
+else if (it is snowing) {
+  put on a sweater
+  put on snow boots
+} else {
+  put on sunscreen
+}
+
+dog -> barks
+cat -> meows
+fox -> yip
+
+if (animal is a dog) {
+  sound = bark
+} else if (animal is a cat) {
+  sound = meow
+} else if (animal is a fox) {
+  sound = yip
+}
+
+switch(animal) {
+  case dog:
+    sound = bark
+    break;
+  case cat:
+    sound = meow
+    break;
+  case fox:
+    sound = yip
+    break;
+  default:
+    sound = bing
+    break;
+}
