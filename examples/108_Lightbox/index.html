@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Assignment 23 - Lightbox Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+  </head>
+  <body>
+    <!-- Gallery Code -->
+    <div id="gallery">
+      <img class="galleryImage" src="images/coffee_L1.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_P2.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_L2.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_S2.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_P4.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_L3.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_S3.jpg" alt="coffee">
+      <img class="galleryImage" src="images/coffee_L4.jpg" alt="coffee">
+    </div>
+
+    <!-- Lightbox Code -->
+    <div id="lightboxContainer">
+      <div id="lightboxBackground" class="closer"></div>
+      <img id="lightbox" src="" alt="">
+      <span id="lightboxCloser" class="closer">×</span>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script type="text/javascript">
+      // Obtain lightbox element references
+      let lightboxContainer = document.getElementById('lightboxContainer');
+      let lightbox = document.getElementById('lightbox');
+
+      // Get references to all elements with the 'galleryImage' class
+      let galleryImages = document.getElementsByClassName('galleryImage');
+      // Loop through all galleryImages and attach a click function
+      // that makes the lightbox appear, and updates the lightbox img src
+      for (let i = 0; i < galleryImages.length; i++) {
+        let galleryImage = galleryImages[i];
+        galleryImage.onclick = function() {
+          lightboxContainer.classList.add('display');
+          lightbox.src = this.src;
+          lightbox.alt = this.alt;
+        }
+      }
+
+      // Get references to all elements with the 'closer' class
+      let closers = document.getElementsByClassName('closer');
+      // Loop through all galleryImages and attach a click function
+      // that makes the lightbox disappear, and clears the lightbox img src
+      for (let i = 0; i < closers.length; i++) {
+        let closer = closers[i];
+        closer.onclick = function() {
+          lightboxContainer.classList.remove('display');
+          lightbox.src = "";
+          lightbox.alt = "";
+        }
+      }
+    </script>
+  </body>
+</html>
