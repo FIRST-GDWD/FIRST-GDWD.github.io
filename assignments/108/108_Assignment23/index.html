@@ -34,7 +34,7 @@
       for (let i = 0; i < galleryImages.length; i++) {
         let galleryImage = galleryImages[i];
         galleryImage.onclick = function() {
-          lightboxContainer.classList.add("display");
+          lightboxContainer.classList.add('display');
           lightbox.src = this.src;
           lightbox.alt = this.alt;
         };
@@ -44,10 +44,10 @@
       for (let i = 0; i < closers.length; i++) {
         let closer = closers[i];
         closer.onclick = function() {
-          lightboxContainer.classList.remove("display");
+          lightboxContainer.classList.remove('display');
           lightbox.src = "";
           lightbox.alt = "";
-        }
+        };
       }
     </script>
   </body>

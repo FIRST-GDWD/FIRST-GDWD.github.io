@@ -1,17 +1,21 @@
-Loops
+Events
 
-groceryList = [bananas, apples, oranges]
-totalPrice = $0.00
+Click, MouseEnter, MouseLeave
 
-totalPrice =
-  bananas.price + apples.price + oranges.price
+User interacts
+|
+V
+Event is fired
+|
+V
+Event Listener hears the event
+|
+V
+Event Handler is executed
 
-while we still have items in the groceryList
-  add the price of the item to totalPrice
 
-while (groceryList is not empty)
-  totalPrice = totalPrice + listItem.price
+Method #1 - Event Handler Property
+button.onclick = function;
 
-for (initialization; continue condition; update)
-
-for (let i = 0; i < groceryList.length; i++)
+Method #2 - addEventListener Method
+button.addEventListener("click", function);
