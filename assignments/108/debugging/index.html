@@ -1,21 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name='viewport'
-        content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <!-- Browser Tab Icon -->
-    <link rel="icon" href="../../Assets/MyIcon.JPG">
-    <!-- File Title & Link -->
-    <title>Assignment 3</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <title>Bouncing Ball</title>
+    <style>
+    #room{
+      border: 5px solid black;
+      position: relative;
+    }
+
+    #ball{
+      align-items: center;
+      background-color: green;
+      border-radius: 50%;
+      display: flex;
+      font-weight: bold;
+      font-family: Verdana;
+      justify-content: center;
+      position: relative;
+    }
+    </style>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li id="home"><a href="../../Assignments/assignments.html"><i class="fa-solid fa-house"></i></a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+
+<div id="room">
+  <div id="ball"></div>
+  </div>
+  <script type="text/javascript">
+
+  let roomWidth = 500;
+  let roomheight = 500;
+  let ballWidth = 80;
+  let ballHeight = 80;
+
+      let room = document.getElementById("room");
+      room.style.width = roomWidth + "px";
+      room.style.height = roomheight + "px";
+
+      let ball = document.getElementById("ball");
+      ball.style.width = ballWidth + "px";
+      ball.style.height = ballHeight + "px";
+
+  let ballX =0;
+  let ballY =0;
+  let ballXSpeed =3;
+  let ballYSpeed =0;
+  let gravity = 0.3;
+   function moveball() {
+     ballYSpeed += gravity;
+     ballX += ballXSpeed;
+     ballY += ballYSpeed;
+
+     if (ballX < 0 || ballX + ballWidth > roomWidth){
+       if (ballX < 0){
+         ballX = 0;
+       } else {
+         ballX = roomWidth = ballWidth;
+       }
+       ballXSpeed *= -1;
+     }
+     if (ballY + ballHeight > roomheight){
+       if (ballY + ballHeight > roomheight){
+         ballY = roomheight - ballHeight;
+       }
+       ballXSpeed *= 0.99;
+       ballYSpeed *= -0.85;
+     }
+     ball.style.left = ballX + 'px';
+     ball.style.top = ballY + 'px';
+   }
+   setInterval(moveball, 10);
+  </script>
+
+  </body>
+</html>
