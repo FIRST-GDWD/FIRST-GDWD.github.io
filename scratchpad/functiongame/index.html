@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Function Adventure!</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #gameGrid {
+        position: relative;
+      }
+      .gridBlock {
+        border: 2px solid black;
+        position: absolute;
+      }
+      #player {
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        transition: left 1s, top 1s;
+      }
+      #controls {
+        text-align: center;
+      }
+
+      #player.attackRight {
+        animation: bumpRight 0.5s;
+      }
+      @keyframes bumpRight {
+        0%, 100% {
+          transform: translateX(0%);
+        }
+        33% {
+          transform: translateX(50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameGrid">
+      <div class="gridBlock row0"></div>
+      <div class="gridBlock row0"></div>
+      <div class="gridBlock row0"></div>
+      <div class="gridBlock row1"></div>
+      <div class="gridBlock row1"></div>
+      <div class="gridBlock row1"></div>
+      <div class="gridBlock row2"></div>
+      <div class="gridBlock row2"></div>
+      <div class="gridBlock row2"></div>
+      <div id="player"></div>
+    </div>
+    <div id="controls">
+      <button id="up">Move Up</button>
+      <br>
+      <button id="left">Move Left</button>
+      <button id="right">Move Right</button>
+      <br>
+      <button id="down">Move Down</button>
+      <br><br>
+      <button id="attack">Attack!</button>
+
+    </div>
+    <script type="text/javascript">
+      const BLOCK_SIZE = 200;
+      const GRID_WIDTH = 3;
+      const UP = 'UP';
+      const DOWN = 'DOWN';
+      const RIGHT = 'RIGHT';
+      const LEFT = 'LEFT';
+      let grid = [];
+      let gridBlocks = document.getElementsByClassName("gridBlock");
+      for (let i = 0; i < gridBlocks.length; i++) {
+        let gridBlock = gridBlocks[i];
+        gridBlock.style.height = BLOCK_SIZE + 'px';
+        gridBlock.style.width = BLOCK_SIZE + 'px';
+
+        let x = i % GRID_WIDTH;
+        let y = Math.floor(i / GRID_WIDTH);
+        gridBlock.style.top = y*BLOCK_SIZE + 'px';
+        gridBlock.style.left = x*BLOCK_SIZE + 'px';
+        console.log('x='+x+' y='+y);
+        if (grid.length <= x) {
+          grid.push([]);
+        }
+        grid[x][y] = gridBlock;
+      }
+      console.log(grid);
+      let gameGrid = document.getElementById('gameGrid');
+      gameGrid.style.height = grid.length*BLOCK_SIZE + 'px';
+
+      let player = document.getElementById('player');
+      let playerX = 0;
+      let playerY = 0;
+      let playerDirection = DOWN;
+      player.style.height = BLOCK_SIZE + 'px';
+      player.style.width = BLOCK_SIZE + 'px';
+
+      function play() {
+        player.style.top = playerY*BLOCK_SIZE + 'px';
+        player.style.left = playerX*BLOCK_SIZE + 'px';
+      }
+      setInterval(play, 50);
+
+      function logPlayerPosition() {
+        console.log('player (x='+playerX+' y='+playerY+')');
+      }
+
+      player.onanimationend = function() {
+        this.classList.remove('attackRight');
+        this.classList.remove('attackLeft');
+        this.classList.remove('attackUp');
+        this.classList.remove('attackDown');
+      }
+
+      function moveLeft() {
+        if (playerX - 1 >= 0) {
+          playerX -= 1;
+        }
+        playerDirection = LEFT;
+      }
+      function moveRight() {
+        if (playerX + 1 < GRID_WIDTH) {
+          playerX += 1;
+        }
+        playerDirection = RIGHT;
+      }
+      function moveDown() {
+        if (playerY + 1 < grid[0].length) {
+          playerY += 1;
+        }
+        playerDirection = DOWN;
+      }
+      function moveUp() {
+        if (playerY - 1 >= 0) {
+          playerY -= 1;
+        }
+        playerDirection = UP;
+      }
+      function attack() {
+        switch(playerDirection) {
+          case DOWN:
+
+            break;
+          case UP:
+
+            break;
+          case LEFT:
+            break;
+          case RIGHT:
+            player.classList.add('attackRight');
+            break;
+        }
+      }
+
+      function clickMoveLeftButton() {
+        moveLeft();
+        logPlayerPosition();
+      }
+      function clickMoveRightButton() {
+        moveRight();
+        logPlayerPosition();
+      }
+      function clickMoveDownButton() {
+        moveDown();
+        logPlayerPosition();
+      }
+      function clickMoveUpButton() {
+        moveUp();
+        logPlayerPosition();
+      }
+      function clickAttackButton() {
+        attack();
+      }
+
+      let buttonLeft = document.getElementById('left');
+      buttonLeft.onclick = clickMoveLeftButton;
+      let buttonRight = document.getElementById('right');
+      buttonRight.onclick = clickMoveRightButton;
+      let buttonDown = document.getElementById('down');
+      buttonDown.onclick = clickMoveDownButton;
+      let buttonUp = document.getElementById('up');
+      buttonUp.onclick = clickMoveUpButton;
+      let buttonAttack = document.getElementById('attack');
+      buttonAttack.onclick = clickAttackButton;
+
+    </script>
+  </body>
+</html>
