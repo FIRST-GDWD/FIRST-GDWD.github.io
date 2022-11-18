@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Lightbox Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+  </head>
+  <body>
+    <!-- Gallery/Image Code -->
+    <img id="coffeeImage" src="images/coffee_L1.jpg" alt="coffee">
+
+    <!-- Lightbox Code -->
+    <div id="lightboxContainer">
+      <div id="lightboxBackground" class="closer"></div>
+      <img id="lightbox" src="" alt="">
+      <span id="lightboxCloser" class="closer">×</span>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script type="text/javascript">
+      // Obtain lightbox element references
+      let lightboxContainer = document.getElementById('lightboxContainer');
+      let lightboxBackground = document.getElementById('lightboxBackground');
+      let lightbox = document.getElementById('lightbox');
+      let lightboxCloser = document.getElementById('lightboxCloser');
+
+      // Create a function that makes the lightbox appear,
+      // and sets the lightbox image src
+      function openLightbox() {
+        lightboxContainer.classList.add('display');
+        lightbox.src = this.src;
+      }
+
+      // Get reference to the image to display in the lightbox
+      let coffeeImage = document.getElementById('coffeeImage');
+      // Attach the openLightbox function to the image we want to display
+      // by assigning it to the 'onclick' EventHandler property
+      coffeeImage.onclick = openLightbox;
+
+      // Create a function that makes the lightbox disappear,
+      // and clears the lightbox img src
+      function closeLightbox() {
+        lightboxContainer.classList.remove('display');
+        lightbox.src = "";
+      }
+
+      // Attach the closeLightbox function to each closer elements'
+      // 'onclick' EventHandler property; this will execute
+      // closeLightbox() whenever the element is clicked
+      lightboxBackground.onclick = closeLightbox;
+      lightboxCloser.onclick = closeLightbox;
+    </script>
+  </body>
+</html>
