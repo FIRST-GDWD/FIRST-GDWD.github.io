@@ -2,153 +2,21 @@
 <html lang="en-US">
   <head>
     <title>Function Adventure!</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      #gameGrid {
-        position: relative;
-      }
-      .gridBlock {
-        background-position: top left;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* border: 2px solid rgba(239, 228, 176, 0.5); */
-        position: absolute;
-        z-index: 1;
-      }
-      .gridBlock.grass {
-        background-image: url('../../images/adventure/grass.png');
-      }
-      .gridBlock.rock {
-        background-image: url('../../images/adventure/rock.png');
-      }
-      .gridBlock.gravel {
-        background-image: url('../../images/adventure/gravel.png');
-      }
-      #player {
-        background-color: red;
-        border-radius: 50%;
-        position: absolute;
-        transition: left 1s, top 1s;
-        z-index: 10;
-      }
-      #controls {
-        text-align: center;
-      }
-      #controls .holyCross {
-        display: inline-block;
-        padding: 12px;
-      }
-
-      #player.attackRight {
-        animation: bumpRight 0.5s;
-      }
-      #player.attackLeft {
-        animation: bumpLeft 0.5s;
-      }
-      #player.attackUp {
-        animation: bumpUp 0.5s;
-      }
-      #player.attackDown {
-        animation: bumpDown 0.5s;
-      }
-
-      #player.nudgeRight {
-        animation: nudgeRight 0.5s;
-      }
-      #player.nudgeLeft {
-        animation: nudgeLeft 0.5s;
-      }
-      #player.nudgeUp {
-        animation: nudgeUp 0.5s;
-      }
-      #player.nudgeDown {
-        animation: nudgeDown 0.5s;
-      }
-
-      #player.jump {
-        animation: jump 1s;
-      }
-      @keyframes bumpRight {
-        0%, 100% {
-          transform: translateX(0%);
-        }
-        33% {
-          transform: translateX(50%);
-        }
-      }
-      @keyframes bumpLeft {
-        0%, 100% {
-          transform: translateX(0%);
-        }
-        33% {
-          transform: translateX(-50%);
-        }
-      }
-      @keyframes bumpUp {
-        0%, 100% {
-          transform: translateY(0%);
-        }
-        33% {
-          transform: translateY(-50%);
-        }
-      }
-      @keyframes bumpDown {
-        0%, 100% {
-          transform: translateY(0%);
-        }
-        33% {
-          transform: translateY(50%);
-        }
-      }
-      @keyframes nudgeRight {
-        0%, 100% {
-          transform: translateX(0%);
-        }
-        33% {
-          transform: translateX(10%);
-        }
-      }
-      @keyframes nudgeLeft {
-        0%, 100% {
-          transform: translateX(0%);
-        }
-        33% {
-          transform: translateX(-10%);
-        }
-      }
-      @keyframes nudgeUp {
-        0%, 100% {
-          transform: translateY(0%);
-        }
-        33% {
-          transform: translateY(-10%);
-        }
-      }
-      @keyframes nudgeDown {
-        0%, 100% {
-          transform: translateY(0%);
-        }
-        33% {
-          transform: translateY(10%);
-        }
-      }
-      @keyframes jump {
-        0%, 100% {
-          transform: translateY(0%);
-        }
-        50% {
-          transform: translateY(-50%);
-        }
-      }
-    </style>
+    <link href="index.css" rel="stylesheet">
   </head>
   <body>
     <div id="gameGrid">
-      <div id="player"></div>
+      <img id="player">
     </div>
     <div id="controls">
+      <div class="instructions">
+        <h3>INSTRUCTIONS</h3>
+        Use ASDW to move, hold SHIFT to jump, and SPACE to attack.
+        <br>
+        OR
+        <br>
+        Use the BUTTONS below
+      </div>
       <div class="holyCross">
         <button id="up">Move Up</button>
         <br>
@@ -165,378 +33,45 @@
         <br>
         <button id="jumpDown">Jump Down</button>
       </div>
-      <br><br>
+      <br>
       <button id="attack">Attack!</button>
       <button id="jump">Jump!</button>
 
     </div>
+    <script src="adventureLibrary.js"></script>
+    <script src="beginSetup.js"></script>
     <script type="text/javascript">
-      const X = 'x';
-      const Y = 'y';
-      const BLOCK_SIZE = 100;
-      const GRID_WIDTH = 10;
-      const GRID_HEIGHT = 5;
-      const UP = 'UP';
-      const DOWN = 'DOWN';
-      const RIGHT = 'RIGHT';
-      const LEFT = 'LEFT';
-
-      let gameGrid = document.getElementById("gameGrid");
-      for (let i = 0; i < GRID_HEIGHT; i++) {
-        for (let j = 0; j < GRID_WIDTH; j++) {
-          let classes = 'gridBlock';
-          if (i == 0 && j == 0) {
-            classes += ' grass';
-          } else {
-            let tileValue = Math.random();
-            if (tileValue < 0.7) {
-              classes += ' grass';
-            } else if (tileValue < 0.9) {
-              classes += ' rock'
-            } else {
-              classes += ' gravel';
-            }
-          }
-          gameGrid.innerHTML += `<div class="${classes}"></div>`;
-        }
-      }
-
-
-      let grid = [];
-      let gridBlocks = document.getElementsByClassName("gridBlock");
-      for (let i = 0; i < gridBlocks.length; i++) {
-        let gridBlock = gridBlocks[i];
-        gridBlock.style.height = BLOCK_SIZE + 'px';
-        gridBlock.style.width = BLOCK_SIZE + 'px';
-
-        let x = i % GRID_WIDTH;
-        let y = Math.floor(i / GRID_WIDTH);
-        gridBlock.style.top = y*BLOCK_SIZE + 'px';
-        gridBlock.style.left = x*BLOCK_SIZE + 'px';
-        gridBlock.id = `${x}_${y}`;
-        console.log('x='+x+' y='+y);
-        if (grid.length <= x) {
-          grid.push([]);
-        }
-        grid[x][y] = gridBlock;
-      }
-      console.log(grid);
-
-      gameGrid.style.height = GRID_HEIGHT*BLOCK_SIZE + 'px';
-
-      let player = document.getElementById('player');
-      let playerX = 0;
-      let playerY = 0;
-      let playerDirection = DOWN;
-      player.style.height = BLOCK_SIZE + 'px';
-      player.style.width = BLOCK_SIZE + 'px';
-
-      function play() {
-        player.style.top = playerY*BLOCK_SIZE + 'px';
-        player.style.left = playerX*BLOCK_SIZE + 'px';
-      }
-      setInterval(play, 50);
-
-      function logPlayerPosition() {
-        console.log('player (x='+playerX+' y='+playerY+')');
-      }
-
-      player.onanimationend = function() {
-        this.classList.remove('attackRight');
-        this.classList.remove('attackLeft');
-        this.classList.remove('attackUp');
-        this.classList.remove('attackDown');
-        this.classList.remove('nudgeRight');
-        this.classList.remove('nudgeLeft');
-        this.classList.remove('nudgeUp');
-        this.classList.remove('nudgeDown');
-        this.classList.remove('jump');
-      }
-
-      function getBlock(targetX, targetY) {
-        if (targetX < grid.length && targetY < grid[targetX].length) {
-          return grid[targetX][targetY];
-        } else {
-          return null;
-        }
-      }
-
-      function isBlockCrossable(targetX, targetY) {
-        let block = getBlock(targetX, targetY);
-        if (block == null) {
-          return false;
-        }
-        return !block.classList.contains('rock');
-      }
-
-      function getCrossablePathEnd(axis, startingIndex, targetIndex) {
-        let pathEndIndex = startingIndex;
-        if (startingIndex < targetIndex) {
-          for (let i = startingIndex + 1; i <= targetIndex; i++) {
-            if (
-              axis == X && isBlockCrossable(i, playerY) ||
-              axis == Y && isBlockCrossable(playerX, i)
-            ) {
-              pathEndIndex = i;
-            } else {
-              break;
-            }
-          }
-        } else {
-          for (let i = startingIndex - 1; i >= targetIndex; i--) {
-            if (
-              axis == X && isBlockCrossable(i, playerY) ||
-              axis == Y && isBlockCrossable(playerX, i)
-            ) {
-              pathEndIndex = i;
-            } else {
-              break;
-            }
-          }
-        }
-        return pathEndIndex;
-      }
-
-      function getJumpablePathEnd(axis, startingIndex, targetIndex) {
-        if (startingIndex < targetIndex) {
-          for (let i = targetIndex; i > startingIndex; i--) {
-            if (
-              axis == X && isBlockCrossable(i, playerY) ||
-              axis == Y && isBlockCrossable(playerX, i)
-            ) {
-              return i;
-            }
-          }
-        } else {
-          for (let i = targetIndex; i < startingIndex; i++) {
-            if (
-              axis == X && isBlockCrossable(i, playerY) ||
-              axis == Y && isBlockCrossable(playerX, i)
-            ) {
-              return i;
-            }
-          }
-        }
-        return startingIndex;
-      }
-
-      function isBlockAttackable(targetX, targetY) {
-        let block = getBlock(targetX, targetY);
-        if (block == null) {
-          return false;
-        }
-        return block.classList.contains('rock');
-      }
-
-      function attackBlock(targetX, targetY) {
-        if (isBlockAttackable(targetX, targetY)) {
-          let block = getBlock(targetX, targetY);
-          block.classList.remove('rock');
-          block.classList.add('gravel');
-        }
-      }
-
-      function moveLeft(distance = 1) {
-        let initX = playerX;
-        let targetX = playerX;
-        if (playerX - distance >= 0) {
-          targetX -= distance;
-        } else {
-          targetX = 0;
-        }
-        playerX = getCrossablePathEnd(X, playerX, targetX);
-        playerDirection = LEFT;
-        if (playerX == initX) {
-          nudge();
-        }
-      }
-      function moveRight(distance = 1) {
-        let initX = playerX;
-        let targetX = playerX;
-        if (playerX + distance < GRID_WIDTH) {
-          targetX += distance;
-        } else {
-          targetX = GRID_WIDTH - 1;
-        }
-        playerX = getCrossablePathEnd(X, playerX, targetX);
-        playerDirection = RIGHT;
-        if (playerX == initX) {
-          nudge();
-        }
-      }
-      function moveDown(distance = 1) {
-        let initY = playerY;
-        let targetY = playerY;
-        if (targetY + distance < grid[0].length) {
-          targetY += distance;
-        } else {
-          targetY = grid[0].length - 1;
-        }
-        playerY = getCrossablePathEnd(Y, playerY, targetY);
-        playerDirection = DOWN;
-        if (playerY == initY) {
-          nudge();
-        }
-      }
-      function moveUp(distance = 1) {
-        let initY = playerY;
-        let targetY = playerY;
-        if (targetY - distance >= 0) {
-          targetY -= distance;
-        } else {
-          targetY = 0;
-        }
-        playerY = getCrossablePathEnd(Y, playerY, targetY);
-        playerDirection = UP;
-        if (playerY == initY) {
-          nudge();
-        }
-      }
-
-      function jumpLeft(distance = 1) {
-        let targetX = playerX;
-        if (playerX - distance >= 0) {
-          targetX -= distance;
-        } else {
-          targetX = 0;
-        }
-        playerX = getJumpablePathEnd(X, playerX, targetX);
-        playerDirection = LEFT;
-        jump();
-      }
-      function jumpRight(distance = 1) {
-        let targetX = playerX;
-        if (playerX + distance < GRID_WIDTH) {
-          targetX += distance;
-        } else {
-          targetX = GRID_WIDTH - 1;
-        }
-        playerX = getJumpablePathEnd(X, playerX, targetX);
-        playerDirection = RIGHT;
-        jump();
-      }
-      function jumpDown(distance = 1) {
-        let targetY = playerY;
-        if (targetY + distance < grid[0].length) {
-          targetY += distance;
-        } else {
-          targetY = grid[0].length - 1;
-        }
-        playerY = getJumpablePathEnd(Y, playerY, targetY);
-        playerDirection = DOWN;
-        jump();
-      }
-      function jumpUp(distance = 1) {
-        let targetY = playerY;
-        if (targetY - distance >= 0) {
-          targetY -= distance;
-        } else {
-          targetY = 0;
-        }
-        playerY = getJumpablePathEnd(Y, playerY, targetY);
-        playerDirection = UP;
-        jump();
-      }
-
-      function attack() {
-        switch(playerDirection) {
-          case DOWN:
-            player.classList.add('attackDown');
-            attackBlock(playerX, playerY+1);
-            break;
-          case UP:
-            player.classList.add('attackUp');
-            attackBlock(playerX, playerY-1);
-            break;
-          case LEFT:
-            player.classList.add('attackLeft');
-            attackBlock(playerX-1, playerY);
-            break;
-          case RIGHT:
-            player.classList.add('attackRight');
-            attackBlock(playerX+1, playerY);
-            break;
-        }
-      }
-      function nudge() {
-        switch(playerDirection) {
-          case DOWN:
-            player.classList.add('nudgeDown');
-            break;
-          case UP:
-            player.classList.add('nudgeUp');
-            break;
-          case LEFT:
-            player.classList.add('nudgeLeft');
-            break;
-          case RIGHT:
-            player.classList.add('nudgeRight');
-            break;
-        }
-      }
-      function jump() {
-        player.classList.add('jump');
-      }
-
-      function clickMoveLeftButton() {
+      function pressMoveLeftButton() {
         moveLeft();
-        logPlayerPosition();
       }
-      function clickMoveRightButton() {
+      function pressMoveRightButton() {
         moveRight();
-        logPlayerPosition();
       }
-      function clickMoveDownButton() {
+      function pressMoveDownButton() {
         moveDown();
-        logPlayerPosition();
       }
-      function clickMoveUpButton() {
+      function pressMoveUpButton() {
         moveUp();
-        logPlayerPosition();
       }
-      function clickAttackButton() {
+      function pressAttackButton() {
         attack();
       }
-      function clickJumpUpButton() {
+      function pressJumpUpButton() {
         jumpUp(2);
       }
-      function clickJumpDownButton() {
+      function pressJumpDownButton() {
         jumpDown(2);
       }
-      function clickJumpLeftButton() {
+      function pressJumpLeftButton() {
         jumpLeft(3);
       }
-      function clickJumpRightButton() {
+      function pressJumpRightButton() {
         jumpRight(3);
       }
-      function clickJumpButton() {
+      function pressJumpButton() {
         jump();
       }
-
-
-      let buttonLeft = document.getElementById('left');
-      buttonLeft.onclick = clickMoveLeftButton;
-      let buttonRight = document.getElementById('right');
-      buttonRight.onclick = clickMoveRightButton;
-      let buttonDown = document.getElementById('down');
-      buttonDown.onclick = clickMoveDownButton;
-      let buttonUp = document.getElementById('up');
-      buttonUp.onclick = clickMoveUpButton;
-
-      let buttonJumpUp = document.getElementById('jumpUp');
-      buttonJumpUp.onclick = clickJumpUpButton;
-      let buttonJumpDown = document.getElementById('jumpDown');
-      buttonJumpDown.onclick = clickJumpDownButton;
-      let buttonJumpRight = document.getElementById('jumpRight');
-      buttonJumpRight.onclick = clickJumpRightButton;
-      let buttonJumpLeft = document.getElementById('jumpLeft');
-      buttonJumpLeft.onclick = clickJumpLeftButton;
-
-      let buttonAttack = document.getElementById('attack');
-      buttonAttack.onclick = clickAttackButton;
-      let buttonJump = document.getElementById('jump');
-      buttonJump.onclick = clickJumpButton;
-
     </script>
+    <script src="endSetup.js"></script>
   </body>
 </html>

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+#gameGrid {
+  position: relative;
+}
+.gridBlock {
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* border: 2px solid rgba(239, 228, 176, 0.5); */
+  position: absolute;
+  z-index: 1;
+}
+.gridBlock.grass {
+  background-image: url('../../images/adventure/grass.png');
+}
+.gridBlock.rock {
+  background-image: url('../../images/adventure/rock.png');
+}
+.gridBlock.gravel {
+  background-image: url('../../images/adventure/gravel.png');
+}
+.gridBlock.hole {
+  background-image: url('../../images/adventure/hole_v3.png');
+}
+#player {
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: red;
+  border-radius: 50%; */
+  position: absolute;
+  transition: left 1s, top 1s;
+  z-index: 10;
+}
+#player.faceLeft {
+  transform: scaleX(-1);
+}
+#controls {
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+}
+
+#controls .instructions {
+  margin: 24px 0 0;
+}
+
+#controls .holyCross {
+  display: inline-block;
+  padding: 12px;
+}
+
+button {
+  background-image: url('../../images/adventure/button1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 16px;
+  margin: 0 24px;
+  min-width: 130px;
+  padding: 16px 20px;
+}
+
+#player.attackRight {
+  animation: bumpRight 0.5s;
+}
+#player.attackLeft {
+  animation: bumpLeft 0.5s;
+}
+#player.attackUp {
+  animation: bumpUp 0.5s;
+}
+#player.attackDown {
+  animation: bumpDown 0.5s;
+}
+
+#player.nudgeRight {
+  animation: nudgeRight 0.5s;
+}
+#player.nudgeLeft {
+  animation: nudgeLeft 0.5s;
+}
+#player.nudgeUp {
+  animation: nudgeUp 0.5s;
+}
+#player.nudgeDown {
+  animation: nudgeDown 0.5s;
+}
+
+#player.jump {
+  animation: jump 1s;
+}
+#player.faceLeft.jump {
+  animation: jumpLeft 1s;
+}
+
+@keyframes bumpRight {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(50%);
+  }
+}
+@keyframes bumpLeft {
+  0%, 100% {
+    transform: translateX(0%) scaleX(-1);
+  }
+  33% {
+    transform: translateX(-50%) scaleX(-1);
+  }
+}
+@keyframes bumpUp {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  33% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes bumpDown {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  33% {
+    transform: translateY(50%);
+  }
+}
+@keyframes nudgeRight {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(10%);
+  }
+}
+@keyframes nudgeLeft {
+  0%, 100% {
+    transform: translateX(0%) scaleX(-1);
+  }
+  33% {
+    transform: translateX(-10%) scaleX(-1);
+  }
+}
+@keyframes nudgeUp {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  33% {
+    transform: translateY(-10%);
+  }
+}
+@keyframes nudgeDown {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  33% {
+    transform: translateY(10%);
+  }
+}
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes jumpLeft {
+  0%, 100% {
+    transform: translateY(0%) scaleX(-1);
+  }
+  50% {
+    transform: translateY(-50%) scaleX(-1);
+  }
+}
