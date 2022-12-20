@@ -88,22 +88,22 @@ function updatePlayer() {
   player.style.top = playerY*BLOCK_SIZE + 'px';
   player.style.left = playerX*BLOCK_SIZE + 'px';
   if (isPlayerAttacking()) {
-    player.src = '../../images/adventure/ronin_side_attack_v2.png';
+    player.src = 'images/ronin_side_attack_v2.png';
   } else {
     switch(playerDirection) {
       case UP:
-        player.src = '../../images/adventure/ronin_back_v2.png';
+        player.src = 'images/ronin_back_v2.png';
         break;
       case DOWN:
-        player.src = '../../images/adventure/ronin_front_v2.png';
+        player.src = 'images/ronin_front_v2.png';
         player.classList.remove('faceLeft');
         break;
       case RIGHT:
-        player.src = '../../images/adventure/ronin_side_v2.png';
+        player.src = 'images/ronin_side_v2.png';
         player.classList.remove('faceLeft');
         break;
       case LEFT:
-        player.src = '../../images/adventure/ronin_side_v2.png';
+        player.src = 'images/ronin_side_v2.png';
         player.classList.add('faceLeft');
         break;
     }

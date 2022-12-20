@@ -18,16 +18,16 @@ GridBlock Styles Section (background tile URL's go here)
   z-index: 1;
 }
 .gridBlock.grass {
-  background-image: url('../../images/adventure/grass.png');
+  background-image: url('../images/grass.png');
 }
 .gridBlock.rock {
-  background-image: url('../../images/adventure/rock.png');
+  background-image: url('../images/rock.png');
 }
 .gridBlock.gravel {
-  background-image: url('../../images/adventure/gravel.png');
+  background-image: url('../images/gravel.png');
 }
 .gridBlock.hole {
-  background-image: url('../../images/adventure/hole_v3.png');
+  background-image: url('../images/hole_v3.png');
 }
 
 /*******************************************************************************
@@ -48,7 +48,7 @@ Controls/Instructions Styles Section
 }
 
 button {
-  background-image: url('../../images/adventure/button1.png');
+  background-image: url('../images/button1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
