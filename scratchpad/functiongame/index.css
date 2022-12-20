@@ -6,11 +6,14 @@
 #gameGrid {
   position: relative;
 }
+
+/*******************************************************************************
+GridBlock Styles Section (background tile URL's go here)
+*******************************************************************************/
 .gridBlock {
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  /* border: 2px solid rgba(239, 228, 176, 0.5); */
   position: absolute;
   z-index: 1;
 }
@@ -26,19 +29,10 @@
 .gridBlock.hole {
   background-image: url('../../images/adventure/hole_v3.png');
 }
-#player {
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* background-color: red;
-  border-radius: 50%; */
-  position: absolute;
-  transition: left 1s, top 1s;
-  z-index: 10;
-}
-#player.faceLeft {
-  transform: scaleX(-1);
-}
+
+/*******************************************************************************
+Controls/Instructions Styles Section
+*******************************************************************************/
 #controls {
   font-family: 'Permanent Marker', cursive;
   text-align: center;
@@ -65,6 +59,23 @@ button {
   margin: 0 24px;
   min-width: 130px;
   padding: 16px 20px;
+}
+
+/*******************************************************************************
+Player Styles Section
+*******************************************************************************/
+#player {
+  animation: breathe 6s infinite;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  transform-origin: bottom center;
+  transition: left 1s, top 1s;
+  z-index: 10;
+}
+#player.faceLeft {
+  transform: scaleX(-1);
 }
 
 #player.attackRight {
@@ -100,6 +111,17 @@ button {
   animation: jumpLeft 1s;
 }
 
+/*******************************************************************************
+Animations Section (primarily for Player)
+*******************************************************************************/
+@keyframes breathe {
+  0%, 60%, 100% {
+    transform: scale(1,1);
+  }
+  30% {
+    transform: scale(0.99,1.03);
+  }
+}
 @keyframes bumpRight {
   0%, 100% {
     transform: translateX(0%);
@@ -132,6 +154,7 @@ button {
     transform: translateY(50%);
   }
 }
+
 @keyframes nudgeRight {
   0%, 100% {
     transform: translateX(0%);
@@ -164,6 +187,7 @@ button {
     transform: translateY(10%);
   }
 }
+
 @keyframes jump {
   0%, 100% {
     transform: translateY(0%);

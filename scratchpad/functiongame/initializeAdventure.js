@@ -1,3 +1,6 @@
+/*******************************************************************************
+Declaration of constant variables
+*******************************************************************************/
 const X = 'x';
 const Y = 'y';
 const BLOCK_SIZE = 100;
@@ -8,7 +11,12 @@ const DOWN = 'DOWN';
 const RIGHT = 'RIGHT';
 const LEFT = 'LEFT';
 
+/*******************************************************************************
+Create gridBlocks and populate the gameGrid with them
+*******************************************************************************/
 let gameGrid = document.getElementById("gameGrid");
+gameGrid.style.height = GRID_HEIGHT*BLOCK_SIZE + 'px';
+
 for (let i = 0; i < GRID_HEIGHT; i++) {
   for (let j = 0; j < GRID_WIDTH; j++) {
     let classes = 'gridBlock';
@@ -30,6 +38,9 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
   }
 }
 
+/*******************************************************************************
+Create a 2D Array to store references to the gridBlocks in an organized way
+*******************************************************************************/
 let grid = [];
 let gridBlocks = document.getElementsByClassName("gridBlock");
 for (let i = 0; i < gridBlocks.length; i++) {
@@ -49,8 +60,9 @@ for (let i = 0; i < gridBlocks.length; i++) {
   grid[x][y] = gridBlock;
 }
 
-gameGrid.style.height = GRID_HEIGHT*BLOCK_SIZE + 'px';
-
+/*******************************************************************************
+Initialize player coordinates, direction, size, img src's, etc.
+*******************************************************************************/
 let player = document.getElementById('player');
 let playerX = 0;
 let playerY = 0;
@@ -70,8 +82,9 @@ player.onanimationend = function() {
   this.classList.remove('jump');
 }
 
-
-function play() {
+// This is the gameplay loop responsible for updating the player location
+// and appearance based on the playerX, playerY, and playerDirection variables
+function updatePlayer() {
   player.style.top = playerY*BLOCK_SIZE + 'px';
   player.style.left = playerX*BLOCK_SIZE + 'px';
   if (isPlayerAttacking()) {
@@ -96,4 +109,4 @@ function play() {
     }
   }
 }
-setInterval(play, 50);
+setInterval(updatePlayer, 50);
