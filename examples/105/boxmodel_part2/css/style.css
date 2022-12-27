@@ -1,0 +1,32 @@
+div {
+    background-color: lightgreen;
+}
+
+.parent {
+    border: 10px solid darkgreen;
+    margin: 24px;
+}
+
+.parent div {
+    background-color: pink;
+    border: 5px solid yellow;
+    margin: 12px;
+    padding: 36px;
+}
+
+.parent #child1 {
+    padding: 12px;
+}
+
+.parent #child2 {
+    margin-right: 100px;
+    margin-top: 24px;
+    margin-bottom: 36px;
+}
+
+.parent #child3 div {
+    background-color: skyblue;
+    border: 24px solid blue;
+    margin: 24px 0px;
+
+}

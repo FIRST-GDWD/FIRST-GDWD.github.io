@@ -1,0 +1,23 @@
+div {
+    background-color: lightgreen;
+    padding: 24px;
+    border: 10px solid gold;
+    margin: 12px;
+}
+
+.myFirstClass {
+    background-color: skyblue;
+    padding: 48px;
+    border: 20px dashed orange;
+}
+
+#myFirstId {
+    background-color: fuchsia;
+    padding: 12px 60px;
+    border: 16px dotted green;
+    margin: 60px 36px;
+}
+
+#anotherId {
+    color: white;
+}

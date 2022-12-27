@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Demo Part 2</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="parent">
+        This is a normal div with regular text content (called PCDATA).
+    </div>
+    <div class="parent">
+        <div>This is a div in a div</div>
+        <div>This is another div in a div.</div>
+        <div>These divs inside are referred to as "children" of the "parent" div.</div>
+    </div>
+    <div class="parent">
+        <div id="child1">
+            This child div has different padding from its siblings.
+        </div>
+        <div id="child2">
+            This child has different margin from its siblings.
+        </div>
+        <div id="child3">
+            This child even has its own children.
+            <div>
+                This is a child of a child.
+            </div>
+            <div>
+                You could refer to it as a grandchild.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
