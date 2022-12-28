@@ -7,12 +7,29 @@
   </head>
   <body>
     <h1>107 Interactive Coding Cheat Sheet</h1>
+    <nav>
+      <h5>Table of Contents</h5>
+      <ul>
+        <li><a href="#html">HTML</a></li>
+        <ul>
+          <li><a href="#html1">HTML Tags and Comments</a></li>
+          <li><a href="#html2">HTML Attributes and Children</a></li>
+          <li><a href="#html3">Void Elements</a></li>
+          <li><a href="#html4">Semantic Elements</a></li>
+        </ul>
+        <li><a href="#css">CSS</a></li>
+        <ul>
+          <li><a href="#css1">CSS Rules (Selectors and Declaration Blocks)</a></li>
+          <li><a href="#css2">CSS Properties and Comments</a></li>
+        </ul>
+      </ul>
+    </nav>
     <main>
       <section id="html">
         <h2>HTML</h2>
         <div class="contentContainer">
           <div class="content">
-            <h3>HTML Tags and Comments</h3>
+            <h3 id="html1">HTML Tags and Comments</h3>
             <div class="code">
               <div>
                 <span>&lt;--</span> This is an HTML comment <span>--&gt;</span></div>
@@ -20,7 +37,7 @@
               <div>
                 <span class="openingTag htmlParent">&lt;div&gt;</span>
                 <span class="htmlChild">
-                  This div has opening and closing tags on the same line.
+                  This div has tags on the same line.
                 </span>
                 <span class="closingTag htmlParent">&lt;&#47;div&gt;</span>
               </div>
@@ -42,7 +59,7 @@
         </div>
         <div class="contentContainer">
           <div class="content">
-            <h3>HTML Attributes and Children</h3>
+            <h3 id="html2">HTML Attributes and Children</h3>
             <div class="code">
               <div>
                 <span class="openingTag htmlParent">
@@ -79,13 +96,13 @@
             <div class="attrName">HTML Attribute Name</div>
             <div class="assnOperator">HTML Attribute Assignment Operator</div>
             <div class="attrValue">HTML Attribute Value</div>
-            <div class="htmlParent">HTML Tag Parent</div>
-            <div class="htmlChild">HTML Tag Child</div>
+            <div class="htmlParent">HTML Element Parent</div>
+            <div class="htmlChild">HTML Element Child</div>
           </aside>
         </div>
         <div class="contentContainer">
           <div class="content">
-            <h3>Void Elements</h3>
+            <h3 id="html3">Void Elements</h3>
             <p>Here are some common void elements you may encounter in our class.</p>
             <p>(Remember that void elements are HTML elements that should <em>NOT</em> have a closing tag. Every other HTML tag <em>SHOULD</em> have a closing tag.)</p>
             <div>
@@ -99,21 +116,12 @@
               <div class="indent1"><span class="code">&lt;col&gt;</span> - Column, used in a <span class="code">&lt;colgroup&gt;</span> element, in a <span class="code">&lt;table&gt;</span></div>
               <div class="indent1"><span class="code">&lt;input&gt;</span> - Input Field, used in a <span class="code">&lt;form&gt;</span> element</div>
               <div class="indent1"><span class="code">&lt;source&gt;</span> - Source, used in a <span class="code">&lt;audio&gt;</span> or <span class="code">&lt;video&gt;</span> element</div>
-              <h4>Other Elements</h4>
-              <div class="indent1"><span class="code">&lt;area&gt;</span> - Area (image map hyperlink)</div>
-              <div class="indent1"><span class="code">&lt;base&gt;</span> - Base URL</div>
-              <div class="indent1"><span class="code">&lt;command&gt;</span> - Command</div>
-              <div class="indent1"><span class="code">&lt;embed&gt;</span> - Embed (integration point for plugins)</div>
-              <div class="indent1"><span class="code">&lt;param&gt;</span> - Parameter (initialization point for plugins)</div>
-              <div class="indent1"><span class="code">&lt;keygen&gt;</span> - Key-pair generator/input control</div>
-              <div class="indent1"><span class="code">&lt;track&gt;</span> - Track (supplementary media track)</div>
-              <div class="indent1"><span class="code">&lt;wbr&gt;</span> - Line break opportunity</div>
             </div>
           </div>
         </div>
         <div class="contentContainer">
           <div class="content">
-            <h3>Semantic Elements</h3>
+            <h3 id="html4">Semantic Elements</h3>
             <p>Here are some common semantic elements you may encounter in our class.</p>
             <p>(Remember that semantic elements generally do not affect a page visually, but they do give <em>MEANING</em> to elements within a page.)</p>
             <div>
@@ -134,7 +142,46 @@
         <h2>CSS</h2>
         <div class="contentContainer">
           <div class="content">
-            <h3>CSS Properties and Comments</h3>
+            <h3 id="css1">CSS Rules (Selectors and Declaration Blocks)</h3>
+            <div class="code">
+              <div><span class="cssSelHtml">div</span> <span class=cssDecStart>{</span></div>
+              <div class="indent1">
+                <span class="cssPropName">font-style</span><span class="cssAssnOperator">:</span>
+                <span class="cssPropValue">italic</span><span class="cssAssnTerminator">;</span>
+              </div>
+              <div class="indent1">
+                <span class="cssPropName">line-height</span><span class="cssAssnOperator">:</span>
+                <span class="cssPropValue">24px</span><span class="cssAssnTerminator">;</span>
+              </div>
+              <div><span class="cssDecEnd">}</span></div>
+              <br />
+              <div>
+                <span class="cssSelHtml">section</span><span class="cssSelClass">.large</span>
+                <span class="cssSelId">#explanation</span>
+                <span class=cssDecStart>{</span>
+              </div>
+              <div class="indent1">
+                <span class="cssPropName">linear-gradient</span><span class="cssAssnOperator">:</span>
+                <span class="cssPropValue">to top left, green 10%, red 90%</span><span class="cssAssnTerminator">;</span>
+              </div>
+              <div class="indent1">
+                <span class="cssPropName">border</span><span class="cssAssnOperator">:</span>
+                <span class="cssPropValue">5px dashed darkgreen</span><span class="cssAssnTerminator">;</span>
+              </div>
+              <div><span class="cssDecEnd">}</span></div>
+            </div>
+          </div>
+          <aside class="legend">
+            <div class="cssSelHtml">HTML Element Selector</div>
+            <div class="cssSelId">ID Selector</div>
+            <div class="cssSelClass">Class Selector</div>
+            <div class="cssDecStart">CSS Declaration Block Start</div>
+            <div class="cssDecEnd">CSS Declaration Block End</div>
+          </aside>
+        </div>
+        <div class="contentContainer">
+          <div class="content">
+            <h3 id="css2">CSS Properties and Comments</h3>
             <div class="code">
               <span class="openingTag htmlParent">
                 &lt;div
@@ -166,45 +213,7 @@
             <div class="cssAssnTerminator">CSS Property Assignment Terminator</div>
           </aside>
         </div>
-        <div class="contentContainer">
-          <div class="content">
-            <h3>CSS Selectors and Declaration Blocks</h3>
-            <div class="code">
-              <div><span class="cssSelHtml">div</span> <span class=cssDecStart>{</span></div>
-              <div class="indent1">
-                <span class="cssPropName">font-style</span><span class="cssAssnOperator">:</span>
-                <span class="cssPropValue">italic</span><span class="cssAssnTerminator">;</span>
-              </div>
-              <div class="indent1">
-                <span class="cssPropName">line-height</span><span class="cssAssnOperator">:</span>
-                <span class="cssPropValue">24px</span><span class="cssAssnTerminator">;</span>
-              </div>
-              <div><span class="cssDecEnd">}</span></div>
-              <br />
-              <div>
-                <span class="cssSelHtml">section</span><span class="cssSelClass">.large</span>
-                <span class="cssSelId">#explanation</span>
-                <span class=cssDecStart>{</span>
-              </div>
-              <div class="indent1">
-                <span class="cssPropName">linear-gradient</span><span class="cssAssnOperator">:</span>
-                <span class="cssPropValue">to top left, green 10%, red 90%</span><span class="cssAssnTerminator">;</span>
-              </div>
-              <div class="indent1">
-                <span class="cssPropName">border</span><span class="cssAssnOperator">:</span>
-                <span class="cssPropValue">5px dashed darkgreen</span><span class="cssAssnTerminator">;</span>
-              </div>
-              <div><span class="cssDecEnd">}</span></div>
-            </div>
-          </div>
-          <aside class="legend">
-            <div class="cssSelHtml">HTML Tag Selector</div>
-            <div class="cssSelId">ID Selector</div>
-            <div class="cssSelClass">Class Selector</div>
-            <div class="cssDecStart">CSS Declaration Start</div>
-            <div class="cssDecEnd">CSS Declaration End</div>
-          </aside>
-        </div>
+        
       </section>
     </main>
     <script>

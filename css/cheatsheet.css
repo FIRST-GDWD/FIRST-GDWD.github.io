@@ -1,9 +1,41 @@
 body {
   font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 24px;
+}
+
+nav {
+  background-color: lavender;
+  padding: 24px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  list-style-type: none;
 }
 
 main {
   padding-bottom: 48px;
+}
+
+#html {
+  background-color: lightcyan;
+  margin-top: 24px;
+  padding: 24px;
+}
+
+#css {
+  background-color: lightgoldenrodyellow;
+  margin-bottom: 200px;
+  margin-top: 24px;
+  padding: 24px;
 }
 
 section {
@@ -27,6 +59,10 @@ h5 {
 
 .legend {
   flex: 1;
+}
+
+.legend div:first-child {
+  padding-top: 20px;
 }
 
 .code {
