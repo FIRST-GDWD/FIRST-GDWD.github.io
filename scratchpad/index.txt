@@ -1,0 +1,40 @@
+CSS RULE
+
+Selectors and Declaration Blocks
+
+HTML Element Selector Examples
+p { } 
+h1 { }
+ul { }
+
+Class Selector Examples
+.myClass { }
+.boldHeading { }
+
+ID Selector Examples
+#myId { }
+#submitButton { }
+
+
+Declaration Blocks (of CSS Properties)
+
+CSS Property Declarations:
+
+Property Name 
+Assignment Operator (:)
+Property Value
+Assignment Terminator (;) 
+    (period of programming)
+
+p {
+    color: red;
+    padding: 36px;
+}
+
+How to Include CSS in HTML
+
+Inline CSS
+
+Internal CSS 
+
+External CSS
