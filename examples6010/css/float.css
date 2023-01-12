@@ -1,0 +1,19 @@
+img {
+    width: 200px;
+    margin: 24px;
+}
+
+#floatLeft {
+    float: left;
+}
+#floatRight {
+    float: right;
+}
+
+#clear {
+    clear: both;
+}
+
+p {
+    background-color: pink;
+}

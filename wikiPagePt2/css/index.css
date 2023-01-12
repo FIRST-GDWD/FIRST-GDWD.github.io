@@ -1,0 +1,20 @@
+.disclaimer {
+    margin-left: 24px;
+    margin-top: 24px;
+    font-style: italic;
+}
+#sidebar {
+    background-color: lightgray;
+    border: 1px solid #444444;
+    float: right;
+    text-align: center;
+    padding: 8px;
+    margin: 12px;
+}
+
+#tableOfContents {
+    background-color: lightgray;
+    border: 1px solid #444444;
+    width: 300px;
+    padding: 8px;
+}
