@@ -1,40 +1,15 @@
-CSS RULE
+Semantics
 
-Selectors and Declaration Blocks
+<div>
+<span>
 
-HTML Element Selector Examples
-p { } 
-h1 { }
-ul { }
+<h1> - <h6>
+<p>
 
-Class Selector Examples
-.myClass { }
-.boldHeading { }
+<header>
+<footer>
+<nav>
 
-ID Selector Examples
-#myId { }
-#submitButton { }
-
-
-Declaration Blocks (of CSS Properties)
-
-CSS Property Declarations:
-
-Property Name 
-Assignment Operator (:)
-Property Value
-Assignment Terminator (;) 
-    (period of programming)
-
-p {
-    color: red;
-    padding: 36px;
-}
-
-How to Include CSS in HTML
-
-Inline CSS
-
-Internal CSS 
-
-External CSS
+<main>
+<article>
+<aside>
