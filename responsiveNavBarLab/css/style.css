@@ -1,5 +1,22 @@
-nav img {
-    height: 20px;
+body {
+    margin: 0px;
+}
+
+main img {
+    width: 100%;
+}
+
+nav {
+    background-color: navy;
+}
+
+#logo {
+    display: flex;
+}
+
+#logo img {
+    height: 50px;
+    margin-left: 12px;
 }
 
 nav a {
@@ -19,11 +36,15 @@ nav > ul > li {
     padding: 12px;
 }
 
-nav > ul > li:hover {
-    background-color: rgb(60, 60, 138);
+nav > ul > li:first-child {
+    margin-right: auto;
 }
 
-.dropdown {
+nav > ul > li:hover {
+    background-color: rgb(76, 76, 139);
+}
+
+nav {
     position: relative;
 }
 
@@ -41,8 +62,14 @@ nav > ul > li:hover {
     display: flex;
 }
 
-.dropdown ul li {
+.dropdown ul li a {
     background-color: blue;
+    display: inline-block;
     padding: 12px;
-    width: 150%;
+    width: 100vw;
+}
+
+.dropdown ul li a:hover {
+    background-color: skyblue;
+    color: navy;
 }
