@@ -10,15 +10,6 @@ nav {
     background-color: navy;
 }
 
-#logo {
-    display: flex;
-}
-
-#logo img {
-    height: 50px;
-    margin-left: 12px;
-}
-
 nav a {
     color: turquoise;
     text-decoration: none;
@@ -36,37 +27,35 @@ nav > ul > li {
     padding: 12px;
 }
 
-nav > ul > li:first-child {
-    margin-right: auto;
-}
-
 nav > ul > li:hover {
     background-color: rgb(76, 76, 139);
 }
 
-nav {
+.dropdown {
     position: relative;
 }
 
 .dropdown ul {
-    display: none;
     flex-direction: column;
     list-style-type: none;
     padding: 0px;
     position: absolute;
     left: 0px;
     top: 100%;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .dropdown:hover ul {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 .dropdown ul li a {
     background-color: blue;
     display: inline-block;
     padding: 12px;
-    width: 100vw;
+    width: 150px;
 }
 
 .dropdown ul li a:hover {
