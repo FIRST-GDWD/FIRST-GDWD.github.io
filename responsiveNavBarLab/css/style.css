@@ -18,6 +18,7 @@ nav a {
 nav > ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style-type: none;
     padding: 0px;
 }
@@ -41,14 +42,19 @@ nav > ul > li:hover {
     padding: 0px;
     position: absolute;
     left: 0px;
-    top: 100%;
+    top: 75%;
     opacity: 0;
     visibility: hidden;
+    transition: 
+        opacity 0.5s,
+        visibility 0.5s,
+        top 0.5s;
 }
 
 .dropdown:hover ul {
     opacity: 1;
     visibility: visible;
+    top: 100%;
 }
 
 .dropdown ul li a {
