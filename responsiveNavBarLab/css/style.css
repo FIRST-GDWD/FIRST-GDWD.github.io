@@ -1,0 +1,129 @@
+body {
+    background-color: antiquewhite;
+    margin: 0px;
+}
+
+#hero {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+nav {
+    background-color: navy;
+}
+
+nav a {
+    color: turquoise;
+    text-decoration: none;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px auto;
+    max-width: 800px;
+}
+
+nav > ul > li {
+    background-color: navy;
+    padding: 12px;
+}
+
+nav > ul > li:hover {
+    background-color: rgb(76, 76, 139);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown ul {
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    top: 75%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        opacity 0.5s,
+        visibility 0.5s,
+        top 0.5s;
+}
+
+.dropdown:hover ul {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+}
+
+.dropdown ul li a {
+    background-color: blue;
+    display: inline-block;
+    padding: 12px;
+    width: 150px;
+}
+
+.dropdown ul li a:hover {
+    background-color: skyblue;
+    color: navy;
+}
+
+.textAndImage {
+    align-items: center;
+    display: flex;
+    margin: 24px auto;
+    max-width: 800px;
+}
+
+.textBlock {
+    flex: 2;
+    margin: 24px;
+}
+
+.imageBlock {
+    flex: 1;
+}
+
+.imageBlock img {
+    border-radius: 24px;
+    width: 100%;
+}
+
+ul li:first-child {
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    nav > ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown:hover ul {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    ul li:first-child {
+        margin-right: 0px;
+    } 
+    
+    .textAndImage {
+        flex-direction: column;
+    }
+
+    .imageBlock,
+    .textBlock {
+        order: 2;
+    }
+
+    .textAndImage .imageBlock:last-child {
+        order: 1;
+    }
+}
