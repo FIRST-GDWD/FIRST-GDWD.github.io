@@ -1,5 +1,5 @@
 nav {
-  background-color: yellow;
+  background-color: lightgreen;
 }
 
 ul {
@@ -18,7 +18,7 @@ li {
 }
 
 /* this is referred to as a mobile breakpoint */
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   ul {
     flex-direction: column;
     align-items: center;
@@ -26,4 +26,4 @@ li {
   #home {
     margin-right: 0;
   }
-}
+} */
