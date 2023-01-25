@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>FB Form</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="formContainer">
+            <header></header>
+            <div id="formContent">
+                <form>
+                    <div id="formHeader">
+                        <h2>Create a new account</h2>
+                        <p>It's quick and easy</p>
+                    </div>
+                    <div id="formFields">
+                        <div id="textInputContainers">
+                            <input id="firstNameInput" type="text" name="firstName" placeholder="First name">
+                            <input id="lastNameInput" type="text" name="lastName" placeholder="Last name">
+                            <input id="phoneOrEmailInput" type="text" name="phoneOrEmail" placeholder="Mobile number or email">
+                            <input id="passwordInput" type="text" name="password" placeholder="New password">
+                        </div>
+                        <div id="titleBdayPublicInputs">
+                            <div>
+                                <label for="titleSelector">Preferred Title</label>
+                                <select id="titleSelector" name="title">
+                                    <option value="" disabled selected>Select Title</option>
+                                    <option value="none">None</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="birthdayInput">Birthday</label>
+                                <input id="birthdayInput" type="date">
+                            </div>
+                            <div>
+                                <label for="publicCheckbox">Make Public?</label>
+                                <input id="publicCheckbox" type="checkbox">
+                            </div>
+                        </div>
+                        <div id="genderInputs">
+                            <label>Gender</label>
+                            <div id="genderRadioButtons">
+                                <div>
+                                    <label for="femaleGenderInput">Female</label>
+                                    <input id="femaleGenderInput" type="radio" name="gender" value="female">
+                                </div>
+                                <div>
+                                    <label for="maleGenderInput">Male</label>
+                                    <input id="maleGenderInput" type="radio" name="gender" value="male">
+                                </div>
+                                <div>
+                                    <label for="otherGenderInput">Other</label>
+                                    <input id="otherGenderInput" type="radio" name="gender" value="other">
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            People who use our service may have uploaded your 
+                            contact information to Facebook. 
+                            <a href="#">Learn more</a>
+                        </p>
+                        <input type="submit" value="Sign Up">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
