@@ -56,3 +56,11 @@
     width: 100%;
     margin-bottom: 24px;
 }
+
+img {
+    transition: transform 0.5s;
+}
+
+img:hover {
+    transform: scale(2);
+}
