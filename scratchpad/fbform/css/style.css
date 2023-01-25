@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEEEEE;
+    font-family: sans-serif;
+}
+
+#formContainer {
+    display: grid;
+    grid-template-columns: 1fr 450px 1fr;
+    grid-template-areas:
+        ". header ."
+        ". content .";
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+header img {
+    height: 50px;
+    margin: 24px;
+}
+
+#formContent {
+    background-color: #FEFEFE;
+    border-radius: 12px;
+    box-shadow: 0px 0px 16px #CCCCCC;
+    grid-area: content;
+    text-align: center;
+}
+
+#formHeader {
+    border-bottom: 2px solid #DDDDDD;
+}
+
+#formFields {
+    padding: 12px;
+}
+
+input[type=text],
+input[type=date],
+select,
+#genderRadioButtons > div,
+input[type=submit] {
+    border: 2px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 4px;
+}
+
+input[type=checkbox] {
+    margin: 16px 0px 16px 4px;
+}
+
+#textInputContainers {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12px;
+}
+
+#firstNameInput,
+#lastNameInput {
+    flex: 1;
+}
+
+#phoneOrEmailInput,
+#passwordInput {
+    width: 100%;
+}
+
+#titleBdayPublicInputs {
+    display: flex;
+    margin: 12px;
+}
+
+#titleBdayPublicInputs > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#titleBdayPublicInputs select,
+#titleBdayPublicInputs input[type=date],
+#titleBdayPublicInputs input[type=radio] {
+    width: 120px;
+}
+
+#titleBdayPublicInputs > div label,
+#genderInputs > label {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#genderInputs {
+    margin: 12px;
+    text-align: left;
+}
+
+#genderRadioButtons {
+    display: flex;
+}
+
+#genderRadioButtons > div {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+#formFields p {
+    font-size: 12px;
+    margin: 16px;
+    text-align: left;
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    width: 150px;
+}
