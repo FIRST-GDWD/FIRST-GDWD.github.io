@@ -1,0 +1,36 @@
+#gallery {
+    width: 800px;
+    margin: 24px auto;
+}
+
+#gallery1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#gallery1 img {
+    width: 100%;
+}
+
+#gallery2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#gallery2 img {
+    width: 266.6px;
+    height: 266.6px;
+    object-fit: cover;
+}
+
+#gallery3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#gallery3 img {
+    height: 200px;
+    margin: 12px;
+    flex: 1 0 auto;
+    object-fit: cover;
+}
