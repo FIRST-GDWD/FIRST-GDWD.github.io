@@ -34,3 +34,25 @@
     flex: 1 0 auto;
     object-fit: cover;
 }
+
+#gallery4 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 1100px;
+}
+
+#gallery4 img {
+    width: 30%;
+    margin: 12px;
+}
+
+#gallery5 {
+    columns: 3 auto;
+    column-gap: 24px;
+}
+
+#gallery5 img {
+    width: 100%;
+    margin-bottom: 24px;
+}
