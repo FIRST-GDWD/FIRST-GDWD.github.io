@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Contact Form</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="gridContainer">
+            <header>
+                <h1>Contact us</h1>
+                <p>
+                    Got a question? We'd love to 
+                    hear from you.
+                    Send us a message and we'll
+                    respond as soon as possible.
+                </p>
+            </header>
+            <div id="formContainer">
+                <form action="https://getform.io/f/66453f25-d75b-49eb-b6ee-ef9baf943c62" method="POST">
+                    <label>What can we help you with?</label>
+                    <select name="questionType">
+                        <option value="" disabled selected>-- Select what we can help you with --</option>
+                        <option value="commission">Commission</option>
+                        <option value="carWarranty">Want to extend my car's warranty</option>
+                        <option value="websiteDesign">Website Design</option>
+                        <option value="adRemoval">Need a break from ads</option>
+                    </select>
+                    <label>Name</label>
+                    <input type="text" name="name" minlength="3" maxlength="30" required placeholder="Name">
+                    <label>Email</label>
+                    <input type="text" name="email" required>
+                    <label>Message</label>
+                    <textarea 
+                        name="message" 
+                        optional
+                        placeholder="Type your message here..."></textarea>
+                    <div id="buttonContainer">
+                        <button type="submit">SEND</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
