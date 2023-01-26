@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Facebook Form Exercise</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="formContainer">
+            <header>
+                <img alt="facebook" src="assets/images/fbLogo.png">
+            </header>
+            <div id="formContent">
+                <div id="formHeader">
+                    <h2>Create a new account</h2>
+                    <p>It's quick and easy</p>
+                </div>
+                <div id="formFields">
+                    <form>
+                        <div id="textInputsContainer">
+                            <input 
+                                id="firstNameInput"
+                                type="text" 
+                                name="firstName"
+                                placeholder="First name">
+                            <input 
+                                id="lastNameInput"
+                                type="text" 
+                                name="lastName"
+                                placeholder="Last name">
+                            <input 
+                                id="phoneOrEmailInput"
+                                type="text" 
+                                name="phoneOrEmail"
+                                placeholder="Mobile number or email">
+                            <input 
+                                id="passwordInput"
+                                type="text" 
+                                name="password"
+                                placeholder="New password">
+                        </div>
+                        <div id="titleBdayPublicInputs">
+                            <div>
+                                <label>Preferred Title</label>
+                                <select id="titleSelector" name="title">
+                                    <option value="" disabled selected>
+                                        Select title
+                                    </option>
+                                    <option value="none">None</option>
+                                    <option value="mr">Mr.</option>
+                                    <option value="ms">Ms.</option>
+                                    <option value="mrs">Mrs.</option>
+                                    <option value="sir">Sir</option>
+                                    <option value="dr">Dr.</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Birthday</label>
+                                <input type="date" name="birthday">
+                            </div>
+                            <div>
+                                <label>Make Public?</label>
+                                <input type="checkbox" name="isPublic">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
