@@ -37,9 +37,14 @@ header img {
     border-bottom: 2px solid #DDDDDD;
 }
 
+/* 
+    This code styles the 
+    boxes of inputs 
+*/
 input[type=text],
 input[type=date],
-select {
+select,
+#genderInputs > div {
     border: 2px solid #DDDDDD;
     border-radius: 4px;
     padding: 8px;
@@ -89,4 +94,19 @@ select {
 
 #titleBdayPublicInputs input[type=checkbox] {
     margin: 16px 0px 16px 8px;
+}
+
+#genderRadioButtons {
+    margin: 12px;
+    text-align: left;
+}
+
+#genderInputs {
+    display: flex;
+}
+
+#genderInputs > div {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
 }
