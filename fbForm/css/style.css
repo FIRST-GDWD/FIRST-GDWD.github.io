@@ -43,8 +43,11 @@ header img {
 */
 input[type=text],
 input[type=date],
+input[type=email],
+input[type=password],
 select,
-#genderInputs > div {
+#genderInputs > div,
+input[type=submit] {
     border: 2px solid #DDDDDD;
     border-radius: 4px;
     padding: 8px;
@@ -86,7 +89,8 @@ select,
     width: 100%;
 }
 
-#titleBdayPublicInputs > div label {
+#titleBdayPublicInputs > div label,
+#genderRadioButtons > label {
     font-size: 12px;
     font-weight: bold;
     margin-left: 5px;
@@ -109,4 +113,29 @@ select,
     display: flex;
     justify-content: space-between;
     flex: 1;
+}
+
+#formFields p {
+    font-size: 12px;
+    margin: 16px;
+    text-align: left;
+}
+
+input[type=submit] {
+    background-color: #10a515;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    min-width: 175px;
+}
+
+a {
+    color: #0d77ff;
+    text-decoration: none;
+}
+
+#login {
+    display: block;
+    margin: 24px;
 }
