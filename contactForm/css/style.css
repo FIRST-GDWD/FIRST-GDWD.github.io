@@ -76,3 +76,24 @@ form input[type=submit] {
     padding: 16px 24px;
 }
 
+/* input:invalid { */
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: 3px solid red;
+    box-shadow: 0px 0px 16px red;
+    animation: invalidWiggle 0.5s infinite;
+}
+
+@keyframes invalidWiggle {
+    0%, 100% {
+        transform: translateX(0px) rotate(0deg);
+        background-color: white;
+    }
+    25% {
+        transform: translateX(-15px) rotate(10deg);
+        background-color: red;
+    }
+    75% {
+        transform: translateX(15px) rotate(-10deg);
+        background-color: yellow;
+    }
+}
