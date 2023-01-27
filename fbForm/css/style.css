@@ -139,3 +139,20 @@ a {
     display: block;
     margin: 24px;
 }
+
+input:invalid,
+input[type=date]:invalid,
+#phoneOrEmailInput:invalid {
+    background-color: lightpink;
+    border-color: red;
+    box-shadow: 0px 0px 8px red;
+}
+
+/* 
+    This will target all inputs
+    that are NOT submit inputs
+*/
+input:not([type=submit]):valid,
+#phoneOrEmailInput:valid {
+    border-color: lightgreen;
+}

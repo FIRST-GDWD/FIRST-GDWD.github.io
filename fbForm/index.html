@@ -24,12 +24,17 @@
                                 id="firstNameInput"
                                 type="text" 
                                 name="firstName"
-                                placeholder="First name">
+                                placeholder="First name"
+                                minlength="2"
+                                maxlength="30"
+                                required
+                                >
                             <input 
                                 id="lastNameInput"
                                 type="text" 
                                 name="lastName"
-                                placeholder="Last name">
+                                placeholder="Last name"
+                                optional>
                             <input 
                                 id="phoneOrEmailInput"
                                 type="email" 
@@ -44,7 +49,10 @@
                         <div id="titleBdayPublicInputs">
                             <div>
                                 <label>Preferred Title</label>
-                                <select id="titleSelector" name="title">
+                                <select 
+                                    id="titleSelector" 
+                                    name="title"
+                                    required>
                                     <option value="" disabled selected>
                                         Select title
                                     </option>
@@ -58,7 +66,7 @@
                             </div>
                             <div>
                                 <label>Birthday</label>
-                                <input type="date" name="birthday">
+                                <input type="date" name="birthday" required>
                             </div>
                             <div>
                                 <label>Make Public?</label>
