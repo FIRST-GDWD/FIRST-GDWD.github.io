@@ -21,6 +21,11 @@ header {
     text-align: center;
 }
 
+label::after {
+    content: "*";
+    color: red;
+}
+
 header h1 {
     font-size: 36px;
 }
@@ -95,5 +100,18 @@ input:not(:focus):not(:placeholder-shown):invalid {
     75% {
         transform: translateX(15px) rotate(-10deg);
         background-color: yellow;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* body {
+        background-color: lightgreen;
+    } */
+
+    #gridContainer {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "content";
     }
 }
