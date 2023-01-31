@@ -10,8 +10,8 @@ body {
     height: 500px;
     position: relative;
     /* display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; */
+    justify-content: center;
+    align-items: center; */
     transition: filter 0.5s;
 }
 
@@ -25,4 +25,49 @@ body {
     left: 60px;
     font-family: cursive;
     font-size: 60px;
+}
+
+p {
+    font-size: 32px;
+    margin: 48px;
+}
+
+#hero2 {
+    color: white;
+    height: 100vh;
+    background-image: url("../assets/images/forest.gif");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero2 h2,
+#hero3 h2 {
+    font-family: cursive;
+    font-size: 60px;
+}
+
+#hero2 h3,
+#hero3 h3 {
+    font-family: cursive;
+    font-size: 48px;
+}
+
+#hero3 {
+    background-image: url("../assets/images/clouds.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+#hero3 h2 {
+    padding-top: 60px;
+}
+
+#hero3 h3 {
+    padding-bottom: 60px;
 }
