@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+}
+
+#hero1 {
+    background-image: url("../assets/images/SnowyHero.jpg");
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 500px;
+    position: relative;
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; */
+    transition: filter 0.5s;
+}
+
+#hero1:hover {
+    filter: blur(2px);
+}
+
+#hero1 h1 {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    font-family: cursive;
+    font-size: 60px;
+}
