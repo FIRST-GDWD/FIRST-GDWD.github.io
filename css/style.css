@@ -1,0 +1,13 @@
+#hero {
+    background-image: url("../assets/images/abstractBackground2.jpg");
+    background-attachment: fixed;
+    color: white;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 72px;
+}
