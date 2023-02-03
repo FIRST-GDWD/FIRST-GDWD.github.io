@@ -1,0 +1,277 @@
+/* Google Font API imports - found at https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;400;600&display=swap');
+
+/*****************************************************************************
+  Heading, Link, and Misc. Styles
+*****************************************************************************/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lobster', sans-serif;
+}
+
+h4,
+p,
+a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer ul {
+  padding: 0;
+}
+
+.glider {
+  background-image: url("../assets/images/soil.jpg");
+  background-attachment: fixed;
+  height: 200px;
+}
+
+/****************************************************************************
+  Grid styles
+****************************************************************************/
+#siteGrid {
+  display: grid;
+  grid-template-columns: 1fr 1000px 1fr;
+  grid-auto-rows: minmax(50px, auto);
+  grid-template-areas:
+    ". navArea ."
+    "heroArea heroArea heroArea"
+    ". contentArea1 ."
+    "glider1 glider1 glider1"
+    ". contentArea2 ."
+    "glider2 glider2 glider2"
+    "footerArea footerArea footerArea";
+}
+nav {
+  grid-area: navArea;
+}
+#hero {
+  grid-area: heroArea;
+}
+#contentContainer {
+  grid-area: contentArea1;
+}
+.glider1 {
+    grid-area: glider1;
+}
+#contentContainer2 {
+    grid-area: contentArea2;
+}
+.glider2 {
+    grid-area: glider2;
+}
+footer {
+  grid-area: footerArea;
+}
+
+
+/****************************************************************************
+  Nav/Footer styles
+****************************************************************************/
+nav {
+  align-items: center;
+  display: flex;
+  margin: 0 24px;
+}
+
+nav h2 img {
+    height: 100px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#footerGoodbye {
+    background-image: url(../assets/images/hay.jpg);
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin: 48px;
+}
+
+#footerGoodbye h3 {
+    color: white;
+    font-size: 32px;
+    padding-top: 50px;
+}
+
+#navLinks {
+  justify-content: center;
+}
+
+#navLinks,
+.socialMedia {
+  display: flex;
+  list-style-type: none;
+}
+
+#navLinks li,
+.socialMedia li {
+  padding: 0 4px;
+}
+
+nav .socialMedia {
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+.socialMedia i {
+  font-size: 20px;
+}
+
+nav,
+nav a,
+footer a {
+  color: #E1A177;
+}
+
+nav a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+nav ul,
+nav h2 {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+
+/****************************************************************************
+  Hero styles
+****************************************************************************/
+
+#hero {
+  background-image: url("../assets/images/fields.jpg");
+  background-attachment: fixed;
+  background-position: center -500px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+#hero h1 {
+    background-color: rgba(255,255,255,0.99);
+    border-radius: 12px;
+    color: #E1A177;
+    padding: 12px 24px;
+    margin: 0;
+}
+
+/****************************************************************************
+  Link styles
+****************************************************************************/
+
+#hero a,
+.card a {
+  background-color: #E1A177;
+  color: white;
+  border: 2px solid #E1A177;
+  border-radius: 24px;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 12px;
+  min-width: 150px;
+  transition: transform 0.25s;
+}
+
+#hero a:hover,
+.card a:hover {
+  transform: scale(1.05);
+}
+
+/****************************************************************************
+  Card styles
+****************************************************************************/
+.threeCards,
+.twoCards {
+  display: flex;
+}
+
+.card {
+  border: 2px solid #E1A177;
+  color: #E1A177;
+  margin: 48px 24px 24px;
+  padding: 12px 12px 24px;
+  text-align: center;
+  box-shadow: 4px 4px 8px 0px grey;
+  flex: 1;
+}
+
+.card p {
+    color: black;
+    font-size: 18px;
+    min-height: 100px;
+}
+
+/****************************************************************************
+  Gallery styles
+****************************************************************************/
+#gallery {
+  text-align: center;
+}
+
+/****************************************************************************
+  Carousel Styles
+****************************************************************************/
+#carousel {
+  text-align: center;
+  margin: 48px 0;
+}
+
+/****************************************************************************
+  Media Query - Mobile Breakpoint
+****************************************************************************/
+@media screen and (max-width: 1000px) {
+  #siteGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "navArea"
+    "heroArea"
+    "contentArea1"
+    "glider1"
+    "contentArea2"
+    "glider2"
+    "footerArea";
+  }
+
+  nav,
+  .threeCards,
+  .twoCards {
+    flex-direction: column;
+  }
+
+  nav h2,
+  nav ul {
+    margin: 4px 0;
+  }
+
+}
