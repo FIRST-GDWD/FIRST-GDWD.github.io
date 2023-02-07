@@ -1,15 +1,4 @@
-Semantics
+CMS
 
-<div>
-<span>
+Content Management System
 
-<h1> - <h6>
-<p>
-
-<header>
-<footer>
-<nav>
-
-<main>
-<article>
-<aside>
