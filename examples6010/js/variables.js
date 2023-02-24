@@ -1,7 +1,9 @@
-// variables need to be declared 
+// variables need to be declared
 // before they can be used.
-// variable declaration is done
+// variable declaration is one
 // by using the 'let' keyword.
+
+debugger;
 
 // a variable assigned a String data type
 let greeting = "Good evening";
@@ -15,6 +17,10 @@ console.log(myNumber);
 myNumber = 10;
 console.log(myNumber);
 
+// we can also change the data type of a variable
+// myNumber = "one thousand";
+// console.log(myNumber);
+
 // we can also use operators for variable assignment
 let myNewNumber = 5 + 4;
 console.log(myNewNumber);
@@ -23,12 +29,13 @@ console.log(myNewNumber);
 let anotherNumber = myNumber + myNewNumber;
 console.log(anotherNumber);
 
-// we can even use the same variable in assignments
+// we can even use the same variable 
+// in its own assignments
 anotherNumber = anotherNumber + 5;
 console.log(anotherNumber);
 
 // a more practical example of how
 // variables can be used on a site
-let userName = "Ryan";
-let personalizedGreeting = greeting + " " + userName;
+let username = "Ryan";
+let personalizedGreeting = greeting + " " + username;
 console.log(personalizedGreeting);
