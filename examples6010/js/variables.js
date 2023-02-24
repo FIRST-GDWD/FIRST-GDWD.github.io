@@ -3,7 +3,7 @@
 // variable declaration is one
 // by using the 'let' keyword.
 
-debugger;
+// debugger;
 
 // a variable assigned a String data type
 let greeting = "Good evening";
