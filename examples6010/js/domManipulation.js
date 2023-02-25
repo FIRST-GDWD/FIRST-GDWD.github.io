@@ -3,8 +3,8 @@
 // (including the HTML and CSS) in JavaScript
 
 // This will get us a JS reference to the 
-// the HTML element with the specified ID
-// (remember, JS is case-sensitive!!!)
+// HTML element with the specified ID
+// (remember, JS is case-sensitive)
 let body = document.getElementById("myBodyElement");
 
 // The dot (.) operator lets us look inside
@@ -27,24 +27,24 @@ body.style.backgroundColor = "lightgreen";
 body.innerHTML = "<h1>Hello World!</h1>";
 
 // We can also append HTML to 'innerHTML'
-body.innerHTML = 
+body.innerHTML =
     body.innerHTML + 
     "<p id='myParagraph'>This was written with dynamic JS!</p>";
 
-// The += operator is equivalent to the 
-// code above
+// The += operator is equivalent to the code above
 body.innerHTML += "<p>Here's another paragraph</p>";
 
-// We can also get JS reference to HTML elements
-// we added dynamically.
+// We can also get JS references to HTML elements
+// that we added dynamically
 let myParagraph = document.getElementById("myParagraph");
 myParagraph.style.color = "#3333FF";
 myParagraph.style.fontWeight = "bold";
+myParagraph.style.fontSize = "60px";
 
-// We can combine what we learned to build
-// a very simple 'day/night' mode for our page.
-var isNightMode = false;
-if (isNightMode) {
+// We can combine what we learned today to build
+// a very simple 'light/dark' mode for our page
+let isDarkMode = false;
+if (isDarkMode) {
     body.style.backgroundColor = "#333333";
     body.style.color = "white";
 } else {
