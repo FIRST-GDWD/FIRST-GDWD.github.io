@@ -1,5 +1,5 @@
 /*******************************************************************************
-Block Utility Functions
+Player Utility Functions
 *******************************************************************************/
 // Returns true if the player is in an "attacking" state
 function isPlayerAttacking() {
