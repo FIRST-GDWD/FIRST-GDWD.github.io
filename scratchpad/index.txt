@@ -1,4 +1,21 @@
-CMS
+JavaScript
 
-Content Management System
+Programming Language
 
+HTML            CSS             JavaScript
+
+Content         Presentation    Interaction
+
+Skeletal        Skin/hair       Musclular
+
+Framing         Walls/Roofing   Electrical/wiring
+
+
+
+What can you do with JS?
+
+Toggle classes (hover state)
+
+Button actions
+
+Rewrite HTML
