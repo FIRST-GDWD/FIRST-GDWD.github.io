@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../assets/images/abstractBackground3.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+#hero h1 {
+    font-size: 60px;
+    padding: 24px;
+}
+
+#days {
+    color: red;
+}
+
+#hours {
+    color: skyblue;
+}
+
+#minutes {
+    color: green;
+}
+
+#seconds {
+    color: indigo
+}

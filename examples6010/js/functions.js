@@ -1,22 +1,23 @@
-// Variable Review
-var greeting = "Good evening";
+// variable review
+let greeting = "Good evening";
 console.log(greeting);
 
-// Simple function
+// Simple Function
 function greet() {
     console.log(greeting);
 }
 
 greet();
 
-// Function with input parameter
+// Function with an input parameter
 function greetUser(username) {
-    console.log(greeting + ", " + username);
+    let userGreeting = greeting + ", " + username;
+    console.log(userGreeting);
 }
 
 greetUser("Ryan");
 greetUser("Jamir");
-greetUser("symphorian");
+greetUser("Erica");
 
 // Function with input parameter
 // that modifies the page
@@ -29,17 +30,19 @@ greetUserOnPage("Ryan");
 
 // Function that outputs (or "returns") a value
 function getUserGreeting(username) {
-    return greeting + ", " + username + "!";
+    return greeting + ", " + username + "! How can I help you?";
 }
 
-getUserGreeting("ryan");
-console.log(getUserGreeting("ryan"));
+getUserGreeting("Ryan");
+console.log(
+    getUserGreeting("Ryan")
+);
 
 // Function using another function
 // that modifies the page
 function greetUserOnPageV2(username) {
-    //let greetingDisplay = document.getElementById("greetingDisplay");
+    let greetingDisplay = document.getElementById("greetingDisplay");
     greetingDisplay.innerHTML = getUserGreeting(username);
 }
 
-greetUserOnPageV2("Ryan");
+greetUserOnPageV2("Ryan Charles Reid");
