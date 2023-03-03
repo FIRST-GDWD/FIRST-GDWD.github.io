@@ -1,0 +1,9 @@
+.follower {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: radial-gradient(crimson, rgba(255,255,255,0) 50%);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
