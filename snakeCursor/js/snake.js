@@ -2,7 +2,7 @@
 
 // This variable contains the number of
 // 'follower' nodes we want on our "snake"
-const max = 255;
+const max = 100;
 
 // This code creates our followers
 for (let i = 0; i < max; i++) {
