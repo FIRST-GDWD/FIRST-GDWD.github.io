@@ -1,0 +1,94 @@
+body {
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+#banner {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner div {
+    display: inline-block;
+    margin: 12px;
+}
+
+#new {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 14px
+}
+
+#price {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#banner a {
+    text-decoration: none;
+}
+
+#hero {
+    background-image: 
+        radial-gradient(transparent, black),
+        url("../images/netflixBG.jpeg");
+    min-height: 500px;
+    /* box-shadow: inset 0px 0px 200px 75px black; */
+    padding: 48px;
+}
+
+#navBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navBar img {
+    width: 150px;
+    margin-right: auto;
+}
+
+.clearButton {
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 2px;
+    color: white;
+    padding: 12px 24px;
+    margin: 0px 24px;
+    font-size: 16px;
+}
+
+.redButton {
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+#heroContent {
+    text-align: center;
+    max-width: 640px;
+    margin: 100px auto;
+}
+
+#heroContent h1 {
+    font-size: 60px;
+}
+
+#heroContent h3 {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+#heroContent input[type="email"] {
+    height: 48px;
+    width: 500px;
+    margin-bottom: 16px;
+}
