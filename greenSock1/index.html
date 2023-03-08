@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <title>GSAP - GreenSock Javascript Framework</title>
+    <style>
+        /* Page Setup: */
+        body {
+            background-color: darkslateblue;
+            color:blanchedalmond;
+            font-family: Roboto, Helvetica, Tahoma, sans-serif;
+        }
+        .animation_wrapper{
+            width:85%;
+            margin:10% auto;
+            display:flex;
+        }
+        .text_box {
+            width:70%;
+        }
+        .column {
+            width:20%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .text_box h2 {
+            font-size: 5rem;
+        }
+        .explore {
+            letter-spacing: 5px;
+            font-size: 6rem;
+        }
+        
+        /* Animation elements: */
+        .chucked {
+            height:100px;
+            width:100px;
+            background-color: salmon;
+            border-radius: 10px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation_wrapper">
+        <div class="column">
+            <div id="box1" class="chucked"></div>
+            <div id="box2" class="chucked"></div>
+            <div id="box3" class="chucked"></div>
+            <div id="box4" class="chucked"></div>
+            <div id="box5" class="chucked"></div>
+        </div>
+        <div class="text_box">
+            <h2>
+                <span class="headline">It's time to</span> <br>
+                <span class="headline explore">EXPLORE</span> <br>
+                <span class="headline">what's in store with</span> <br>
+                <span class="headline">GSAP</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+                <span class="headline to-from">.</span>
+            </h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit totam impedit aut ut, necessitatibus commodi blanditiis accusamus ipsum expedita libero corrupti amet obcaecati perferendis temporibus, qui vel ex quia repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis tempora perferendis ratione at necessitatibus recusandae, voluptatem accusantium, alias distinctio repellendus ut voluptatum assumenda mollitia laboriosam magni error corrupti itaque illo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat corrupti atque ratione saepe consequatur numquam, odio, voluptas neque fugit nihil exercitationem autem sit consectetur aliquam quibusdam praesentium itaque quam. Sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci deleniti quis eum cupiditate tempora inventore aliquid sit temporibus. Odit iure neque tempore alias molestias eveniet doloribus aut, incidunt officiis deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum ea tenetur reiciendis aliquam quibusdam perspiciatis omnis dicta quaerat et assumenda illum corporis molestias laboriosam consequatur aperiam sed enim, dolorum vero?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sapiente nobis, rem rerum, corrupti in inventore magni molestiae est ab dicta eum debitis voluptatibus cumque neque. Esse aperiam quis nisi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda veritatis nemo, qui labore dicta beatae consequuntur eius quisquam fugiat vitae rem inventore hic saepe repellat, aliquam totam laborum impedit modi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus distinctio nostrum assumenda, ratione in sunt eius fugiat amet! Et eos inventore reiciendis debitis error, maiores nostrum vitae voluptas qui ea.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic adipisci magni quidem accusamus nostrum quae ullam molestias asperiores rem vel. Nesciunt magni neque veniam fuga numquam autem eveniet excepturi veritatis?
+            </p>
+        </div>
+    </div>
+
+    <!-- GreenSock CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
+    <script>
+        gsap.from(".chucked", {
+            duration:5,
+            rotation: 720,
+            ease:"elastic",
+            stagger:0.5,
+            x: -500,
+            y: -500,
+        });
+        gsap.from(".headline", {
+            duration: 2.5,
+            stagger:0.3,
+            opacity: 0,
+            y: 300,
+        });
+        gsap.from("p", {
+            duration: 3,
+            stagger: 0.5,
+            opacity: 0,
+            x: 500,
+        })
+
+        let blocks = document.querySelectorAll(".chucked");
+        blocks.forEach(function(element) {
+            element.onclick = function() {
+                gsap.fromTo(element,{
+                    rotation: 0,
+                }, {
+                    rotation: 180,
+                    duration: 1,
+                    ease: "power1.out",
+                    onComplete: animateNext,
+                });
+                function animateNext() {
+                    gsap.fromTo(element,{
+                        rotation: 180,
+                    }, {
+                        rotation: 0,
+                        ease: "power1.in",
+                        duration: 1,
+                    });
+                }
+            };
+            
+        });
+    </script>
+</body>
+</html>
