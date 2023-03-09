@@ -43,9 +43,13 @@
             border-radius: 10px;
             margin-top: 100px;
         }
+        .headline {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
+    <h1 id="heading">GreenSock!!!</h1>
     <div class="animation_wrapper">
         <div class="column">
             <div id="box1" class="chucked"></div>
@@ -86,54 +90,9 @@
         </div>
     </div>
 
-    <!-- GreenSock CDN -->
+    <!-- GreenSock CDN goes here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-
-    <script>
-        gsap.from(".chucked", {
-            duration:5,
-            rotation: 720,
-            ease:"elastic",
-            stagger:0.5,
-            x: -500,
-            y: -500,
-        });
-        gsap.from(".headline", {
-            duration: 2.5,
-            stagger:0.3,
-            opacity: 0,
-            y: 300,
-        });
-        gsap.from("p", {
-            duration: 3,
-            stagger: 0.5,
-            opacity: 0,
-            x: 500,
-        })
-
-        let blocks = document.querySelectorAll(".chucked");
-        blocks.forEach(function(element) {
-            element.onclick = function() {
-                gsap.fromTo(element,{
-                    rotation: 0,
-                }, {
-                    rotation: 180,
-                    duration: 1,
-                    ease: "power1.out",
-                    onComplete: animateNext,
-                });
-                function animateNext() {
-                    gsap.fromTo(element,{
-                        rotation: 180,
-                    }, {
-                        rotation: 0,
-                        ease: "power1.in",
-                        duration: 1,
-                    });
-                }
-            };
-            
-        });
-    </script>
+    <!-- External JS script goes here -->
+    <script src="js/greenSock.js"></script>
 </body>
 </html>
