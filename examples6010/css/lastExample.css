@@ -1,0 +1,162 @@
+/* SETUP **************************************/
+
+#flexbox1,
+#flexbox2,
+#flexbox3,
+#grid {
+    border: 3px dashed green;
+    display: flex;
+    margin: 12px;
+    padding: 36px;
+}
+
+.box {
+    border: 2px solid black;
+    margin: 12px;
+    min-height: 100px;
+    min-width: 100px;
+}
+.green {
+    background-color: forestgreen;
+}
+.red {
+    background-color: crimson;
+    min-height: 150px;
+}
+.blue {
+    background-color: skyblue;
+}
+
+/* FLEXBOX 1 (NavBar) *****************************/
+#flexbox1.center {
+    justify-content: center;
+    /* after changing red height */
+    align-items: center;
+}
+#flexbox1.left {
+    justify-content: flex-start;
+    /* after changing red height */
+    align-items: center;
+}
+#flexbox1.right {
+    justify-content: flex-end;
+    /* after changing red height */
+    align-items: center;
+}
+#flexbox1.spread {
+    justify-content: space-between;
+    /* after changing red height */
+    align-items: center;
+}
+#flexbox1.spreadRestricted {
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    /* after changing red height */
+    align-items: center;
+}
+#flexbox1.leftLogo #logo {
+    margin-right: auto;
+}
+#flexbox1 li {
+    list-style-type: none;
+}
+
+/* FLEXBOX 2 (HERO) ************************/
+#flexbox2 {
+    min-height: 500px;
+}
+#flexbox2.topLeft{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#flexbox2.bottomRight {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#flexbox2.center {
+    justify-content: center;
+    align-items: center;
+}
+#flexbox2.bottomLeft {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+#flexbox2.topRight {
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+#flexbox2.column {
+    flex-direction: column;
+}
+#flexbox2.column.center .box {
+    min-width: 400px;
+}
+#flexbox2.column.center {
+    background-color: darkslategray
+}
+
+/* FLEXBOX 2 (GRID) ************************/
+#flexbox3 {
+    flex-wrap: wrap;
+}
+#flexbox3.narrow {
+    padding: 200px;
+}
+#flexbox3.threeColumns .box{
+    /* 
+        calc lets us calculate with mixed units.
+        in this case, desired width% - margin 
+    */
+    width: calc(33.33% - 24px); 
+    box-sizing: border-box; /* required for size calculations */
+}
+#flexbox3.fourColumns .box{
+    /* 
+        calc lets us calculate with mixed units.
+        in this case, desired width% - margin 
+    */
+    width: calc(25% - 24px); 
+    box-sizing: border-box; /* required for size calculations */
+}
+#flexbox3.fillSpace .box {
+    flex: 1;
+}
+#flexbox3 img {
+    width: 100%;
+}
+/* GRID **********************************/
+#grid {
+    border: 3px dotted blue;
+    display: grid;
+}
+#grid.noBoxMargin .box {
+    margin: 0px;
+}
+#grid.withEqualGaps {
+    gap: 24px;
+}
+#grid.withUnequalGaps {
+    gap: 12px 48px;
+}
+#grid.twoColumns {
+    grid-template-columns: 1fr 1fr;
+}
+#grid.threeColumns {
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(3, 1fr);
+}
+#grid.threeUnequalColumns {
+    grid-template-columns: 1fr 400px 1fr;
+}
+#grid img {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .flexbox1,
+    .flexbox2,
+    .flexbox3 {
+        flex-direction: column !important;
+    }
+}
