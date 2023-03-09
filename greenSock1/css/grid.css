@@ -1,0 +1,15 @@
+#demo {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.green {
+    background-color: green;
+}
+.box {
+    margin: 0px 12px 12px 0px;
+    border-radius: 0;
+    width: 100px;
+    height: 100px
+}
