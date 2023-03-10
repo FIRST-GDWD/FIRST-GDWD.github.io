@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var jsondata = {"iscoming": true,"isnotcoming": false};
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://classpoll-8e71.restdb.io/rest/poll",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json",
+                "x-apikey": "640b9f5fbc22d22cf7b25d63",
+                "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(jsondata)
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    </script>
+</body>
+</html>
