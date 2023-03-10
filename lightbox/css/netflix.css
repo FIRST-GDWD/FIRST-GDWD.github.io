@@ -93,13 +93,18 @@ body {
     margin-bottom: 16px;
 }
 
+/* to make a page more responsive on mobile... */
 @media screen and (max-width: 480px) {
+    /* decrease font sizes */
     #heroContent h1 {
         font-size: 48px;
     }
+    /* stack side-by-side content */
+    /* (flexbox makes this easy with flex-direction:column) */
     #banner {
         flex-direction: column;
     }
+    /* resize content that overflows or overlaps */
     #heroContent input[type="email"] {
         width: 100%;
     }
