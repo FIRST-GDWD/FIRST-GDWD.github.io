@@ -7,26 +7,64 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="stage">
+        <form id="rsvpForm">
+            <h1>Are you coming? RSVP below!</h1>
+            <input id="nameField" type="text" name="name" placeholder="Name">
+            <input id="yesField" type="radio" name="rsvp" value="Yes">
+            <label for="yesField">Yes</label>
+            <input id="noField" type="radio" name="rsvp" value="No">
+            <label for="noField">No</label>
+            <input id="submitButton" type="submit">
+        </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript">
-        var jsondata = {"iscoming": true,"isnotcoming": false};
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://classpoll-8e71.restdb.io/rest/poll",
-            "method": "POST",
+            "url": "https://classpoll-8e71.restdb.io/rest/pollv2",
+            "method": "GET",
             "headers": {
                 "content-type": "application/json",
                 "x-apikey": "640b9f5fbc22d22cf7b25d63",
                 "cache-control": "no-cache"
-            },
-            "processData": false,
-            "data": JSON.stringify(jsondata)
+            }
         }
 
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
+
+        let form = document.getElementById("rsvpForm");
+        form.onsubmit = function(e) {
+            const data = new FormData(form);
+            console.log(data.get("name"));
+            console.log(data.get("rsvp"));
+            event.preventDefault();
+            return;
+        
+            let isComing = data.get("rsvp") == "yes";
+
+            var jsondata = {"name": data.get("name"), "iscoming": isComing};
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://classpoll-8e71.restdb.io/rest/pollv2",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": "640b9f5fbc22d22cf7b25d63",
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data": JSON.stringify(jsondata)
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
     </script>
 </body>
 </html>
