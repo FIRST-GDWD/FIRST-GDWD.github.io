@@ -1,0 +1,45 @@
+HTML
+
+What is HTML?
+
+HyperText Markup Language
+
+HTML + CSS
+
+Cascading Style Sheets
+
+
+HTML                CSS
+Nouns               Adjectives
+Skeletal            Skin, hair, eye color
+Foundation/framing  Wallpaper, roofing, siding
+
+Content-layer       Presentation-layer
+
+
+HTML Syntax (Grammar)
+
+HTML Tag
+
+Three parts:
+- opening triangle bracket
+- tag name
+- closing triangle bracket
+
+example: <body>
+
+
+HTML Element
+
+Three parts:
+- opening tag
+- content/children 
+- closing tag (has a slash in front of the tag name)
+
+example 1: <p>This is some sample content</p>
+
+example 2:
+<p>
+    <b>This text is bold</b>
+    <i>This text is italicized</i>
+</p>
