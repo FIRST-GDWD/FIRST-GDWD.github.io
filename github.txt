@@ -1,0 +1,27 @@
+What is GitHub?
+
+GitHub is a web hosting service
+for the source code of software
+and web development projects
+
+It both hosts your web code,
+and generates a website from it.
+
+The way it hosts your code is through
+"repositories".
+
+Remember that repositories are just a
+fancy name for folders that use version
+control (aka track the history of your code)
+
+sidenote:
+    git is a version control system.
+    your repository uses git,
+    that's why it's called "git hub":
+    it's a hub for git repositories
+
+GitHub is part of the Open Source movement.
+Most of the code on GitHub is "open source".
+
+Open Source means that code is free to use,
+download, modify, and share.
