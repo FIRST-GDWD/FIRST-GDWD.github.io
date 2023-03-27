@@ -4,23 +4,30 @@
 #div_2 {
     border: 10px dashed forestgreen;
     padding: 24px;
+    /* padding affects space INSIDE the border */
 }
 #div_3 {
     border: 24px dotted crimson;
     padding: 36px;
     margin: 60px;
+    /* margin affects space OUTSIDE the border */
 }
 #div_4 {
     border: 2px solid blue;
     padding: 8px;
     margin: 24px;
+    /* margin can overlap, but padding cannot */
 }
 #div_5 {
+    /* you can also use hexadecimal colors */
     background-color: #222222;
     color: white;
 }
 #div_6 {
     border: 5px solid orange;
+    /* you can target top, left, right, and bottom sides */
     padding-left: 48px;
+    /* providing two values will set the 
+    top/bottom first, and left/right second */
     margin: 50px 12px;
 }
