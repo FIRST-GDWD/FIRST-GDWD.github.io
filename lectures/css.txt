@@ -6,6 +6,22 @@ CSS is a programming language, just like HTML.
 However, it has a completely different syntax (i.e. grammar)
 and it has a completely different function.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 HTML can be used independently on its own;
 CSS cannot.  It can only be used TOGETHER with HTML.
 
@@ -18,6 +34,15 @@ header!
 div!
 p (for paragraph)!
 
+
+
+
+
+
+
+
+
+
 CSS allows you to be more expressive in what you say in code.
 So you can say we're upgrading you to be able to 
 talk like a kindergartener. :-)
@@ -26,6 +51,17 @@ body! with a font-size of 28px!
 header! with a font-weight of bold!
 div! with centered text alignment!
 p! with blue colored text!
+
+
+
+
+
+
+
+
+
+
+
 
 CSS is written by create a set of "rules" in a stylesheet
 (which is basically a document containing the styles
@@ -37,6 +73,16 @@ Each CSS rule is composed of two parts:
 - the "declaration block", 
     which contains the styles we want to apply 
 
+
+
+
+
+
+
+
+
+
+
 CSS Selectors can get quite complicated,
 but we're going to start out very simple.
 
@@ -46,3 +92,35 @@ There are three different types of basic selectors
 - HTML Element selectors 
 
 We're only going to be using the first kind today
+
+
+
+
+
+
+
+
+
+
+(HTML code snippet)
+<p id="my_paragraph">
+    lorem ipsum
+</p>
+
+
+
+CSS Selectors
+Declaration Block
+
+#my_paragraph {
+    background-color: red;
+    font-size: 36px;
+}
+
+
+CSS Property declaration
+
+CSS Property Name
+Assignment Operator (:)
+CSS Property Value
+Statement Terminator (;)
