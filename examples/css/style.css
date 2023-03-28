@@ -1,6 +1,11 @@
 #div_1 {
     border: 5px solid purple;
 }
+
+#div_1:hover {
+    background-color: skyblue;
+}
+
 #div_2 {
     border: 10px dashed forestgreen;
     padding: 24px;
