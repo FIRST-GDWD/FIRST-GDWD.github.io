@@ -1,3 +1,6 @@
+h3 { 
+    text-align: center;
+}
 .box {
     border: 3px solid grey;
     border-radius: 10px;
@@ -26,4 +29,14 @@
 }
 .center {
     justify-content: center;
+}
+
+.space_between {
+    justify-content: space-between;
+}
+.space_around {
+    justify-content: space-around;
+}
+.space_evenly {
+    justify-content: space-evenly;
 }
