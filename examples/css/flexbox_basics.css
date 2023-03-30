@@ -1,0 +1,29 @@
+.box {
+    border: 3px solid grey;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+    margin: 12px;
+}
+
+.flexbox {
+    display: flex;
+    border: 3px solid grey;
+    background-color:aquamarine;
+    margin: 24px;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.left {
+    justify-content: flex-start;
+}
+.right {
+    justify-content: flex-end;
+}
+.center {
+    justify-content: center;
+}
