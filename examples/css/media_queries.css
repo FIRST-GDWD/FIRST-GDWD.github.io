@@ -3,6 +3,7 @@ div {
     font-size: 36px;
     text-align: center;
 }
+
 #desktop {
     background-color: purple;
 }
@@ -12,6 +13,7 @@ div {
 #mobile {
     background-color: salmon;
 }
+
 /* Desktop breakpoint */
 @media screen and (min-width: 1280px) {
     #tablet,
@@ -19,6 +21,7 @@ div {
         display: none;
     }
 }
+
 /* Tablet breakpoint */
 @media screen and (max-width: 1279px)
     and (min-width: 768px) {
