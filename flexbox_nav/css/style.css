@@ -1,0 +1,32 @@
+body {
+    margin: 0px;
+}
+nav {
+    background-color: darkgreen;
+    padding: 24px;
+}
+ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px;
+    list-style-type: none;
+    max-width: 800px;
+    margin: 0px auto;
+}
+ul li {
+    margin: 12px;
+}
+li a {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+#home {
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    ul {
+        flex-direction: column;
+    }
+}
