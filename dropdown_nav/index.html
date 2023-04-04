@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Dropdown Menu</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li id="home">
+                    <a href="#">
+                        Home <i class="fa-solid fa-igloo"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#" title="Shopping">
+                        <i class="fa-solid fa-gift"></i>
+                    </a>
+                </li>
+                <li class="dropdown_container">
+                    <a href="#">Dropdown Menu</a>
+                    <ul class="dropdown_menu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
