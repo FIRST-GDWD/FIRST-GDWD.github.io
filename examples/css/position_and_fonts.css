@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Rubik+Pixels&display=swap');
+
+#container {
+    background-color: teal;
+    margin: 200px;
+    height: 400px;
+    position: relative;
+}
+
+#inner_content {
+    background-color: limegreen;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+
+#p1 {
+    font-family: 'Rubik Pixels', cursive;
+    font-size: 36px;
+}
+
+#p2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+}
+
+#p3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    font-weight: 700;
+}
