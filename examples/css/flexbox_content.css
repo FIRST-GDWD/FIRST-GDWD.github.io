@@ -13,7 +13,7 @@ main {
     flex: 2;
 }
 
-.img_container img {
+.side_by_side .img_container img {
     width: 100%;
     border-radius: 40px 0px 40px 0px;
 }
@@ -37,11 +37,12 @@ main {
 .gallery_row {
     display: flex;
 }
-.gallery_row div {
+.gallery_row .img_container {
     flex: 1;
     margin: 24px;
 }
 
-.gallery_row div img {
+.gallery_row .img_container img {
     width: 100%;
+    border-radius: 24px;
 }
