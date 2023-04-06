@@ -1,6 +1,6 @@
 main {
-    /* width: 800px;
-    margin: 24px auto; */
+    width: 800px;
+    margin: 24px auto;
 }
 
 .side_by_side {
@@ -9,8 +9,12 @@ main {
     margin: 48px 24px;
 }
 
-.side_by_side img {
+.side_by_side .img_container {
     flex: 2;
+}
+
+.img_container img {
+    width: 100%;
     border-radius: 40px 0px 40px 0px;
 }
 
