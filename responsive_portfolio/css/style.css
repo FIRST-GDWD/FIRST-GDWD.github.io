@@ -1,0 +1,192 @@
+/* Google Font API imports - found at https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Secular+One&display=swap');
+
+/*****************************************************************************
+  Heading, Link, and Misc. Styles
+*****************************************************************************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+a {
+    font-family: 'Secular One', sans-serif;
+}
+
+h4,
+p {
+    font-family: 'Assistant', sans-serif;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 0;
+}
+
+h4 {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav,
+nav a,
+footer a {
+    color: indigo;
+}
+
+nav a:hover,
+footer a:hover {
+    text-decoration: underline;
+}
+
+/****************************************************************************
+  Grid styles
+****************************************************************************/
+#site_grid {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas: 
+        "nav_area nav_area nav_area"
+        "hero_area hero_area hero_area"
+        ". three_cards_area ."
+        ". carousel_area ."
+        ". gallery_area ."
+        ". two_cards_area ."
+        "footer_area footer_area footer_area";
+}
+
+section {
+    border: 4px solid indigo;
+}
+
+nav {
+    grid-area: nav_area;
+}
+
+#hero {
+    grid-area: hero_area;
+}
+
+#three_cards {
+    grid-area: three_cards_area;
+}
+
+#carousel_container {
+    grid-area: carousel_area;
+}
+
+#gallery_container {
+    grid-area: gallery_area;
+}
+
+#two_cards {
+    grid-area: two_cards_area;
+}
+
+footer {
+    grid-area: footer_area;
+}
+
+/****************************************************************************
+  Nav/Footer styles
+****************************************************************************/
+nav {
+    align-items: center;
+    display: flex;
+    margin: 0 24px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+#nav_links {
+    justify-content: center;
+}
+
+#nav_links,
+.social_media {
+    display: flex;
+    list-style-type: none;
+}
+
+#nav_links li,
+.social_media li {
+    padding: 0 4px;
+}
+
+nav .social_media {
+    justify-content: flex-end;
+    padding-left: 0;
+}
+
+.social_media i {
+    font-size: 20px;
+}
+
+nav,
+nav a,
+footer a {
+    color: indigo;
+}
+
+nav a:hover,
+footer a:hover {
+    text-decoration: underline;
+}
+
+nav ul,
+nav h2 {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul {
+    padding: 0;
+}
+
+
+/****************************************************************************
+  Hero styles
+****************************************************************************/
+
+/****************************************************************************
+  Card styles
+****************************************************************************/
+
+/****************************************************************************
+  Gallery styles
+****************************************************************************/
+
+/****************************************************************************
+  Media Query - Mobile Breakpoint
+****************************************************************************/
+@media screen and (max-width: 800px) {
+    #site_grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "nav_area"
+            "hero_area"
+            "three_cards_area"
+            "carousel_area"
+            "gallery_area"
+            "two_cards_area"
+            "footer_area";
+    }
+    nav {
+        flex-direction: column;
+    }
+}
