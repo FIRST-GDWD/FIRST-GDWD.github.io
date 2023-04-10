@@ -1,0 +1,29 @@
+#my_grid {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+}
+.block {
+    padding: 50px;
+    font-size: 36px;
+}
+.block_1 {
+    background-color: red;
+}
+.block_2 {
+    background-color: pink;
+}
+.block_3 {
+    background-color: aqua;
+}
+.block_4 {
+    background-color: purple;
+}
+.block_5 {
+    background-color: green;
+}
+.block_6 {
+    background-color: #DDDDDD;
+}
+.block_7 {
+    background-color: lightblue;
+}
