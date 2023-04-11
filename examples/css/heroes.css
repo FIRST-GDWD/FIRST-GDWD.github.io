@@ -1,0 +1,70 @@
+body {
+    margin: 0px;
+}
+
+p {
+    font-size: 32px;
+    margin: 24px;
+    height: 1000px;
+}
+
+#hero_1 {
+    background-image: url("../images/SnowyHero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    height: 500px;
+    position: relative;
+}
+
+#hero_1 h1 {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    font-family: cursive;
+    font-size: 60px;
+}
+
+#hero_2 {
+    background-image: url("../images/forest.gif");
+    background-size: cover;
+    background-position: center center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 3px red;
+    text-align: center;
+}
+
+#hero_2 h2 {
+    font-family: cursive;
+    font-size: 60px;
+}
+
+#hero_2 h3 {
+    font-family: cursive;
+    font-size: 48px;
+}
+
+#hero_3 {
+    background-image: url("../images/clouds.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+#hero_3 h2 {
+    font-family: cursive;
+    font-size: 60px;
+    padding-top: 60px;
+}
+
+#hero_3 h3 {
+    font-family: cursive;
+    font-size: 48px;
+    padding-bottom: 60px;
+}
