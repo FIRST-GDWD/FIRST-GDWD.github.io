@@ -222,6 +222,64 @@ footer ul {
 /****************************************************************************
   Gallery styles
 ****************************************************************************/
+#gallery_container {
+    text-align: center;
+}
+
+#gallery_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#gallery_1 img {
+    width: 100%;
+}
+
+#gallery_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#gallery_2 img {
+    width: calc(800px / 3);
+    height: calc(800px / 3);
+    object-fit: cover;
+}
+
+#gallery_3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#gallery_3 img {
+    height: 200px;
+    margin: 12px;
+    flex: 1 0 auto;
+    object-fit: cover;
+}
+
+#gallery_4 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 1100px;
+}
+
+#gallery_4 img {
+    width: 30%;
+    margin: 12px;
+}
+
+#gallery_5 {
+    columns: 3 auto;
+    column-gap: 24px;
+}
+
+#gallery_5 img {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
 
 /****************************************************************************
   Media Query - Mobile Breakpoint
@@ -248,5 +306,22 @@ footer ul {
     .card {
         align-items: center;
         margin: 36px 24px 0px;
+    }
+    #gallery_1,
+    #gallery_2 {
+        grid-template-columns: 1fr;
+    }
+    #gallery_2 img {
+        width: 100%;
+        height: auto;
+    }
+    #gallery_4 {
+        max-height: 1900px;
+    }
+    #gallery_4 img {
+        width: 45%;
+    }
+    #gallery_5 {
+        columns: 2 auto;
     }
 }
