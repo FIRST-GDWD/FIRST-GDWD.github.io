@@ -1,0 +1,122 @@
+.text_input label {
+    display: block;
+}
+
+.text_input input {
+    /* 
+        3 value in margin represent:
+        top, left/right, bottom
+    */
+    margin: 4px 0px 16px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    width: 300px;
+}
+
+#first_name_id {
+    border: 0px;
+    border-bottom: 4px solid blue;
+}
+
+#first_name_id:focus-visible {
+    outline: 0;
+    background-color: rgb(197, 238, 254);
+}
+
+#last_name_id {
+    border: 5px solid lightgreen;
+    border-radius: 24px;
+    color: darkgreen;
+}
+
+#last_name_id:focus-visible {
+    outline: 0;
+    background-color: darkgreen;
+    color: white;
+}
+
+#code_feelings_id {
+    width: 400px;
+    height: 100px;
+    margin-top: 4px;
+    padding: 12px;
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+}
+
+/* 
+    this code will not work!
+    because you can't style 
+    checkboxes and radio buttons
+*/
+#bike_checkbox,
+#rasp_radio {
+    border: 5px solid red;
+    padding: 24px;
+    background-color: pink;
+    color: aqua;
+}
+
+input[type=date] {
+    padding: 12px;
+    border: 3px dashed purple;
+    font-family: cursive;
+    font-size: 24px;
+    color: lightblue;
+}
+
+select {
+    padding: 12px;
+    border: 3px dashed purple;
+    font-family: cursive;
+    font-size: 24px;
+    color: lightblue;
+}
+
+#buttons {
+    margin-bottom: 400px;
+}
+
+input[type=button] {
+    border: 3px solid black;
+    border-radius: 6px;
+    padding: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+input[type=button]:hover {
+    background-color: darkgrey;
+    color: white;
+}
+
+input[type=reset] {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 12px;
+    margin-right: 12px;
+    background: linear-gradient(to bottom, purple, indigo);
+    color: white;
+    cursor: pointer;
+}
+/* 
+    the :active pseudo-class is used 
+    to style the click state
+*/
+input[type=reset]:active {
+    background: linear-gradient(to top, purple, indigo);
+}
+
+input[type=submit] {
+    background: linear-gradient(to bottom, skyblue, teal);
+    border: 0px;
+    border-radius: 8px;
+    padding: 12px 48px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+input[type=submit]:active {
+    background: linear-gradient(to top, skyblue, teal);
+}
