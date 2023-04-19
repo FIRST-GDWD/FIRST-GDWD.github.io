@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Let's look at some forms!</h1>
-        <form>
+        <form method="POST" action="https://getform.io/f/35272937-6cfc-4e97-89d4-0ea56e2d7d6d">
             <fieldset>
                 <legend>Text-related Form Elements</legend>
 
@@ -17,13 +17,29 @@
                 <h4>Each input should a unique 'name' attribute</h4>
                 <p>What is your name?</p>
 
+                <p>* indicates required fields</p>
+
                 <div class="text_input">
-                    <label for="first_name_id">First Name:</label>
-                    <input type="text" id="first_name_id" name="first_name">
+                    <label for="first_name_id">First Name *:</label>
+                    <input 
+                        required
+                        minlength="2"
+                        maxlength="10"
+                        type="text" 
+                        id="first_name_id" 
+                        name="first_name">
                 </div>
                 <div class="text_input">
                     <label for="last_name_id">Last Name:</label>
                     <input type="text" id="last_name_id" name="last_name">
+                </div>
+                <div class="text_input">
+                    <label for="email_id">Email:</label>
+                    <input type="email" id="email_id" name="email">
+                </div>
+                <div class="text_input">
+                    <label for="password_id">Password:</label>
+                    <input type="password" id="password_id" name="password">
                 </div>
 
                 <h2>Textarea Input</h2>

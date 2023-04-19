@@ -24,6 +24,21 @@
     background-color: rgb(197, 238, 254);
 }
 
+#first_name_id:invalid {
+    background-color: lightcoral;
+    border-bottom: 4px solid red;
+}
+
+input[type=email]:invalid {
+    background-color: lightcoral;
+    border-bottom: 4px solid red;
+}
+
+/* #first_name_id:valid {
+    background-color: lightgreen;
+    border-bottom: 4px solid green;
+} */
+
 #last_name_id {
     border: 5px solid lightgreen;
     border-radius: 24px;
