@@ -55,6 +55,22 @@
       .done {
         text-decoration: line-through;
       }
+      .fire {
+        animation: fire 0.5s infinite ease-in-out;
+        background-image: linear-gradient(45deg, red, yellow, red);
+        background-size: 400% 400%;
+        display: inline-block;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      @keyframes fire {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -63,6 +79,7 @@
       <h2>Announcements (9:10)</h2>
       <h3>(if you're not here by 9:10, you're tardy!)</h3>
       <h2>Period 1 (9am-10:25am): Review Kahoot for Quiz #4 (Midterm)</h2>
+      <h2 class="fire">FIRE DRILL</h2>
       <h2>Period 2 (10:35am-12pm): FB Form Project</h2>
       <h2>Lunch Break (45min)</h2>
       <h2>Period 3 (12:45pm-2pm): FB Form Project</h2>
