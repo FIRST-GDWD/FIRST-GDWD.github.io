@@ -1,0 +1,42 @@
+* {
+    /* border: 2px solid green; */
+}
+
+body {
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#hero {
+    background-image: url("../images/hulu-bg.jpeg");
+}
+
+nav {
+    padding: 24px 36px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav img {
+    width: 60px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.5s;
+}
+
+nav a:hover {
+    background-color: rgb(93, 92, 92);
+}
