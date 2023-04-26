@@ -9,10 +9,12 @@ body {
 
 #hero {
     background-image: url("../images/hulu-bg.jpeg");
+    background-size: cover;
 }
 
 nav {
     padding: 24px 36px;
+    background: linear-gradient(to bottom, #000000DD, #00000000);
 }
 
 nav ul {
@@ -54,6 +56,7 @@ h5 {
 #hero_content p {
     color: white;
     font-size: 22px;
+    text-align: center;
 }
 
 .button_link {
@@ -87,4 +90,66 @@ h5 {
 
 .medium_link {
     margin-top: 28px
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    padding: 12px 36px;
+    margin-top: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+footer #footer_image_container {
+    width: 250px;
+}
+
+footer img {
+    width: 100%;
+}
+
+.clear_button_link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    transition:
+        background-color 0.5s,
+        color 0.5s;
+}
+
+.clear_button_link:hover {
+    background-color: white;
+    color: black;
+}
+
+.tiny_link {
+    display: block;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+#footer_center {
+    margin: 0px 24px;
+    flex: 1;
+}
+
+#footer_center p {
+    color: white;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+    .button_link {
+        width: 80%;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 36px;
+    }
 }
