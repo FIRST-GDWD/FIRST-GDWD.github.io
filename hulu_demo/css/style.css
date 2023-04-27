@@ -5,6 +5,7 @@
 body {
     margin: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #040405;
 }
 
 #hero {
@@ -141,6 +142,26 @@ footer img {
 #footer_center p {
     color: white;
     font-size: 22px;
+}
+
+#cards_section {
+    text-align: center;
+    margin-top: 90px;
+}
+
+#cards_section h2,
+#cards_section p {
+    color: white;
+} 
+
+#cards_section h2 {
+    font-size: 48px;
+    margin-top: 0px;
+}
+
+#cards_section p {
+    width: 700px;
+    margin: 0px auto;
 }
 
 @media screen and (max-width: 768px) {
