@@ -170,6 +170,24 @@ footer img {
     display: grid;
     grid-template-columns: repeat(4, 295px);
     grid-auto-rows: 450px;
+    grid-gap: 24px;
+    width: 1252px;
+    margin: 60px auto;
+    text-align: left;
+}
+
+#cards_container div {
+    padding-left: 24px;
+}
+
+#cards_container h6 {
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+#cards_container h4 {
+    font-size: 22px;
+    margin-top: 0px;
 }
 
 #bobs_burgers {
