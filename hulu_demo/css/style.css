@@ -150,7 +150,9 @@ footer img {
 }
 
 #cards_section h2,
-#cards_section p {
+#cards_section p,
+#cards_section h6,
+#cards_section h4 {
     color: white;
 } 
 
@@ -162,6 +164,32 @@ footer img {
 #cards_section p {
     width: 700px;
     margin: 0px auto;
+}
+
+#cards_container {
+    display: grid;
+    grid-template-columns: repeat(4, 295px);
+    grid-auto-rows: 450px;
+}
+
+#bobs_burgers {
+    background-image: url("../images/bobsburgers.jpeg");
+    background-size: contain;
+}
+
+#prey {
+    background-image: url("../images/prey.jpeg");
+    background-size: contain;
+}
+
+#handmaids_tale {
+    background-image: url("../images/handmaidstale.jpeg");
+    background-size: contain;
+}
+
+#dragon {
+    background-image: url("../images/houseofdragon.jpeg");
+    background-size: contain;
 }
 
 @media screen and (max-width: 768px) {
