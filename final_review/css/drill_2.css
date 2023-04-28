@@ -1,10 +1,22 @@
 /* Task 4 - Write your code solution below */
-
+#t4_container {
+    padding-left: 100px;
+}
 
 /* Task 5 - Write your code solution below */
-
+#t5_container {
+    /* padding: 0px 100px 0px 0px; */
+    padding-right: 100px;
+}
 
 /* Task 6 - Write your code solution below */
-
+#t6_container {
+    padding-top: 100px;
+}
 
 /* Task 7 - Write your code solution below */
+#t7_container {
+    padding-top: 100px;
+    padding-left: 100px;
+    /* padding: 100px 0px 0px 100px; */
+}

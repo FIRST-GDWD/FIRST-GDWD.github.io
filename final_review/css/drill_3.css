@@ -1,16 +1,36 @@
 /* Task 8 - Write your code solution below */
-
+#t8_box1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* margin: 50px 0px 50px 0px; */
+}
 
 /* Task 9 - Write your code solution below */
-
+#t9_box1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    /* margin: 50px 0px 50px 50px; */
+    /* margin: 50px; */
+}
 
 /* Task 10 - Write your code solution below */
-
+#t10_box5 {
+    margin-left: 150px;
+}
 
 /* Task 11 - Write your code solution below */
-
+#t11_box5 {
+    margin-top: 150px;
+}
 
 /* Task 12 - Write your code solution below */
-
+#t12_box2 {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Task 13 - Write your code solution below */
+#t13_box3 {
+    margin-left: auto;
+}
