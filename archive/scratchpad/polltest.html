@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test Poll</title>
+    <style>
+        #rsvpForm,
+        #rsvpResponse {
+            display: none;
+        } 
+
+    </style>
 </head>
 <body>
     <div id="stage">
+        <div id="rsvpLoading">Loading...</div>
         <form id="rsvpForm">
-            <h1>Are you coming? RSVP below!</h1>
+            <h2>Are you coming? RSVP below!</h2>
             <input id="nameField" type="text" name="name" placeholder="Name">
             <input id="yesField" type="radio" name="rsvp" value="Yes">
             <label for="yesField">Yes</label>
@@ -17,56 +25,225 @@
             <label for="noField">No</label>
             <input id="submitButton" type="submit">
         </form>
+        <div id="rsvpResponse">
+            <h2>Thanks for responding, <span id="responder"></span>!</h2>
+            <h3>Here's who else is coming:</h3>
+            <div id="yesBar">YES - <span id="yesNumber">?</span></div>
+            <div id="noBar">NO - <span id="noNumber">?</span></div>
+            <br><br>
+            <button id="clearButton">Forget my name</button>
+        </div>
     </div>
     <script type="text/javascript">
-        /* begin code to GET data from the database, for display on the page */
-        var data = null;
+        const POLL_NAME_FIELD = "pollname";
 
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
+        const rsvpLoading = document.getElementById("rsvpLoading");
+        const rsvpForm = document.getElementById("rsvpForm");
+        const submitButton = document.getElementById("submitButton");
+        const rsvpResponse = document.getElementById("rsvpResponse");
+        const responder = document.getElementById("responder");
+        const yesBarElement = document.getElementById("yesBar");
+        const noBarElement = document.getElementById("noBar");
+        const yesNumberElement = document.getElementById("yesNumber");
+        const noNumberElement = document.getElementById("noNumber");
+        const clearButton = document.getElementById("clearButton");
 
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                console.log(this.responseText);
-            }
-        });
+        let pollData = [];
+        getPollData();
 
-        xhr.open("GET", "https://classpoll-8e71.restdb.io/rest/pollv2");
-        xhr.setRequestHeader("content-type", "application/json");
-        xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63");
-        xhr.setRequestHeader("cache-control", "no-cache");
+        /*
+            getPollData
+            -  this function is what sets the page in motion
+            -  it makes a call out to the database in restdb.io,
+               and tries to get the most recent data from our poll "collection"
+               (where our responses are stored)
+            -  after successfully getting results back, it stores the data
+               in a variable called 'pollData', and then calls the 'renderPage' function
+        */
+        function getPollData() {
+            var data = null;
 
-        xhr.send(data);
-        /* end code to GET data from the database */
-
-
-        let form = document.getElementById("rsvpForm");
-        form.onsubmit = function(e) {
-            const data = new FormData(form);
-            console.log(data.get("name"));
-            console.log(data.get("rsvp"));
-            event.preventDefault();
-            return;
-        
-            let isComing = data.get("rsvp") == "Yes";
-
-            var jsondata = {"name": data.get("name"), "iscoming": isComing};
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = false;
 
-            xhr.addEventListener("readystatechange", function () {
+            xhr.addEventListener("readystatechange", function() {
                 if (this.readyState === 4) {
-                    console.log(this.responseText);
+                    pollData = JSON.parse(this.responseText);
+                    renderPage();
                 }
             });
 
-            xhr.open("POST", "https://classpoll-8e71.restdb.io/rest/pollv2");
+            xhr.open("GET", "https://classpoll-8e71.restdb.io/rest/pollv2"); // API URL from restdb.io
             xhr.setRequestHeader("content-type", "application/json");
-            xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63");
+            xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63"); // WEB PAGE KEY from restdb.io
             xhr.setRequestHeader("cache-control", "no-cache");
 
             xhr.send(data);
         }
+
+        /* 
+            renderPage
+            -  this function should only be called after pollData has been
+               successfully obtained from restdb.io
+            -  first, it checks for if we've submitted a response before,
+               by checking the localStorage object for a name
+            -  if it finds a name, and that name is in the pollDate,
+               then it calls the 'displayPollData' function,
+               and displays the rsvpResponse div while hiding the rsvpForm
+            -  if it doesn't find a name, it assumes we're a new visitor,
+               and displays the rsvpForm while hiding the rsvpResponse div
+            -  this function also hides the loading text
+        */
+        function renderPage() {
+            if (getStoredName() != null && isNameInPollData(getStoredName())) {
+                displayPollData();
+                rsvpResponse.style.display = "block";
+                rsvpForm.style.display = "none";
+            } else {
+                rsvpResponse.style.display = "none";
+                rsvpForm.style.display = "block";
+            }
+            rsvpLoading.style.display = "none";
+        }
+
+        /*
+            displayPollData
+            -  this function iterates through all the records in pollData,
+               and stores all the true and false values from the 'iscoming' field
+               as either yes's or no's
+            -  then it applies styles to the yesBar and noBar (including color and width)
+               and updates the innerHTML of the spans inside to display the count of each
+            -  it also personalizes the response heading with the submitted name
+               obtained from the localStorage object
+        */
+        function displayPollData() {
+            let yesNumber = 0;
+            let noNumber = 0;
+
+            for (let i = 0; i < pollData.length; i++) {
+                let record = pollData[i];
+                if (record.iscoming) {
+                    yesNumber++;
+                } else {
+                    noNumber++;
+                }
+            }
+
+            yesNumberElement.innerHTML = yesNumber;
+            noNumberElement.innerHTML = noNumber;
+
+            yesBarElement.style.backgroundColor = "green";
+            yesBarElement.style.width = (50*yesNumber) + "px";
+
+            noBarElement.style.backgroundColor = "red";
+            noBarElement.style.width = (50*noNumber) + "px";
+
+            responder.innerHTML = getStoredName();
+        }
+
+        /*
+            submitPollData(e)
+            -  this function does quite a bit
+            -  it prevents the default form submission behavior, which while
+               not completely necessary, is good practice, because we're
+               not submitting our form in the traditional way via 'action'
+            -  it gathers the data we want to submit from the form fields 
+               and stores it in a JSON object
+            -  it then creates an XMLHttpRequest object, which is what is 
+               responsible for configuring the proper settings for 
+               communicating and authenticating with the database on restdb.io 
+            -  depending on whether the name we're submitting is already found 
+               in the pollData, we will either create a new record (via POST)
+               or update an existing record (via PUT and the record id)
+            -  we also set an event listener for when we get a response; 
+               if the response is positive (readyState === 4), then we call
+               the getPollData function again, to refresh the data
+            -  after sending off the request, we store the name we submitted
+               in the localStorage object, and also disable the submitButton 
+               so we can send duplicate requests while waiting for the original
+        */
+        function submitPollData(e) {
+            e.preventDefault();
+
+            const formData = new FormData(rsvpForm);
+            let name = formData.get("name");
+            let rsvp = formData.get("rsvp");
+            let isComing = formData.get("rsvp") == "Yes";
+            let jsondata = {"name": name, "iscoming": isComing};
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+
+            if (isNameInPollData(name)) {
+                let id = getIdOfNameInPollData(name);
+                xhr.open("PUT", "https://classpoll-8e71.restdb.io/rest/pollv2/" + id); // API URL from restdb.io
+            } else {
+                xhr.open("POST", "https://classpoll-8e71.restdb.io/rest/pollv2"); // API URL from restdb.io
+            }
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63"); // WEB PAGE KEY from restdb.io
+            xhr.setRequestHeader("cache-control", "no-cache");
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+                    getPollData();
+                }
+            });
+
+            xhr.send(JSON.stringify(jsondata));
+
+            localStorage.setItem(POLL_NAME_FIELD, name);
+
+            submitButton.value = "Submitting...";
+            submitButton.disabled = true;
+        }
+        
+        rsvpForm.onsubmit = submitPollData;
+
+        /*
+            pollData utility functions
+            -  used to check if an input name is found in the pollData from restdb.io
+            -  also used to get the id of a record matching the input name 
+               (this id is required to update records in the database via the PUT method)
+        */
+        function isNameInPollData(name) {
+            for (let i = 0; i < pollData.length; i++) {
+                let record = pollData[i];
+                if (record.name == name) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function getIdOfNameInPollData(name) {
+            for (let i = 0; i < pollData.length; i++) {
+                let record = pollData[i];
+                if (record.name == name) {
+                    return record._id;
+                }
+            }
+            return 0;
+        }
+
+        /* 
+            LocalStorage utility functions
+            - Used to get, set, and clear the localStorage object,
+              related to the name the user enters in the form
+        */
+        function getStoredName() {
+            return localStorage.getItem(POLL_NAME_FIELD);
+        }
+
+        function setStoredName(name) {
+            localStorage.setItem(POLL_NAME_FIELD, name);
+        }
+
+        function clearStoredName() {
+            localStorage.clear();
+            location.reload();
+        }
+        clearButton.onclick = clearStoredName;
     </script>
 </body>
 </html>
