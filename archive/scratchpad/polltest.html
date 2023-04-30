@@ -18,23 +18,27 @@
             <input id="submitButton" type="submit">
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript">
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://classpoll-8e71.restdb.io/rest/pollv2",
-            "method": "GET",
-            "headers": {
-                "content-type": "application/json",
-                "x-apikey": "640b9f5fbc22d22cf7b25d63",
-                "cache-control": "no-cache"
-            }
-        }
+        /* begin code to GET data from the database, for display on the page */
+        var data = null;
 
-        $.ajax(settings).done(function (response) {
-            console.log(response);
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
+            }
         });
+
+        xhr.open("GET", "https://classpoll-8e71.restdb.io/rest/pollv2");
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63");
+        xhr.setRequestHeader("cache-control", "no-cache");
+
+        xhr.send(data);
+        /* end code to GET data from the database */
+
 
         let form = document.getElementById("rsvpForm");
         form.onsubmit = function(e) {
@@ -44,26 +48,24 @@
             event.preventDefault();
             return;
         
-            let isComing = data.get("rsvp") == "yes";
+            let isComing = data.get("rsvp") == "Yes";
 
             var jsondata = {"name": data.get("name"), "iscoming": isComing};
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://classpoll-8e71.restdb.io/rest/pollv2",
-                "method": "POST",
-                "headers": {
-                    "content-type": "application/json",
-                    "x-apikey": "640b9f5fbc22d22cf7b25d63",
-                    "cache-control": "no-cache"
-                },
-                "processData": false,
-                "data": JSON.stringify(jsondata)
-            }
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
 
-            $.ajax(settings).done(function (response) {
-                console.log(response);
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                }
             });
+
+            xhr.open("POST", "https://classpoll-8e71.restdb.io/rest/pollv2");
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.setRequestHeader("x-apikey", "640b9f5fbc22d22cf7b25d63");
+            xhr.setRequestHeader("cache-control", "no-cache");
+
+            xhr.send(data);
         }
     </script>
 </body>
