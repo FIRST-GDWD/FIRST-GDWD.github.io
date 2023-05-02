@@ -1,0 +1,27 @@
+CMS
+
+Content Management System
+
+Examples of CMS 
+    WordPress
+    Drupal
+    Joomla
+
+Website Builders
+    Wix
+
+In Wordpress, there are two types of content:
+    - Posts -> timely content
+    - Pages -> timeless content (evergreen)
+
+How do you edit pages/posts in WordPress?
+    - Block Editor
+
+
+Pantheon
+    - hosting service for WordPress sites
+    - two different WordPress sites
+
+Pantheon account
+    -> WordPress site #1 Account (username/password)
+    -> WordPress site #2 Account (username/password)
