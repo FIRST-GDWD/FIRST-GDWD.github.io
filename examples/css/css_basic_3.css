@@ -1,0 +1,63 @@
+.card {
+    margin: 24px;
+    border: 3px solid navy;
+    padding: 16px;
+    box-shadow: 4px 4px 8px 2px gray;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+/* 
+    HTML should primarily only be used for content;
+    CSS should be used for styling. So it is more
+    appropriate (and customizable) to set font
+    styling via CSS rather than HTML elements
+    like <b> and <i>
+*/
+.bold {
+    font-weight: bold;
+}
+
+/* 
+    When combining CSS selectors, INCLUDING spaces means that 
+    we'll be targeting the selector on the right 
+    ONLY IF it is found inside the selector on the left.
+
+    In the case below, we will only target div elements that
+    are found inside elements with the "card" class.
+    div elements that are not inside of an element with the
+    "card" class on it will not be targeted.
+*/
+.card div {
+    font-style: italic;
+}
+
+/* 
+    When combining CSS selectors, REMOVING spaces between
+    selectors means that we'll be targeting an element 
+    ONLY IF both selectors target the element.
+
+    In the case below, we will only target p elements
+    that ALSO have the "bold" class on them.
+    p elements WITHOUT the "bold" class will not be targeted.
+*/
+p.bold {
+    font-size: 32px;
+}
+
+/*
+    Pseudo-classes are special selectors that target a
+    specific state or condition of an HTML element.
+    One of the simplest and most useful is the :hover 
+    pseudo-class, which targets the hover state of an element.
+
+    Pseudo-classes follow the same rules as normal selectors.
+    If there are no spaces between them, as in the example below,
+    then an anchor element will only be targeted if it also
+    has the "bold" class AND is also being hovered over.
+*/
+a.bold:hover {
+    color: green;
+}

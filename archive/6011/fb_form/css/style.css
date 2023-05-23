@@ -1,0 +1,39 @@
+body {
+    background-color: #EEEEEE;
+}
+
+#layout_container {
+    width: 500px;
+    margin: 0px auto;
+}
+
+form {
+    width: 100%;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 0px 4px lightgrey;
+}
+
+#single_input,
+#two_inputs,
+#three_inputs {
+    display: flex;
+}
+
+#single_input input,
+#two_inputs input {
+    flex: 1;
+    margin: 12px;
+    padding: 12px;
+}
+
+#three_inputs input {
+    width: 33%;
+    margin: 12px;
+    padding: 12px;
+}
+
+#button_container {
+    text-align: center;
+}

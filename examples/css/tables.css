@@ -1,0 +1,47 @@
+/* Ugly table CSS */
+#uglyTable,
+#uglyTable caption,
+#uglyTable th,
+#uglyTable td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 12px;
+}
+
+#uglyTable {
+  margin-bottom: 48px;
+}
+
+#uglyColSpan {
+  background-color: gray;
+}
+
+#uglyTableRow {
+  background-color: pink;
+}
+
+#uglyTableCell {
+  background-color: skyblue;
+}
+
+/* Pretty table CSS */
+#prettyTable {
+  border-collapse: collapse;
+}
+
+#prettyTable th {
+  padding-bottom: 12px;
+  padding-right: 24px;
+}
+
+#prettyTable td {
+  padding: 4px 0px;
+}
+
+#prettyTable tr:nth-child(even) {
+  background-color: #F0F0F0;
+}
+
+#prettyTable tr:hover {
+  background-color: #E0FFE0;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spans, combining classes, and :hover</title>
+        <link href="css/css_basic_3.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="card">
+            <h2>Using &lt;b&gt; elements for bold text (old way, not good)</h2>
+            <p>
+                <b>Crown shyness</b> is a phenomenon observed in some tree species, 
+                in which the crowns of fully stocked trees do not touch each other, forming a canopy.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Using &lt;span&gt; elements with classes for bold text (new way, better)</h2>
+            <p>
+                <span class="bold">Crown shyness</span> is a phenomenon observed in some tree species, 
+                in which the crowns of fully stocked trees do not touch each other, forming a canopy.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Using multiple CSS selectors together</h2>
+            <div>This text should be italicized</div>
+            <p class="bold">This text should be bigger</p>
+        </div>
+
+        <div class="card">
+            <h2>Introducing pseudo-classes and the hover state</h2>
+            <a class="bold" href="#">Hover over me to change my color</a>
+        </div>
+
+    </body>
+</html>
