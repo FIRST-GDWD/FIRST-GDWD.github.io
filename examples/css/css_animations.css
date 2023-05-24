@@ -1,0 +1,49 @@
+#text_animation {
+    animation: changeColorAndSize 2s infinite;
+    transform-origin: left;
+}
+
+@keyframes changeColorAndSize {
+    0% {
+        color: black;
+    }
+    25% {
+        color: blue;
+        transform: scale(2);
+    }
+    50% {
+        color: red;
+    }
+    75% {
+        color: green;
+    }
+    100% {
+        color: black;
+    }
+}
+
+#box_animation {
+    box-sizing: border-box;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    animation: rollBlock 5s infinite;
+    animation-delay: 3s;
+}
+
+@keyframes rollBlock {
+    0%, 100% {
+        background-color: red;
+        border-radius: 0px;
+    }
+    25% {
+        border-radius: 50% 0% 50% 75%;
+    }
+    50% {
+        background-color: blue;
+        border-radius: 50%;
+    }
+    75% {
+        transform: translateX(400px) rotate(180deg);
+    }
+}

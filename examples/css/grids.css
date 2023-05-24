@@ -1,3 +1,23 @@
+/*
+    I recommend starting from scratch, and adding in CSS piece by piece.
+    
+    first, add the code to activate the grid; not much will change.
+    second, start playing around with grid-template-columns values.
+        column widths are separate by spaces, and can use both
+        relative and absolute units.
+    third, experiment with grid-template-areas.
+        remember, each set of "" represents a row in the grid.
+            in each row, you SHOULD only have the number of columns that 
+            you specfied in grid-template-columns, but nothing is stopping
+            you from writing bad code.
+        also remember that dots (.) represent an empty cell in your template.
+        and finally, remember that grid areas can be used multiple times
+            in the template (across both rows and columns), but they MUST form
+            a rectangular shape within the grid.  
+            No L-shapes, or crosses, or anything weird; only squares and rectangles.  
+            Otherwise, your grid template will probably break, and nothing will work.
+*/
+
 #my_grid {
     display: grid;
     grid-template-columns: 1fr 150px 650px 1fr;

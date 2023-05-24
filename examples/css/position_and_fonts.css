@@ -1,19 +1,37 @@
+/* Google fonts (and the import code below) can be obtained from https://fonts.google.com/ */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Rubik+Pixels&display=swap');
 
 #container {
     background-color: teal;
     margin: 200px;
     height: 400px;
+    /* 
+        if position: relative; is not set here, then the inner_content will position itself
+        relative to the NEXT container with position: relative;  set,
+        or if there isn't one, it will position itself relative to the <body> element
+    */
     position: relative;
 }
 
 #inner_content {
     background-color: limegreen;
+    /* try out different position values here, and see what happens! */
     position: absolute;
+    /* 
+        try out different sides as well, like right and bottom!
+        but note that we typically only use one side at a time:
+        using both right and left at the same time may have
+        unexpected side effects
+    */
     left: 0px;
     top: 100px;
 }
 
+
+/* 
+    each of these paragraphs uses the font-family code obtained from https://fonts.google.com/.
+    this code will only work if we have a matching @import at the top of our code
+*/
 #p1 {
     font-family: 'Rubik Pixels', cursive;
     font-size: 36px;

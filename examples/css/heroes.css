@@ -8,6 +8,13 @@ p {
     height: 1000px;
 }
 
+/* 
+    this hero has a pretty standard background image size that covers the container,
+    with an explicit height set that will be the same no matter what.
+    then we use absolute positioning to move the inner content around the hero.
+    this is rather fragile, because it will probably move off the screen
+    if the screen width gets too narrow, but it can work for some scenarios.
+*/
 #hero_1 {
     background-image: url("../images/SnowyHero.jpg");
     background-size: cover;
@@ -25,6 +32,14 @@ p {
     font-size: 60px;
 }
 
+/* 
+    this hero has a another pretty standard background image size that covers the container,
+    but it's a gif this time, and rather than set an explicit height we use a relative height,
+    setting it to 80vh, which means 80% of the view height.
+    then rather than using absolute positioning like last time, we use flexbox container properties.
+    to center the content in middle; this is much less fragile and most likely won't overflow,
+    because flexboxes by nature are rather flexible (no pun intended).
+*/
 #hero_2 {
     background-image: url("../images/forest.gif");
     background-size: cover;
@@ -49,6 +64,13 @@ p {
     font-size: 48px;
 }
 
+/*
+    finally, we have a hero with a parallax background image effect, which uses the
+    background-attachment: fixed; property/value pair to have the page content
+    scroll over the background while it remains fixed.
+    We also don't set ANY height this time; the height of the hero is dependent on
+    the height of the content inside it (including padding but not necesssarily margin) 
+*/
 #hero_3 {
     background-image: url("../images/clouds.gif");
     background-size: cover;
