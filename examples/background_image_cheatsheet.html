@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Background Image Examples</title>
+        <link href="css/background_image_cheatsheet.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Basic background-image example</h2>
+        <p class="code">background-image: url("../images/dice.png");</p>
+        <div class="example1"></div>
+        <h2>Basic background-image example with two images</h2>
+        <p class="code">background-image: url("../images/dice.png"), url("../images/abstract8.jpg");</p>
+        <p>
+            Note that the first image is drawn on top, and the second is drawn behind
+        </p>
+        <div class="example2"></div>
+        <h2>Example of background-image stretched to fill container in both x and y directions with background-size</h2>
+        <p class="code">
+            background-image: url("../images/abstract8.jpg");
+            <br>
+            background-size: 100% 100%;
+        </p>
+        <div class="example3"></div>
+        <h2>Example of background-image cropped to fill container with background-size set to 'cover'</h2>
+        <p class="code">
+            background-image: url("../images/abstract8.jpg");
+            <br>
+            background-size: cover;
+        </p>
+        <div class="example3_2"></div>
+        <h2>Example of background-image used with position, repeat, and size properties</h2>
+        <p class="code">
+            background-image: url("../images/abstract8.jpg");
+            <br>
+            background-position: right;
+            <br>
+            background-repeat: no-repeat;
+            <br>
+            background-size: contain;
+        </p>
+        <div class="example4"></div>
+        <h2>Example of using the background shorthand notation</h2>
+        <p class="code">
+            background:
+            <br>
+            <span class="comment">/* background-position background-repeat background-image */</span>
+            <br>
+            <span>center no-repeat url("../images/dice.png"),</span>
+            <br>
+            <span class="comment">/* background-position/background-size background-image */</span>
+            <br>
+            <span>left/100% 100% url("../images/abstract8.jpg");</span>
+        </p>
+        <div class="example5"></div>
+    </body>
+</html>

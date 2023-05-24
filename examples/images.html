@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Images Examples</title>
+  </head>
+  <body>
+    <h2>This is an example of an image with a "web" source</h2>
+    <p>The image is accessed from somewhere else on the internet and downloaded to your page.</p>
+    <p>This tends to be a bit easier to implement, but you have no control over the image you're loading.</p>
+
+    <!-- web image src -->
+    <!-- 
+        we haven't learned how to style images yet, so we're using that 'style' attribute as a 
+        temporary stop-gap (called "inline CSS"), so our images aren't huge 
+    -->
+    <!-- once we learn more about CSS, you'll be discouraged from styling images this way -->
+    <img
+      style="height: 200px"
+      src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg"
+      alt="a black cat ready to pounce...or nap"
+    >
+
+    <h2>This is an example of an image with a "local" source</h2>
+    <p>The image is downloaded by you and stored in a folder in your repository, and you refer to that image location to load it.</p>
+    <p>This requires a few extra steps to get it in place, but you have complete control over the image.</p>
+
+    <!-- local image src -->
+    <!-- 
+        we haven't learned how to style images yet, so we're using that 'style' attribute as a 
+        temporary stop-gap (called "inline CSS"), so our images aren't huge 
+    -->
+    <!-- once we learn more about CSS, you'll be discouraged from styling images this way -->
+    <img
+      style="height: 200px"
+      src="images/goat.jpeg"
+      alt="a cute goat ready to leap"
+    >
+  </body>
+</html>

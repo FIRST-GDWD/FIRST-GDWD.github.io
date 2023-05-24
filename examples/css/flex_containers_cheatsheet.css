@@ -1,0 +1,123 @@
+body {
+    font-family: Verdana;
+}
+h2:not(:first-child) {
+    padding-top: 72px;
+}
+.flexChild {
+    background-color: lavender;
+    border: 2px solid grey;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-weight: bold;
+    height: 50px;
+    margin: 10px;
+    padding: 8px 14px;
+    width: 50px;
+}
+.flexChildWide {
+    text-align: center;
+    width: 300px;
+}
+.flexChildTall {
+    height: 100px;
+}
+.flexChildGiant {
+    height: 200px;
+}
+.flexContainer {
+    background-color: darksalmon;
+    border-radius: 4px;
+    display: flex;
+}
+.flexRow {
+    background-color: pink;
+    flex-direction: row;
+}
+.flexRowReverse {
+    background-color: pink;
+    flex-direction: row-reverse;
+}
+.flexColumn {
+    background-color: pink;
+    flex-direction: column;
+}
+.flexColumnReverse {
+    background-color: pink;
+    flex-direction: column-reverse;
+}
+.flexNoWrap {
+    background-color: orchid;
+    flex-wrap: nowrap;
+}
+.flexWrap {
+    background-color: orchid;
+    flex-wrap: wrap;
+}
+.flexWrapReverse {
+    background-color: orchid;
+    flex-wrap: wrap-reverse;
+}
+.flexJustifyStart {
+    background-color: slateblue;
+    justify-content: flex-start;
+}
+.flexJustifyEnd {
+    background-color: slateblue;
+    justify-content: flex-end;
+}
+.flexJustifyCenter {
+    background-color: slateblue;
+    justify-content: center;
+}
+.flexJustifySpaceBetween {
+    background-color: slateblue;
+    justify-content: space-between;
+}
+.flexJustifySpaceAround {
+    background-color: slateblue;
+    justify-content: space-around;
+}
+.flexJustifySpaceEvenly {
+    background-color: slateblue;
+    justify-content: space-evenly;
+}
+.flexAlignItemsStart {
+    background-color: mediumpurple;
+    align-items: flex-start;
+}
+.flexAlignItemsEnd {
+    background-color: mediumpurple;
+    align-items: flex-end;
+}
+.flexAlignItemsCenter {
+    background-color: mediumpurple;
+    align-items: center;
+}
+.flexAlignItemsStretch {
+    background-color: mediumpurple;
+    align-items: stretch;
+    height: 300px;
+}
+.flexAlignItemsStretch div {
+    height: auto;
+}
+.flexAlignItemsBaseline {
+    background-color: mediumpurple;
+    align-items: baseline;
+}
+.flexAlignItemsStart .flexChildTall,
+.flexAlignItemsEnd .flexChildTall,
+.flexAlignItemsCenter .flexChildTall,
+.flexAlignItemsStretch .flexChildTall,
+.flexAlignItemsBaseline .flexChildTall {
+    padding-top: 50px;
+}
+.flexAlignItemsStart .flexChildGiant,
+.flexAlignItemsEnd .flexChildGiant,
+.flexAlignItemsCenter .flexChildGiant,
+.flexAlignItemsStretch .flexChildGiant,
+.flexAlignItemsBaseline .flexChildGiant {
+    padding-top: 100px;
+}

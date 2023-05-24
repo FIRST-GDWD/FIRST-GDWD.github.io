@@ -1,0 +1,23 @@
+/*
+    this will style the entire list to use the style type provided
+    in the list-style-type property; in this case, a square
+*/
+#fruits_basket {
+    list-style-type: square;
+}
+
+/*
+    Note that only text inside of a <li> inside of the fruits_basket
+    will turn red
+*/
+#fruits_basket li {
+    color: red;
+}
+
+/*
+    ...but the <span> INSIDE of a <li> is even more specific,
+    so the green from the CSS rule below will override the red
+*/
+#fruits_basket li span {
+    color: green;
+}

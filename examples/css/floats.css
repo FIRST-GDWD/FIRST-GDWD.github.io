@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+    float: left;
+    margin: 0px 12px 0px 0px;
+    opacity: 50%;
+}
+
+p {
+    background-color: pink;
+}
+
+p.lecture {
+    background-color: lightblue;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    background-color: rgba(0,0,255,0.5);
+    text-align: center;
+    font-size: 36px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.column {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding: 16px;
+}

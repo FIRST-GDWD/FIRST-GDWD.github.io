@@ -1,0 +1,22 @@
+.myGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas:
+    "myHeader myHeader myHeader"
+    "sidenav content content";
+}
+header {
+    grid-area: myHeader;
+    background-color: lightgreen;
+    padding: 36px;
+}
+nav {
+    grid-area: sidenav;
+    background-color: #DDFFDD;
+    padding: 36px;
+}
+main {
+    grid-area: content;
+    padding: 36px;
+}

@@ -1,0 +1,22 @@
+.myGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+}
+header {
+    background-color: lightgreen;
+    padding: 36px;
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+nav {
+    background-color: #DDFFDD;
+    padding: 36px;
+    grid-column: 1;
+    grid-row: 2;
+}
+main {
+    padding: 36px;
+    grid-column: 2 / 4;
+    grid-row: 2;
+}

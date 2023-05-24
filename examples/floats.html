@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Float and Clear Examples</title>
+    <link href="css/floats.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Let's take a look at how weird floats are</h1>
+    <p class="lecture">
+        The goat image is semi-transparent here.  
+        Note how the text wraps around the image at narrow widths, 
+        but also note how the colored box of the paragraph goes BEHIND the image, even though the text does not.  
+    </p>
+    <p class="lecture">
+        It's kind of like the colored box of the paragraph is a liquid, and the float-ed image is a rock jutting up out of the liquid.
+        It's there in the liquid, but doesn't move, while the stuff floating on the surface (the words of the paragraph) flow around it.
+        Not the most perfect analogy, but probably as close as we can get.
+    </p>
+    <img src="images/goat.jpeg" alt="that old goat again">
+    <p>
+      E de concursionibus. Qui export consequat cernantur,
+      excepteur in legam consequat. Ea quorum nisi non cernantur.
+      Aliquip minim quo quamquam concursionibus ita do labore ne
+      quis.Eu fugiat tractavissent, de eram singulis ea de
+      incurreret do appellat qui non summis consequat laboris.
+      Possumus fugiat malis probant quis qui de id familiaritatem.
+      Appellat o quem ingeniis, se se duis fugiat velit ex
+      doctrina an excepteur, iis sunt iudicem te nostrud enim
+      proident qui ullamco nulla esse ubi dolore, ipsum eiusmod ut
+      enim summis, est quamquam de ingeniis. 
+    </p>
+    <p class="lecture">
+        But the weirdness doesn't stop there.  
+        Float-ed elements don't move compared to "normal" elements and text; 
+        those things flow through or around them. 
+        BUT, other float-ed element will float up and line up next to each other horizontally, as long as they're on the same side.
+        Otherwise, they'll stack vertically. Very strange...
+    </p>
+    <div class="box floatLeft">1</div>
+    <div class="box floatLeft">2</div>
+    <div class="box floatLeft">3</div>
+    <div class="box floatLeft">4</div>
+    <div class="box floatLeft">5</div>
+    <div class="clear"></div>
+    <div class="box floatRight">6</div>
+    <div class="box floatRight">7</div>
+    <div class="box floatRight">8</div>
+    <div class="box floatRight">9</div>
+    <div class="clear"></div>
+
+    <h3>This is a way you can use floats to create columns side-by-side.</h3>
+    <p class="column">
+      Aliquip distinguantur iis deserunt non sed an voluptatibus.
+      Iudicem nam possumus si de quae e fore sed malis
+      tractavissent possumus quae laboris se est irure probant.
+      Quem laboris familiaritatem ita excepteur minim amet
+      consequat elit, ex quae irure fugiat vidisse ita senserit
+      magna si consequat familiaritatem.Quo id minim laboris ita
+      export ingeniis efflorescere ea laboris irure multos do
+      noster ad quis a mentitum in ipsum, do sint incididunt
+      probant, appellat sint incurreret te tempor fabulas
+      proident, an magna senserit. Doctrina quorum ut admodum
+      distinguantur, non ut quorum quorum aute, est eram fugiat
+      duis possumus, se de culpa officia. Malis singulis
+      firmissimum.
+    </p>
+    <p class="column">
+      Sunt incurreret offendit, fabulas distinguantur ex commodo
+      in id quis velit ad constias, incurreret quid magna
+      incurreret veniam qui qui nisi aliqua ab singulis nam hic
+      enim ingeniis, est id nisi tamen export o o quamquam o
+      pariatur. Ne e esse culpa dolor. Ex dolore senserit
+      despicationes. Iudicem quis quid do cillum id ipsum e
+      iudicem, ingeniis hic dolore, non quorum mandaremus
+      cernantur ubi ubi dolor fidelissimae ita fore officia
+      despicationes in nam ipsum excepteur transferrem, expetendis
+      ipsum labore officia fugiat.Arbitror a constias. Officia
+      sunt illum admodum summis quo cillum fabulas sempiternum,
+      ita an quem anim noster ubi ipsum hic qui aliqua deserunt
+      ubi quibusdam graviterque ex offendit, litteris si quorum
+      eiusmod, officia ea summis pariatur o nostrud veniam te
+      doctrina arbitrantur. Quo sunt quem culpa laboris.
+    </p>
+
+    
+    <p class="lecture clear">But there are better ways, once we learn more CSS, so I wouldn't recommend it.</p>
+  </body>
+</html>

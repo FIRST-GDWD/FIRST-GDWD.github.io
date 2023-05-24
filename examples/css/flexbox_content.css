@@ -1,7 +1,61 @@
 main {
-    width: 800px;
+    max-width: 800px;
     margin: 24px auto;
 }
+
+main h1,
+main h2 {
+    text-align: center;;
+}
+
+/* 
+    let's suppose we want to have a flexbox gallery that arranges the images inside of it
+    in columns of 4, with margins of 24px around them. to do that, we'll need our flexbox to wrap.
+*/
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*
+    next, we'll need our images to resize themselves to each take up a quarter of the 
+    total width.  you'll soon discover this is a little easier said than done.
+*/
+.gallery img {
+    margin: 24px;
+    /*
+        a naive approach might involve simply setting a width of 25%;
+        this is the right idea, but we have to fight with how elements are sized
+        by default in CSS first.
+    */
+    /* width: 25%; */
+
+    /* 
+        didn't work, right? that because when you set a width on an element, that width
+        is actually setting the CONTENT width of the element by default, NOT the width of 
+        box/border (which is completely asinine to me at least). we can fix that below 
+    */
+    box-sizing: border-box;
+    /* 
+        but we still have an issue with the size, because the margin is ADDED to the width
+        we tried to set up above. we need a way to strip off the margin when setting the width.
+
+        the special calc notation below allows us to set the width of the images in the gallery
+        to be 25% (or 1/4 the size) of the container, but also remove the margin we added
+        (24px on both the left and right side, so 24px * 2)
+    */
+    width: calc(25% - 2*24px);
+    
+    /* 
+        now we have 4 images side by side in a row!
+
+        however, note that this can cause the images to become squashed or squished.
+        to remedy this, we can allow the images to be cropped to fit, using the 
+        object-fit property and giving it the value 'cover'.
+    */
+    object-fit: cover;
+}
+
 
 .side_by_side {
     display: flex;
@@ -9,6 +63,14 @@ main {
     margin: 48px 24px;
 }
 
+/* 
+    as you've seen, images can be finicky children in flexboxes, 
+    so oftentimes we need to wrap our images in a container element 
+    and allow the flexbox to manipulate the container, rather than
+    the images directly; if we do this, then we can allow our image 
+    to grow to fill the container with width: 100%, so that the 
+    image doesn't get distorted
+*/
 .side_by_side .img_container {
     flex: 2;
 }
@@ -18,25 +80,35 @@ main {
     border-radius: 40px 0px 40px 0px;
 }
 
+/* 
+    since the img_container has flex set to 2, 
+    and our paragraph has flex set to 1,
+    the img_container will be twice as wide as
+    our paragraph (since 2 / 1 = 2).
+
+    We could have just as easily set the img_container
+    flex value to 4 and the paragraph's to 2, and 
+    we'd have the same effect (since 4 / 2 = 2) 
+*/
 .side_by_side p {
     flex: 1;
     margin: 24px;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.gallery img {
-    box-sizing: border-box;
-    width: calc(25% - 2*24px);
-    margin: 24px;
-}
-
+/*
+    same with our gallery_row; we've learned our lesson,
+    so let's wrap our images in an img_container, and 
+    allow the flexbox to manipulate that first; then
+    we'll just let our image grow to fill the container.
+*/
 .gallery_row {
     display: flex;
 }
+
+/*
+    by giving all img_containers the same flex value,
+    they will all have the same width in the flexbox
+*/
 .gallery_row .img_container {
     flex: 1;
     margin: 24px;
