@@ -271,7 +271,7 @@
     <hr />
    <!-- Part 4: Push Hello World Onto Github -->
     <header id="part4">
-      <h1>Push Projects To Github</h1>
+      <h1>Push Projects To Github (Complete Code Skeleton exercise first)</h1>
       <h2>Part 4</h2>
       <a href="#part1"><p>Go to Part 1</p></a> |
       <a href="#part2"><p>Go to Part 2</p></a> |
@@ -296,18 +296,21 @@
             The shortcut on Macs to save is CMD + S (when you have the file selected)</strong>
             <br><br>
         </li>
-        <li>Now, jump back to Github Desktop. In the app, you should see your Hello World and Code Skeleton folders, along with its contents were added as changes or commits.
+        <li>
+            Now, jump back to Github Desktop. In the app, you should see the changes to your code_skeleton folder; in this case, only the index.html file.  <br><br>
+            (You might wonder why the 'images' and 'css' folders aren't in there. Well, GitHub desktop only tracks changes to files; folders are more or less invisible to it, until a file is put inside of them.)
           <br /><br />
-          <img src="assets/imgs/revisedindex.png" alt="revisedindex.png" />
+          <img src="assets/imgs/indexhtml.png" alt="revisedindex.png" />
           <br /><br />
           We're going to save a copy of your changes in something called a "commit". <strong>A commit is basically a snapshot of the changes you made, which gets added to the repository's source control.</strong> This is useful for many reasons; for example, if you make a breaking change to your website, you can revert back to a previous commit (aka snapshot) to make it work again while you try to figure out what went wrong.
           <br /><br />
-          Add a commit name (required) and description (optional) in the textboxes in the bottom left of the app. Then click the "Commit to main" button to create a commit of your changes.
+          Add a commit Summary (required) and Description (optional) in the textboxes in the bottom left of the app. Then click the [Commit to <b>main</b>] button to create a commit of your changes.
           <br /><br />
           <img src="assets/imgs/commit.png" alt="commit.png">
           <br /><br />
-          <strong>WARNING: Github cannot handle super large files, and adding files greater than 20 MB could cause Github Desktop to choke; it is highly recommended to use compressed files on the web anyway, so if you have high resolution image or video files you'd like to use, talk with your instructor first.&nbsp; You will likely make your school life a lot harder otherwise...</strong>
+          <strong>WARNING 1: Github Desktop cannot handle super large files, and adding files greater than 1 MB could cause Github Desktop to choke; it is highly recommended to use compressed files on the web anyway, so if you have high resolution image or video files you'd like to use, talk with your instructor first.&nbsp; You will likely make your school life a lot harder otherwise...</strong>
           <br /><br />
+          
         </li>
         <li>Next, we are going to do something called a "push". <strong>A push is an action that, well, <em>pushes</em> your local commits to the remote server on github.com.</strong>
           <br /><br />
@@ -315,9 +318,12 @@
           <br /><br />
           <strong>Note that each location has an indicator of how many commits you are going to push. That is because it's possible to make multiple commits locally before pushing them.</strong>
           <br /><br />
-          <img src="assets/imgs/pushorigin.png" alt="pushorigin.png" />
+          <img src="assets/imgs/pushoptions.png" alt="pushorigin.png" />
           <br /><br />Go ahead and click either option to push your changes to your website.
           <br /><br />
+          <strong>WARNING 2: If you have weak or unstable Wifi, it is recommended that you create separate commits for each image you need to push, rather than including all images in a single commit.  
+            <br>Github Desktop will sometimes stall if you commit and push all your images at once with weak internet, so save yourself the stress, and commit/push images one at a time.</strong>
+          <br><br>
         </li>
         <li>If the push was successful, the top option should change to "Fetch origin".
           <br /><br />
@@ -332,22 +338,26 @@
             <strong><em>Pulling&nbsp;</em>is the process of downloading/syncing changes from the remote server repository with your own local repository.</strong>
             <br /><br />
          </li>
-         <li>Now return to the Github website, and go into the repository you made earlier with github.io at the end of it. Once you navigate to the main repository code screen, you should see your HelloWorld folder that you created in the middle section.
+         <li>Now return to the Github website, and go into the repository you made earlier with github.io at the end of it. Once you navigate to the main repository code screen, you should see your code_skeleton folder that you created in the middle section.
           <br><br>
           <strong>NOTE: Github pages often times takes 5-10 minutes to actually render out your commit, so you may have to wait and then check to see if your site is live </strong>
           <br><br>
             Now you can navigate to the sidebar and click on github pages under "Environments". 
           <br /><br />
-          <img src="assets/imgs/githubsidebar.png" alt="githubsidebar.png" />
+          <img src="assets/imgs/environments.png" alt="githubsidebar.png" />
           <br /><br />
-          From there you will find the deployment page (the most recent deployment will usually be at the top). Click on the deployment and it will open your "homepage" of sorts. In order to find your Hello World site (a project nested in your main repository), you must add the project folder name to the end of the URL
-          <br /><br />
+          From there you will find the deployment page (the most recent deployment will usually be at the top). Click on the deployment and it will open your "homepage" of sorts (still just the name of your repository, in your .readme file). 
+          <br><br>
+          In order to find your code_skeleton site (a project nested in your main repository), you must add the project folder name to the end of the URL (and it must match EXACTLY! No differences in case or spacing or spelling)
+          <br /><br /> 
           For example:
           <br>
-          https://gdwd-kc.github.io/kctobias.github.io<strong>/HelloWorld/</strong>
+          https://gdwd-kc.github.io/kctobias.github.io<strong>/code_skeleton/</strong>
           <br><br>
           <strong>Don't forget the last forward slash!</strong>
           <br /><br />
+          Granted, your code_skeleton project folder will only display an empty page, with the name of "Document" on the tab. Here's an example of what your next exercise will look like when it's loaded up in the browser.
+          <br><br>
           <img src="assets/imgs/browser.png" alt="browser.png" />
           <br /><br />
           Within a couple minutes of pushing your code, the url should update to display your brand new "Hello World" homepage! 
