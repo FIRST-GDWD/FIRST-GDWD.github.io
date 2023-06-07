@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: calc(100vh - 48px);
+    background-image: 
+        repeating-linear-gradient(-45deg,transparent,transparent 200px, #ff705099 200px, #ff705099 400px),
+        repeating-linear-gradient(45deg,transparent,transparent 200px, #ff705077 200px, #ff705077 400px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+#cookbookButtons {
+    text-align: center;
+}
+
+#cookbookButtons button {
+    background-color: white;
+    border: 3px solid #ff7050;
+    border-radius: 16px;
+    color: #ff7050;
+    padding: 12px;
+    min-width: 150px;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#cookbookButtons button.selected,
+#cookbookButtons button:hover {
+    background-color: #ff7050;
+    color: white;
+}
+
+#backButton {
+    display: none;
+}
+
+
+
+/*****************************************************
+  RECIPE CARDS
+*****************************************************/
+#cookbookPage.recipeCards {
+    background-color: #FFFFFFDD;
+    border-radius: 45px;
+    margin: 36px;
+}
+
+.recipeCards #cookbookPageColumnOne {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipeCards .cookbookRecipe {
+    margin: 12px;
+    position: relative;
+    /* width: calc(50% - 24px); */
+    flex: 1;
+    min-width: 300px;
+}
+
+/* tabbed heading styles */
+/* 
+#cookbookPage.recipeCards {
+    padding: 12px 24px 24px;
+}
+.recipeCards .recipeHeading {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 12px 12px 0px 0px;
+    border-bottom: 0;
+    bottom: -3px;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+}
+.recipeCards .recipePreview {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 0px 12px 12px;
+} */
+/* end tabbed heading styles */
+
+/* plain card styles */
+#cookbookPage.recipeCards {
+    padding: 24px;
+}
+.recipeCards .cookbookRecipe {
+    background-color: white;
+    border: 3px solid #ff7050;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #00000033;
+    padding: 12px;
+}
+.recipeCards .recipeHeading {
+    border-bottom: 3px solid #ff7050;
+}
+/* end plain card styles */
+
+.recipeCards .recipeHeading {
+    font-size: 24px;
+    margin: 0px;
+    padding: 6px 12px;
+}
+
+.recipeHeading a {
+    text-decoration: none;
+    color: #e56144;
+}
+
+.recipeCards .recipeHeading a:hover {
+    opacity: 0.5;
+}
+
+.recipeCards .recipePreview {
+    height: 300px;
+    position: relative;
+    width: 100%;
+}
+
+.recipeCards iframe {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.recipeCards iframe {
+    border: none;
+}
+
+.recipeCards .recipeOverlay {
+    background: linear-gradient(to top, white 5%, transparent 20%, transparent);
+    border-radius: 0px 12px 12px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.recipeCards .recipeListPreview {
+    display: none;
+}
+
+/*****************************************************
+  RECIPE LIST
+*****************************************************/
+
+#cookbookPage.recipeList {
+    background-color: #FFFFFFDD;
+    border-radius: 45px;
+    display: flex;
+    min-height: 80vh;
+    margin: 36px;
+    padding: 48px 0px;
+}
+
+.recipeList #cookbookPageColumnOne,
+.recipeList #cookbookPageColumnTwo {
+    flex: 1;
+}
+
+.recipeList #cookbookPageColumnTwo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.recipeList .recipeHeading {
+    display: flex;
+}
+
+.recipeList .recipeHeading a {
+    opacity: 0.5;
+}
+
+.recipeList .recipeHeading a.previewing {
+    text-decoration: underline;
+}
+
+.recipeList .recipeHeading a.previewing,
+.recipeList .recipeHeading a.previewing .recipeDots,
+.recipeList .recipeHeading a:hover,
+.recipeList .recipeHeading:hover .recipeDots {
+    opacity: 1;
+}
+
+.recipeList .recipeHeading .recipeDots,
+.recipeList .recipeHeading:hover .recipeDots:hover {
+    opacity: 0.5;
+}
+
+.recipeList .recipeDots {
+    border-bottom: 3px dotted #e56144;
+    flex: 1;
+}
+
+.recipeList .cookbookRecipe {
+    padding: 0px 36px;
+}
+
+.recipeList .cookbookRecipe .recipePreview {
+    display: none;
+}
+
+.recipeList .recipeListPreview {
+    background-color: white;
+    box-shadow: inset 0px 0px 8px 4px #00000033;
+    height: 100%;
+    margin-right: 36px;
+    max-height: 80vh;
+    padding: 12px;
+    position: sticky;
+    top: 24px;
+}
+
+.recipeList .recipeListPreview iframe {
+    border: none;
+    height: 100%;
+    opacity: 1;
+    width: 100%;
+}
+
+.recipeList .recipeListPreview iframe.fadeOut,
+#cookbookPage.fadeOut {
+    animation: fadeOut 0.3s;
+}
+
+.recipeList .recipeListPreview iframe.fadeIn,
+#cookbookPage.fadeIn {
+    animation: fadeIn 0.3s;
+}
+
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
