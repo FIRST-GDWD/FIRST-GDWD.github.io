@@ -9,9 +9,12 @@ const HEADING_ID_POSTFIX = "Heading";
 const IFRAME_ID_POSTFIX = "Iframe";
 const LINK_CLASS = "recipeLink"
 const PREVIEWING_CLASS = "previewing";
+const PAGE_MODE_KEY = "mode";
+const PAGE_MODE_NONE = "none";
 const PAGE_MODE_CARDS = "cards";
 const PAGE_MODE_LIST = "list";
 const PAGE_MODE_RECIPE = "recipe";
+const RECIPE_NONE_CLASS = "recipeNone";
 const RECIPE_CARDS_CLASS = "recipeCards";
 const RECIPE_LIST_CLASS = "recipeList";
 const RECIPE_DETAILS_CLASS = "recipeDetails";
@@ -25,14 +28,27 @@ const cookbookPageColumnOne = document.getElementById("cookbookPageColumnOne");
 const cssPreview = document.getElementById("cssPreview");
 const bigRecipePreview = document.getElementById("bigRecipePreview");
 
+const cardsButton = document.getElementById("cardsButton");
+const listButton = document.getElementById("listButton");
+const backButton = document.getElementById("backButton");
+
 const recipeDocs = {};
 const recipeHTML = {};
 const recipeCSS = {};
 
-let pageMode = PAGE_MODE_CARDS;
-let pageView = PAGE_MODE_CARDS;
 let pageRecipe = "";
 let bigPreviewSrc = "";
+
+let defaultPageMode = PAGE_MODE_CARDS;
+if (localStorage.getItem(PAGE_MODE_KEY) !== null) {
+    defaultPageMode = localStorage.getItem(PAGE_MODE_KEY);
+}
+
+let pageMode = defaultPageMode;
+let pageView = defaultPageMode;
+
+setTimeout(showModeButtons, 300);
+setTimeout(displayCookbook, 600);
 
 function getRecipeHTMLPath(recipeName) {
     return `htmlRecipes/${recipeName}.html`;
@@ -111,10 +127,6 @@ function clearPreviewedRecipeHeadingLinks() {
 
 // button behavior
 
-const cardsButton = document.getElementById("cardsButton");
-const listButton = document.getElementById("listButton");
-const backButton = document.getElementById("backButton");
-
 function fadeOutModeButtons() {
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
@@ -123,10 +135,15 @@ function fadeInModeButtons() {
 
 }
 
+function storePageMode(mode) {
+    localStorage.setItem(PAGE_MODE_KEY, mode);
+}
+
 function setPageView(mode, recipe="") {
     switch(mode) {
         case PAGE_MODE_CARDS:
             pageMode = mode;
+            storePageMode(mode);
             cardsButton.classList.add(SELECTED_CLASS);
             listButton.classList.remove(SELECTED_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
@@ -136,6 +153,7 @@ function setPageView(mode, recipe="") {
             break;
         case PAGE_MODE_LIST:
             pageMode = mode;
+            storePageMode(mode);
             listButton.classList.add(SELECTED_CLASS);
             cardsButton.classList.remove(SELECTED_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
@@ -257,55 +275,63 @@ function onModeButtonAnimationEnd() {
     }
 }
 
+function showModeButtons() {
+    switch(pageMode) {
+        case PAGE_MODE_CARDS:
+            cardsButton.classList.add(SELECTED_CLASS);
+            break;
+        case PAGE_MODE_LIST:
+            listButton.classList.add(SELECTED_CLASS);
+            break;
+    }
+    cardsButton.classList.remove(FADE_OUT_CLASS);
+    listButton.classList.remove(FADE_OUT_CLASS);
+    cardsButton.classList.remove(HIDE_CLASS);
+    listButton.classList.remove(HIDE_CLASS);
+    cardsButton.classList.add(FADE_IN_CLASS);
+    listButton.classList.add(FADE_IN_CLASS);
+}
+
 backButton.onanimationend = onBackButtonAnimationEnd;
 function onBackButtonAnimationEnd() {
     if (this.classList.contains(FADE_OUT_CLASS)) {
         this.classList.remove(FADE_OUT_CLASS);
         this.classList.add(HIDE_CLASS);
-        cardsButton.classList.remove(FADE_OUT_CLASS);
-        listButton.classList.remove(FADE_OUT_CLASS);
-        cardsButton.classList.remove(HIDE_CLASS);
-        listButton.classList.remove(HIDE_CLASS);
-        cardsButton.classList.add(FADE_IN_CLASS);
-        listButton.classList.add(FADE_IN_CLASS);
+        showModeButtons();
     } else if (this.classList.contains(FADE_IN_CLASS)) {
         this.classList.remove(FADE_IN_CLASS);
     }
 }
 
 function clearCookbookPageView() {
+    cookbookPage.classList.remove(RECIPE_NONE_CLASS);
     cookbookPage.classList.remove(RECIPE_CARDS_CLASS);
     cookbookPage.classList.remove(RECIPE_LIST_CLASS);
     cookbookPage.classList.remove(RECIPE_DETAILS_CLASS);
 }
 
 cookbookPage.onanimationend = function() {
-
     if (cookbookPage.classList.contains(FADE_IN_CLASS)) {
         cookbookPage.classList.remove(FADE_IN_CLASS);
     } else if (cookbookPage.classList.contains(FADE_OUT_CLASS)) {
-        cookbookPage.classList.remove(FADE_OUT_CLASS);
-        cookbookPage.classList.add(FADE_IN_CLASS);
+        displayCookbook();
+    }
+}
 
-        clearCookbookPageView();
-        switch(pageView) {
-            case PAGE_MODE_CARDS:
-                cookbookPage.classList.add(RECIPE_CARDS_CLASS);
-                break;
-            case PAGE_MODE_LIST:
-                cookbookPage.classList.add(RECIPE_LIST_CLASS);
-                break;
-            case PAGE_MODE_RECIPE:
-                cookbookPage.classList.add(RECIPE_DETAILS_CLASS);
-                break;
-        }
+function displayCookbook() {
+    cookbookPage.classList.remove(FADE_OUT_CLASS);
+    cookbookPage.classList.add(FADE_IN_CLASS);
 
-        // if (cookbookPage.classList.contains(RECIPE_CARDS_CLASS)) {
-        //     cookbookPage.classList.remove(RECIPE_CARDS_CLASS);
-        //     cookbookPage.classList.add(RECIPE_LIST_CLASS);
-        // } else if (cookbookPage.classList.contains(RECIPE_LIST_CLASS)) {
-        //     cookbookPage.classList.remove(RECIPE_LIST_CLASS);
-        //     cookbookPage.classList.add(RECIPE_CARDS_CLASS);
-        // }
+    clearCookbookPageView();
+    switch(pageView) {
+        case PAGE_MODE_CARDS:
+            cookbookPage.classList.add(RECIPE_CARDS_CLASS);
+            break;
+        case PAGE_MODE_LIST:
+            cookbookPage.classList.add(RECIPE_LIST_CLASS);
+            break;
+        case PAGE_MODE_RECIPE:
+            cookbookPage.classList.add(RECIPE_DETAILS_CLASS);
+            break;
     }
 }

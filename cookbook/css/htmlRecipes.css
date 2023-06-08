@@ -4,6 +4,7 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
 }
 
 #background {
@@ -33,6 +34,7 @@ h1 {
     border-radius: 16px;
     color: #ff7050;
     cursor: pointer;
+    font-size: 16px;
     min-width: 150px;
     padding: 12px;
     transition: background-color 0.5s, color 0.5s;
@@ -44,12 +46,19 @@ h1 {
     color: white;
 }
 
+#cookbookPage.recipeNone {
+    opacity: 0;
+}
 
+.recipeNone #cookbookPageColumnOne {
+    display: none;
+}
 
 /*****************************************************
   RECIPE CARDS
 *****************************************************/
 #cookbookPage.recipeCards {
+    display: block;
     background-color: #FFFFFFDD;
     border-radius: 45px;
     margin: 36px;
@@ -157,6 +166,10 @@ h1 {
 }
 
 .recipeCards #cookbookPageColumnTwo h4 {
+    display: none;
+}
+
+.recipeCards #previewContainer {
     display: none;
 }
 
@@ -305,9 +318,9 @@ h1 {
 .recipeListPreview {
     background-color: white;
     box-shadow: inset 0px 0px 8px 4px #00000033;
-    height: 500px;
+    height: calc(100vh - 410px);
     margin-right: 36px;
-    max-height: 80vh;
+    min-height: 75vh;
     padding: 12px;
 }
 
