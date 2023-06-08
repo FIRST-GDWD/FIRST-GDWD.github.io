@@ -3,10 +3,19 @@
 }
 
 body {
-    min-height: calc(100vh - 48px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#background {
     background-image: 
-        repeating-linear-gradient(-45deg,transparent,transparent 200px, #ff705099 200px, #ff705099 400px),
+        repeating-linear-gradient(135deg,transparent,transparent 200px, #ff705099 200px, #ff705099 400px),
         repeating-linear-gradient(45deg,transparent,transparent 200px, #ff705077 200px, #ff705077 400px);
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    z-index: -10;
 }
 
 h1 {
@@ -23,9 +32,9 @@ h1 {
     border: 3px solid #ff7050;
     border-radius: 16px;
     color: #ff7050;
-    padding: 12px;
-    min-width: 150px;
     cursor: pointer;
+    min-width: 150px;
+    padding: 12px;
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -33,10 +42,6 @@ h1 {
 #cookbookButtons button:hover {
     background-color: #ff7050;
     color: white;
-}
-
-#backButton {
-    display: none;
 }
 
 
@@ -54,6 +59,15 @@ h1 {
     display: flex;
     flex-wrap: wrap;
 }
+
+.recipeCards #htmlPreview,
+.recipeCards #cssPreview,
+.recipeCards #recipeListHeading,
+.recipeCards #recipeDetailsHeadingHTML,
+.recipeCards #recipeDetailsHeadingCSS {
+    display: none;
+}
+
 
 .recipeCards .cookbookRecipe {
     margin: 12px;
@@ -110,6 +124,7 @@ h1 {
 .recipeHeading a {
     text-decoration: none;
     color: #e56144;
+    cursor: pointer;
 }
 
 .recipeCards .recipeHeading a:hover {
@@ -141,6 +156,10 @@ h1 {
     width: 100%;
 }
 
+.recipeCards #cookbookPageColumnTwo h4 {
+    display: none;
+}
+
 .recipeCards .recipeListPreview {
     display: none;
 }
@@ -153,7 +172,7 @@ h1 {
     background-color: #FFFFFFDD;
     border-radius: 45px;
     display: flex;
-    min-height: 80vh;
+    min-height: 500px;
     margin: 36px;
     padding: 48px 0px;
 }
@@ -163,11 +182,23 @@ h1 {
     flex: 1;
 }
 
-.recipeList #cookbookPageColumnTwo {
+.recipeList #htmlPreview,
+.recipeList #cssPreview,
+.recipeList #recipeDetailsHeadingHTML,
+.recipeList #recipeDetailsHeadingCSS {
+    display: none;
+}
+
+.recipeList #recipeListHeading {
+    margin-top: 0px;
+    margin-left: 36px;
+}
+
+/* .recipeList #cookbookPageColumnTwo {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-}
+} */
 
 .recipeList .recipeHeading {
     display: flex;
@@ -206,35 +237,113 @@ h1 {
     display: none;
 }
 
+
+/**********************************************************
+    RECIPE DETAILS
+**********************************************************/
+
+#cookbookPage.recipeDetails {
+    background-color: #FFFFFFDD;
+    border-radius: 45px;
+    display: flex;
+    min-height: 500px;
+    margin: 36px;
+    padding: 48px 0px;
+}
+
+.recipeDetails #cookbookPageColumnOne,
+.recipeDetails #cookbookPageColumnTwo {
+    flex: 1;
+}
+
+.recipeDetails #recipeDetailsHeadingHTML {
+    margin-top: 0px;
+}
+
+.recipeDetails #recipeDetailsHeadingHTML,
+.recipeDetails #recipeDetailsHeadingCSS
+{
+    margin-left: 36px;
+}
+
+.recipeDetails #recipeListHeading {
+    display: none;
+}
+
+.recipeDetails .cookbookRecipe {
+    display: none;
+}
+
+.recipeDetails #htmlPreview,
+.recipeDetails #cssPreview {
+    font-family: monospace;
+    margin: 0px 36px;
+}
+
+.recipeDetails #htmlPreview,
+.recipeDetails #cssPreview,
 .recipeList .recipeListPreview {
     background-color: white;
     box-shadow: inset 0px 0px 8px 4px #00000033;
-    height: 100%;
-    margin-right: 36px;
-    max-height: 80vh;
     padding: 12px;
+}
+
+
+/**********************************************************
+    RECIPE PREVIEW
+**********************************************************/
+#previewContainer {
+    min-height: 500px;
     position: sticky;
     top: 24px;
 }
 
-.recipeList .recipeListPreview iframe {
+#cookbookPageColumnTwo h4 {
+    margin-top: 0px;
+}
+
+.recipeListPreview {
+    background-color: white;
+    box-shadow: inset 0px 0px 8px 4px #00000033;
+    height: 500px;
+    margin-right: 36px;
+    max-height: 80vh;
+    padding: 12px;
+}
+
+.recipeListPreview iframe {
     border: none;
     height: 100%;
     opacity: 1;
     width: 100%;
 }
 
+
+/**********************************************************
+    ANIMATIONS
+**********************************************************/
+
 .recipeList .recipeListPreview iframe.fadeOut,
-#cookbookPage.fadeOut {
+#cookbookPage.fadeOut,
+#cardsButton.fadeOut,
+#listButton.fadeOut,
+#backButton.fadeOut {
     animation: fadeOut 0.3s;
+    animation-fill-mode: forwards;
 }
 
 .recipeList .recipeListPreview iframe.fadeIn,
-#cookbookPage.fadeIn {
+#cookbookPage.fadeIn,
+#cardsButton.fadeIn,
+#listButton.fadeIn,
+#backButton.fadeIn {
     animation: fadeIn 0.3s;
+    animation-fill-mode: forwards;
 }
 
-
+.hide {
+    display: none;
+}
 
 @keyframes fadeOut {
     0% {
@@ -253,3 +362,4 @@ h1 {
         opacity: 1;
     }
 }
+

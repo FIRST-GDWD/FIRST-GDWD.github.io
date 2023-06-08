@@ -8,11 +8,12 @@
         <link href="css/htmlRecipes.css" rel="stylesheet">
     </head>
     <body>
+        <div id="background"></div>
         <h1>HTML Recipes</h1>
         <div id="cookbookButtons">
             <button id="cardsButton" class="selected">Cards View</button>
             <button id="listButton">List View</button>
-            <button id="backButton">Back to Recipes</button>
+            <button id="backButton" class="hide">Back to Recipes</button>
         </div>
         <div id="cookbookPage" class="recipeCards">
             <div id="cookbookPageColumnOne">
@@ -46,10 +47,18 @@
                         <div class="recipeOverlay"></div>
                     </div>
                 </div> -->
+                <h4 id="recipeListHeading">TABLE OF CONTENTS</h4>
+                <h4 id="recipeDetailsHeadingHTML">HTML</h4>
+                <div id="htmlPreview"></div>
+                <h4 id="recipeDetailsHeadingCSS">CSS</h4>
+                <div id="cssPreview"></div>
             </div>
             <div id="cookbookPageColumnTwo">
-                <div class="recipeListPreview">
-                    <iframe id="bigRecipePreview" src="htmlRecipes/headings.html" scrolling="no"></iframe>
+                <div id="previewContainer">
+                    <h4>RECIPE PREVIEW</h4>
+                    <div class="recipeListPreview">
+                        <iframe id="bigRecipePreview" src="htmlRecipes/headings.html" scrolling="no"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
