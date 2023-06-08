@@ -322,13 +322,14 @@ h1 {
     margin-right: 36px;
     min-height: 75vh;
     padding: 12px;
+    overflow: hidden;
 }
 
 .recipeListPreview iframe {
     border: none;
     height: 100%;
     opacity: 1;
-    width: 100%;
+    width: calc(100% + 34px);
 }
 
 

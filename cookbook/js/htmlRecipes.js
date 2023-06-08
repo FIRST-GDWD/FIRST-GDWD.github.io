@@ -3,8 +3,15 @@ const recipeNames = [
     "paragraphs",
     "bolds",
     "italics",
+    "linebreaks",
+    "horizontalRules",
+    "orderedLists",
+    "unorderedLists",
+    "images",
+    "anchors",
 ];
 
+const ROOT_RECIPE_FOLDER = "htmlRecipes";
 const HEADING_ID_POSTFIX = "Heading";
 const IFRAME_ID_POSTFIX = "Iframe";
 const LINK_CLASS = "recipeLink"
@@ -50,8 +57,12 @@ let pageView = defaultPageMode;
 setTimeout(showModeButtons, 300);
 setTimeout(displayCookbook, 600);
 
+function applyRootFolderToPath(path) {
+    return `${ROOT_RECIPE_FOLDER}/${path}`;
+}
+
 function getRecipeHTMLPath(recipeName) {
-    return `htmlRecipes/${recipeName}.html`;
+    return applyRootFolderToPath(recipeName + ".html");
 }
 
 // initial loading of recipe content
@@ -89,10 +100,14 @@ bigRecipePreview.onanimationend = function() {
         bigRecipePreview.classList.add(FADE_IN_CLASS);
         if (bigRecipePreview.src != bigPreviewSrc) {
             bigRecipePreview.src = bigPreviewSrc;
+
         }
     }
-    
 };
+
+bigRecipePreview.onload = function () {
+    this.contentDocument.body.style.marginRight = "32px";
+}
 
 for (let recipeName of recipeNames) {
     let recipeHTMLPath = `htmlRecipes/${recipeName}.html`;
@@ -214,8 +229,9 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
 
 function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
     const cleanedCssFilePath = cssFilePath.substring(cssFilePath.indexOf('css/'));
+    const actualCssFilePath = applyRootFolderToPath(cleanedCssFilePath);
     document.getElementById("cssPreview").innerHTML = "Loading CSS...";
-    fetch(cleanedCssFilePath)
+    fetch(actualCssFilePath)
         .then(response => response.text())
         .then(css => {
             if (!(recipe in recipeCSS)) {
