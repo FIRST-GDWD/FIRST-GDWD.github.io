@@ -172,7 +172,7 @@ function onTitleAnimationEnd() {
         this.classList.remove(FADE_OUT_CLASS);
         this.classList.remove(HIDE_CLASS);
         this.classList.add(FADE_IN_CLASS);
-        if (this.classList.contains(RECIPE_CLASS)) {
+        if (pageView != PAGE_MODE_RECIPE) {
             this.classList.remove(RECIPE_CLASS);
             updateTitleText();
         } else {
@@ -226,7 +226,6 @@ listButton.onclick = function() {
 }
 
 backButton.onclick = function() {
-    title.classList.add(FADE_OUT_CLASS);
     setPageView(pageMode, "");
 }
 
@@ -241,7 +240,6 @@ function onRecipeLinkClick(e) {
     setPageView(PAGE_MODE_RECIPE, recipe, this.textContent);
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
-    title.classList.add(FADE_OUT_CLASS);
     body.scrollIntoView({
         behavior: "smooth",
     });
@@ -255,7 +253,7 @@ function storePageMode(mode) {
     localStorage.setItem(PAGE_MODE_KEY, mode);
 }
 
-function setPageView(mode, recipeKey="", recipeName="") {
+function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true) {
     switch(mode) {
         case PAGE_MODE_CARDS:
             pageMode = mode;
@@ -266,6 +264,7 @@ function setPageView(mode, recipeKey="", recipeName="") {
             cookbookPage.classList.add(FADE_OUT_CLASS);
             if (pageView == PAGE_MODE_RECIPE) {
                 backButton.classList.add(FADE_OUT_CLASS);
+                title.classList.add(FADE_OUT_CLASS);
             }
             break;
         case PAGE_MODE_LIST:
@@ -277,11 +276,13 @@ function setPageView(mode, recipeKey="", recipeName="") {
             cookbookPage.classList.add(FADE_OUT_CLASS);
             if (pageView == PAGE_MODE_RECIPE) {
                 backButton.classList.add(FADE_OUT_CLASS);
+                title.classList.add(FADE_OUT_CLASS);
             }
             break;
         case PAGE_MODE_RECIPE:
             cardsButton.classList.add(FADE_OUT_CLASS);
             listButton.classList.add(FADE_OUT_CLASS);
+            title.classList.add(FADE_OUT_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
             fetchHTMLRecipeCodeAndPrint(recipeKey);
             break;
@@ -290,7 +291,9 @@ function setPageView(mode, recipeKey="", recipeName="") {
     pageView = mode;
     pageRecipe = recipeKey;
 
-    storeHistoryState(pageView, recipeKey, recipeName);
+    if (shouldSaveInHistory) {
+        storeHistoryState(pageView, recipeKey, recipeName);
+    }
 }
 
 function storeHistoryState(view, recipeKey, recipeName) {
@@ -318,8 +321,7 @@ function storeHistoryState(view, recipeKey, recipeName) {
 window.onpopstate = function(event) {
     const state = event.state;
     if (state && state.view) {
-        title.classList.add(FADE_OUT_CLASS);
-        setPageView(state.view, state.recipe, state.recipeName);
+        setPageView(state.view, state.recipe, state.recipeName, false);
     }
 }
 

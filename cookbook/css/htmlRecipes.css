@@ -357,6 +357,7 @@ nav {
 .recipeDetails #cssPreview {
     font-family: monospace;
     margin: 0px 36px;
+    overflow-wrap: break-word;
     overflow-x: auto;
 }
 
