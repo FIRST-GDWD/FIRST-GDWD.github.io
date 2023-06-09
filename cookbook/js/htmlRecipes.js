@@ -38,6 +38,7 @@ const SELECTED_CLASS = "selected";
 const FADE_OUT_CLASS = "fadeOut";
 const FADE_IN_CLASS = "fadeIn";
 const HIDE_CLASS = "hide";
+let PAGE_TITLE_DEFAULT_TEXT = document.title;
 const TITLE_DEFAULT_TEXT = "HTML Elements";
 
 /***********************************************************************
@@ -51,7 +52,7 @@ const backTo = document.getElementById("backTo");
 const cookbookPage = document.getElementById("cookbookPage");
 const cookbookPageColumnOne = document.getElementById("cookbookPageColumnOne");
 const cssPreview = document.getElementById("cssPreview");
-const bigRecipePreview = document.getElementById("bigRecipePreview");
+const recipeListPreview = document.getElementById("recipeListPreview");
 const cardsButton = document.getElementById("cardsButton");
 const listButton = document.getElementById("listButton");
 const backButton = document.getElementById("backButton");
@@ -93,7 +94,7 @@ for (let recipeName of recipeNames) {
     cookbookPageColumnOne.innerHTML += `
         <div class="cookbookRecipe">
             <h2 class="recipeHeading">
-                <a href="#${recipeName}" id="${recipeHeadingId}" class="${LINK_CLASS}" data-recipe="${recipeName}">
+                <a href="" id="${recipeHeadingId}" class="${LINK_CLASS}" data-recipe="${recipeName}">
                     Loading...
                 </a>
                 <span class="recipeDots"></span>
@@ -129,20 +130,11 @@ for (let recipeName of recipeNames) {
             this.classList.add(PREVIEWING_CLASS);
             if (bigPreviewSrc != recipeHTMLPath) {
                 bigPreviewSrc = recipeHTMLPath;
-                bigRecipePreview.classList.add("fadeOut");
+                recipeListPreview.classList.add("fadeOut");
             }
         }
     }
 }
-
-/***********************************************************************
- * other onload event handlers
- **********************************************************************/
-// this is so we can hide the scrollbar in the preview
-bigRecipePreview.onload = function () {
-    this.contentDocument.body.style.marginRight = "32px";
-}
-
 
 /***********************************************************************
  * onanimationend event handlers
@@ -198,18 +190,27 @@ cookbookPage.onanimationend = function() {
     }
 }
 
-bigRecipePreview.onanimationend = function() {
-    if (bigRecipePreview.classList.contains(FADE_IN_CLASS)) {
-        bigRecipePreview.classList.remove(FADE_IN_CLASS);
-    } else if (bigRecipePreview.classList.contains(FADE_OUT_CLASS)) {
-        bigRecipePreview.classList.remove(FADE_OUT_CLASS);
-        bigRecipePreview.classList.add(FADE_IN_CLASS);
-        if (bigRecipePreview.src != bigPreviewSrc) {
-            bigRecipePreview.src = bigPreviewSrc;
-
-        }
+recipeListPreview.onanimationend = function() {
+    if (this.classList.contains(FADE_IN_CLASS)) {
+        this.classList.remove(FADE_IN_CLASS);
+    } else if (this.classList.contains(FADE_OUT_CLASS)) {
+        this.classList.remove(FADE_OUT_CLASS);
+        this.classList.add(FADE_IN_CLASS);
+        reloadRecipePreview();
     }
 };
+
+function reloadRecipePreview() {
+    let bigRecipePreview = document.getElementById("bigRecipePreview");
+    if (bigRecipePreview.src != bigPreviewSrc) {
+        recipeListPreview.innerHTML = `
+            <iframe id="bigRecipePreview" src="${bigPreviewSrc}"></iframe>
+        `;
+        document.getElementById("bigRecipePreview").onload = function () {
+            this.contentDocument.body.style.marginRight = "32px";
+        }
+    }
+}
 
 
 /***********************************************************************
@@ -234,9 +235,10 @@ for (let recipeLink of recipeLinks) {
     recipeLink.onclick = onRecipeLinkClick;
 }
 
-function onRecipeLinkClick() {
+function onRecipeLinkClick(e) {
+    e.preventDefault();
     let recipe = this.dataset.recipe;
-    setPageView(PAGE_MODE_RECIPE, recipe);
+    setPageView(PAGE_MODE_RECIPE, recipe, this.textContent);
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
     title.classList.add(FADE_OUT_CLASS);
@@ -253,7 +255,7 @@ function storePageMode(mode) {
     localStorage.setItem(PAGE_MODE_KEY, mode);
 }
 
-function setPageView(mode, recipe="") {
+function setPageView(mode, recipeKey="", recipeName="") {
     switch(mode) {
         case PAGE_MODE_CARDS:
             pageMode = mode;
@@ -281,12 +283,44 @@ function setPageView(mode, recipe="") {
             cardsButton.classList.add(FADE_OUT_CLASS);
             listButton.classList.add(FADE_OUT_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
-            fetchHTMLRecipeCodeAndPrint(recipe);
+            fetchHTMLRecipeCodeAndPrint(recipeKey);
             break;
     }
 
     pageView = mode;
-    pageRecipe = recipe;
+    pageRecipe = recipeKey;
+
+    storeHistoryState(pageView, recipeKey, recipeName);
+}
+
+function storeHistoryState(view, recipeKey, recipeName) {
+    const stateObject = {
+        view: view,
+        recipe: "",
+        recipeName: "",
+    };
+
+    let stateLocation = location.pathname;
+    if (recipeKey) {
+        stateObject.recipe = recipeKey;
+        stateLocation = `${stateLocation}#${recipeKey}`;
+    }
+
+    let stateTitle = PAGE_TITLE_DEFAULT_TEXT;
+    if (recipeName) {
+        stateObject.recipeName = recipeName;
+        stateTitle = `${recipeName} | ${PAGE_TITLE_DEFAULT_TEXT}`;
+    }
+
+    history.pushState(stateObject, stateTitle, stateLocation);
+}
+
+window.onpopstate = function(event) {
+    const state = event.state;
+    if (state && state.view) {
+        title.classList.add(FADE_OUT_CLASS);
+        setPageView(state.view, state.recipe, state.recipeName);
+    }
 }
 
 function updateBackToText() {
@@ -314,7 +348,8 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
     document.getElementById("htmlPreview").innerHTML = "Loading HTML...";
     const recipePath = getRecipeHTMLPath(recipe);
     bigPreviewSrc = recipePath;
-    bigRecipePreview.src = bigPreviewSrc;
+    //bigRecipePreview.src = bigPreviewSrc;
+    reloadRecipePreview();
     fetch(recipePath)
         .then(response => response.text())
         .then(html => {

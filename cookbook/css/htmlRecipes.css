@@ -235,7 +235,7 @@ nav {
     display: none;
 }
 
-.recipeCards .recipeListPreview {
+.recipeCards #recipeListPreview {
     display: none;
 }
 
@@ -362,7 +362,7 @@ nav {
 
 .recipeDetails #htmlPreview,
 .recipeDetails #cssPreview,
-.recipeList .recipeListPreview {
+.recipeList #recipeListPreview {
     background-color: white;
     box-shadow: inset 0px 0px 8px 4px #00000033;
     padding: 12px;
@@ -382,7 +382,7 @@ nav {
     margin-top: 0px;
 }
 
-.recipeListPreview {
+#recipeListPreview {
     background-color: white;
     box-shadow: inset 0px 0px 8px 4px #00000033;
     height: calc(100vh - 410px);
@@ -392,7 +392,7 @@ nav {
     overflow: hidden;
 }
 
-.recipeListPreview iframe {
+#recipeListPreview iframe {
     border: none;
     height: 100%;
     opacity: 1;
@@ -404,7 +404,7 @@ nav {
     ANIMATIONS
 **********************************************************/
 
-.recipeList .recipeListPreview iframe.fadeOut,
+.recipeList #recipeListPreview.fadeOut,
 #cookbookPage.fadeOut,
 #cardsButton.fadeOut,
 #listButton.fadeOut,
@@ -414,7 +414,7 @@ nav {
     animation-fill-mode: forwards;
 }
 
-.recipeList .recipeListPreview iframe.fadeIn,
+.recipeList #recipeListPreview.fadeIn,
 #cookbookPage.fadeIn,
 #cardsButton.fadeIn,
 #listButton.fadeIn,
