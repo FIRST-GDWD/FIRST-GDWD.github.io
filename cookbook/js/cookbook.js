@@ -1,25 +1,9 @@
 /***********************************************************************
- * seed list for dynamic content
- **********************************************************************/
-const recipeNames = [
-    "headings",
-    "paragraphs",
-    "bolds",
-    "italics",
-    "linebreaks",
-    "horizontalRules",
-    "orderedLists",
-    "unorderedLists",
-    "images",
-    "anchors",
-];
-
-/***********************************************************************
  * Constants
  **********************************************************************/
-const ROOT_RECIPE_FOLDER = "htmlRecipes";
 const HEADING_ID_POSTFIX = "Heading";
 const IFRAME_ID_POSTFIX = "Iframe";
+const COOKBOOK_RECIPE_CLASS = "cookbookRecipe";
 const LINK_CLASS = "recipeLink"
 const PREVIEWING_CLASS = "previewing";
 const PAGE_MODE_KEY = "mode";
@@ -87,12 +71,12 @@ setTimeout(displayCookbook, 900);
  **********************************************************************/
 for (let recipeName of recipeNames) {
 
-    let recipeHTMLPath = getRecipeHTMLPath(recipeName);
+    let recipeHTMLPath = getIngredientHTMLPath(recipeName);
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
 
     cookbookPageColumnOne.innerHTML += `
-        <div class="cookbookRecipe">
+        <div class="${COOKBOOK_RECIPE_CLASS}" data-recipe="${recipeName}">
             <h2 class="recipeHeading">
                 <a href="" id="${recipeHeadingId}" class="${LINK_CLASS}" data-recipe="${recipeName}">
                     Loading...
@@ -113,7 +97,7 @@ for (let recipeName of recipeNames) {
  **********************************************************************/
 
 for (let recipeName of recipeNames) {
-    let recipeHTMLPath = `htmlRecipes/${recipeName}.html`;
+    let recipeHTMLPath = getIngredientHTMLPath(recipeName);
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
 
@@ -235,9 +219,30 @@ for (let recipeLink of recipeLinks) {
 }
 
 function onRecipeLinkClick(e) {
-    e.preventDefault();
-    let recipe = this.dataset.recipe;
-    setPageView(PAGE_MODE_RECIPE, recipe, this.textContent);
+    if (pageView == PAGE_MODE_LIST) {
+        e.preventDefault();
+        let recipe = this.dataset.recipe;
+        displayIndividualRecipe(recipe, this.textContent);
+    }
+}
+
+const cookbookRecipes = document.getElementsByClassName(COOKBOOK_RECIPE_CLASS);
+for (let cookbookRecipe of cookbookRecipes) {
+    cookbookRecipe.onclick = onCookbookRecipeClick;
+}
+
+function onCookbookRecipeClick(e) {
+    if (pageView == PAGE_MODE_CARDS) {
+        e.preventDefault();
+        let recipe = this.dataset.recipe;
+        let recipeHeadingId = `${recipe}${HEADING_ID_POSTFIX}`;
+        let recipeTitle = document.getElementById(recipeHeadingId).innerHTML;
+        displayIndividualRecipe(recipe, recipeTitle);
+    }
+}
+
+function displayIndividualRecipe(recipe, recipeTitle) {
+    setPageView(PAGE_MODE_RECIPE, recipe, recipeTitle);
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
     body.scrollIntoView({
@@ -348,7 +353,7 @@ function updateTitleText(text = TITLE_DEFAULT_TEXT) {
 
 function fetchHTMLRecipeCodeAndPrint(recipe) {
     document.getElementById("htmlPreview").innerHTML = "Loading HTML...";
-    const recipePath = getRecipeHTMLPath(recipe);
+    const recipePath = getIngredientHTMLPath(recipe);
     bigPreviewSrc = recipePath;
     //bigRecipePreview.src = bigPreviewSrc;
     reloadRecipePreview();
@@ -485,6 +490,6 @@ function applyRootFolderToPath(path) {
     return `${ROOT_RECIPE_FOLDER}/${path}`;
 }
 
-function getRecipeHTMLPath(recipeName) {
+function getIngredientHTMLPath(recipeName) {
     return applyRootFolderToPath(recipeName + ".html");
 }

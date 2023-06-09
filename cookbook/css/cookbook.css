@@ -124,6 +124,7 @@ nav {
     background-color: #FFFFFFDD;
     border-radius: 45px;
     margin: 36px;
+    padding: 24px;
 }
 
 .recipeCards #cookbookPageColumnOne {
@@ -139,52 +140,31 @@ nav {
     display: none;
 }
 
-
 .recipeCards .cookbookRecipe {
-    margin: 12px;
-    position: relative;
-    /* width: calc(50% - 24px); */
+    cursor: pointer;
     flex: 1;
+    margin: 12px;
     min-width: 300px;
-}
-
-/* tabbed heading styles */
-/* 
-#cookbookPage.recipeCards {
-    padding: 12px 24px 24px;
-}
-.recipeCards .recipeHeading {
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 12px 12px 0px 0px;
-    border-bottom: 0;
-    bottom: -3px;
-    display: inline-block;
     position: relative;
-    z-index: 10;
 }
-.recipeCards .recipePreview {
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 0px 12px 12px;
-} */
-/* end tabbed heading styles */
 
-/* plain card styles */
-#cookbookPage.recipeCards {
-    padding: 24px;
-}
 .recipeCards .cookbookRecipe {
     background-color: white;
     border: 3px solid #ff7050;
     border-radius: 12px;
     box-shadow: 4px 4px 4px #00000033;
     padding: 12px;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
+
+.recipeCards .cookbookRecipe:hover {
+    box-shadow: 8px 8px 8px #00000033;
+    transform: translateY(-8px);
+}
+
 .recipeCards .recipeHeading {
     border-bottom: 3px solid #ff7050;
 }
-/* end plain card styles */
 
 .recipeCards .recipeHeading {
     font-size: 24px;
@@ -196,10 +176,6 @@ nav {
     text-decoration: none;
     color: #e56144;
     cursor: pointer;
-}
-
-.recipeCards .recipeHeading a:hover {
-    opacity: 0.5;
 }
 
 .recipeCards .recipePreview {
@@ -268,12 +244,6 @@ nav {
     margin-top: 0px;
     margin-left: 36px;
 }
-
-/* .recipeList #cookbookPageColumnTwo {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-} */
 
 .recipeList .recipeHeading {
     display: flex;
