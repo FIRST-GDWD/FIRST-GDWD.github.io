@@ -3,6 +3,7 @@
 }
 
 body {
+    background-color: #faf8ec;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
 }
@@ -19,9 +20,54 @@ body {
     z-index: -10;
 }
 
-h1 {
+nav {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+#topHeader {
+    background-color: #1a3159;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+#topHeader #brand {
+    margin-left: 36px;
+}
+
+#topHeader #navLinks h2 {
+    margin-right: 24px;
+}
+
+#topHeader #navLinks h2:last-child {
+    margin-right: 36px;
+}
+
+#topHeader a {
+    color: white;
+    text-decoration: none;
+}
+
+#topHeader a:hover {
+    text-decoration: underline;
+}
+
+#topHeader #quote {
+    flex: 1;
     text-align: center;
-    font-size: 60px;
+}
+
+#topHeader #navLinks {
+    display: flex;
+}
+
+#bottomHeader {
+    background-color: #faf8ec;
+    border-bottom: 3px solid #1a3159;
+    min-height: 64px;
+    padding: 12px;
 }
 
 #cookbookButtons {
@@ -36,7 +82,7 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     min-width: 150px;
-    padding: 12px;
+    padding: 6px 12px;
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -44,6 +90,17 @@ h1 {
 #cookbookButtons button:hover {
     background-color: #ff7050;
     color: white;
+}
+
+#title h1 {
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+#title h1,
+#title h3 {
+    color: #1a3159;
+    text-align: center;
 }
 
 #cookbookPage.recipeNone {
@@ -264,6 +321,10 @@ h1 {
     padding: 48px 0px;
 }
 
+.recipeDetails #cookbookPageColumnOne {
+    max-width: 51%;
+}
+
 .recipeDetails #cookbookPageColumnOne,
 .recipeDetails #cookbookPageColumnTwo {
     flex: 1;
@@ -291,6 +352,7 @@ h1 {
 .recipeDetails #cssPreview {
     font-family: monospace;
     margin: 0px 36px;
+    overflow-x: auto;
 }
 
 .recipeDetails #htmlPreview,
@@ -308,7 +370,7 @@ h1 {
 #previewContainer {
     min-height: 500px;
     position: sticky;
-    top: 24px;
+    top: 156px;
 }
 
 #cookbookPageColumnTwo h4 {
@@ -320,7 +382,7 @@ h1 {
     box-shadow: inset 0px 0px 8px 4px #00000033;
     height: calc(100vh - 410px);
     margin-right: 36px;
-    min-height: 75vh;
+    min-height: 70vh;
     padding: 12px;
     overflow: hidden;
 }

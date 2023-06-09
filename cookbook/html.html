@@ -9,12 +9,33 @@
     </head>
     <body>
         <div id="background"></div>
-        <h1>HTML Recipes</h1>
-        <div id="cookbookButtons">
-            <button id="cardsButton" class="hide fadeOut">Cards View</button>
-            <button id="listButton" class="hide fadeOut">List View</button>
-            <button id="backButton" class="hide">Back to Recipes</button>
-        </div>
+        <nav>
+            <header id="topHeader">
+                <h2 id="brand"><a href="#">The Coding Cookbook</a></h2>
+                <div id="quote">
+                    "In a web page, HTML elements are like the ingredients used to make a cake."
+                </div>
+                <div id="navLinks">
+                    <h2><a href="#">HTML</a></h2>
+                    <h2><a href="#">CSS</a></h2>
+                    <h2><a href="#">LAYOUTS</a></h2>
+                </div>
+            </header>
+            <header id="bottomHeader">
+                <div id="cookbookButtons">
+                    <button id="cardsButton" class="hide fadeOut">Cards View</button>
+                    <button id="listButton" class="hide fadeOut">List View</button>
+                    <button id="backButton" class="hide">Back to <span id="backTo"></span></button>
+                </div>
+            </header>
+        </nav>
+        
+        <header id="title">
+            <h1>HTML Elements</h1>
+            <h3>The Ingredients of a Web Page</h3>
+        </header>
+        
+        
         <div id="cookbookPage" class="recipeNone">
             <div id="cookbookPageColumnOne">
                 <h4 id="recipeListHeading">TABLE OF CONTENTS</h4>
