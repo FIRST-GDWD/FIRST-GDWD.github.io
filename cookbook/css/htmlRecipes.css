@@ -6,6 +6,7 @@ body {
     background-color: #faf8ec;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
+    min-height: 101vh;
 }
 
 #background {
@@ -101,6 +102,10 @@ nav {
 #title h3 {
     color: #1a3159;
     text-align: center;
+}
+
+#title.recipe h3 {
+    display: none;
 }
 
 #cookbookPage.recipeNone {
@@ -403,7 +408,8 @@ nav {
 #cookbookPage.fadeOut,
 #cardsButton.fadeOut,
 #listButton.fadeOut,
-#backButton.fadeOut {
+#backButton.fadeOut,
+#title.fadeOut {
     animation: fadeOut 0.3s;
     animation-fill-mode: forwards;
 }
@@ -412,7 +418,8 @@ nav {
 #cookbookPage.fadeIn,
 #cardsButton.fadeIn,
 #listButton.fadeIn,
-#backButton.fadeIn {
+#backButton.fadeIn,
+#title.fadeIn {
     animation: fadeIn 0.3s;
     animation-fill-mode: forwards;
 }
