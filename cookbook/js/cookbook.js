@@ -132,7 +132,6 @@ if (location.hash && recipeNames.includes(location.hash.substring(1))) {
 }
 
 function preloadRecipeTitle(recipeName) {
-    debugger;
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeTitle = document.getElementById(recipeHeadingId).textContent;
     title.classList.add(RECIPE_CLASS);
@@ -141,8 +140,6 @@ function preloadRecipeTitle(recipeName) {
 }
 
 function preloadRecipe(recipeName) {
-    let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
-    let recipeTitle = document.getElementById(recipeHeadingId).innerHTML;
     fetchHTMLRecipeCodeAndPrint(recipeName);
     displayCookbook();
 }
