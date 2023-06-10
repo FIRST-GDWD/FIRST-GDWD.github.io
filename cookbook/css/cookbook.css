@@ -459,6 +459,12 @@ nav {
 }
 
 @media screen and (max-width: 840px) {
+    #background {
+        background-image: 
+            repeating-linear-gradient(135deg,transparent,transparent 100px, #ff705099 100px, #ff705099 200px),
+            repeating-linear-gradient(45deg,transparent,transparent 100px, #ff705077 100px, #ff705077 200px);
+    }
+
     #topHeader {
         flex-direction: column;
     }
@@ -551,6 +557,14 @@ nav {
 
     .recipeList .cookbookRecipe h2 {
         justify-content: center;
+    }
+
+    .recipeList .recipeHeading a {
+        opacity: 1;
+    }
+
+    .recipeList .recipeHeading a.previewing {
+        text-decoration: none;
     }
 
     .recipeList .recipeHeading .recipeDots {
