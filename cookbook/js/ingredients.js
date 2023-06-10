@@ -12,6 +12,8 @@ const recipeNames = [
     "unorderedLists",
     "images",
     "anchors",
+    "divs",
+    "spans",
 ];
 const ROOT_RECIPE_FOLDER = "ingredients";
 

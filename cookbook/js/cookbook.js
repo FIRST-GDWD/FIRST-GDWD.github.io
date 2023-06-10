@@ -137,6 +137,7 @@ function preloadRecipeTitle(recipeName) {
     title.classList.add(RECIPE_CLASS);
     updateTitleText(recipeTitle);
     showTitle();
+    document.querySelector("title").innerHTML = `${recipeTitle} | ${PAGE_TITLE_DEFAULT_TEXT}`;
 }
 
 function preloadRecipe(recipeName) {
