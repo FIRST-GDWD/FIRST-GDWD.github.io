@@ -1,0 +1,77 @@
+.cookbookPage {
+    position: relative;
+}
+
+.cookbookPage h2,
+.cookbookPage h4,
+.cookbookPage h6 {
+    text-align: center;
+}
+
+.cookbookPage h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    margin-top: 0px;
+}
+
+.cookbookPage h4 {
+    margin-bottom: 36px;
+    margin-top: 0px;
+}
+
+.cookbookPage h6 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+}
+
+.invisibleAnchorTarget {
+    position: absolute;
+    top: -150px;
+}
+
+img {
+    border: 3px solid #ff7050;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #00000033;
+    cursor: pointer;
+    margin: 16px 16px 4px;
+    max-height: 50vh;
+    max-width: 80%;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+.cookbookPage img:hover {
+    box-shadow: 8px 8px 8px #00000033;
+    transform: translateY(-8px);
+}
+
+.cookbookPage li {
+    border-bottom: 3px solid #ff7050;
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    margin-right: 40px;
+}
+
+.sideBySide {
+    align-items: center;
+    display: flex;
+    margin-bottom: 36px;
+}
+
+.sideBySide div {
+    
+}
+
+.sideBySide .textContainer {
+    flex: 1;
+}
+
+.sideBySide .imageContainer {
+    width: 60%;
+    text-align: center;
+}
+
+.sideBySide .imageContainer figcaption {
+    font-size: 11px;
+}

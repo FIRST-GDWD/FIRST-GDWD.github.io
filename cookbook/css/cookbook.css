@@ -75,7 +75,13 @@ nav {
     text-align: center;
 }
 
-#cookbookButtons button {
+#cookbookButtons a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+#cookbookButtons button,
+#cookbookButtons a {
     background-color: white;
     border: 3px solid #ff7050;
     border-radius: 16px;
@@ -88,7 +94,9 @@ nav {
 }
 
 #cookbookButtons button.selected,
-#cookbookButtons button:hover {
+#cookbookButtons button:hover,
+#cookbookButtons a.selected,
+#cookbookButtons a:hover {
     background-color: #ff7050;
     color: white;
 }
@@ -119,6 +127,7 @@ nav {
 /*****************************************************
   RECIPE CARDS
 *****************************************************/
+.cookbookPage,
 #cookbookPage.recipeCards {
     display: block;
     background-color: #FFFFFFDD;
@@ -449,7 +458,8 @@ nav {
         min-height: 57px;
     }
 
-    #cookbookButtons button {
+    #cookbookButtons button,
+    #cookbookButtons a {
         font-size: 12px;
     }
 
@@ -508,7 +518,8 @@ nav {
         min-height: 57px;
     }
 
-    #cookbookButtons button {
+    #cookbookButtons button,
+    #cookbookButtons a {
         font-size: 12px;
         min-width: 100px;
     }
