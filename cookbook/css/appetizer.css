@@ -30,7 +30,7 @@
     top: -150px;
 }
 
-img {
+.cookbookPage img {
     border: 3px solid #ff7050;
     border-radius: 12px;
     box-shadow: 4px 4px 4px #00000033;
@@ -74,4 +74,9 @@ img {
 
 .sideBySide .imageContainer figcaption {
     font-size: 11px;
+}
+
+p strong {
+    display: block;
+    padding-left: 36px;
 }
