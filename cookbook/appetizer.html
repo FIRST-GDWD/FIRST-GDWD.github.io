@@ -29,6 +29,7 @@
                     <a id="part2Button" href="#part2">Jump to Part 2</a>
                     <a id="part3Button" href="#part3">Jump to Part 3</a>
                     <a id="part4Button" href="#part4">Jump to Part 4</a>
+                    <a id="part5Button" href="#part5">Jump to Part 5</a>
                 </div>
             </header>
         </nav>
@@ -584,6 +585,442 @@
                 Congrats! You have now cloned your code repository to your computer 
                 and are ready to start coding in it!
             </h4>
+        </div>
+        <div class="cookbookPage">
+            <h2 id="part4" class="invisibleAnchorTarget"></h2>
+            <h6>PART 4</h6>
+            <h2>Code Skeleton</h2>
+            <h4>The template for all your future code projects in the course</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                First, we're going to create the necessary folders
+                                in the Code Skeleton.
+                            </p>
+                            <p>
+                                In Visual Studio Code, right-click your code repository
+                                and select "New folder..."
+                            </p>
+                            <p>
+                                Then name the new folder "codeSkeleton"
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/codeSkeleton_1.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                After creating the codeSkeleton folder
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you're going to create two new folders called 
+                                "css" and "images".
+                            </p>
+                            <p>
+                                To do so, right-click your new "codeSkeleton" folder
+                                and select "New folder..." again
+                            </p>
+                            <p>
+                                Name the new folder "css"
+                            </p>
+                            <p>
+                                It's going to look a little weird at first. Visual
+                                Studio Code condenses folders to one line if there 
+                                is only one folder inside of another.
+                            </p>
+                            <p>
+                                Don't worry, it'll look better after we add another
+                                folder in the next step.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/codeSkeleton_2.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                Code Skeleton with the css folder
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                We've created the "css" folder; now let's create 
+                                the "images" folder.
+                            </p>
+                            <p>
+                                To do so, right-click your new "codeSkeleton" folder
+                                and select "New folder..." again
+                            </p>
+                            <p>
+                                <strong>
+                                    Make sure you right-click the "codeSkeleton" folder
+                                    and not the "css" folder! <br><br>
+                                    If you don't, you may
+                                    accidentally create the "images" folder inside of the 
+                                    "css" folder instead, which is not what we want.
+                                </strong>
+                            </p>
+                            <p>
+                                Name the new folder "images"
+                            </p>
+                            <p>
+                                Your Code Skeleton should resemble the image on the right.
+                                Now we just need to create the HTML file!
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/codeSkeleton_3.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                Code Skeleton with the images folder
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Finally, you're going to create your first HTML file!
+                            </p>
+                            <p>
+                                Right-click your new "codeSkeleton" folder one last time
+                                and select "New file..." this time
+                            </p>
+                            <p>
+                                Name the new file "index.html"
+                            </p>
+                            <p>
+                                After creating the file, your Code Skeleton should 
+                                resemble the image on the right.
+                            </p>
+                            <p>
+                                However, we're not going to stop there; we're also going 
+                                to have you "write" some code in there before we wrap up!
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/codeSkeleton_4.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                Code Skeleton with folders and an HTML file
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                In truth, we're just going to have you autogenerate an
+                                HTML template, so you won't truly be "writing" any code.
+                            </p>
+                            <p>
+                                In your new index.html file, click in the text editor for 
+                                the file, and start typing the letters "html". 
+                            </p>
+                            <p>
+                                A little dropdown should pop up; go ahead and select the 
+                                second option for "html:5".
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/htmltemplateshortcut.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                How to autogenerate an HTML5 code template 
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                This will generate an almost perfect empty template for 
+                                writing HTML code; however, the indentation is less than ideal.
+                            </p>
+                            <p>
+                                We'll be talking more about clean code later. For now, just 
+                                trust that the changes we're making now will help you out 
+                                later down the line.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/htmltemplate_1.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                The autogenerated HTML5 code template 
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                To get started, click and drag to select all the code from
+                                line 3 to line 11.
+                            </p>
+                            <p>
+                                After selecting the appropriate lines, go ahead and hit 
+                                the TAB key on your keyboard.
+                            </p>
+                            <p>
+                                This will cause all those lines we selected to be indented 
+                                one level to the right.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/htmltemplate_2.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                Fixing the autogenerated HTML5 code template 
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                We're almost done. Notice the little circle to the right 
+                                of the file name in the top tab of the screenshot? 
+                                That means the file is not saved.
+                            </p>
+                            <p>
+                                To save your file, you can do it the long way by going to 
+                                the File menu, and then clicking on Save. 
+                            </p>
+                            <p>
+                                Or, you can do it 
+                                the faster way by using keyboard shortcuts 
+                                (Cmd+S for Mac, or Ctrl+S for PC).
+                            </p>
+                            <p>
+                                This will ensure that the changes you made to the file are 
+                                saved.  It is important to save frequently when you code!
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/htmltemplate_3.png" alt="githubdesktop.png" />
+                            <figcaption>
+                                The corrected autogenerated HTML5 code template, unsaved
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>
+                Congrats! You have "written" your first bit of HTML code and successfully 
+                created a project template for the rest of the course!
+            </h4>
+        </div>
+        <div class="cookbookPage">
+            <h2 id="part5" class="invisibleAnchorTarget"></h2>
+            <h6>PART 5</h6>
+            <h2>Committing and Pushing</h2>
+            <h4>The final steps required to get your code to your website</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Now, jump back to Github Desktop. In the app, you should see the 
+                                changes to your code_skeleton folder; in this case, only the 
+                                index.html file.
+                            </p>
+                            <p>
+                                (You might wonder why the 'images' and 'css' folders aren't in there. 
+                                Well, GitHub desktop only tracks changes to files; folders are more 
+                                or less invisible to it, until a file is put inside of them.)
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/indexhtml.png" alt="revisedindex.png" />
+                            <figcaption>
+                                GitHub Desktop when changes are ready for commit
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                We're going to save a copy of your changes in something called a 
+                                "commit". 
+                            </p>
+                            <p>
+                                <strong>A commit is basically a snapshot of the changes you made, 
+                                which gets added to the repository's version control.</strong> 
+                            </p>
+                            <p>
+                                Add a commit Summary (required) and Description (optional) in the 
+                                textboxes in the bottom left of the app. 
+                            </p>
+                            <p>
+                                Then click the [Commit to 
+                                <b>main</b>] button to create a commit of your changes.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/commit.png" alt="commit.png">
+                            <figcaption>
+                                GitHub Desktop's commit section
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, we are going to do something called a "push". 
+                            </p>
+                            <p>
+                                <strong>
+                                    A push is an action that, well, <em>pushes</em> 
+                                    your local commits to the remote server on github.com.
+                                </strong>
+                            </p>
+                            <p>
+                                There are two places you start a push in Github Desktop, 
+                                both circled in the screenshot below. Choose either option 
+                                and click it.
+                            </p>
+                            <p>
+                                <strong>
+                                    PUSH WARNING 1: Make sure all image files you commit are
+                                    less than 1MB in file size; otherwise, you could 
+                                    cause GitHub to choke when you push your commits.
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                    PUSH WARNING 2: If you have weak or unstable Wifi, 
+                                    it is strongly recommended that you create separate commits 
+                                    for each image you need to push, rather than including all 
+                                    images in a single commit.  
+                                    <br><br>
+                                    Github Desktop will sometimes stall if you commit and push 
+                                    all your images at once with weak internet, so save yourself 
+                                    the stress, and commit/push images one at a time.
+                                </strong>
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/pushoptions.png" alt="pushorigin.png" />
+                            <figcaption>
+                                Push options in GitHub Desktop
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                               Clicking either option will push your changes to your website
+                            </p>
+                            <p>
+                                If the push was successful, the top option should change to "Fetch origin".
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/fetchorigin2.png" alt="fetchorigin.png" />
+                            <figcaption>
+                                After a successful push
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Now return to the Github website, and go into the repository 
+                                you made earlier with github.io at the end of it. Once you navigate 
+                                to the main repository code screen, you should see your codeSkeleton 
+                                folder that you created in the middle section.
+                            </p>
+                            <p>
+                                <strong>
+                                    NOTE: Github pages often times takes 5-10 minutes to actually render 
+                                    out your commit, so you may have to wait and then check to see if 
+                                    your site is live.
+                                </strong>
+                            </p>
+                            <p>
+                                Scroll down to the bottom of the right sidebar and click on 
+                                "github-pages" under "Environments".
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/environments.png" alt="githubsidebar.png" />
+                            <figcaption>
+                                The Environments section in github.com
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                From there you will find the deployment page. Click on the 
+                                "View deployment" button, and it will open your homepage
+                                (which still just displays the name of your repository, 
+                                from your README.md file). 
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/deploymentpage2.png" alt="githubsidebar.png" />
+                            <figcaption>
+                                The Deployments page in github.com, where you can access 
+                                your homepage
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                In order to find your codeSkeleton site (a project nested in your 
+                                main repository) for submission, you must add the project folder 
+                                name to the end of the URL of your homepage.
+                            </p>
+                            <p>
+                                <strong>
+                                    And it must match EXACTLY! No differences in case or 
+                                    spacing or spelling.
+                                </strong>
+                            </p>
+                            <p>
+                                For example:<br><br>
+                                https://gdwd-kc.github.io/kctobias.github.io<b>/codeSkeleton/</b>
+                            </p>
+                            <p>
+                                Your codeSkeleton project folder will only display an empty page, 
+                                with the name of "Document" on the tab.
+                            </p>
+                            <p>
+                                It can sometimes take a couple minutes after pushing your code
+                                for it to actually be published on the site, so if you get a 
+                                404 error when you first try to access the URL, give it another 
+                                minute or two and then try again.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            
+                        </div>
+                    </div>
+                </li>
+                <h4>Congratulations! You just pushed your first code project to your GitHub Pages site!</h4>
+            </ol>
         </div>
         <div id="lightboxContainer">
             <div id="lightboxBackground" class="closer"></div>

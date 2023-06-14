@@ -46,7 +46,7 @@
     transform: translateY(-8px);
 }
 
-.cookbookPage li {
+.cookbookPage ol > li {
     border-bottom: 3px solid #ff7050;
     margin-bottom: 36px;
     padding-bottom: 36px;
@@ -79,4 +79,41 @@
 p strong {
     display: block;
     padding-left: 36px;
+}
+
+@media screen and (max-width: 1000px) {
+    .sideBySide {
+        flex-direction: column;
+        padding-bottom: 0px;
+        margin-bottom: 12px;
+    }
+
+    .sideBySide .textContainer {
+        order: 2;
+    }
+
+    .sideBySide .imageContainer {
+        order: 1;
+        width: 100%;
+    }
+
+    .cookbookPage ol {
+        padding-left: 12px;
+    }
+
+    .cookbookPage ol > li {
+        list-style-type: none;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        margin-right: 12px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #bottomHeader {
+        padding: 6px;
+    }
+    #cookbookButtons a {
+        margin: 6px;
+    }
 }
