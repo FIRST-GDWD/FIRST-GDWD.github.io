@@ -11,6 +11,7 @@ const PAGE_MODE_NONE = "none";
 const PAGE_MODE_CARDS = "cards";
 const PAGE_MODE_LIST = "list";
 const PAGE_MODE_RECIPE = "recipe";
+const PAGE_MODE_MEAL_PREP = "mealPrep";
 const PAGE_MODE_NAME_CARDS = "Cards View";
 const PAGE_MODE_NAME_LIST = "List View";
 const RECIPE_CLASS = "recipe";
@@ -23,7 +24,9 @@ const FADE_OUT_CLASS = "fadeOut";
 const FADE_IN_CLASS = "fadeIn";
 const HIDE_CLASS = "hide";
 let PAGE_TITLE_DEFAULT_TEXT = document.title;
-const TITLE_DEFAULT_TEXT = "HTML Elements";
+let TITLE_DEFAULT_TEXT = document.querySelector("#title h1").textContent;
+const MEAL_PREP_FILE_NAME = "page";
+const MEAL_PREP_SUBTITLE = "Meal Prep";
 
 /***********************************************************************
  * Page elements
@@ -40,6 +43,9 @@ const recipeListPreview = document.getElementById("recipeListPreview");
 const cardsButton = document.getElementById("cardsButton");
 const listButton = document.getElementById("listButton");
 const backButton = document.getElementById("backButton");
+const mealPrepFooter = document.getElementById("mealPrepFooter");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
 
 /***********************************************************************
  * Page state variables
@@ -49,6 +55,7 @@ const recipeHTML = {};
 const recipeCSS = {};
 
 let pageRecipe = "";
+let mealPrepPageNumber = 0;
 let bigPreviewSrc = "";
 let altTitle = "";
 
@@ -60,12 +67,24 @@ if (localStorage.getItem(PAGE_MODE_KEY) !== null) {
 /***********************************************************************
  * initial loading of dynamic content
  **********************************************************************/
-for (let recipeName of recipeNames) {
+if (recipeNames.length > 0) {
+    for (let recipeName of recipeNames) {
+        let recipeHTMLPath = getRecipeHTMLPath(recipeName);
+        generateAndAddRecipe(recipeName, recipeHTMLPath);
+    }
+} else if (mealPrepRecipes.length > 0) {
+    for (let mealPrepRecipe of mealPrepRecipes) {
+        let recipeHTMLPath = getMealPrepHTMLPath(
+            mealPrepRecipe.recipeName, 
+            mealPrepRecipe.pageCount-1,
+        );
+        generateAndAddRecipe(mealPrepRecipe.recipeName, recipeHTMLPath);
+    }
+}
 
-    let recipeHTMLPath = getRecipeHTMLPath(recipeName);
+function generateAndAddRecipe(recipeName, recipePath) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
-
     cookbookPageColumnOne.innerHTML += `
         <div class="${COOKBOOK_RECIPE_CLASS}" data-recipe="${recipeName}">
             <h2 class="recipeHeading">
@@ -75,20 +94,33 @@ for (let recipeName of recipeNames) {
                 <span class="recipeDots"></span>
             </h2>
             <div class="recipePreview">
-                <iframe src="${recipeHTMLPath}" id="${recipeIframeId}" scrolling="no"></iframe>
+                <iframe src="${recipePath}" id="${recipeIframeId}" scrolling="no"></iframe>
                 <div class="recipeOverlay"></div>
             </div>
         </div>
     `;
-
 }
 
 /***********************************************************************
  * after loading, add event handlers for dynamically loaded content
  **********************************************************************/
 
-for (let recipeName of recipeNames) {
-    let recipeHTMLPath = getRecipeHTMLPath(recipeName);
+if (recipeNames.length > 0) {
+    for (let recipeName of recipeNames) {
+        let recipeHTMLPath = getRecipeHTMLPath(recipeName);
+        addRecipeEventHandlers(recipeName, recipeHTMLPath);
+    }
+} else if (mealPrepRecipes.length > 0) {
+    for (let mealPrepRecipe of mealPrepRecipes) {
+        let recipeHTMLPath = getMealPrepHTMLPath(
+            mealPrepRecipe.recipeName, 
+            mealPrepRecipe.pageCount-1,
+        );
+        addRecipeEventHandlers(mealPrepRecipe.recipeName, recipeHTMLPath);
+    }
+}
+
+function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
 
@@ -125,10 +157,19 @@ if (location.hash && recipeNames.includes(location.hash.substring(1))) {
     setTimeout(showBackButton, 300);
     setTimeout(preloadRecipeTitle, 600, location.hash.substring(1));
     setTimeout(preloadRecipe, 900, location.hash.substring(1));
+} else if (location.hash && doesMealPrepIncludeRecipe(location.hash.substring(1))) {
+    pageView = PAGE_MODE_MEAL_PREP;
+    setTimeout(showBackButton, 300);
+    setTimeout(preloadMealPrepTitle, 600, location.hash.substring(1));
+    setTimeout(preloadRecipe, 900, location.hash.substring(1));
 } else {
     setTimeout(showModeButtons, 300);
     setTimeout(showTitle, 600);
     setTimeout(displayCookbook, 900);
+}
+
+function doesMealPrepIncludeRecipe(recipeName) {
+    return (mealPrepRecipes.find(recipe => recipe.recipeName == recipeName) !== undefined);
 }
 
 function preloadRecipeTitle(recipeName) {
@@ -140,7 +181,18 @@ function preloadRecipeTitle(recipeName) {
     document.querySelector("title").innerHTML = `${recipeTitle} | ${PAGE_TITLE_DEFAULT_TEXT}`;
 }
 
+function preloadMealPrepTitle(recipeName) {
+    let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
+    let recipeTitle = 
+        `${document.getElementById(recipeHeadingId).textContent} ~ ${MEAL_PREP_SUBTITLE}`;
+    title.classList.add(RECIPE_CLASS);
+    updateTitleText(recipeTitle);
+    showTitle();
+    document.querySelector("title").innerHTML = `${recipeTitle} | ${PAGE_TITLE_DEFAULT_TEXT}`;
+}
+
 function preloadRecipe(recipeName) {
+    pageRecipe = recipeName;
     fetchHTMLRecipeCodeAndPrint(recipeName);
     displayCookbook();
 }
@@ -170,6 +222,17 @@ function onBackButtonAnimationEnd() {
         showModeButtons();
     } else if (this.classList.contains(FADE_IN_CLASS)) {
         this.classList.remove(FADE_IN_CLASS);
+    }
+}
+
+if (mealPrepFooter) {
+    mealPrepFooter.onanimationend = function() {
+        if (this.classList.contains(FADE_OUT_CLASS)) {
+            this.classList.remove(FADE_OUT_CLASS);
+            this.classList.add(HIDE_CLASS);
+        } else if (this.classList.contains(FADE_IN_CLASS)) {
+            this.classList.remove(FADE_IN_CLASS);
+        }
     }
 }
 
@@ -266,6 +329,34 @@ function onCookbookRecipeClick(e) {
     }
 }
 
+if (nextButton) {
+    nextButton.onclick = loadNextPage;
+    function loadNextPage() {
+        const mealPrepRecipe = mealPrepRecipes.find(
+            mealPlanRecipe => mealPlanRecipe.recipeName == pageRecipe,
+        );
+        
+        if (mealPrepPageNumber < mealPrepRecipe.pageCount - 1) {
+            mealPrepPageNumber++;
+            fetchHTMLRecipeCodeAndPrint(pageRecipe);
+        }
+    }
+}
+
+if (prevButton) {
+    prevButton.onclick = loadPrevPage;
+    function loadPrevPage() {
+        if (mealPrepPageNumber > 0) {
+            mealPrepPageNumber--;
+            fetchHTMLRecipeCodeAndPrint(pageRecipe);
+        }
+    }
+}
+
+function refreshMealPlanButtonDisability() {
+
+}
+
 /***********************************************************************
  * page state changes
  **********************************************************************/
@@ -283,9 +374,12 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             cardsButton.classList.add(SELECTED_CLASS);
             listButton.classList.remove(SELECTED_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
-            if (pageView == PAGE_MODE_RECIPE) {
+            if (pageView == PAGE_MODE_RECIPE || pageView == PAGE_MODE_MEAL_PREP) {
                 backButton.classList.add(FADE_OUT_CLASS);
                 title.classList.add(FADE_OUT_CLASS);
+                if (pageView == PAGE_MODE_MEAL_PREP) {
+                    mealPrepFooter.classList.add(FADE_OUT_CLASS);
+                }
             }
             break;
         case PAGE_MODE_LIST:
@@ -295,11 +389,17 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             listButton.classList.add(SELECTED_CLASS);
             cardsButton.classList.remove(SELECTED_CLASS);
             cookbookPage.classList.add(FADE_OUT_CLASS);
-            if (pageView == PAGE_MODE_RECIPE) {
+            if (pageView == PAGE_MODE_RECIPE || pageView == PAGE_MODE_MEAL_PREP) {
                 backButton.classList.add(FADE_OUT_CLASS);
                 title.classList.add(FADE_OUT_CLASS);
+                if (pageView == PAGE_MODE_MEAL_PREP) {
+                    mealPrepFooter.classList.add(FADE_OUT_CLASS);
+                }
             }
             break;
+        case PAGE_MODE_MEAL_PREP:
+            mealPrepPageNumber = 0;
+            //mealPrepFooter.classList.add(FADE_IN_CLASS);
         case PAGE_MODE_RECIPE:
             cardsButton.classList.add(FADE_OUT_CLASS);
             listButton.classList.add(FADE_OUT_CLASS);
@@ -375,17 +475,23 @@ function updateTitleText(text = TITLE_DEFAULT_TEXT) {
 
 function fetchHTMLRecipeCodeAndPrint(recipe) {
     document.getElementById("htmlPreview").innerHTML = "Loading HTML...";
-    const recipePath = getRecipeHTMLPath(recipe);
+    const recipePath = isMealPlanPage()
+        ? getMealPrepHTMLPath(recipe, mealPrepPageNumber)
+        : getRecipeHTMLPath(recipe);
     bigPreviewSrc = recipePath;
     reloadRecipePreview();
     fetch(recipePath)
         .then(response => response.text())
         .then(html => {
-            if (!(recipe in recipeHTML)) {
-                recipeHTML[recipe] = html;
+            let recipeKey = recipe;
+            if (isMealPlanPage()) {
+                recipeKey += mealPrepPageNumber;
+            }
+            if (!(recipeKey in recipeHTML)) {
+                recipeHTML[recipeKey] = html;
             }
             document.getElementById("htmlPreview").innerHTML = 
-                convertStringToEscapedHTML(recipeHTML[recipe]);
+                convertStringToEscapedHTML(recipeHTML[recipeKey]);
             
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
@@ -410,11 +516,15 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
     fetch(actualCssFilePath)
         .then(response => response.text())
         .then(css => {
-            if (!(recipe in recipeCSS)) {
-                recipeCSS[recipe] = css;
+            let recipeKey = recipe;
+            if (isMealPlanPage()) {
+                recipeKey += mealPrepPageNumber;
+            }
+            if (!(recipeKey in recipeCSS)) {
+                recipeCSS[recipeKey] = css;
             }
             document.getElementById("cssPreview").innerHTML = 
-                convertStringToEscapedHTML(recipeCSS[recipe]);
+                convertStringToEscapedHTML(recipeCSS[recipeKey]);
             
         })
         .catch(error => {
@@ -485,6 +595,9 @@ function displayCookbook() {
         case PAGE_MODE_LIST:
             cookbookPage.classList.add(RECIPE_LIST_CLASS);
             break;
+        case PAGE_MODE_MEAL_PREP:
+            mealPrepFooter.classList.remove(HIDE_CLASS);
+            mealPrepFooter.classList.add(FADE_IN_CLASS);
         case PAGE_MODE_RECIPE:
             cookbookPage.classList.add(RECIPE_DETAILS_CLASS);
             break;
@@ -499,7 +612,8 @@ function clearPreviewedRecipeHeadingLinks() {
 }
 
 function displayIndividualRecipe(recipe, recipeTitle) {
-    setPageView(PAGE_MODE_RECIPE, recipe, recipeTitle);
+    let view = isMealPlanPage() ? PAGE_MODE_MEAL_PREP : PAGE_MODE_RECIPE;
+    setPageView(view, recipe, recipeTitle);
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
     body.scrollIntoView({
@@ -521,10 +635,23 @@ function showCSSPreview() {
 /***********************************************************************
  * other utility functions
  **********************************************************************/
+function isMealPlanPage() {
+    if (recipeNames.length > 0) {
+        return false;
+    } else if (mealPrepRecipes.length > 0) {
+        return true;
+    }
+    return false;
+}
+
 function applyRootFolderToPath(path) {
     return `${ROOT_RECIPE_FOLDER}/${path}`;
 }
 
 function getRecipeHTMLPath(recipeName) {
     return applyRootFolderToPath(recipeName + ".html");
+}
+
+function getMealPrepHTMLPath(recipeName, pageNumber=0) {
+    return applyRootFolderToPath(`${recipeName}/${MEAL_PREP_FILE_NAME}${pageNumber}.html`);
 }

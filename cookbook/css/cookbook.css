@@ -34,6 +34,16 @@ nav {
     align-items: center;
 }
 
+#mealPrepFooter {
+    background-color: #1a3159;
+    color: white;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    padding: 12px 0px;
+}
+
 #topHeader #brand {
     margin-left: 36px;
 }
@@ -71,8 +81,13 @@ nav {
     padding: 12px;
 }
 
-#cookbookButtons {
+#cookbookButtons,
+.cookbookButtons {
     text-align: center;
+}
+
+#mealPrepFooter .cookbookButtons {
+    width: calc(100% - 16px);
 }
 
 #cookbookButtons a {
@@ -81,6 +96,7 @@ nav {
 }
 
 #cookbookButtons button,
+.cookbookButtons button,
 #cookbookButtons a {
     background-color: white;
     border: 3px solid #ff7050;
@@ -93,8 +109,14 @@ nav {
     transition: background-color 0.5s, color 0.5s;
 }
 
+#mealPrepFooter .cookbookButtons button {
+    min-width: 100px;
+}
+
 #cookbookButtons button.selected,
 #cookbookButtons button:hover,
+.cookbookButtons button.selected,
+.cookbookButtons button:hover,
 #cookbookButtons a.selected,
 #cookbookButtons a:hover {
     background-color: #ff7050;
@@ -401,6 +423,16 @@ nav {
     animation-fill-mode: forwards;
 }
 
+#mealPrepFooter.fadeOut {
+    animation: footerSlideDown 0.3s;
+    animation-fill-mode: forwards;
+}
+
+#mealPrepFooter.fadeIn {
+    animation: footerSlideUp 0.3s;
+    animation-fill-mode: forwards;
+}
+
 .hide {
     display: none;
 }
@@ -420,6 +452,24 @@ nav {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes footerSlideUp {
+    0% {
+        bottom: -60px;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
+
+@keyframes footerSlideDown {
+    0% {
+        bottom: 0px;
+    }
+    100% {
+        bottom: -60px;
     }
 }
 

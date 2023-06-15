@@ -1,6 +1,7 @@
 /***********************************************************************
  * variables for dynamic content
  **********************************************************************/
+const shouldLoadDemos = false;
 const recipeNames = [
     "headings",
     "paragraphs",
