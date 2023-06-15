@@ -113,12 +113,18 @@ nav {
     min-width: 100px;
 }
 
+#mealPrepFooter .cookbookButtons button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
 #cookbookButtons button.selected,
 #cookbookButtons button:hover,
 .cookbookButtons button.selected,
 .cookbookButtons button:hover,
 #cookbookButtons a.selected,
-#cookbookButtons a:hover {
+#cookbookButtons a:hover,
+#mealPrepFooter .cookbookButtons button.disabled {
     background-color: #ff7050;
     color: white;
 }
@@ -126,6 +132,10 @@ nav {
 #title h1 {
     font-size: 60px;
     margin-bottom: 0px;
+}
+
+#mealPrepFooter #currentPage {
+    padding: 0px 24px;
 }
 
 #title h1,
@@ -367,6 +377,10 @@ nav {
     padding: 12px;
 }
 
+#htmlPreview .comment,
+#cssPreview .comment {
+    background-color:#e5614466;
+}
 
 /**********************************************************
     RECIPE PREVIEW
@@ -676,5 +690,10 @@ nav {
 
     .recipeDetails #recipeListPreview {
         min-height: auto;
+    }
+
+    #mealPrepFooter #currentPage {
+        font-size: 12px;
+        padding: 0px 12px;
     }
 }

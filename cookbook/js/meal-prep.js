@@ -5,7 +5,7 @@ const recipeNames = [];
 const mealPrepRecipes = [
     {
         recipeName: "headings",
-        pageCount: 5,
+        pageCount: 4,
     }
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";

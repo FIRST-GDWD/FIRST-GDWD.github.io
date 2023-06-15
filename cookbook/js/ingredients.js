@@ -1,7 +1,6 @@
 /***********************************************************************
  * variables for dynamic content
  **********************************************************************/
-const shouldLoadDemos = false;
 const recipeNames = [
     "headings",
     "paragraphs",
@@ -16,6 +15,7 @@ const recipeNames = [
     "divs",
     "spans",
 ];
+const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "ingredients";
 
 // load cookbook.js immediately after this file

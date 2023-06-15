@@ -23,6 +23,7 @@ const SELECTED_CLASS = "selected";
 const FADE_OUT_CLASS = "fadeOut";
 const FADE_IN_CLASS = "fadeIn";
 const HIDE_CLASS = "hide";
+const DISABLED_CLASS = "disabled";
 let PAGE_TITLE_DEFAULT_TEXT = document.title;
 let TITLE_DEFAULT_TEXT = document.querySelector("#title h1").textContent;
 const MEAL_PREP_FILE_NAME = "page";
@@ -46,6 +47,7 @@ const backButton = document.getElementById("backButton");
 const mealPrepFooter = document.getElementById("mealPrepFooter");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
+const currentPage = document.getElementById("currentPage");
 
 /***********************************************************************
  * Page state variables
@@ -152,15 +154,19 @@ let pageView = defaultPageMode;
 updateBackToText();
 updateTitleText(TITLE_DEFAULT_TEXT);
 
-if (location.hash && recipeNames.includes(location.hash.substring(1))) {
-    pageView = PAGE_MODE_RECIPE;
+let hashMatchesRecipe = 
+    location.hash && recipeNames.includes(location.hash.substring(1));
+let hashMatchesMealPrep = 
+    location.hash && doesMealPrepIncludeRecipe(location.hash.substring(1))
+
+if (location.hash && (hashMatchesRecipe || hashMatchesMealPrep)) {
+    if (hashMatchesRecipe) {
+        pageView = PAGE_MODE_RECIPE;
+    } else if (hashMatchesMealPrep) {
+        pageView = PAGE_MODE_MEAL_PREP;
+    }
     setTimeout(showBackButton, 300);
     setTimeout(preloadRecipeTitle, 600, location.hash.substring(1));
-    setTimeout(preloadRecipe, 900, location.hash.substring(1));
-} else if (location.hash && doesMealPrepIncludeRecipe(location.hash.substring(1))) {
-    pageView = PAGE_MODE_MEAL_PREP;
-    setTimeout(showBackButton, 300);
-    setTimeout(preloadMealPrepTitle, 600, location.hash.substring(1));
     setTimeout(preloadRecipe, 900, location.hash.substring(1));
 } else {
     setTimeout(showModeButtons, 300);
@@ -175,16 +181,6 @@ function doesMealPrepIncludeRecipe(recipeName) {
 function preloadRecipeTitle(recipeName) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeTitle = document.getElementById(recipeHeadingId).textContent;
-    title.classList.add(RECIPE_CLASS);
-    updateTitleText(recipeTitle);
-    showTitle();
-    document.querySelector("title").innerHTML = `${recipeTitle} | ${PAGE_TITLE_DEFAULT_TEXT}`;
-}
-
-function preloadMealPrepTitle(recipeName) {
-    let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
-    let recipeTitle = 
-        `${document.getElementById(recipeHeadingId).textContent} ~ ${MEAL_PREP_SUBTITLE}`;
     title.classList.add(RECIPE_CLASS);
     updateTitleText(recipeTitle);
     showTitle();
@@ -244,7 +240,7 @@ function onTitleAnimationEnd() {
         this.classList.remove(FADE_OUT_CLASS);
         this.classList.remove(HIDE_CLASS);
         this.classList.add(FADE_IN_CLASS);
-        if (pageView != PAGE_MODE_RECIPE) {
+        if (pageView != PAGE_MODE_RECIPE && pageView != PAGE_MODE_MEAL_PREP) {
             this.classList.remove(RECIPE_CLASS);
             updateTitleText();
         } else {
@@ -258,7 +254,12 @@ cookbookPage.onanimationend = function() {
     if (cookbookPage.classList.contains(FADE_IN_CLASS)) {
         cookbookPage.classList.remove(FADE_IN_CLASS);
     } else if (cookbookPage.classList.contains(FADE_OUT_CLASS)) {
-        displayCookbook();
+        if (isMealPlanPage() && pageView == PAGE_MODE_MEAL_PREP) {
+            fetchHTMLRecipeCodeAndPrint(pageRecipe);
+        }
+        else {
+            displayCookbook();
+        }
     }
 }
 
@@ -338,7 +339,8 @@ if (nextButton) {
         
         if (mealPrepPageNumber < mealPrepRecipe.pageCount - 1) {
             mealPrepPageNumber++;
-            fetchHTMLRecipeCodeAndPrint(pageRecipe);
+            cookbookPage.classList.add(FADE_OUT_CLASS);
+            refreshMealPlanFooter();
         }
     }
 }
@@ -348,13 +350,26 @@ if (prevButton) {
     function loadPrevPage() {
         if (mealPrepPageNumber > 0) {
             mealPrepPageNumber--;
-            fetchHTMLRecipeCodeAndPrint(pageRecipe);
+            cookbookPage.classList.add(FADE_OUT_CLASS);
+            refreshMealPlanFooter();
         }
     }
 }
 
-function refreshMealPlanButtonDisability() {
-
+function refreshMealPlanFooter() {
+    const mealPrepRecipe = mealPrepRecipes.find(
+        mealPlanRecipe => mealPlanRecipe.recipeName == pageRecipe,
+    );
+    nextButton.classList.add(DISABLED_CLASS);
+    prevButton.classList.add(DISABLED_CLASS);
+    if (mealPrepPageNumber > 0) {
+        prevButton.classList.remove(DISABLED_CLASS);
+    }
+    if (mealPrepPageNumber < mealPrepRecipe.pageCount - 1) {
+        nextButton.classList.remove(DISABLED_CLASS);
+    }
+    currentPage.innerHTML = 
+        `Page ${mealPrepPageNumber + 1} of ${mealPrepRecipe.pageCount}`;
 }
 
 /***********************************************************************
@@ -399,7 +414,6 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             break;
         case PAGE_MODE_MEAL_PREP:
             mealPrepPageNumber = 0;
-            //mealPrepFooter.classList.add(FADE_IN_CLASS);
         case PAGE_MODE_RECIPE:
             cardsButton.classList.add(FADE_OUT_CLASS);
             listButton.classList.add(FADE_OUT_CLASS);
@@ -503,6 +517,9 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
             } else {
                 hideCSSPreview();
             }
+            if (isMealPlanPage()) {
+                displayCookbook();
+            }
         })
         .catch(error => {
             console.log("Error in fetching recipe: ", error);
@@ -537,7 +554,11 @@ function convertStringToEscapedHTML(stringWithNormalSpaces) {
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/ /g, "&nbsp;")
-        .replace(/\n/g, "<br>");
+        .replace(/\n/g, "<br>")
+        .replace(/&lt;!--/g, "<span class='comment'>&lt;!--")
+        .replace(/--&gt;/g, "--&gt;</span>")
+        .replace(/&lt;(?!!--)/g, "<span class='tag'>&lt;")
+        .replace(/(?!--)&gt;/g, "&gt;</span>");
 }
 
 /***********************************************************************
@@ -596,8 +617,11 @@ function displayCookbook() {
             cookbookPage.classList.add(RECIPE_LIST_CLASS);
             break;
         case PAGE_MODE_MEAL_PREP:
-            mealPrepFooter.classList.remove(HIDE_CLASS);
-            mealPrepFooter.classList.add(FADE_IN_CLASS);
+            if (mealPrepFooter.classList.contains(HIDE_CLASS)) {
+                mealPrepFooter.classList.remove(HIDE_CLASS);
+                mealPrepFooter.classList.add(FADE_IN_CLASS);
+            }
+            refreshMealPlanFooter();
         case PAGE_MODE_RECIPE:
             cookbookPage.classList.add(RECIPE_DETAILS_CLASS);
             break;
