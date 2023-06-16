@@ -23,6 +23,10 @@ const mealPrepRecipes = [
         recipeName: "anchors",
         pageCount: 10,
     },
+    {
+        recipeName: "basic-html-drills",
+        pageCount: 7,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
