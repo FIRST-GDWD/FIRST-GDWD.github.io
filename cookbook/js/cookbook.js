@@ -154,10 +154,11 @@ let pageView = defaultPageMode;
 updateBackToText();
 updateTitleText(TITLE_DEFAULT_TEXT);
 
+let hashWithoutParams = location.hash.substring(1).split("?")[0];
 let hashMatchesRecipe = 
-    location.hash && recipeNames.includes(location.hash.substring(1));
+    location.hash && recipeNames.includes(hashWithoutParams);
 let hashMatchesMealPrep = 
-    location.hash && doesMealPrepIncludeRecipe(location.hash.substring(1))
+    location.hash && doesMealPrepIncludeRecipe(hashWithoutParams);
 
 if (location.hash && (hashMatchesRecipe || hashMatchesMealPrep)) {
     if (hashMatchesRecipe) {
@@ -165,9 +166,19 @@ if (location.hash && (hashMatchesRecipe || hashMatchesMealPrep)) {
     } else if (hashMatchesMealPrep) {
         pageView = PAGE_MODE_MEAL_PREP;
     }
+
+    if (location.hash.includes("?")) {
+        let paramsWithoutHash = location.hash.substring(1).split("?")[1];
+        const params = new URLSearchParams(paramsWithoutHash);
+        const pageParam = params.get('p');
+        if (pageParam !== null) {
+            mealPrepPageNumber = parseInt(pageParam, 10) - 1;
+        }
+    }
+
     setTimeout(showBackButton, 300);
-    setTimeout(preloadRecipeTitle, 600, location.hash.substring(1));
-    setTimeout(preloadRecipe, 900, location.hash.substring(1));
+    setTimeout(preloadRecipeTitle, 600, hashWithoutParams);
+    setTimeout(preloadRecipe, 900, hashWithoutParams);
 } else {
     setTimeout(showModeButtons, 300);
     setTimeout(showTitle, 600);
@@ -311,6 +322,7 @@ function onRecipeLinkClick(e) {
     if (pageView == PAGE_MODE_LIST) {
         e.preventDefault();
         let recipe = this.dataset.recipe;
+        mealPrepPageNumber = 0;
         displayIndividualRecipe(recipe, this.textContent);
     }
 }
@@ -326,6 +338,7 @@ function onCookbookRecipeClick(e) {
         let recipe = this.dataset.recipe;
         let recipeHeadingId = `${recipe}${HEADING_ID_POSTFIX}`;
         let recipeTitle = document.getElementById(recipeHeadingId).innerHTML;
+        mealPrepPageNumber = 0;
         displayIndividualRecipe(recipe, recipeTitle);
     }
 }
@@ -341,6 +354,10 @@ if (nextButton) {
             mealPrepPageNumber++;
             cookbookPage.classList.add(FADE_OUT_CLASS);
             refreshMealPlanFooter();
+
+            let recipeHeadingId = `${pageRecipe}${HEADING_ID_POSTFIX}`;
+            let recipeTitle = document.getElementById(recipeHeadingId).innerHTML;
+            storeHistoryState(pageView, pageRecipe, recipeTitle, mealPrepPageNumber)
         }
     }
 }
@@ -352,6 +369,10 @@ if (prevButton) {
             mealPrepPageNumber--;
             cookbookPage.classList.add(FADE_OUT_CLASS);
             refreshMealPlanFooter();
+
+            let recipeHeadingId = `${pageRecipe}${HEADING_ID_POSTFIX}`;
+            let recipeTitle = document.getElementById(recipeHeadingId).innerHTML;
+            storeHistoryState(pageView, pageRecipe, recipeTitle, mealPrepPageNumber)
         }
     }
 }
@@ -413,7 +434,9 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             }
             break;
         case PAGE_MODE_MEAL_PREP:
-            mealPrepPageNumber = 0;
+            // if (pageView != PAGE_MODE_MEAL_PREP) {
+            //     mealPrepPageNumber = 0;
+            // }
         case PAGE_MODE_RECIPE:
             cardsButton.classList.add(FADE_OUT_CLASS);
             listButton.classList.add(FADE_OUT_CLASS);
@@ -431,11 +454,12 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
     }
 }
 
-function storeHistoryState(view, recipeKey, recipeName) {
+function storeHistoryState(view, recipeKey, recipeName, pageNumber=0) {
     const stateObject = {
         view: view,
         recipe: "",
         recipeName: "",
+        pageNumber: "",
     };
 
     let stateLocation = location.pathname;
@@ -449,6 +473,13 @@ function storeHistoryState(view, recipeKey, recipeName) {
         stateObject.recipeName = recipeName;
         stateTitle = `${recipeName} | ${PAGE_TITLE_DEFAULT_TEXT}`;
     }
+
+    if (pageNumber > 0) {
+        stateObject.pageNumber = (pageNumber + 1).toString();
+        const params = new URLSearchParams();
+        params.set("p", stateObject.pageNumber);
+        stateLocation = `${stateLocation}?${params}`;
+    }
     
     history.pushState(stateObject, stateTitle, stateLocation);
     document.querySelector("title").innerHTML = stateTitle;
@@ -457,6 +488,9 @@ function storeHistoryState(view, recipeKey, recipeName) {
 window.onpopstate = function(event) {
     const state = event.state;
     if (state && state.view) {
+        if (state.pageNumber) {
+            mealPrepPageNumber = parseInt(state.pageNumber) - 1;
+        }
         setPageView(state.view, state.recipe, state.recipeName, false);
         let newTitle = PAGE_TITLE_DEFAULT_TEXT;
         if (state.recipeName) {
