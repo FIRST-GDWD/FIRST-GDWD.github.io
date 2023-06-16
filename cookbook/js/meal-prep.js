@@ -13,7 +13,11 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "lists",
-        pageCount: 6,
+        pageCount: 10,
+    },
+    {
+        recipeName: "images",
+        pageCount: 8,
     },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
