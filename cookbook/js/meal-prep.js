@@ -19,6 +19,10 @@ const mealPrepRecipes = [
         recipeName: "images",
         pageCount: 8,
     },
+    {
+        recipeName: "anchors",
+        pageCount: 10,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
