@@ -27,6 +27,14 @@ const mealPrepRecipes = [
         recipeName: "basic-html-drills",
         pageCount: 7,
     },
+    {
+        recipeName: "wiki-page-1",
+        pageCount: 1,
+    },
+    {
+        recipeName: "wiki-page-2",
+        pageCount: 1,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
