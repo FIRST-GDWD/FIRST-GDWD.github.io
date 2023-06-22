@@ -585,6 +585,7 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
 
 function convertStringToEscapedHTML(stringWithNormalSpaces) {
     return stringWithNormalSpaces
+        .replace(/&nbsp;/g, "&amp;nbsp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/ /g, "&nbsp;")

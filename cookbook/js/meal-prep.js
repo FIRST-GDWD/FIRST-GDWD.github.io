@@ -35,6 +35,18 @@ const mealPrepRecipes = [
         recipeName: "wiki-page-2",
         pageCount: 1,
     },
+    {
+        recipeName: "recipe-book",
+        pageCount: 1,
+    },
+    {
+        recipeName: "playlist",
+        pageCount: 1,
+    },
+    {
+        recipeName: "movie-showcase",
+        pageCount: 1,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
