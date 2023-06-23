@@ -14,6 +14,7 @@ const recipeNames = [
     "anchors",
     "divs",
     "spans",
+    "icon-library",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "ingredients";
