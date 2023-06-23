@@ -565,8 +565,18 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
     const actualCssFilePath = applyRootFolderToPath(cleanedCssFilePath);
     document.getElementById("cssPreview").innerHTML = "Loading CSS...";
     fetch(actualCssFilePath)
-        .then(response => response.text())
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                hideCSSPreview();
+                return undefined;
+            }
+        })
         .then(css => {
+            if (css == undefined)
+                return;
+
             let recipeKey = recipe;
             if (isMealPlanPage()) {
                 recipeKey += mealPrepPageNumber;
@@ -579,7 +589,7 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
             
         })
         .catch(error => {
-            console.log("Error in fetching recipe: ", error);
+            console.log("Error in fetching recipe CSS: ", error);
         });
 }
 
