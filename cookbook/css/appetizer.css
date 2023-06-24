@@ -76,7 +76,8 @@
     font-size: 11px;
 }
 
-p strong {
+p strong,
+p.indent {
     display: block;
     padding-left: 36px;
 }

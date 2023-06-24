@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Github Desktop - Endless Push</title>
+        <link href="../css/cookbook.css" rel="stylesheet">
+        <link href="../css/appetizer.css" rel="stylesheet">
+        <link href="../css/lightbox.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="cookbookPage">
+            <h2>My push never seems to finish!</h2>
+            <br>
+            <p>
+                For some students, GitHub Desktop seems to choke when 
+                you push your commits, meaning that the "Push to origin" 
+                arrows seem to just spin forever.
+            </p>
+            <p>
+                This seems to occur most frequently with students who 
+                have low upload speeds 
+                when they try to upload large images or a lot of images 
+                in their commit (although this isn't always the case).
+                Regardless of the reason, there is a tried and true method 
+                to get your changes through.
+            </p>
+            <p>
+                Follow the instructions below if your push never seems to 
+                be taking forever (and consider ALWAYS using the steps 
+                below when pushing in the future, to save yourself time 
+                and stress).
+            </p>
+        </div>
+        <div class="cookbookPage">
+            <h2>Undoing your commit</h2>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                First, quit GitHub Desktop.
+                            </p>
+                            <p class="indent">
+                                Don't just close or minimize it; 
+                                make sure you've actually completely 
+                                shut down the app. 
+                            </p>
+                            <p class="indent">
+                                You may need to Force-quit the app if 
+                                it isn't behaving.
+                            </p>
+                            <p>
+                                Then, open GitHub Desktop again; it shouldn't be pushing anymore.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                GitHub Desktop is probably in the Changes tab by default;
+                                click on the History tab to switch over to that view.
+                            </p>
+                            <p>
+                                In the History view, you'll see a list of all the commits 
+                                you've ever made, with the most recent at the top.
+                            </p>
+                            <p>
+                                The commit you were unable to push should have a little 
+                                arrow next to it; this means that this commit hasn't been 
+                                pushed yet.
+                            </p>
+                            <p>
+                                Right-click on that commit.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/githubdesktop_history_commit2.png" 
+                                alt="Switch to the History tab, identify the commit to undo, and right-click it"
+                            >
+                            <figcaption>
+                                Switch to the History tab, identify the commit 
+                                to undo, and right-click it
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                This should open up a context menu.
+                            </p>
+                            <p>
+                                Click the option that says "Undo commit"
+                            </p>
+                            <p>
+                                <strong>
+                                    WARNING: Be very cautious in this view.
+                                    <br>
+                                    <br>
+                                    NEVER EVER click the option that says "Revert commit"!
+                                    <br>
+                                    <br>
+                                    This can potentially erase large chunks of your work 
+                                    from version control; it is possible to recover from this,
+                                    but it will take a lot of time and effort to fix.
+                                </strong>
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/githubdesktop_history_commit_undo.png" 
+                                alt="Click the 'Undo commit...' option" >
+                            <figcaption>
+                                Click the 'Undo commit...' option
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Now that we have installed the main code editor we will be utilizing
+                                throughout class, now we're going to install a few extensions that we
+                                will need for viewing the live renders of our code.
+                            </p>
+                            <p>
+                                First, navigate to the left side panel in Visual Studio Code and click
+                                the icon with the four boxes.
+                            </p>
+                            <p>
+                                Then, in the Extensions tab, click in the search bar at the top.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/extensionsblocks2.png" alt="extensionssearch.png">
+                            <figcaption>
+                                Navigating to the Extensions tab and the search bar inside
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                In the search bar, type "live preview". 
+                            </p>
+                            <p>
+                                The extension "Live Preview" by  Microsoft should be one of the first 
+                                in the list. Click the Install button to install the extension
+                            </p>
+                            <p>
+                                This extension will allow you to preview your HTML/CSS/Javascript
+                                code within Visual Studio.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/livepreview.png" alt="livepreview.png" />
+                            <figcaption>
+                                A screenshot of the Live Preview extension
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                In the Extensions tab, click in the search bar at the top. Then in the
+                                search bar, type "live server". 
+                            </p>
+                            <p>
+                                The extension Live Server by Ritwick
+                                Dey should be one of the first in the list. Click the Install button
+                                to install the extension
+                            </p>
+                            <p>
+                                This extension will allow you to preview your HTML/CSS/Javascript
+                                code live in a web browser like Google Chrome.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img src="images/liveserver.png" alt="liveserver.png" />
+                            <figcaption>
+                                A screenshot of the Live Server extension
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>Congrats! You are now set up to start coding in your very first Code Editor!</h4>
+        </div>
+        
+        <div id="lightboxContainer">
+            <div id="lightboxBackground" class="closer"></div>
+            <img id="lightbox" src="" alt="">
+            <span id="lightboxCloser" class="closer">×</span>
+          </div>
+        <script src="js/lightbox.js"></script>
+    </body>
+</html>
