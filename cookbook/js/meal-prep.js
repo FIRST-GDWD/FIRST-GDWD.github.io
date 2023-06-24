@@ -49,5 +49,6 @@ const mealPrepRecipes = [
     },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
+const includeCodePreview = true;
 
 // load cookbook.js immediately after this file

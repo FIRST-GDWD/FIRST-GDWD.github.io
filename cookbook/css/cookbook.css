@@ -338,6 +338,18 @@ nav {
     max-width: 51%;
 }
 
+#cookbookPage.recipeDetails.noCodePreview #cookbookPageColumnOne {
+    display: none;
+}
+
+#cookbookPage.recipeDetails.noCodePreview #cookbookPageColumnTwo {
+    margin-left: 36px;
+}
+
+#cookbookPage.recipeDetails.noCodePreview #cookbookPageColumnTwo h4 {
+    display: none;
+}
+
 .recipeDetails #cookbookPageColumnOne,
 .recipeDetails #cookbookPageColumnTwo {
     flex: 1;

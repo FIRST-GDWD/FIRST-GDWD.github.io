@@ -18,5 +18,6 @@ const recipeNames = [
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "ingredients";
+const includeCodePreview = true;
 
 // load cookbook.js immediately after this file

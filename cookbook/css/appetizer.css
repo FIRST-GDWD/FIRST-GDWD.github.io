@@ -1,3 +1,7 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .cookbookPage {
     position: relative;
 }
@@ -14,6 +18,11 @@
     margin-top: 0px;
 }
 
+.cookbookPage.troubleshooting h2 {
+    margin-top: 60px;
+    margin-bottom: 36px;
+}
+
 .cookbookPage h4 {
     margin-bottom: 36px;
     margin-top: 0px;
@@ -23,6 +32,12 @@
     font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 0px;
+}
+
+.cookbookPage > p {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .invisibleAnchorTarget {
@@ -56,15 +71,13 @@
 .sideBySide {
     align-items: center;
     display: flex;
+    justify-content: center;
     margin-bottom: 36px;
-}
-
-.sideBySide div {
-    
 }
 
 .sideBySide .textContainer {
     flex: 1;
+    max-width: 50%;
 }
 
 .sideBySide .imageContainer {
@@ -83,6 +96,10 @@ p.indent {
 }
 
 @media screen and (max-width: 1000px) {
+    .cookbookPage > p {
+        max-width: none;
+    }
+
     .sideBySide {
         flex-direction: column;
         padding-bottom: 0px;
@@ -90,6 +107,7 @@ p.indent {
     }
 
     .sideBySide .textContainer {
+        max-width: none;
         order: 2;
     }
 

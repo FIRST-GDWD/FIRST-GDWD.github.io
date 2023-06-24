@@ -5,12 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Github Desktop - Endless Push</title>
-        <link href="../css/cookbook.css" rel="stylesheet">
         <link href="../css/appetizer.css" rel="stylesheet">
         <link href="../css/lightbox.css" rel="stylesheet">
     </head>
     <body>
-        <div class="cookbookPage">
+        <div class="cookbookPage troubleshooting">
             <h2>My push never seems to finish!</h2>
             <br>
             <p>
@@ -33,7 +32,7 @@
                 and stress).
             </p>
         </div>
-        <div class="cookbookPage">
+        <div class="cookbookPage troubleshooting">
             <h2>Undoing your commit</h2>
             <ol>
                 <li>
@@ -122,76 +121,82 @@
                         </div>
                     </div>
                 </li>
+            </ol>
+        </div>
+        <div class="cookbookPage troubleshooting">
+            <h2>Redoing your commit, one image at a time</h2>
+            <ol>
                 <li>
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                                Now that we have installed the main code editor we will be utilizing
-                                throughout class, now we're going to install a few extensions that we
-                                will need for viewing the live renders of our code.
+                                Return to the Changes tab.
                             </p>
                             <p>
-                                First, navigate to the left side panel in Visual Studio Code and click
-                                the icon with the four boxes.
+                                All the file changes that went into that commit you just undid 
+                                should be visible again in this view.
                             </p>
                             <p>
-                                Then, in the Extensions tab, click in the search bar at the top.
+                                First, select ONLY the code files (files that end in .html or .css),
+                                or conversely, uncheck all the non-code files.
+                            </p>
+                            <p>
+                                Then do a complete commit and push JUST for the code files.
                             </p>
                         </div>
                         <div class="imageContainer">
-                            <img src="images/extensionsblocks2.png" alt="extensionssearch.png">
+                            <img 
+                                src="images/commit_onlycode.png" 
+                                alt="Select only code files (.html, .css) to commit and push"
+                            >
                             <figcaption>
-                                Navigating to the Extensions tab and the search bar inside
+                                Select only code files (.html, .css) to commit and push
                             </figcaption>
                         </div>
                     </div>
+                </li>
+                <li>
                     <div class="sideBySide">
                         <div class="textContainer">
+
                             <p>
-                                In the search bar, type "live preview". 
+                                Next, select ONE SINGLE image file (files that end in 
+                                .jpg, .jpeg, .png, .webp).
                             </p>
                             <p>
-                                The extension "Live Preview" by  Microsoft should be one of the first 
-                                in the list. Click the Install button to install the extension
+                                Then do a complete commit and push JUST for that single image file.
                             </p>
                             <p>
-                                This extension will allow you to preview your HTML/CSS/Javascript
-                                code within Visual Studio.
+                                <strong>
+                                    DON'T COMMIT ANOTHER IMAGE UNTIL YOU PUSH THE FIRST.
+                                    <br>
+                                    <br>
+                                    It was committing multiple images that got you into this
+                                    mess in the first place, so don't do it again!
+                                </strong>
+                            </p>
+                            <p>
+                                The push for the single image should go fairly quickly.
+                            </p>
+                            <p>
+                                Now repeat for each remaining image: commit and push ONE IMAGE 
+                                AT A TIME, until you have pushed all the remaining images.
                             </p>
                         </div>
                         <div class="imageContainer">
-                            <img src="images/livepreview.png" alt="livepreview.png" />
+                            <img 
+                                src="images/commit_onlyoneimage.png" 
+                                alt="Select only ONE files (.jpg, .jpeg, .png, .webp) at a time to commit and push"
+                            >
                             <figcaption>
-                                A screenshot of the Live Preview extension
-                            </figcaption>
-                        </div>
-                    </div>
-                    <div class="sideBySide">
-                        <div class="textContainer">
-                            <p>
-                                In the Extensions tab, click in the search bar at the top. Then in the
-                                search bar, type "live server". 
-                            </p>
-                            <p>
-                                The extension Live Server by Ritwick
-                                Dey should be one of the first in the list. Click the Install button
-                                to install the extension
-                            </p>
-                            <p>
-                                This extension will allow you to preview your HTML/CSS/Javascript
-                                code live in a web browser like Google Chrome.
-                            </p>
-                        </div>
-                        <div class="imageContainer">
-                            <img src="images/liveserver.png" alt="liveserver.png" />
-                            <figcaption>
-                                A screenshot of the Live Server extension
+                                Select only ONE files (.jpg, .jpeg, .png, .webp) at a time to commit and push
                             </figcaption>
                         </div>
                     </div>
                 </li>
             </ol>
-            <h4>Congrats! You are now set up to start coding in your very first Code Editor!</h4>
+            <h4>Congrats! You should have been able to push all the files in your commit!</h4>
+            <h4>Consider always committing/pushing images one at a time in the future.</h4>
         </div>
         
         <div id="lightboxContainer">
@@ -199,6 +204,6 @@
             <img id="lightbox" src="" alt="">
             <span id="lightboxCloser" class="closer">×</span>
           </div>
-        <script src="js/lightbox.js"></script>
+        <script src="../js/lightbox.js"></script>
     </body>
 </html>
