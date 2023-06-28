@@ -603,7 +603,9 @@ function convertStringToEscapedHTML(stringWithNormalSpaces) {
         .replace(/&lt;!--/g, "<span class='comment'>&lt;!--")
         .replace(/--&gt;/g, "--&gt;</span>")
         .replace(/&lt;(?!!--)/g, "<span class='tag'>&lt;")
-        .replace(/(?!--)&gt;/g, "&gt;</span>");
+        .replace(/(?!--)&gt;/g, "&gt;</span>")
+        .replace(/\/\*/g, "<span class='comment'>/*")
+        .replace(/\*\//g, "*/</span>");
 }
 
 /***********************************************************************

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>font-family Property</title>
+        <link href="css/font-family.css" rel="stylesheet">
+    </head>
+    <body>
+        <p>
+            The font-family property allows us to change the 
+            font of text targeted via CSS.
+            There are five generic font family names available
+            in CSS: serif, sans-serif, monospace, cursive, and 
+            fantasy.
+        </p>
+        <p class="serif-family">
+            The generic serif font family looks like this. (The 
+            generic serif font is usually the default font 
+            family in most browsers.)
+        </p>
+        <p class="sans-serif-family">
+            The generic sans-serif font family looks like this.
+        </p>
+        <p class="monospace-family">
+            The generic monospace font family looks like this.
+        </p>
+        <p class="cursive-family">
+            The generic cursive font family looks like this.
+        </p>
+        <p class="fantasy-family">
+            The generic fantasy font family looks like this.
+        </p>
+        <p>
+            However, most of the time, we'd rather use a 
+            specific font family we like over the generic 
+            ones offered to us from the browser. But we have 
+            to remember that the font we want to use may not
+            be installed on everyone's computer.
+        </p>
+        <p class="verdana-with-fallback">
+            So rather than specifying a single font-family,
+            which may or may not be available to use, we
+            specify a comma-separated list of font families.
+            That way, if the first family isn't available, 
+            we'll try the next one, and the next one, until 
+            we reach the final family, which should be one 
+            of the generic families.
+        </p>
+        <p class="helvetica-with-fallback">
+            For example, Helvetica, while popular, is 
+            generally only availabe on Macs. So to account 
+            for any Windows users, we add a fallback to a 
+            similar font called Arial.  And if that one 
+            can't be found, then our last resort is the 
+            default sans-serif family.
+        </p>
+    </body>
+</html>

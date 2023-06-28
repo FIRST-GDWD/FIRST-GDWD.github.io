@@ -1,0 +1,21 @@
+.padding-one-value {
+    padding: 24px;
+}
+
+.padding-two-values {
+    padding: 24px 48px;
+}
+
+.padding-three-values {
+    padding: 24px 8px 60px;
+}
+
+div {
+    border: 1px solid navy;
+}
+
+div div {
+    background-color: #EEEEEE;
+    border: 0px;
+    padding: 12px;
+}

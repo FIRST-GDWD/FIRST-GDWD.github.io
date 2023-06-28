@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>border Properties</title>
+        <link href="css/border.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container-1">
+            <p>
+                This div has a border set on it, with the 
+                border's width, style, and color all set at 
+                once.
+            </p>
+            <p>
+                It has a rather thick 10px border-width, a 
+                "solid" border-style, and a border-color of 
+                "coral".
+            </p>
+            <p>
+                However, as we'll see below, we can also 
+                target different parts of the border individually,
+                and we can even target individual sides as well.
+            </p>
+        </div>
+        <div id="container-2">
+            <p>
+                This div sets its border properties individually.
+            </p>
+            <p>
+                It has a thinner 5px border-width, a 
+                "dashed" border-style, and a border-color with a 
+                hexadecimal value of <code>#8888FF</code>.
+            </p>
+            <p>
+                We also gave it a little margin and padding. The 
+                margin gives it space OUTSIDE the border on the 
+                top and bottom, but not on the sides. The padding 
+                give it space equally on all sides INSIDE the 
+                border.
+            </p>
+            <p>
+                The extra space on the inside is beneficial for 
+                giving the inside content room to breathe, and 
+                the extra space on the outside is good for
+                separating the div from the content around it.
+            </p>
+        </div>
+        <div id="container-3">
+            <p>
+                This div looks a little wacky, just because we're
+                showing how you can target individual sides at once,
+                or even individual properties on a specific side.
+            </p>
+            <p class="pretty-in-pink">
+                Just to be clear, borders can be added to any 
+                HTML element, not only div elements.  But we tend 
+                to use borders more on elements used as containers, 
+                in order to group related content, and separate it 
+                from unrelated content.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing 
+                elit. Voluptate voluptatem excepturi aliquid nostrum 
+                cumque reprehenderit debitis et corrupti labore.
+            </p>
+        </div>
+    </body>
+</html>

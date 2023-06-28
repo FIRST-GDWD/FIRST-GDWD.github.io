@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>font-weight Property</title>
+        <link href="css/font-weight.css" rel="stylesheet">
+    </head>
+    <body>
+        <p class="not-bold">
+            There are many different font properties in CSS,
+            some of which can do the same things stylistically
+            as some of the HTML elements we've learned.
+        </p>
+        <p class="bold">
+            The font-weight property allows us to make text bold 
+            (or not).
+        </p>
+        <p class="bolder"> 
+            font-weight can accept keyword values like "bold", 
+            "bolder", "lighter", or "normal", but it can also 
+            accept numerical values starting at 100, and 
+            incrementing in hundreds up to 900.
+        </p>
+        <p class="bolder-still">
+            Whether these values work as we might expect depend 
+            entirely on the font, however.  If your font 
+            doesn't support a font-weight value of 900, it
+            will default to whatever the closest font-weight is
+            that the font does support.
+        </p>
+        <p class="lighter">
+            The font-weight property does the same thing 
+            as the &lt;b&gt; element in most browsers,
+            but the meaning of that element has changed 
+            over the years, and it is now preferable to 
+            use font-weight in CSS over &lt;b&gt; in HTML.
+        </p>
+    </body>
+</html>
