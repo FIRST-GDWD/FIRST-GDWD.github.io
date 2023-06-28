@@ -4,7 +4,10 @@
 const recipeNames = [
     "color",
     "background-color",
+    "display",
     "border",
+    "border-radius",
+    "margin",
     "padding",
     "font-family",
     "font-size",

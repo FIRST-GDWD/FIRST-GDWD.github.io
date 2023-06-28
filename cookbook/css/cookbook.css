@@ -359,6 +359,8 @@ nav {
     margin-top: 0px;
 }
 
+
+
 .recipeDetails #recipeDetailsHeadingHTML,
 .recipeDetails #recipeDetailsHeadingCSS
 {
@@ -392,6 +394,37 @@ nav {
 #htmlPreview .comment,
 #cssPreview .comment {
     background-color:#e5614466;
+}
+
+/* Seasonings Page special styling */
+
+.seasonings .recipeDetails #cookbookPageColumnOne {
+    display: flex;
+    flex-direction: column;
+}
+
+.seasonings .recipeDetails #recipeDetailsHeadingHTML {
+    margin-top: 16px;
+}
+
+.seasonings .recipeDetails #recipeDetailsHeadingCSS {
+    margin-top: 0px;
+}
+
+.seasonings .recipeDetails #recipeDetailsHeadingCSS {
+    order: 1;
+}
+
+.seasonings .recipeDetails #cssPreview {
+    order: 2;
+}
+
+.seasonings .recipeDetails #recipeDetailsHeadingHTML {
+    order: 3;
+}
+
+.seasonings .recipeDetails #htmlPreview {
+    order: 4;
 }
 
 /**********************************************************

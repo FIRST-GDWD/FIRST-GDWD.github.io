@@ -1,8 +1,23 @@
-#container-1 {
+.border-style-solid {
+    border: 10px solid darkcyan;
+    height: 50px;
+}
+
+.border-style-dashed {
+    border: 10px dashed darkcyan;
+    height: 50px;
+}
+
+.border-style-dotted {
+    border: 10px dotted darkcyan;
+    height: 50px;
+}
+
+#combined-1 {
     border: 10px solid coral;
 }
 
-#container-2 {
+#combined-2 {
     border-width: 5px;
     border-style: dashed;
     border-color: #8888FF;
@@ -10,9 +25,9 @@
     padding: 24px;
 }
 
-#container-3 {
-    border-right: 8px dotted red;
+#combined-3 {
     border-top: 8px dotted green;
+    border-right: 8px dashed red;
     border-bottom-color: blue;
     border-bottom-style: solid;
     border-bottom-width: 4px;
