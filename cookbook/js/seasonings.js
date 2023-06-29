@@ -14,6 +14,7 @@ const recipeNames = [
     "font-weight",
     "font-style",
     "text-align",
+    "width",
     "list-style-type",
 ];
 const mealPrepRecipes = [];

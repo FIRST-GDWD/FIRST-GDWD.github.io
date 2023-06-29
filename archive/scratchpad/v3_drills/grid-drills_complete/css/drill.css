@@ -1,0 +1,94 @@
+/* Drill 1 - Write your code solution below */
+#t14_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Drill 2 - Write your code solution below */
+#t15_container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* Drill 3 - Write your code solution below */
+#t16_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "one two three";
+}
+
+#t16_cell_1 {
+    grid-area: one;
+}
+#t16_cell_2 {
+    grid-area: two;
+}
+#t16_cell_3 {
+    grid-area: three;
+}
+
+/* Drill 4 - Write your code solution below */
+#t17_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "two three one";
+}
+
+#t17_cell_1 {
+    grid-area: one;
+}
+#t17_cell_2 {
+    grid-area: two;
+}
+#t17_cell_3 {
+    grid-area: three;
+}
+
+/* Drill 5 - Write your code solution below */
+#t18_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "one   one one"
+        "three two two";
+}
+
+#t18_cell_1 {
+    grid-area: one;
+}
+#t18_cell_2 {
+    grid-area: two;
+}
+#t18_cell_3 {
+    grid-area: three;
+}
+
+/* Drill 6 - Write your code solution below */
+#t19_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#t19_container img {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Drill 7 - Write your code solution below */
+#t20_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "one   two"
+        "three three";
+}
+
+#t20_cell_1 {
+    grid-area: one;
+}
+#t20_cell_2 {
+    grid-area: two;
+}
+#t20_cell_3 {
+    grid-area: three;
+}

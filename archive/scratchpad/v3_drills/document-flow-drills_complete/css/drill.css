@@ -1,0 +1,21 @@
+/* Drill 1 - Write your code solution below */
+.t1_div {
+    display: inline;
+}
+
+/* Drill 2 - Write your code solution below */
+
+#t2_span1,
+#t2_span2,
+#t2_span3 {
+    display: block;
+}
+
+/* Drill 3 - Write your code solution below */
+.t3_span_red {
+    display: block;
+}
+
+.t3_span_blue {
+    display: inline-block;
+}
