@@ -14,6 +14,7 @@ const recipeNames = [
     "font-weight",
     "font-style",
     "text-align",
+    "text-decoration",
     "width",
     "list-style-type",
 ];
