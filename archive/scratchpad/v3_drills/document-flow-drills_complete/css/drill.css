@@ -1,21 +1,45 @@
 /* Drill 1 - Write your code solution below */
-.t1_div {
+.d1-div {
     display: inline;
 }
 
 /* Drill 2 - Write your code solution below */
 
-#t2_span1,
-#t2_span2,
-#t2_span3 {
+.d2-span{
     display: block;
 }
 
 /* Drill 3 - Write your code solution below */
-.t3_span_red {
-    display: block;
+.d3-div {
+    display: inline-block;
 }
 
-.t3_span_blue {
+/* Drill 4 - Write your code solution below */
+.d4-div {
     display: inline-block;
+}
+
+/* Drill 5 - Write your code solution below */
+.d5-div {
+    display: inline-block;
+}
+
+#d5-div1 {
+    width: 250px;
+}
+
+#d5-div2 {
+    width: 230px;
+}
+
+/* Drill 6 - Write your code solution below */
+
+#d6-div2 {
+    display: inline-block;
+    width: 48%;
+}
+
+#d6-div3 {
+    display: inline-block;
+    width: 48%;
 }
