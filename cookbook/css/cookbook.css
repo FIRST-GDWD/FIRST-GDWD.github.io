@@ -21,6 +21,12 @@ body {
     z-index: -10;
 }
 
+#meal-prep #background {
+    background-image: 
+        repeating-linear-gradient(135deg,transparent,transparent 200px, #1a315999 200px, #1a315999 400px),
+        repeating-linear-gradient(45deg,transparent,transparent 200px, #1a315977 200px, #1a315977 400px);
+}
+
 nav {
     position: sticky;
     top: 0px;
@@ -142,6 +148,18 @@ nav {
 #title h3 {
     color: #1a3159;
     text-align: center;
+}
+
+#meal-prep #title {
+    display: block;
+    background-color: #FFFFFFDD;
+    border-radius: 45px;
+    margin: 36px;
+    padding: 24px;
+}
+
+#meal-prep #title h1 {
+    margin-top: 0px;
 }
 
 #title.recipe h3 {
@@ -636,6 +654,12 @@ nav {
     #cookbookPage.recipeCards,
     #cookbookPage.recipeList,
     #cookbookPage.recipeDetails {
+        border-radius: 24px;
+        margin: 18px;
+        padding: 24px 0px;
+    }
+
+    #meal-prep #title {
         border-radius: 24px;
         margin: 18px;
         padding: 24px 0px;
