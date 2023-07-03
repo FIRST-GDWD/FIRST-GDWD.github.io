@@ -47,6 +47,11 @@ const mealPrepRecipes = [
         recipeName: "movie-showcase",
         pageCount: 1,
     },
+    {
+        recipeName: "basic-css-drills",
+        pageCount: 15,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 

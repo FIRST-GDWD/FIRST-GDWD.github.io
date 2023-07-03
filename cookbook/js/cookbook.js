@@ -189,6 +189,11 @@ function doesMealPrepIncludeRecipe(recipeName) {
     return (mealPrepRecipes.find(recipe => recipe.recipeName == recipeName) !== undefined);
 }
 
+function doesMealPrepHaveLocalCSS(recipeName) {
+    const matchingRecipe = mealPrepRecipes.find(recipe => recipe.recipeName == recipeName);
+    return matchingRecipe !== undefined && matchingRecipe.includesLocalCSS;
+}
+
 function preloadRecipeTitle(recipeName) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeTitle = document.getElementById(recipeHeadingId).textContent;
@@ -544,10 +549,15 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             altTitle = doc.title;
-            const cssLink = doc.querySelector("head link[rel=stylesheet]");
-            if (cssLink) {
+            const cssLinks = doc.querySelectorAll("head link[rel=stylesheet]");
+            const mealPrepLink = 
+                doc.querySelector("head link[rel=stylesheet][data-meal-prep]");
+            if (cssLinks.length == 1) {
                 showCSSPreview();
-                fetchCSSRecipeCodeAndPrint(recipe, cssLink.href);
+                fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);
+            } else if (mealPrepLink) {
+                showCSSPreview();
+                fetchCSSRecipeCodeAndPrint(recipe, mealPrepLink.href);
             } else {
                 hideCSSPreview();
             }
@@ -562,7 +572,9 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
 
 function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
     const cleanedCssFilePath = cssFilePath.substring(cssFilePath.indexOf('css/'));
-    const actualCssFilePath = applyRootFolderToPath(cleanedCssFilePath);
+    const actualCssFilePath = doesMealPrepHaveLocalCSS(recipe)
+        ? getMealPrepLocalCSSPath(cleanedCssFilePath, recipe)
+        : applyRootFolderToPath(cleanedCssFilePath);
     document.getElementById("cssPreview").innerHTML = "Loading CSS...";
     fetch(actualCssFilePath)
         .then(response => {
@@ -725,4 +737,10 @@ function getRecipeHTMLPath(recipeName) {
 
 function getMealPrepHTMLPath(recipeName, pageNumber=0) {
     return applyRootFolderToPath(`${recipeName}/${MEAL_PREP_FILE_NAME}${pageNumber}.html`);
+}
+
+function getMealPrepLocalCSSPath(path, recipeName) {
+    return applyRootFolderToPath(
+        `${recipeName}/${path}`,
+    );
 }
