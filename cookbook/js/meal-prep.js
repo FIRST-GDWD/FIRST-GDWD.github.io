@@ -62,6 +62,11 @@ const mealPrepRecipes = [
         pageCount: 7,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "box-model-border-drills",
+        pageCount: 9,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
