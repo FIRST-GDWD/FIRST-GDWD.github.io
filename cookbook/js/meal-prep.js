@@ -52,6 +52,11 @@ const mealPrepRecipes = [
         pageCount: 15,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "box-model-margin-drills",
+        pageCount: 12,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
