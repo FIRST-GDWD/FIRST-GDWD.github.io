@@ -61,7 +61,16 @@ p {
     margin-bottom: 0px;
 }
 
-.d3-div,
+.d3-div  {
+    background-color: lightpink;
+    border: 4px solid darkmagenta;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    padding: 12px;
+    font-size: 14px;
+}
+
 .d4-div  {
     background-color: lightpink;
     border: 5px solid darkmagenta;

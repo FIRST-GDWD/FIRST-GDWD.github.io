@@ -53,6 +53,11 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "document-flow-drills",
+        pageCount: 8,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "box-model-margin-drills",
         pageCount: 12,
         includesLocalCSS: true,
