@@ -48,6 +48,11 @@ const mealPrepRecipes = [
         pageCount: 1,
     },
     {
+        recipeName: "colors-and-text",
+        pageCount: 11,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "basic-css-drills",
         pageCount: 15,
         includesLocalCSS: true,

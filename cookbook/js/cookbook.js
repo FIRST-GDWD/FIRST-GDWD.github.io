@@ -552,13 +552,13 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
             const cssLinks = doc.querySelectorAll("head link[rel=stylesheet]");
             const mealPrepLink = 
                 doc.querySelector("head link[rel=stylesheet][data-meal-prep]");
-            if (cssLinks.length == 1) {
-                showCSSPreview();
-                fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);
-            } else if (mealPrepLink) {
+            if (mealPrepLink) {
                 showCSSPreview();
                 fetchCSSRecipeCodeAndPrint(recipe, mealPrepLink.href);
-            } else {
+            } else if (cssLinks.length == 1) {
+                showCSSPreview();
+                fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);
+            } else  {
                 hideCSSPreview();
             }
             if (isMealPlanPage()) {
