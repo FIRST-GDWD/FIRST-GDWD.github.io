@@ -1,0 +1,50 @@
+.narrow {
+    width: 40%;
+    background-color: lightsalmon;
+    display: inline-block;
+}
+
+.demo-image {
+    width: 100%;
+}
+
+/*
+    One last change to wrap this demo up: 
+    remember that relative units for width
+    are relative to the width of the CONTAINER 
+    of the element we're setting the width on.
+
+    For the second image, the container is 
+    the page itself.
+
+    But for the first image, it's inside of
+    the div with the 'image-container' class.
+
+    Since a relative width is relative to the
+    width of the container, watch what happens when
+    we add a width to the div with 'image-container'.
+*/
+.image-container {
+    width: 250px;
+}
+/*
+    Look! We didn't change a thing about our images,
+    but because we changed the container, our top
+    image is now much smaller.
+
+    That's why it's so important to be able to 
+    identify what an element's container is 
+    (or to use another term, its "parent")
+    when you're using relative units.
+
+    If you're not careful, you could completely 
+    destroy a layout by changing one little
+    thing at a higher container level on the 
+    page, which affects things much deeper
+    inside of that container.
+
+    That's it for this demo!
+
+    Now, the students should know enough to
+    start on the Document Flow Drills.
+*/

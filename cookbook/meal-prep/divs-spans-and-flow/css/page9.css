@@ -1,0 +1,49 @@
+/*
+    Before we wrap up, let's also take a look at
+    another way we could use the width property.
+
+    Right now, we have it set to 200px.
+
+    We'd call pixels an "absolute" unit, since
+    no matter what the size of the page, 200px
+    is always 200px.
+
+    That can be a good thing, but it can also
+    be a bad thing, because sometimes we want
+    our layout to stretch with the page.
+
+    To accomplish that we'll need to use
+    something called a "relative" unit.  A 
+    basic relative unit is a percentage (%).
+
+    Setting the width to a percentage value
+    is telling the element to stretch to XX%
+    of the width of its container.
+
+    For now, our container is the page itself;
+    identifying what our container is can get
+    much more complicated as we build more
+    complex layouts, but for now, we'll keep 
+    things simple and just assume the container
+    is the page itself.
+
+    If we set the width to say, 40%, then each
+    div will stretch to be 40% of the page width.
+*/
+
+.narrow {
+    width: 40%;
+    background-color: lightsalmon;
+    display: inline-block;
+}
+
+/*
+    This is dipping our toe into the waters 
+    known as "Responsive Design", which is
+    a big part of being a good web designer.
+
+    We'll be covering that later in the course,
+    but for now, just know that using percentages
+    as widths can be a way to make your design
+    grow or shrink with the width of the page.
+*/
