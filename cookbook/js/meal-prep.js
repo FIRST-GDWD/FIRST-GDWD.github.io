@@ -69,7 +69,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "box-model",
-        pageCount: 10,
+        pageCount: 11,
         includesLocalCSS: true,
     },
     {
