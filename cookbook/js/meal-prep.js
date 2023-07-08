@@ -88,6 +88,11 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "combining-selectors",
+        pageCount: 11,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "containers-selectors-drills",
         pageCount: 7,
         includesLocalCSS: true,
