@@ -97,6 +97,11 @@ const mealPrepRecipes = [
         pageCount: 7,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "absolute-vs-relative-units",
+        pageCount: 10,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
