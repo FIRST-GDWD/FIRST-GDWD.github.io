@@ -102,6 +102,11 @@ const mealPrepRecipes = [
         pageCount: 10,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "color-palettes",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 
