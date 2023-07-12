@@ -59,7 +59,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "divs-spans-and-flow",
-        pageCount: 14,
+        pageCount: 9,
         includesLocalCSS: true,
     },
     {
