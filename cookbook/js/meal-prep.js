@@ -107,6 +107,11 @@ const mealPrepRecipes = [
         pageCount: 1,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "bulletin-board",
+        pageCount: 3,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 

@@ -1,0 +1,70 @@
+/*
+    NOTE TO STUDENTS: 
+
+    This is the file you should be writing your CSS in 
+    for the Bulletin Board assignment.
+
+    Good luck, and have fun!
+*/
+
+.post-it {
+    background-color: white;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin: 24px;
+    padding: 24px;
+    font-family: cursive;
+}
+
+.post-it-image {
+    width: 100%;
+}
+
+.left {
+    text-align: left;
+}
+
+.centered {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.yellow {
+    background-color: rgb(249, 249, 77);
+}
+
+.red {
+    background-color: rgb(198, 11, 11);
+}
+
+.pink {
+    background-color: rgb(255, 195, 214);
+}
+
+.blue {
+    background-color: blue;
+}
+
+.light-blue {
+    background-color: rgb(202, 229, 240);
+}
+
+.purple {
+    background-color: purple;
+}
+
+.green {
+    background-color: green;
+}
+
+.light-green {
+    background-color: rgb(179, 241, 179);
+}
+
+.big {
+    font-size: 36px;
+}
