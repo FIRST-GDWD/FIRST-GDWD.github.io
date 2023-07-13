@@ -9,9 +9,10 @@
 
 .block {
     padding: 20px;
-    border-width: 12px;
-    border-style: outset;
+    border-width: 10px;
+    border-style: groove;
     display: inline-block;
+    margin: 2px;
 }
 
 .long {
@@ -21,36 +22,44 @@
 .red {
     background-color: red;
     border-color: crimson;
+    border-radius: 18px 50% 50%;
 }
 
 .orange {
     background-color: #ffaa00;
     border-color: #ff6f00;
+    border-radius: 50%;
 }
 
 .yellow {
     background-color: yellow;
     border-color: gold;
+    border-radius: 50% 16px;
 }
 
 .green {
     background-color: #05c705;
     border-color: #0ea40e;
+    border-radius: 16px 50%;
 }
 
 .blue {
     background-color: #4c6aff;
     border-color: #1a1ae7;
+    border-radius: 12px;
+    transform: rotate(45deg) scale(75%)
 }
 
 .teal {
     background-color: #1ec7ab;
     border-color: #088e8e;
+    border-radius: 50% 50% 18px 18px;
 }
 
 .purple {
     background-color: #df67df;
-    border-color: #d30dd3
+    border-color: #d30dd3;
+    border-radius: 18px 18px 50% 50%;
 }
 
 .hidden {
