@@ -93,9 +93,11 @@ body {
 }
 
 #title h1 {
+    background-color: #010101AA;
     font-family: 'VT323', monospace;
-    font-size: 140px;
+    font-size: 10vh;
     font-weight: normal;
+    padding: 24px;
 }
 
 .c1 {
