@@ -1,0 +1,169 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.scene {
+    width: 600px;
+    height: 300px;
+    border: 2px solid green;
+    perspective: 500px;
+}
+
+.theatre {
+    width: 600px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(300px) translateY(-0px);
+}
+
+.wall {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    border: 2px solid #0f0f0f;
+}
+
+.ceiling,
+.floor {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border: 2px solid #0f0f0f;
+}
+
+.left {
+    background: radial-gradient(
+        circle at right center,
+        #222222,
+        #0f0f0f
+    );
+    display: flex;
+    align-items: center;
+    transform: rotateY(90deg) translateZ(300px);
+}
+
+.right {
+    background: radial-gradient(
+        circle at 0%,
+        #222222,
+        #0f0f0f
+    );
+    display: flex;
+    align-items: center;
+    transform: rotateY(-90deg) translateZ(300px);
+}
+
+.ceiling {
+    background: radial-gradient(
+        circle at 50% 100%,
+        #222222,
+        #0f0f0f
+    );
+    transform: rotateX(-90deg) translateZ(-300px);
+}
+
+.floor {
+    background: radial-gradient(
+        circle at 50% 0%,
+        #222222,
+        #0f0f0f
+    );
+    transform: rotateX(90deg) translateZ(0px);
+    display: flex;
+}
+
+.aisle {
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        #3a0303,
+        #3a0303 4%,
+        #420404 4%,
+        #420404 8%,
+        #3a0303 8%,
+        #3a0303 12%,
+        #420404 12%,
+        #420404 88%,
+        #3a0303 88%,
+        #3a0303 92%,
+        #420404 92%,
+        #420404 96%,
+        #3a0303 96%,
+        #3a0303 100%
+    );
+    width: 100px;
+}
+
+.rug {
+    flex: 1;
+}
+
+.lamp {
+    background: radial-gradient(
+        #CCCCAAFF, 
+        #CCCCAA33 10%, 
+        #CCCCAA00 50%
+    );
+    flex: 1;
+    height: 30%;
+}
+
+.screen {
+    background-color: #222222;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas:
+        "curtain-1 . curtain-2"
+        "curtain-1 screen curtain-2"
+        "curtain-1 . curtain-2";
+    transform: rotateY(0deg) translateZ(-300px);
+}
+
+#curtain-1 {
+    grid-area: curtain-1;
+    background: 
+        repeating-linear-gradient(
+            to left,
+            #2b0202,
+            #450303,
+            #450303,
+            #2b0202,
+            #2b0202 30%
+        );
+}
+
+#curtain-2 {
+    grid-area: curtain-2;
+    background: 
+        repeating-linear-gradient(
+            to right,
+            #2b0202,
+            #450303,
+            #450303,
+            #2b0202,
+            #2b0202 30%
+        );
+}
+
+#movie {
+    grid-area: screen;
+}
+
+#movie img {
+    width: 100%;
+}
+
+.seating-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ(100px);
+}
