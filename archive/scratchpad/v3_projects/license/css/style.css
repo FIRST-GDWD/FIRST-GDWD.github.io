@@ -1,0 +1,86 @@
+#license {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 24px;
+    padding: 24px;
+    width: 700px;
+}
+
+h1 {
+    color: navy;
+    font-size: 60px;
+    margin: 0px;
+}
+
+h4 {
+    background-color: navy;
+    color: white;
+    padding: 8px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0px;
+}
+
+#left-side,
+#right-side {
+    display: inline-block;
+}
+
+#left-side {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 65%;
+}
+
+#right-side {
+    width: 30%;
+}
+
+#id-and-expiration div {
+    color: navy;
+    display: inline-block;
+    margin: 8px;
+}
+
+#id-and-expiration span {
+    color: red;
+    font-weight: bold;
+}
+
+#address {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 9px;
+}
+
+#small-pic,
+#data-fields {
+    display: inline-block;
+}
+
+#small-pic img {
+    width: 90px;
+    opacity: 0.5;
+}
+
+#data-left,
+#data-right {
+    display: inline-block;
+    color: navy;
+    margin: 8px;
+}
+
+#data-left span,
+#data-right span {
+    color: red;
+    font-weight: bold;
+}
+
+#signature {
+    font-size: 36px;
+    font-family: cursive;
+    text-align: center;
+}
+
+#right-side img {
+    width: 100%;
+}
