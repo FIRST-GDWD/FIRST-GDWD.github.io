@@ -117,6 +117,21 @@ const mealPrepRecipes = [
         pageCount: 3,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "studio-gallery",
+        pageCount: 2,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "alley-posters",
+        pageCount: 2,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "generic-license",
+        pageCount: 2,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 

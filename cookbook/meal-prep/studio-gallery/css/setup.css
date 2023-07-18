@@ -21,7 +21,7 @@ body {
 .scene {
     width: 600px;
     height: 300px;
-    perspective: 500px;
+    perspective: 500px; /* 500px */
 }
 
 .gallery {
@@ -40,7 +40,8 @@ body {
     border: 3px solid #666666;
     background: 
         radial-gradient(#00000011, #00000088),
-        20% center/50% url("../images/white-brick-wall.avif");
+        20% center/50% url("../images/white-brick-wall.avif")
+        ;
 }
 
 .ceiling {
