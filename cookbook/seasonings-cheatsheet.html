@@ -8,7 +8,7 @@
         <link href="css/cookbook.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <style>
-            #html {
+            #css {
                 margin-top: 24px;
                 padding: 24px;
             }
@@ -169,164 +169,162 @@
         </nav>
         
         <header id="title" class="">
-            <h1>HTML Cheatsheet</h1>
-            <h3>An Interactive Refresher of HTML Concepts</h3>
+            <h1>CSS Cheatsheet</h1>
+            <h3>An Interactive Refresher of CSS Concepts</h3>
         </header>
         
         <div class="cookbookPage">
-            <section id="html">
+            <section id="css">
                 <div class="contentContainer">
                     <div class="content">
-                        <h3 id="html1">HTML Tags and Comments</h3>
+                        <h3 id="css1">CSS Rules (Selectors and Declaration Blocks)</h3>
                         <div class="code">
-                            <div>
-                                <span>&lt;--</span> This is an HTML comment <span>--&gt;</span>
-                            </div>
-                            <br />
-                            <div>
-                                <span class="openingTag htmlParent">&lt;div&gt;</span>
-                                <span class="htmlChild">
-                                    Same line div content
-                                </span>
-                                <span class="closingTag htmlParent">&lt;&#47;div&gt;</span>
-                            </div>
-                            <br />
-                            <div><span class="openingTag htmlParent">&lt;div&gt;</span></div>
+                            <div><span class="cssSelHtml">div</span> <span class=cssDecStart>{</span></div>
                             <div class="indent1">
-                                <span class="htmlChild">This div has opening and closing tags</span>
+                                <span class="cssPropName">font-style</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">italic</span><span class="cssAssnTerminator">;</span>
                             </div>
-                            <div class="indent1"><span class="htmlChild">on different lines.</span></div>
-                            <div><span class="closingTag htmlParent">&lt;&#47;div&gt;</span></div>
+                            <div class="indent1">
+                                <span class="cssPropName">line-height</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">24px</span><span class="cssAssnTerminator">;</span>
+                            </div>
+                            <div><span class="cssDecEnd">}</span></div>
+                            <br />
+                            <div>
+                                <span class="cssSelHtml">section</span><span class="cssSelClass">.large</span>
+                                <span class="cssSelId">#explanation</span>
+                                <span class=cssDecStart>{</span>
+                            </div>
+                            <div class="indent1">
+                                <span class="cssPropName">linear-gradient</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">to top left, green 10%, red 90%</span><span class="cssAssnTerminator">;</span>
+                            </div>
+                            <div class="indent1">
+                                <span class="cssPropName">border</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">5px dashed darkgreen</span><span class="cssAssnTerminator">;</span>
+                            </div>
+                            <div><span class="cssDecEnd">}</span></div>
                         </div>
                     </div>
                     <aside class="legend">
                         <h3>Interactive Legend</h3>
                         <h5>(hover over to highlight matching code)</h5>
-                        <div class="openingTag">HTML Opening Tag</div>
-                        <div class="closingTag">HTML Closing Tag</div>
+                        <div class="cssSelHtml">HTML Element Selector</div>
+                        <div class="cssSelId">ID Selector</div>
+                        <div class="cssSelClass">Class Selector</div>
+                        <div class="cssDecStart">CSS Declaration Block Start</div>
+                        <div class="cssDecEnd">CSS Declaration Block End</div>
                     </aside>
                 </div>
                 <div class="contentContainer">
                     <div class="content">
-                        <h3 id="html2">HTML Attributes and Children</h3>
+                        <h3 id="css2">CSS Properties and Comments</h3>
                         <div class="code">
-                            <div>
-                                <span class="openingTag htmlParent">
-                                    &lt;div
-                                    <span class="attrName">id</span><span class="assnOperator">=</span>&quot;<span class="attrValue">my-id-value</span>&quot;
-                                    <span class="attrName">class</span><span class="assnOperator">=</span>&quot;<span class="attrValue">my-class-value</span>&quot;&gt;
-                                </span>
+                            <div>&#47;* This is a CSS comment *&#47;</div>
+                            <br />
+                            <div><span class="cssSelHtml">body</span> <span class=cssDecStart>{</span></div>
+                            <div class="indent1">
+                                <span class="cssPropName">background-color</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">pink</span><span class="cssAssnTerminator">;</span>
                             </div>
                             <div class="indent1">
-                                <span class="htmlChild">This div has three different children
+                                <span class="cssPropName">font-family</span><span class="cssAssnOperator">:</span>
+                                <span class="cssPropValue">Courier New</span><span class="cssAssnTerminator">;</span>
                             </div>
-                            <div class="indent1">
-                                <span class="openingTag htmlChild">
-                                    &lt;img
-                                    <span class="attrName">src</span><span class="assnOperator">=</span>&quot;<span class="attrValue">img-src.jpeg</span>&quot;
-                                    <span class="attrName">alt</span><span class="assnOperator">=</span>&quot;<span class="attrValue">alt description</span>&quot;<span>&gt;</span>
-                                </span>
-                            </div>
-                            <div class="indent1">
-                                <span class="openingTag htmlParent htmlChild">
-                                    &lt;div
-                                    <span class="attrName">id</span><span class="assnOperator">=</span>&quot;<span class="attrValue">my-other-id-value</span>&quot;
-                                    <span class="attrName">class</span><span class="assnOperator">=</span>&quot;<span class="attrValue">my-class-value</span>&quot;&gt;
-                                </span>
-                            </div>
-                            <div class="indent2">
-                                <span class="htmlChild">This div is both a child and a parent
-                            </div>
-                            <div class="indent1"><span class="closingTag htmlParent">&lt;&#47;div&gt;</span></div>
-                            <div><span class="closingTag htmlParent">&lt;&#47;div&gt;</span></div>
+                            <div><span class="cssDecEnd">}</span></div>
                         </div>
                     </div>
                     <aside class="legend">
-                        <div class="attrName">HTML Attribute Name</div>
-                        <div class="assnOperator">HTML Attribute Assignment Operator</div>
-                        <div class="attrValue">HTML Attribute Value</div>
-                        <div class="htmlParent">HTML Element Parent</div>
-                        <div class="htmlChild">HTML Element Child</div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="cssPropName">CSS Property Name</div>
+                        <div class="cssAssnOperator">CSS Property Assignment Operator</div>
+                        <div class="cssPropValue">CSS Property Value</div>
+                        <div class="cssAssnTerminator">CSS Property Assignment Terminator</div>
                     </aside>
-                </div>
-                <div class="contentContainer">
-                    <div class="content">
-                        <h3 id="html3">Void Elements</h3>
-                        <p>Remember that void elements are HTML elements that should <em>NOT</em> have a closing tag. Every other HTML tag <em>SHOULD</em> have a closing tag.</p>
-                        <p>Here are some common void elements you will encounter in our class.</p>
-                        <div>
-                            <h4><span class="code">&lt;head&gt;</span> Elements</h4>
-                            <div class="indent1"><span class="code">&lt;link&gt;</span> - Link (to external resources)</div>
-                            <h4><span class="code">&lt;body&gt;</span> Elements</h4>
-                            <div class="indent1"><span class="code">&lt;br&gt;</span> - Line Break</div>
-                            <div class="indent1"><span class="code">&lt;hr&gt;</span> - Horizontal Rule</div>
-                            <div class="indent1"><span class="code">&lt;img&gt;</span> - Image</div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>
         <script>
-            $(".openingTag").hover(
+            $(".cssPropName").hover(
                 function() {
-                    $(".openingTag").addClass("openingTagHighlight");
+                    $(".cssPropName").addClass("cssPropNameHighlight");
                 },
                 function() {
-                    $(".openingTag").removeClass("openingTagHighlight");
+                    $(".cssPropName").removeClass("cssPropNameHighlight");
                 }
             );
-    
-            $(".closingTag").hover(
+
+            $(".cssAssnOperator").hover(
                 function() {
-                    $(".closingTag").addClass("closingTagHighlight");
+                    $(".cssAssnOperator").addClass("cssAssnOperatorHighlight");
                 },
                 function() {
-                    $(".closingTag").removeClass("closingTagHighlight");
+                    $(".cssAssnOperator").removeClass("cssAssnOperatorHighlight");
                 }
             );
-    
-            $(".attrName").hover(
+
+            $(".cssPropValue").hover(
                 function() {
-                    $(".attrName").addClass("attrNameHighlight");
+                    $(".cssPropValue").addClass("cssPropValueHighlight");
                 },
                 function() {
-                    $(".attrName").removeClass("attrNameHighlight");
+                    $(".cssPropValue").removeClass("cssPropValueHighlight");
                 }
             );
-    
-            $(".assnOperator").hover(
+
+            $(".cssAssnTerminator").hover(
                 function() {
-                    $(".assnOperator").addClass("assnOperatorHighlight");
+                    $(".cssAssnTerminator").addClass("cssAssnTerminatorHighlight");
                 },
                 function() {
-                    $(".assnOperator").removeClass("assnOperatorHighlight");
+                    $(".cssAssnTerminator").removeClass("cssAssnTerminatorHighlight");
                 }
             );
-    
-            $(".attrValue").hover(
+
+            $(".cssSelHtml").hover(
                 function() {
-                    $(".attrValue").addClass("attrValueHighlight");
+                    $(".cssSelHtml").addClass("cssSelHtmlHighlight");
                 },
                 function() {
-                    $(".attrValue").removeClass("attrValueHighlight");
+                    $(".cssSelHtml").removeClass("cssSelHtmlHighlight");
                 }
             );
-    
-            $(".htmlParent").hover(
+
+            $(".cssSelId").hover(
                 function() {
-                    $(".htmlParent").addClass("htmlParentHighlight");
+                    $(".cssSelId").addClass("cssSelIdHighlight");
                 },
                 function() {
-                    $(".htmlParent").removeClass("htmlParentHighlight");
+                    $(".cssSelId").removeClass("cssSelIdHighlight");
                 }
             );
-    
-            $(".htmlChild").hover(
+
+            $(".cssSelClass").hover(
                 function() {
-                    $(".htmlChild").addClass("htmlChildHighlight");
+                    $(".cssSelClass").addClass("cssSelClassHighlight");
                 },
                 function() {
-                    $(".htmlChild").removeClass("htmlChildHighlight");
+                    $(".cssSelClass").removeClass("cssSelClassHighlight");
+                }
+            );
+
+            $(".cssDecStart").hover(
+                function() {
+                    $(".cssDecStart").addClass("cssDecStartHighlight");
+                },
+                function() {
+                    $(".cssDecStart").removeClass("cssDecStartHighlight");
+                }
+            );
+
+            $(".cssDecEnd").hover(
+                function() {
+                    $(".cssDecEnd").addClass("cssDecEndHighlight");
+                },
+                function() {
+                    $(".cssDecEnd").removeClass("cssDecEndHighlight");
                 }
             );
         </script>
