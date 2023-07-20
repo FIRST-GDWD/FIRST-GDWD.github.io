@@ -552,9 +552,14 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
             const cssLinks = doc.querySelectorAll("head link[rel=stylesheet]");
             const mealPrepLink = 
                 doc.querySelector("head link[rel=stylesheet][data-meal-prep]");
+            const seasoningLink = 
+                doc.querySelector("head link[rel=stylesheet][data-seasoning]");
             if (mealPrepLink) {
                 showCSSPreview();
                 fetchCSSRecipeCodeAndPrint(recipe, mealPrepLink.href);
+            } else if (seasoningLink) {
+                showCSSPreview();
+                fetchCSSRecipeCodeAndPrint(recipe, seasoningLink.href);
             } else if (cssLinks.length == 1) {
                 showCSSPreview();
                 fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);

@@ -13,6 +13,26 @@
     height: 50px;
 }
 
+.border-style-inset {
+    border: 10px inset darkcyan;
+    height: 50px;
+}
+
+.border-style-outset {
+    border: 10px outset darkcyan;
+    height: 50px;
+}
+
+.border-style-groove {
+    border: 10px groove darkcyan;
+    height: 50px;
+}
+
+.border-style-ridge {
+    border: 10px ridge darkcyan;
+    height: 50px;
+}
+
 #combined-1 {
     border: 10px solid coral;
 }
