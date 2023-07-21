@@ -16,7 +16,10 @@ const recipeNames = [
     "padding",
     "margin",
     "width",
+    "opacity",
     "transform",
+    "linear-gradient",
+    "radial-gradient",
     "list-style-type",
 ];
 const mealPrepRecipes = [];
