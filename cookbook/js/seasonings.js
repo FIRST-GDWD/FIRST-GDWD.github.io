@@ -16,6 +16,7 @@ const recipeNames = [
     "border-radius",
     "padding",
     "margin",
+    "box-shadow",
     "width",
     "opacity",
     "transform",
