@@ -33,6 +33,12 @@ body {
     text-decoration: underline;
 }
 
-h5 {
+h5,
+h6 {
     margin-top: 48px;
+}
+
+h6 {
+    font-size: 13px;
+    margin-bottom: 24px;
 }

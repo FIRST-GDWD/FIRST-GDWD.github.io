@@ -11,6 +11,7 @@ const recipeNames = [
     "text-align",
     "text-decoration",
     "display",
+    "vertical-align",
     "border",
     "border-radius",
     "padding",
