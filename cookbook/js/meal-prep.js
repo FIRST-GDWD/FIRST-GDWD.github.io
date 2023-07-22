@@ -134,5 +134,6 @@ const mealPrepRecipes = [
     },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
+const IS_DYNAMIC_LOAD = true;
 
 // load cookbook.js immediately after this file

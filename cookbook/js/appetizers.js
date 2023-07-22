@@ -2,10 +2,12 @@
  * variables for dynamic content
  **********************************************************************/
 const recipeNames = [
-    "endless-push",
+    "web-dev-startup",
+    "identifying-boxes",
+    "google-fonts",
 ];
 const mealPrepRecipes = [];
-const ROOT_RECIPE_FOLDER = "troubleshooting";
-const IS_DYNAMIC_LOAD = true;
+const ROOT_RECIPE_FOLDER = "appetizers";
+const IS_DYNAMIC_LOAD = false;
 
 // load cookbook.js immediately after this file

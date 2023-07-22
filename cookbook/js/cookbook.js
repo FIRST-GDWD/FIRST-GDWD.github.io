@@ -1,8 +1,8 @@
 /***********************************************************************
  * Constants
  **********************************************************************/
-const HEADING_ID_POSTFIX = "Heading";
-const IFRAME_ID_POSTFIX = "Iframe";
+const HEADING_ID_POSTFIX = "_heading";
+const IFRAME_ID_POSTFIX = "_iframe";
 const COOKBOOK_RECIPE_CLASS = "cookbookRecipe";
 const LINK_CLASS = "recipeLink"
 const PREVIEWING_CLASS = "previewing";
@@ -28,6 +28,7 @@ let PAGE_TITLE_DEFAULT_TEXT = document.title;
 let TITLE_DEFAULT_TEXT = document.querySelector("#title h1").textContent;
 const MEAL_PREP_FILE_NAME = "page";
 const MEAL_PREP_SUBTITLE = "Meal Prep";
+const HIDE_NAV_PARAM = "hideNav";
 
 /***********************************************************************
  * Page elements
@@ -69,6 +70,7 @@ if (localStorage.getItem(PAGE_MODE_KEY) !== null) {
 /***********************************************************************
  * initial loading of dynamic content
  **********************************************************************/
+
 if (recipeNames.length > 0) {
     for (let recipeName of recipeNames) {
         let recipeHTMLPath = getRecipeHTMLPath(recipeName);
@@ -84,19 +86,34 @@ if (recipeNames.length > 0) {
     }
 }
 
+
 function generateAndAddRecipe(recipeName, recipePath) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
+    let href = "";
+    let modifiedRecipePath = recipePath;
+    if (!IS_DYNAMIC_LOAD) {
+        href = recipePath;
+        modifiedRecipePath = `${recipePath}?${HIDE_NAV_PARAM}`;
+    }
     cookbookPageColumnOne.innerHTML += `
         <div class="${COOKBOOK_RECIPE_CLASS}" data-recipe="${recipeName}">
             <h2 class="recipeHeading">
-                <a href="" id="${recipeHeadingId}" class="${LINK_CLASS}" data-recipe="${recipeName}">
+                <a 
+                    href="${href}" 
+                    id="${recipeHeadingId}" 
+                    class="${LINK_CLASS}" 
+                    data-recipe="${recipeName}"
+                >
                     Loading...
                 </a>
                 <span class="recipeDots"></span>
             </h2>
             <div class="recipePreview">
-                <iframe src="${recipePath}" id="${recipeIframeId}" scrolling="no"></iframe>
+                <iframe 
+                    src="${modifiedRecipePath}" 
+                    id="${recipeIframeId}" 
+                    scrolling="no"></iframe>
                 <div class="recipeOverlay"></div>
             </div>
         </div>
@@ -127,8 +144,11 @@ function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
 
     document.getElementById(recipeIframeId).onload = function() {
-        document.getElementById(recipeHeadingId).innerHTML = 
+        const rawTitle =
             this.contentDocument.getElementsByTagName("title")[0].innerHTML;
+        const cleanedTitle = 
+            rawTitle.replace(` - ${document.title}`, "");
+        document.getElementById(recipeHeadingId).innerHTML = cleanedTitle;
         recipeDocs[recipeName] = this.contentDocument;
         this.onload = null;
     }
@@ -137,8 +157,10 @@ function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
         if (cookbookPage.classList.contains("recipeList")) {
             clearPreviewedRecipeHeadingLinks();
             this.classList.add(PREVIEWING_CLASS);
-            if (bigPreviewSrc != recipeHTMLPath) {
-                bigPreviewSrc = recipeHTMLPath;
+            const recipePathWithHiddenNav = 
+                `${recipeHTMLPath}?${HIDE_NAV_PARAM}`
+            if (bigPreviewSrc != recipePathWithHiddenNav) {
+                bigPreviewSrc = recipePathWithHiddenNav;
                 recipeListPreview.classList.add("fadeOut");
             }
         }
@@ -324,7 +346,7 @@ for (let recipeLink of recipeLinks) {
 }
 
 function onRecipeLinkClick(e) {
-    if (pageView == PAGE_MODE_LIST) {
+    if (IS_DYNAMIC_LOAD && pageView == PAGE_MODE_LIST) {
         e.preventDefault();
         let recipe = this.dataset.recipe;
         mealPrepPageNumber = 0;
@@ -338,7 +360,7 @@ for (let cookbookRecipe of cookbookRecipes) {
 }
 
 function onCookbookRecipeClick(e) {
-    if (pageView == PAGE_MODE_CARDS) {
+    if (IS_DYNAMIC_LOAD && pageView == PAGE_MODE_CARDS) {
         e.preventDefault();
         let recipe = this.dataset.recipe;
         let recipeHeadingId = `${recipe}${HEADING_ID_POSTFIX}`;
@@ -733,6 +755,9 @@ function isMealPlanPage() {
 }
 
 function applyRootFolderToPath(path) {
+    if (ROOT_RECIPE_FOLDER == "") {
+        return path;
+    }
     return `${ROOT_RECIPE_FOLDER}/${path}`;
 }
 
