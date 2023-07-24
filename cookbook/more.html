@@ -4,9 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Troubleshooting - The Coding Cookbook</title>
+        <title>The Coding Cookbook</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="css/cookbook.css" rel="stylesheet">
+        <link href="css/appetizer.css" rel="stylesheet">
+        <link href="css/lightbox.css" rel="stylesheet">
     </head>
     <body>
         <div id="background"></div>
@@ -54,39 +56,64 @@
                     </div>
                 </div>
             </header>
-            <header id="bottomHeader">
-                <div id="cookbookButtons">
-                    <button id="cardsButton" class="hide">Cards View</button>
-                    <button id="listButton" class="hide">List View</button>
-                    <button id="backButton" class="hide">Back to <span id="backTo"></span></button>
-                </div>
-            </header>
         </nav>
         
-        <header id="title" class="fadeOut hide">
-            <h1>Troubleshooting</h1>
-            <h3>Sometimes things just don't turn out the way you want</h3>
+        <header id="title" class="">
+            <h1>Need something more? Take a look below!</h1>
+            <h3>We have other types of resources to offer</h3>
         </header>
         
-        
-        <div id="cookbookPage" class="noCodePreview recipeNone">
+        <div id="cookbookPage" class="recipeCards cookbookWithLinks">
             <div id="cookbookPageColumnOne">
-                <h4 id="recipeListHeading">TABLE OF CONTENTS</h4>
-                <h4 id="recipeDetailsHeadingHTML">HTML</h4>
-                <div id="htmlPreview"></div>
-                <h4 id="recipeDetailsHeadingCSS">CSS</h4>
-                <div id="cssPreview"></div>
+                <div class="cookbookRecipe">
+                    <h2 class="recipeHeading">
+                        <a 
+                            href="appetizers.html" 
+                            class="recipeLink" 
+                        >
+                            Tutorials
+                        </a>
+                        <span class="recipeDots"></span>
+                    </h2>
+                    <div class="recipePreview">
+                        <img 
+                            src="images/appetizers.png" 
+                        >
+                        <div class="recipeOverlay"></div>
+                    </div>
+                </div>
+                <div class="cookbookRecipe">
+                    <h2 class="recipeHeading">
+                        <a 
+                            href="troubleshooting.html" 
+                            class="recipeLink" 
+                        >
+                            Troubleshooting
+                        </a>
+                        <span class="recipeDots"></span>
+                    </h2>
+                    <div class="recipePreview">
+                        <img 
+                            src="images/troubleshooting.png" 
+                        >
+                        <div class="recipeOverlay"></div>
+                    </div>
+                </div>
             </div>
             <div id="cookbookPageColumnTwo">
                 <div id="previewContainer">
                     <h4>PREVIEW</h4>
                     <div id="recipeListPreview">
-                        <iframe id="bigRecipePreview" src="troubleshooting/endless-push.html"></iframe>
+                        <iframe 
+                            id="bigRecipePreview" 
+                            src="ingredients.html?hideNav"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="js/troubleshooting.js"></script>
-        <script src="js/cookbook.js"></script>
+        
+        <!-- <script src="js/index.js"></script>
+        <script src="js/cookbook.js"></script> -->
+        <script src="js/hideNav.js"></script>
     </body>
 </html>
