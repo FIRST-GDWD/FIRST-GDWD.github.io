@@ -59,7 +59,7 @@ nav {
 }
 
 #topHeader #navLinks .dropdown-menu:last-child,
-#topHeader #navLinks > h2 {
+#topHeader #navLinks > h2:last-child {
     margin-right: 36px;
 }
 
