@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Meal Prep - The Chef's Cookbook</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="css/cookbook.css" rel="stylesheet">
     </head>
     <body id="meal-prep">
@@ -12,13 +13,35 @@
         <nav>
             <header id="topHeader">
                 <h2 id="brand"><a href="./meal-prep.html">The Chef's Cookbook</a></h2>
-                <div id="quote">
-                    "Use these demos to help you prepare, before serving the main course to students"
-                </div>
+                <div id="quote"></div>
                 <div id="navLinks">
-                    <h2><a href="ingredients.html">HTML</a></h2>
-                    <h2><a href="seasonings.html">CSS</a></h2>
-                    <h2><a href="recipes.html">LAYOUTS</a></h2>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="meal-prep.html">
+                                By Category
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="meal-prep.html?category=demo">Demos</a></h2>
+                            <h2><a href="meal-prep.html?category=drills">Drills</a></h2>
+                            <h2><a href="meal-prep.html?category=exercise">Exercises</a></h2>
+                            <h2><a href="meal-prep.html?category=project">Projects</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="meal-prep.html">
+                                By Week
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="meal-prep.html?category=week1">Week 1</a></h2>
+                            <h2><a href="meal-prep.html?category=week2">Week 2</a></h2>
+                        </div>
+                    </div>
+                    <h2><a href="./">Student Resources</a></h2>
                 </div>
             </header>
             <header id="bottomHeader">

@@ -29,6 +29,7 @@ let TITLE_DEFAULT_TEXT = document.querySelector("#title h1").textContent;
 const MEAL_PREP_FILE_NAME = "page";
 const MEAL_PREP_SUBTITLE = "Meal Prep";
 const HIDE_NAV_PARAM = "hideNav";
+const CATEGORY_PARAM = "category";
 
 /***********************************************************************
  * Page elements
@@ -62,6 +63,10 @@ let mealPrepPageNumber = 0;
 let bigPreviewSrc = "";
 let altTitle = "";
 
+let mealPlanFilterCategory = "";
+getMealPlanFilterCategory();
+let filteredMealPrepRecipes = getFilteredMealPrepRecipes();
+
 let defaultPageMode = PAGE_MODE_CARDS;
 if (localStorage.getItem(PAGE_MODE_KEY) !== null) {
     defaultPageMode = localStorage.getItem(PAGE_MODE_KEY);
@@ -76,8 +81,8 @@ if (recipeNames.length > 0) {
         let recipeHTMLPath = getRecipeHTMLPath(recipeName);
         generateAndAddRecipe(recipeName, recipeHTMLPath);
     }
-} else if (mealPrepRecipes.length > 0) {
-    for (let mealPrepRecipe of mealPrepRecipes) {
+} else if (filteredMealPrepRecipes.length > 0) {
+    for (let mealPrepRecipe of filteredMealPrepRecipes) {
         let recipeHTMLPath = getMealPrepHTMLPath(
             mealPrepRecipe.recipeName, 
             mealPrepRecipe.pageCount-1,
@@ -129,8 +134,8 @@ if (recipeNames.length > 0) {
         let recipeHTMLPath = getRecipeHTMLPath(recipeName);
         addRecipeEventHandlers(recipeName, recipeHTMLPath);
     }
-} else if (mealPrepRecipes.length > 0) {
-    for (let mealPrepRecipe of mealPrepRecipes) {
+} else if (filteredMealPrepRecipes.length > 0) {
+    for (let mealPrepRecipe of filteredMealPrepRecipes) {
         let recipeHTMLPath = getMealPrepHTMLPath(
             mealPrepRecipe.recipeName, 
             mealPrepRecipe.pageCount-1,
@@ -167,6 +172,8 @@ function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
     }
 }
 
+
+
 /***********************************************************************
  * remaining Page initialization
  **********************************************************************/
@@ -201,18 +208,21 @@ if (location.hash && (hashMatchesRecipe || hashMatchesMealPrep)) {
     setTimeout(showBackButton, 300);
     setTimeout(preloadRecipeTitle, 600, hashWithoutParams);
     setTimeout(preloadRecipe, 900, hashWithoutParams);
+    // TODO: Fix the title here; it's not loaded yet, so is wrong
+    setTimeout(storeHistoryState, 1000, pageView, hashWithoutParams, getTitleText(), mealPrepPageNumber);
 } else {
     setTimeout(showModeButtons, 300);
     setTimeout(showTitle, 600);
     setTimeout(displayCookbook, 900);
+    setTimeout(storeHistoryState, 1000, pageView);
 }
 
 function doesMealPrepIncludeRecipe(recipeName) {
-    return (mealPrepRecipes.find(recipe => recipe.recipeName == recipeName) !== undefined);
+    return (filteredMealPrepRecipes.find(recipe => recipe.recipeName == recipeName) !== undefined);
 }
 
 function doesMealPrepHaveLocalCSS(recipeName) {
-    const matchingRecipe = mealPrepRecipes.find(recipe => recipe.recipeName == recipeName);
+    const matchingRecipe = filteredMealPrepRecipes.find(recipe => recipe.recipeName == recipeName);
     return matchingRecipe !== undefined && matchingRecipe.includesLocalCSS;
 }
 
@@ -319,6 +329,7 @@ function reloadRecipePreview() {
         `;
         document.getElementById("bigRecipePreview").onload = function () {
             this.contentDocument.body.style.marginRight = "32px";
+            setTitleContentFromIframeDocument(this.contentDocument);
         }
     }
 }
@@ -373,7 +384,7 @@ function onCookbookRecipeClick(e) {
 if (nextButton) {
     nextButton.onclick = loadNextPage;
     function loadNextPage() {
-        const mealPrepRecipe = mealPrepRecipes.find(
+        const mealPrepRecipe = filteredMealPrepRecipes.find(
             mealPlanRecipe => mealPlanRecipe.recipeName == pageRecipe,
         );
         
@@ -405,7 +416,7 @@ if (prevButton) {
 }
 
 function refreshMealPlanFooter() {
-    const mealPrepRecipe = mealPrepRecipes.find(
+    const mealPrepRecipe = filteredMealPrepRecipes.find(
         mealPlanRecipe => mealPlanRecipe.recipeName == pageRecipe,
     );
     nextButton.classList.add(DISABLED_CLASS);
@@ -487,6 +498,7 @@ function storeHistoryState(view, recipeKey, recipeName, pageNumber=0) {
         recipe: "",
         recipeName: "",
         pageNumber: "",
+        category: "",
     };
 
     let stateLocation = location.pathname;
@@ -501,10 +513,16 @@ function storeHistoryState(view, recipeKey, recipeName, pageNumber=0) {
         stateTitle = `${recipeName} | ${PAGE_TITLE_DEFAULT_TEXT}`;
     }
 
-    if (pageNumber > 0) {
-        stateObject.pageNumber = (pageNumber + 1).toString();
+    if (pageNumber > 0 || mealPlanFilterCategory != "") {
         const params = new URLSearchParams();
-        params.set("p", stateObject.pageNumber);
+        if (pageNumber > 0) {
+            stateObject.pageNumber = (pageNumber + 1).toString();
+            params.set("p", stateObject.pageNumber);
+        }
+        if (mealPlanFilterCategory != "") {
+            stateObject.category = mealPlanFilterCategory;
+            params.set(CATEGORY_PARAM, stateObject.category);
+        }
         stateLocation = `${stateLocation}?${params}`;
     }
     
@@ -522,6 +540,10 @@ window.onpopstate = function(event) {
         let newTitle = PAGE_TITLE_DEFAULT_TEXT;
         if (state.recipeName) {
             newTitle = `${state.recipeName} | ${newTitle}`;
+        }
+        if (state.category) {
+            mealPlanFilterCategory = state.category;
+            filteredMealPrepRecipes = getFilteredMealPrepRecipes();
         }
         document.querySelector("title").innerHTML = newTitle;
     }
@@ -541,6 +563,10 @@ function updateBackToText() {
 
 function updateTitleText(text = TITLE_DEFAULT_TEXT) {
     titleH1.textContent = text;
+}
+
+function getTitleText() {
+    return titleH1.textContent;
 }
 
 
@@ -773,4 +799,26 @@ function getMealPrepLocalCSSPath(path, recipeName) {
     return applyRootFolderToPath(
         `${recipeName}/${path}`,
     );
+}
+
+function getMealPlanFilterCategory() {
+    if (location.search) {
+        const params = new URLSearchParams(location.search);
+        if (params.get(CATEGORY_PARAM) !== null) {
+            mealPlanFilterCategory = params.get(CATEGORY_PARAM);
+        }
+    }
+}
+
+function getFilteredMealPrepRecipes() {
+    return mealPrepRecipes.filter(
+        (recipe) => recipe.categories.includes(mealPlanFilterCategory),
+    );
+}
+
+function setTitleContentFromIframeDocument(doc) {
+    const rawTitle = doc.getElementsByTagName("title")[0].innerHTML;
+    const cleanedTitle = 
+        rawTitle.replace(` - ${document.title}`, "");
+    updateTitleText(cleanedTitle);
 }

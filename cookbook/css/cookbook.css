@@ -58,7 +58,8 @@ nav {
     margin: 0px;
 }
 
-#topHeader #navLinks .dropdown-menu:last-child {
+#topHeader #navLinks .dropdown-menu:last-child,
+#topHeader #navLinks > h2 {
     margin-right: 36px;
 }
 
@@ -95,6 +96,7 @@ nav {
     left: 0px;
     top: 75%;
     visibility: hidden;
+    min-width: 100%;
     opacity: 0;
     transition: 
         top 0.25s,
@@ -686,6 +688,7 @@ nav {
         margin-left: 0px;
     }
 
+    #topHeader #navLinks > h2:last-child,
     #topHeader #navLinks .dropdown-menu:last-child,
     #topHeader #navLinks .dropdown-menu:last-child h2 {
         margin-right: 0px;
