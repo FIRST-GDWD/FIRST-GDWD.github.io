@@ -6,6 +6,7 @@ const recipeNames = [
     "paragraphs",
     "bolds",
     "italics",
+    "superscripts",
     "linebreaks",
     "horizontalRules",
     "orderedLists",
