@@ -482,44 +482,51 @@ nav {
 
 #htmlPreview .comment,
 #cssPreview .comment {
-    background-color:#e5614466;
+    background-color:#e5624420;
 }
 
 /* Seasonings/Meal-Prep Page special styling */
 
 .seasonings .recipeDetails #cookbookPageColumnOne,
-#meal-prep .recipeDetails #cookbookPageColumnOne {
+#meal-prep .recipeDetails #cookbookPageColumnOne,
+#recipes .recipeDetails #cookbookPageColumnOne {
     display: flex;
     flex-direction: column;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingHTML,
-#meal-prep .recipeDetails #recipeDetailsHeadingHTML {
+#meal-prep .recipeDetails #recipeDetailsHeadingHTML,
+#recipes .recipeDetails #recipeDetailsHeadingHTML {
     margin-top: 16px;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingCSS,
-#meal-prep .recipeDetails #recipeDetailsHeadingCSS {
+#meal-prep .recipeDetails #recipeDetailsHeadingCSS,
+#recipes .recipeDetails #recipeDetailsHeadingCSS {
     margin-top: 0px;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingCSS,
-#meal-prep .recipeDetails #recipeDetailsHeadingCSS {
+#meal-prep .recipeDetails #recipeDetailsHeadingCSS,
+#recipes .recipeDetails #recipeDetailsHeadingCSS {
     order: 1;
 }
 
 .seasonings .recipeDetails #cssPreview,
-#meal-prep .recipeDetails #cssPreview {
+#meal-prep .recipeDetails #cssPreview,
+#recipes .recipeDetails #cssPreview {
     order: 2;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingHTML,
-#meal-prep .recipeDetails #recipeDetailsHeadingHTML {
+#meal-prep .recipeDetails #recipeDetailsHeadingHTML,
+#recipes .recipeDetails #recipeDetailsHeadingHTML {
     order: 3;
 }
 
 .seasonings .recipeDetails #htmlPreview,
-#meal-prep .recipeDetails #htmlPreview {
+#meal-prep .recipeDetails #htmlPreview,
+#recipes .recipeDetails #htmlPreview {
     order: 4;
 }
 
