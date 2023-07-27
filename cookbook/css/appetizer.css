@@ -45,6 +45,11 @@ body {
     top: -150px;
 }
 
+.invisibleInnerAnchorTarget {
+    position: relative;
+    top: -180px;
+}
+
 .cookbookPage img {
     border: 3px solid #ff7050;
     border-radius: 12px;

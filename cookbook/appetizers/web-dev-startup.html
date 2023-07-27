@@ -89,6 +89,21 @@
                                 Visual Studio Code Editor.
                             </p>
                             <p>
+                                <strong>
+                                    NOTE: If you are an on-campus student,
+                                    Visual Studio Code is probably already 
+                                    downloaded, installed, and configured.
+                                    <br><br>
+                                    If so, just double check that the extensions 
+                                    further down in the directions are installed,
+                                    and then 
+                                    <a href="#part2">move on to Part 2</a>.
+                                    <br><br>
+                                    If not, or if you are an IDL student,
+                                    continue with Part 1.
+                                </strong>
+                            </p>
+                            <p>
                                 Visit the following link and click the big blue 
                                 "Download" button on the following page:
                             </p>
@@ -100,6 +115,7 @@
                                 >
                                     https://code.visualstudio.com/
                                 </a> 
+
                             </p>
                         </div>
                         <div class="imageContainer">
@@ -489,6 +505,17 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
+                                <strong>
+                                    NOTE: This step is for IDL students only, or 
+                                    those setting up GitHub Desktop for the 
+                                    first time.
+                                    <br><br>
+                                    If GitHub Desktop is already installed on 
+                                    your computer, 
+                                    <a href="#p3_step2">jump down to Step 2</a>.
+                                </strong>
+                            </p>
+                            <p>
                                 Now that we have created our 
                                 Github account and repository, 
                                 download and install the GitHub
@@ -512,8 +539,6 @@
                             </figcaption>
                         </div>
                     </div>
-                </li>
-                <li>
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
@@ -579,8 +604,6 @@
                             </figcaption>
                         </div>
                     </div>
-                </li>
-                <li>
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
@@ -604,6 +627,11 @@
                                 "Clone a Repository from the Internet"
                                 button.
                             </p>
+                            <p>
+                                Now <a href="#p3_step3">jump down to Step 3</a>.
+                                (Step 2 is only for on-campus students, or 
+                                students working from a shared computer)
+                            </p>
                         </div>
                         <div class="imageContainer">
                             <img 
@@ -618,6 +646,197 @@
                     </div>
                 </li>
                 <li>
+                    <h2 id="p3_step2" class="invisibleInnerAnchorTarget"></h2>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                <strong>
+                                    NOTE: This step is for on-campus students 
+                                    only, or those reconfiguring GitHub Desktop
+                                    after someone else has used it.
+                                    <br><br>
+                                    If you just installed GitHub Desktop 
+                                    on your computer in Step 1, you can skip 
+                                    this step, so just 
+                                    <a href="#p3_step3">jump down to Step 3</a>.
+                                </strong>
+                            </p>
+                            <p>
+                                Now that we have created our 
+                                Github account and repository, 
+                                we'll need to connect it to your campus 
+                                computer (repeat this process any time you 
+                                need to move to a different computer).
+                            </p>
+                            <p>
+                                Open GitHub Desktop.  You'll probably see 
+                                someone else's repository loaded up in the 
+                                top left.
+                            </p>
+                            <p>
+                                To change that, we'll first need to make sure 
+                                you're signed in to GitHub Desktop instead of
+                                them.
+                            </p>
+                            <p>
+                                Go to the GitHub Desktop menu at very top of the 
+                                screen, and select Preferences.
+                            </p>
+                            <p>
+                                Then in the dialog that pops up, under Accounts,
+                                click the "Sign out" button as in the screenshot.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/web-dev-startup/GitHubDesktop_signout.png" 
+                                alt="GitHub Desktop -> Preferences/Options -> Accounts -> Sign out" 
+                            >
+                            <figcaption>
+                                GitHub Desktop -> Preferences/Options -> 
+                                Accounts -> Sign out
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After signing out, the button will change back
+                                to "Sign in".
+                            </p>
+                            <p>
+                                But before clicking on it, navigate to 
+                                <a href="https://www.github.com">github.com</a>
+                                and make sure that you're logged in there, since 
+                                GitHub Desktop is going to connect to that site 
+                                to log you in.
+                            </p>
+                            <p>
+                                After you've signed in to github.com, click on 
+                                the "Sign in" button in GitHub Desktop.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/web-dev-startup/GitHubDesktop_signin.png"
+                                alt="GitHub Desktop -> Preferences/Options -> Accounts -> Sign in" 
+                            />
+                            <figcaption>
+                                GitHub Desktop -> Preferences/Options -> 
+                                Accounts -> Sign in
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                You may get redirected to the following page in
+                                the browser as Github tries to authenticate you. 
+                            </p>
+                            <p>
+                                If so, click the "Authorize desktop" button.
+                            </p>
+                            <p>
+                                If not, you'll just be signed in to GitHub 
+                                Desktop after a second or two.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/web-dev-startup/authorization.png" 
+                                alt="Authenticating your GitHub account in the browser" 
+                            >
+                            <figcaption>
+                                Authenticating your GitHub account 
+                                in the browser
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you'll need to reconfigure Git to tell it
+                                you're the one writing the code, since multiple 
+                                people could be connected to a GitHub account.
+                            </p>
+                            <p>
+                                Once again, go to the GitHub Desktop menu at very top of the 
+                                screen, and select Preferences.
+                            </p>
+                            <p>
+                                Then in the dialog that pops up, navigate to Git,
+                                enter your Name, and select the Email Address 
+                                you signed up with.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/web-dev-startup/GitHub_git_email.png"
+                                alt="After authenticating, reconfigure your Git settings"
+                            />
+                            <figcaption>
+                                After authenticating, reconfigure your Git settings
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you'll need to change the current
+                                repository to your own.  To do that, start by 
+                                clicking the "Current repository" at the top 
+                                left of GitHub Desktop.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/web-dev-startup/GitHub_currentRepository.png"
+                                alt="Click the Current Repository"
+                            />
+                            <figcaption>
+                                Click the Current Repository
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                You wil probably see at least one other
+                                repository in the sidebar that pops out.
+                            </p>
+                            <p>
+                                If you've used this computer before, and you 
+                                see your repository, you can just select it,
+                                and move on to Step 5.
+                            </p>
+                            <p>
+                                If not, click the Add dropdown, and select 
+                                "Clone repository...".
+                            </p>
+                            <p>
+                                <strong>
+                                    "Cloning" in GitHub is the process 
+                                    of pulling down that repository
+                                    we created earlier from Github.com 
+                                    (the remote location) 
+                                    and creating a copy of it on your 
+                                    computer (the local location).
+                                </strong>
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/web-dev-startup/GitHub_currentrepo_clone.png" 
+                                alt="Initiating a clone from the Current Repository sidebar" 
+                            >
+                            <figcaption>
+                                Initiating a clone from the Current Repository sidebary
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2 id="p3_step3" class="invisibleInnerAnchorTarget"></h2>
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
@@ -631,7 +850,7 @@
                                 <em>your_username</em>.github.io 
                                 to the file path afterwards if it
                                 doesn't auto-populate it; 
-                                see the screenshot below).
+                                see the screenshot for reference).
                             </p>
                             <p>
                                 Then go ahead and click the blue Clone button.
