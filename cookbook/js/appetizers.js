@@ -3,6 +3,9 @@
  **********************************************************************/
 const recipeNames = [
     "web-dev-startup",
+    "previewing-code-basic",
+    "template-to-repository",
+    "rearranging-your-workspace",
     "identifying-boxes",
     "google-fonts",
 ];

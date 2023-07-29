@@ -66,6 +66,14 @@ body {
     transform: translateY(-8px);
 }
 
+.cookbookPage video {
+    width: 100%;
+    max-width: 1200px;
+    padding: 24px;
+    margin: 0px auto;
+    display: block;
+}
+
 .cookbookPage ol > li {
     border-bottom: 3px solid #ff7050;
     margin-bottom: 36px;
