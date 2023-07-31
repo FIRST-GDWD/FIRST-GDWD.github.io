@@ -1,0 +1,68 @@
+/* COMMON PAGE LAYOUT SETUP CSS *****************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    /* preferred copy font goes here */
+    font-family: sans-serif; 
+}
+/* END COMMON PAGE LAYOUT SETUP CSS *************/
+
+/*
+    Normally, we'd want to add some padding and/or
+    margin to our layout, potentially with borders
+    as well.  Also, while the background colors are 
+    helpful for distinguishing the two columns, 
+    they aren't too aesthetically pleasing.
+
+    So we've made a few stylistic adjustments to the 
+    sidebar to represent a more common layout design
+    (although it is still relatively boring), along
+    with a couple tweaks to the main content as well.
+*/
+
+#two-columns {
+    display: flex;
+}
+
+#sidebar-content {
+    background-color: #EFEFEF;
+    width: 250px;
+    min-width: 200px;
+    padding: 24px;
+    border-right: 2px solid #AAAAAA;
+}
+
+#sidebar-content h2 {
+    border-bottom: 2px solid #AAAAAA;
+    padding-bottom: 8px;
+}
+
+#sidebar-content ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+#sidebar-content ul li {
+    padding: 4px 0px;
+}
+
+/* 
+    remember that in order to change the style
+    of a hyperlink (anchor), you need to target
+    it very specifically in order to overwrite
+    the default browser styles, which usually 
+    means your selectors need to end in 'a'
+*/
+#sidebar-content ul a {
+    color: #111111;
+    text-decoration: none;
+}
+
+#main-content {
+    flex: 1;
+    margin: 48px;
+    max-width: 600px;
+}

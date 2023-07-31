@@ -21,6 +21,12 @@ const mealPrepRecipes = [
         pageCount: 2,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "two-columns-sidebar-flex",
+        categories: "page-layout, two-columns",
+        pageCount: 4,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
