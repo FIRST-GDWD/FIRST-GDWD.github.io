@@ -1,4 +1,4 @@
-/* COMMON PAGE LAYOUT SETUP CSS *****************/
+/* COMMON PAGE LAYOUT SETUP CSS - START *****************/
 * {
     box-sizing: border-box;
 }
@@ -8,7 +8,7 @@ body {
     /* preferred copy font goes here */
     font-family: sans-serif; 
 }
-/* END COMMON PAGE LAYOUT SETUP CSS *************/
+/* COMMON PAGE LAYOUT SETUP CSS - END ********************/
 
 /*
     To create a two column layout
@@ -28,7 +28,7 @@ body {
     Approach 2
         However, you can actually use the same HTML as
         we used in the previous example, and change the
-        CSS to make the sidebar swap side.
+        CSS to make the sidebar swap sides.
 
         It's a bit convoluted, but there's a special
         flexbox property called 'order', that can
@@ -54,7 +54,6 @@ body {
 #sidebar-content {
     background-color: lightgreen;
     width: 250px;
-    min-width: 200px;
     
     /* APPROACH 2 */
     order: 2;

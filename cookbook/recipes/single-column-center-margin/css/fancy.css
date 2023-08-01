@@ -1,4 +1,4 @@
-/* COMMON PAGE LAYOUT SETUP CSS *****************/
+/* COMMON PAGE LAYOUT SETUP CSS - START *****************/
 * {
     box-sizing: border-box;
 }
@@ -8,7 +8,7 @@ body {
     /* preferred copy font goes here */
     font-family: sans-serif; 
 }
-/* END COMMON PAGE LAYOUT SETUP CSS *************/
+/* COMMON PAGE LAYOUT SETUP CSS - END ********************/
 
 #navbar,
 #footer {

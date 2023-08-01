@@ -17,28 +17,48 @@ body {
     inside of a single column layout.
 
     So let's see how we might build something like
-    that using flex...
+    that using grid...
     
     ...and why not make it a little fancier,
     by making the sidebar scroll with the page too!
 */
 
 #two-columns {
-    display: flex;
+    margin: 48px 0px;
+    display: grid;
     /*
-        Here, we add code to transform our container
-        into a single column layout, centered in the
-        middle of the page, with our two column 
-        layout INSIDE of it.
+        Here, we set up our grid columns again,
+        but this time, notice that we're creating
+        four columns.
 
-        We also add some max- and min- widths so that
-        our center column doesn't get too big or 
-        too small, since we're using relative units.
+        Why? Because there is a way to create a centered
+        layout in a grid without using the margin/auto
+        approach.
+
+        We will use the two '1fr' columns on either side
+        as gutters, which will stretch to fill any empty
+        space on either side of our central content area.
     */
-    width: 80%;
-    min-width: 600px;
-    max-width: 1000px;
-    margin: 48px auto;
+    grid-template-columns: 1fr 500px 250px 1fr;
+
+    /*
+        Our grid areas also look similar to before, but
+        now we have dots (.) on either side of our area
+        names. A dot in a grid template area represents
+        an unassigned area, or basically, a blank cell
+        in our template.
+
+        These are perfect for creating gutters, because
+        we never plan to put anything inside of a gutter;
+        they are just there to create empty space on 
+        either side of our central content to center it.
+
+        In other words, they're fulfilling the exact same
+        role as our auto margins when we set up a single 
+        column layout using margin: 0px auto;
+    */
+    grid-template-areas: 
+        ". main-area sidebar-area .";
 }
 
 /*
@@ -46,13 +66,19 @@ body {
     padding and margin (well, technically removing
     in margin's case), along with modifying borders
     and background-colors.
+
+    However, we also need to assign our grid areas
+    to the elements we want to fill those slots.
+    IF YOU DON'T DO THIS CORRECTLY, YOUR GRID WILL 
+    PROBABLY LOOK VERY STRANGE!!!
 */
 
 #sidebar-content {
-    width: 250px;
-    order: 2;
     margin-top: 24px;
     padding: 0px 12px;
+
+    /* setting the grid area to be sidebar-area */
+    grid-area: sidebar-area;
 }
 
 #sidebar-content h2 {
@@ -86,9 +112,10 @@ body {
 }
 
 #main-content {
-    flex: 1;
-    order: 1;
     margin-right: 16px;
+
+    /* setting the grid area to be main-area */
+    grid-area: main-area;
 }
 
 /*
@@ -101,7 +128,7 @@ body {
     "stick" to the top of the screen when scrolling.
 
     This won't work on #sidebar-content, because it
-    is a flex item (or flex child), which is why we
+    is a grid item (or grid child), which is why we
     added a new container inside.
     
     The 'top' property tells the element how far

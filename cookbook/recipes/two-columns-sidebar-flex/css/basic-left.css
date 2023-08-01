@@ -1,4 +1,4 @@
-/* COMMON PAGE LAYOUT SETUP CSS *****************/
+/* COMMON PAGE LAYOUT SETUP CSS - START *****************/
 * {
     box-sizing: border-box;
 }
@@ -8,7 +8,7 @@ body {
     /* preferred copy font goes here */
     font-family: sans-serif; 
 }
-/* END COMMON PAGE LAYOUT SETUP CSS *************/
+/* COMMON PAGE LAYOUT SETUP CSS - END ********************/
 
 /*
     To create a two column layout
@@ -71,7 +71,6 @@ body {
     background-color: lightgreen;
     /* STEP 3 */
     width: 250px;
-    min-width: 200px;
 }
 
 #main-content {
