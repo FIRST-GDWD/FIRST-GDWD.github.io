@@ -6,6 +6,7 @@ const recipeNames = [
     "previewing-code-basic",
     "template-to-repository",
     "rearranging-your-workspace",
+    "linking-html-and-css",
     "identifying-boxes",
     "google-fonts",
 ];
