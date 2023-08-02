@@ -41,7 +41,13 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "three-columns-sidebars-grid",
-        categories: "page-layout, two-columns, grid",
+        categories: "page-layout, three-columns, grid",
+        pageCount: 3,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "three-columns-traditional-grid",
+        categories: "page-layout, three-columns, grid",
         pageCount: 3,
         includesLocalCSS: true,
     },
