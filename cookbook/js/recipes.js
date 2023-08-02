@@ -4,12 +4,6 @@
 const recipeNames = [];
 const mealPrepRecipes = [
     {
-        recipeName: "single-column-center-margin",
-        categories: "page-layout, single-column",
-        pageCount: 3,
-        includesLocalCSS: true,
-    },
-    {
         recipeName: "single-column-left",
         categories: "page-layout, single-column",
         pageCount: 2,
@@ -19,6 +13,12 @@ const mealPrepRecipes = [
         recipeName: "single-column-right",
         categories: "page-layout, single-column",
         pageCount: 2,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "single-column-center-margin",
+        categories: "page-layout, single-column",
+        pageCount: 3,
         includesLocalCSS: true,
     },
     {
@@ -49,6 +49,12 @@ const mealPrepRecipes = [
         recipeName: "three-columns-traditional-grid",
         categories: "page-layout, three-columns, grid",
         pageCount: 3,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "mixed-columns-grid+flex",
+        categories: "page-layout, three-columns, grid, flex",
+        pageCount: 2,
         includesLocalCSS: true,
     },
 ];
