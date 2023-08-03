@@ -24,6 +24,7 @@ const FADE_OUT_CLASS = "fadeOut";
 const FADE_IN_CLASS = "fadeIn";
 const HIDE_CLASS = "hide";
 const DISABLED_CLASS = "disabled";
+const NO_COMMENTS_CLASS = "noComments";
 let PAGE_TITLE_DEFAULT_TEXT = document.title;
 let TITLE_DEFAULT_TEXT = document.querySelector("#title h1").textContent;
 const MEAL_PREP_FILE_NAME = "page";
@@ -46,6 +47,7 @@ const recipeListPreview = document.getElementById("recipeListPreview");
 const cardsButton = document.getElementById("cardsButton");
 const listButton = document.getElementById("listButton");
 const backButton = document.getElementById("backButton");
+const commentsButton = document.getElementById("commentsButton");
 const mealPrepFooter = document.getElementById("mealPrepFooter");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
@@ -205,7 +207,7 @@ if (location.hash && (hashMatchesRecipe || hashMatchesMealPrep)) {
         }
     }
 
-    setTimeout(showBackButton, 300);
+    setTimeout(showDetailsButtons, 300);
     setTimeout(preloadRecipeTitle, 600, hashWithoutParams);
     setTimeout(preloadRecipe, 900, hashWithoutParams);
     // TODO: Fix the title here; it's not loaded yet, so is wrong
@@ -253,13 +255,16 @@ function onModeButtonAnimationEnd() {
         this.classList.add(HIDE_CLASS);
         backButton.classList.remove(HIDE_CLASS);
         backButton.classList.add(FADE_IN_CLASS);
+        commentsButton.classList.remove(HIDE_CLASS);
+        commentsButton.classList.add(FADE_IN_CLASS);
     } else if (this.classList.contains(FADE_IN_CLASS)) {
         this.classList.remove(FADE_IN_CLASS);
     }
 }
 
-backButton.onanimationend = onBackButtonAnimationEnd;
-function onBackButtonAnimationEnd() {
+backButton.onanimationend = onDetailsButtonAnimationEnd;
+commentsButton.onanimationend = onDetailsButtonAnimationEnd;
+function onDetailsButtonAnimationEnd() {
     if (this.classList.contains(FADE_OUT_CLASS)) {
         this.classList.remove(FADE_OUT_CLASS);
         this.classList.add(HIDE_CLASS);
@@ -350,6 +355,10 @@ listButton.onclick = function() {
 backButton.onclick = function() {
     setPageView(pageMode, "");
 }
+
+commentsButton.onclick = function() {
+    body.classList.toggle(NO_COMMENTS_CLASS);
+};
 
 const recipeLinks = document.getElementsByClassName(LINK_CLASS);
 for (let recipeLink of recipeLinks) {
@@ -450,6 +459,7 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             cookbookPage.classList.add(FADE_OUT_CLASS);
             if (pageView == PAGE_MODE_RECIPE || pageView == PAGE_MODE_MEAL_PREP) {
                 backButton.classList.add(FADE_OUT_CLASS);
+                commentsButton.classList.add(FADE_OUT_CLASS);
                 title.classList.add(FADE_OUT_CLASS);
                 if (pageView == PAGE_MODE_MEAL_PREP) {
                     mealPrepFooter.classList.add(FADE_OUT_CLASS);
@@ -465,6 +475,7 @@ function setPageView(mode, recipeKey="", recipeName="", shouldSaveInHistory=true
             cookbookPage.classList.add(FADE_OUT_CLASS);
             if (pageView == PAGE_MODE_RECIPE || pageView == PAGE_MODE_MEAL_PREP) {
                 backButton.classList.add(FADE_OUT_CLASS);
+                commentsButton.classList.add(FADE_OUT_CLASS);
                 title.classList.add(FADE_OUT_CLASS);
                 if (pageView == PAGE_MODE_MEAL_PREP) {
                     mealPrepFooter.classList.add(FADE_OUT_CLASS);
@@ -663,14 +674,19 @@ function convertStringToEscapedHTML(stringWithNormalSpaces) {
         .replace(/&nbsp;/g, "&amp;nbsp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/ /g, "&nbsp;")
+        .replace(/ /g, "<span class='space'>&nbsp;</span>")
         .replace(/\n/g, "<br>")
         .replace(/&lt;!--/g, "<span class='comment'>&lt;!--")
         .replace(/--&gt;/g, "--&gt;</span>")
         .replace(/&lt;(?!!--)/g, "<span class='tag'>&lt;")
         .replace(/(?!--)&gt;/g, "&gt;</span>")
         .replace(/\/\*/g, "<span class='comment'>/*")
-        .replace(/\*\//g, "*/</span>");
+        .replace(/\*\//g, "*/</span>")
+        .replace(/{/g, "<span class='cssBlock'>{")
+        .replace(/}/g, "}</span>")
+        .replace(/(?<![&<]nbsp|[&<]lt|[&<]gt);/g, "<span class='terminator'>;</span>")
+        .replace(/(?<=(<span class='space'>&nbsp;<\/span>){2,})([a-zA-Z])/g, `<span class='newProperty'></span>$2`)
+        .replace(/(?<=<span class='space'>&nbsp;<\/span>)([a-zA-Z0-9'""])/g, `<span class='textStart'></span>$1`);
 }
 
 /***********************************************************************
@@ -693,9 +709,11 @@ function showModeButtons() {
     listButton.classList.add(FADE_IN_CLASS);
 }
 
-function showBackButton() {
+function showDetailsButtons() {
     backButton.classList.remove(HIDE_CLASS);
     backButton.classList.add(FADE_IN_CLASS);
+    commentsButton.classList.remove(HIDE_CLASS);
+    commentsButton.classList.add(FADE_IN_CLASS);
 }
 
 function fadeOutModeButtons() {
@@ -817,7 +835,7 @@ function getFilteredMealPrepRecipes() {
 }
 
 function setTitleContentFromIframeDocument(doc) {
-    const rawTitle = doc.getElementsByTagName("title")[0].innerHTML;
+    const rawTitle = doc.getElementsByTagName("title")[0].textContent;
     const cleanedTitle = 
         rawTitle.replace(` - ${document.title}`, "");
     updateTitleText(cleanedTitle);

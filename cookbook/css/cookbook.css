@@ -191,6 +191,47 @@ nav {
     color: white;
 }
 
+#cookbookButtons #commentsButton,
+.cookbookButtons #commentsButton {
+    background-color: #1a3159;
+    color: white;
+    border-color: #1a3159;
+}
+
+#cookbookButtons #commentsButton:hover,
+.cookbookButtons #commentsButton:hover {
+    background-color: white;
+    color: #1a3159;
+}
+
+#cookbookButtons #commentsButton #showCommentsLabel,
+.cookbookButtons #commentsButton #showCommentsLabel {
+    display: none;
+}
+
+body.noComments #cookbookButtons #commentsButton,
+body.noComments .cookbookButtons #commentsButton {
+    background-color: white;
+    color: #1a3159;
+    border-color: #1a3159;
+}
+
+body.noComments #cookbookButtons #commentsButton:hover,
+body.noComments .cookbookButtons #commentsButton:hover {
+    background-color: #1a3159;
+    color: white;
+}
+
+body.noComments #cookbookButtons #commentsButton #showCommentsLabel,
+body.noComments .cookbookButtons #commentsButton #showCommentsLabel {
+    display: inline;
+}
+
+body.noComments #cookbookButtons #commentsButton #hideCommentsLabel,
+body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
+    display: none;
+}
+
 #title h1 {
     font-size: 60px;
     margin-bottom: 0px;
@@ -485,6 +526,38 @@ nav {
     background-color:#e5624420;
 }
 
+/* No Comments special styling */
+
+body.noComments .comment {
+    display: none;
+}
+
+body.noComments #htmlPreview .comment br + br,
+body.noComments #cssPreview .comment + br + br {
+    display: none;
+}
+
+body.noComments #cssPreview .cssBlock br ~ br {
+    display: none;
+}
+
+body.noComments #cssPreview .cssBlock br + .space,
+body.noComments #cssPreview .cssBlock .space + .space,
+body.noComments #cssPreview .cssBlock .comment + .space,
+body.noComments #cssPreview .cssBlock .terminator + .space {
+    display: none;
+}
+
+body.noComments #cssPreview .cssBlock .newProperty::before {
+    content: "    ";
+    white-space: pre;
+}
+
+body.noComments #cssPreview .cssBlock .terminator::after {
+    content: "\a";
+    white-space: pre;
+}
+
 /* Seasonings/Meal-Prep Page special styling */
 
 .seasonings .recipeDetails #cookbookPageColumnOne,
@@ -570,6 +643,7 @@ nav {
 #cardsButton.fadeOut,
 #listButton.fadeOut,
 #backButton.fadeOut,
+#commentsButton.fadeOut,
 #title.fadeOut {
     animation: fadeOut 0.3s;
     animation-fill-mode: forwards;
@@ -580,6 +654,7 @@ nav {
 #cardsButton.fadeIn,
 #listButton.fadeIn,
 #backButton.fadeIn,
+#commentsButton.fadeIn,
 #title.fadeIn {
     animation: fadeIn 0.3s;
     animation-fill-mode: forwards;
