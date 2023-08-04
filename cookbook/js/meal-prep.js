@@ -160,6 +160,12 @@ const mealPrepRecipes = [
         pageCount: 2,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "one-column-layouts",
+        categories: "demo, week3",
+        pageCount: 8,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
