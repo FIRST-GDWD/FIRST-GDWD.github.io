@@ -103,7 +103,7 @@ const mealPrepRecipes = [
     {
         recipeName: "box-model-margin-drills",
         categories: "drills, week2",
-        pageCount: 12,
+        pageCount: 9,
         includesLocalCSS: true,
     },
     {
