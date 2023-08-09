@@ -23,6 +23,9 @@ const recipeNames = [
     "linear-gradient",
     "radial-gradient",
     "list-style-type",
+    "display-flex",
+    "flex-direction",
+    "flex-wrap",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "seasonings";
