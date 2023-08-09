@@ -10,7 +10,7 @@
 
 /* fancy example related code */
 
-.fancy {
+.box.fancy {
     flex: 1;
     height: 100px;
     min-width: 200px;
