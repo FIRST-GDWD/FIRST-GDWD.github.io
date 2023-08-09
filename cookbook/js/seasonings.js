@@ -25,6 +25,8 @@ const recipeNames = [
     "list-style-type",
     "display-flex",
     "flex-direction",
+    "justify-content",
+    "align-items",
     "flex-wrap",
 ];
 const mealPrepRecipes = [];

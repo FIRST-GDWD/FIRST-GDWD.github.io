@@ -1,19 +1,27 @@
-/* flex-wrap example related code */
+/* justify-content example related code */
 
-.nowrap {
-    flex-wrap: nowrap;
+.justify-flex-start {
+    justify-content: flex-start;
 }
 
-.wrap {
-    flex-wrap: wrap;
+.justify-center {
+    justify-content: center;
 }
 
-/* fancy example related code */
+.justify-flex-end {
+    justify-content: flex-end;
+}
 
-.fancy {
-    flex: 1;
-    height: 100px;
-    min-width: 200px;
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly;
 }
 
 /* styling related code */
@@ -21,7 +29,7 @@
 .flex-container {
     display: flex;
     flex-direction: row;
-    background-color: pink;
+    background-color: slateblue;
     border-radius: 4px;
     padding: 8px;
 }
@@ -42,16 +50,8 @@
     width: 200px;
 }
 
-.very-wide {
-    width: 400px;
-}
-
 .warning {
     background-color: crimson;
     color: white;
     padding: 8px;
-}
-
-.indent {
-    padding-left: 36px;
 }
