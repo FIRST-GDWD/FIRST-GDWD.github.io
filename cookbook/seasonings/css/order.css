@@ -1,27 +1,23 @@
 /* flex example related code */
 
-.flex-1 {
-    flex: 1;
+.order-1 {
+    order: 1;
 }
 
-.flex-2 {
-    flex: 2;
+.order-2 {
+    order: 2;
 }
 
-.flex-3 {
-    flex: 3;
+.order-3 {
+    order: 3;
 }
 
-.flex-5 {
-    flex: 5;
+.order-5 {
+    order: 5;
 }
 
-.width-300px {
-    width: 300px;
-}
-
-.width-200px {
-    width: 200px;
+.order-minus1 {
+    order: -1;
 }
 
 /* styling related code */
@@ -29,7 +25,7 @@
 .flex-container {
     display: flex;
     flex-direction: row;
-    background-color: seagreen;
+    background-color: steelblue;
     border-radius: 4px;
     padding: 8px;
 }
@@ -39,9 +35,9 @@
     border: 2px solid grey;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    height: 50px;
+    height: 40px;
     margin: 8px;
     padding: 8px 14px;
 }

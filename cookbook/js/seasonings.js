@@ -28,6 +28,7 @@ const recipeNames = [
     "justify-content",
     "align-items",
     "flex-wrap",
+    "order",
     "flex",
     "display-grid",
 ];
