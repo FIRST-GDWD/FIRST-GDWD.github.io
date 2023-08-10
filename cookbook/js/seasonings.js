@@ -28,6 +28,8 @@ const recipeNames = [
     "justify-content",
     "align-items",
     "flex-wrap",
+    "flex",
+    "display-grid",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "seasonings";
