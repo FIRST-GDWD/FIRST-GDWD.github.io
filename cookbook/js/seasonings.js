@@ -31,6 +31,7 @@ const recipeNames = [
     "order",
     "flex",
     "display-grid",
+    "grid-template-columns",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "seasonings";
