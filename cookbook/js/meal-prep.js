@@ -178,6 +178,12 @@ const mealPrepRecipes = [
         pageCount: 9,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "three-column-grid-layouts",
+        categories: "demo, week3",
+        pageCount: 9,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
