@@ -184,6 +184,12 @@ const mealPrepRecipes = [
         pageCount: 9,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "two-column-mixed-layouts",
+        categories: "demo, week3",
+        pageCount: 10,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;

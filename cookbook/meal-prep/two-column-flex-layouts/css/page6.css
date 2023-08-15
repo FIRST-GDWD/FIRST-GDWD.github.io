@@ -106,15 +106,4 @@ body {
     used today have their own pages in the Coding
     Cookbook, which have more in-depth examples
     and resources for them (which they should use!)
-
-    This sidebar example will be helpful to them, 
-    because their next assignment is going to 
-    involve building a MeTube front page (their 
-    own custom version of YouTube), and this 
-    sidebar is a good start.
-
-    As for the thumbnails needed in the #main-content
-    section, remind them that inline-block elements
-    can sit side-by-side, particularly when given
-    a width (should hopefully be a helpful hint).
 */
