@@ -173,6 +173,12 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "flexbox-drills",
+        categories: "demo, week3",
+        pageCount: 12,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "two-column-grid-layouts",
         categories: "demo, week3",
         pageCount: 9,
