@@ -185,6 +185,12 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "grid-drills",
+        categories: "demo, week3",
+        pageCount: 8,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "three-column-grid-layouts",
         categories: "demo, week3",
         pageCount: 9,
