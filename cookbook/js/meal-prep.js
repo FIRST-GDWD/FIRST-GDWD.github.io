@@ -191,6 +191,12 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "wiki-with-sidebar",
+        categories: "exercise, week3",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "two-column-grid-layouts",
         categories: "demo, week3",
         pageCount: 9,
