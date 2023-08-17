@@ -173,6 +173,12 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "product-showcase-site",
+        categories: "exercise, week3",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "two-column-flex-layouts",
         categories: "demo, week3",
         pageCount: 7,

@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+.my-grid {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-areas: 
+        "column-1 column-2 column-3";
+}
+
+
+
+
+
+
