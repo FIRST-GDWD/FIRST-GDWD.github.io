@@ -168,7 +168,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "single-column-layouts-drills",
-        categories: "demo, week3",
+        categories: "drills, week3",
         pageCount: 7,
         includesLocalCSS: true,
     },
@@ -186,7 +186,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "flexbox-drills",
-        categories: "demo, week3",
+        categories: "drills, week3",
         pageCount: 12,
         includesLocalCSS: true,
     },
@@ -204,7 +204,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "grid-drills",
-        categories: "demo, week3",
+        categories: "drills, week3",
         pageCount: 8,
         includesLocalCSS: true,
     },
