@@ -221,6 +221,12 @@ const mealPrepRecipes = [
         includesLocalCSS: true,
     },
     {
+        recipeName: "mebay-product-page",
+        categories: "exercise, week3",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
         recipeName: "two-column-mixed-layouts",
         categories: "demo, week3",
         pageCount: 10,
