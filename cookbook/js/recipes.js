@@ -57,6 +57,12 @@ const mealPrepRecipes = [
         pageCount: 2,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "two-column-mixed-layouts",
+        categories: "page-layout, two-columns, grid, flex",
+        pageCount: 10,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
