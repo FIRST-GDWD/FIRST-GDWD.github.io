@@ -1,41 +1,60 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
-main {
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#main {
     width: 90vw;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 48px auto;
+    display: flex;
+    justify-content: center;
 }
+
 h3 {
     text-align: center;
     margin: 24px 0;
 }
 
-#two-column {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 /*
-    Now let's start building our cards. First, let's target our card class and give it a width of 50%. We won't see much of a change because the only content we have is overflowing. Let's fix that.
+    First, we need to go into our HTML and add some
+    code to create a card layout, and add an image
+    inside for our first piece of content.
+
+    Do that now, then come back here.
+
+    Now let's start building our cards. First, let's 
+    target our card class and give it a width of 50%. 
+    We won't see much of a change because the only 
+    content we have is overflowing. Let's fix that.
 */
 .card {
-    width: 50%;
+    width: 350px;
 }
 
 /*
-    To fix the issue with the giant image, let's target the img element inside of our cards. Since we wrapped the img element in a div, we should have an easier time controlling it's sizing.
+    To fix the issue with the giant image, let's 
+    target the img element inside of our cards. 
+    If we give the image a width of 100%, the image
+    will stretch itself to fill its container (the card).
 
-    Let's give the img a width of 100% so that the image is always 100% of it's container. 
+    Now that our image is appropriately sized and 
+    no longer overflowing out of it's container, let's
+    apply a height to it. Applying this height will 
+    help us keep our different images consistently
+    sized as we add more cards and images.
 
-    Remember, the div we wrapped our image in is a block element by default which means it will also only be 100% of it's container.
+    However, since we set both a height and a width,
+    it's likely that our image is going to be stretched
+    or squished, since we broke its aspect ratio.
 
-    Now that our image is appropriately sized and no longer leaking out of it's container, let's apply a height to it. Since the image-container div doesn't have a height of it's own, it will take the total height of it's children. Applying this height will also keep our different images in different cards from being different heights.
-
-    Finally, due to using a set height, it can be easy for the image to stop scaling proportionately. To fix this, we'll add a object-fit property with a value of cover that will
+    To fix this, we'll add a object-fit property with 
+    a value of cover that will crop our image without
+    distorting it.
 */
 .card img {
     width: 100%;

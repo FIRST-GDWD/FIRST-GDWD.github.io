@@ -7,22 +7,21 @@
         <link href="css/page1.css" rel="stylesheet">
     </head>
     <body>
-       <main>
-            <h3>Creating Cards in a Two Column Layout</h3>
-            <section id="two-column">
+       <div id="main">
                 <!--
-                    Now, let's create the 'frame' of our card. We'll do this by creating a div that has an id attribute with a value of 'c1' and a class attribute with a value of 'card'.
+                    Now, let's create the 'frame' of our card. 
+                    We'll do this by creating a div that has a
+                    class attribute with a value of 'card'.
 
-                    The 'card' class is going to be applied to all of our cards and will be how we create the general structure of them. The ids will be there in case one of the cards or their children need a different style applied to them.
-
-                    We'll also add our first bit of content to the card. Inside of our card div, we'll add a div with a class of 'image-container' and then nest an img element inside of that image-container div.
+                    We'll also add our first bit of content 
+                    to the card: an img element.
                 -->
-                <div id="c1" class="card">
-                    <div class="image-container">
-                        <img src="images/blush.jpg" alt="A blush palette and brush.">
-                    </div>
+                <div class="card">
+                    <img 
+                        src="images/blush.jpg" 
+                        alt="A blush palette and brush."
+                    >
                 </div>
-            </section>
-       </main>
+        </div>
     </body>
 </html>
