@@ -238,6 +238,12 @@ const mealPrepRecipes = [
         pageCount: 1,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "cards-and-buttons",
+        categories: "demo, week4",
+        pageCount: 11,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;

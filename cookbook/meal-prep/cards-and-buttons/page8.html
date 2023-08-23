@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cards, Buttons, and Gradients</title>
+        <link href="css/page8.css" rel="stylesheet">
+    </head>
+    <body>
+       <main>
+            <h3>Creating Cards in a Two Column Layout</h3>
+            <section id="two-column">
+                <div id="c1" class="card">
+                    <div class="image-container">
+                        <img src="images/blush.jpg" alt="A blush palette and brush.">
+                    </div>
+                    <h2>Makeup Product</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="anchor-btn">Learn More</a>
+                </div>
+                <!--
+                    Let's highlight our card class div about along with all of it's content, copy it, and then paste what we've copied after it. This will create a duplicate of our first card and you should now see two identical cards.
+
+                    Now, let's make some necessary changes for our second card. First, we'll change the id value from c1 to c2. Then, we'll change the img src to a different image along with it's alt attribute to match.
+
+                    Now that we have two cards, I'm sure you've noticed the glaring issue of the two cards being attached at the hip. Like most spacing issues, we can fix that with margin.
+                -->
+                <div id="c2" class="card">
+                    <div class="image-container">
+                        <img src="images/eyeshadow.jpg" alt="An eyeshadow palette">
+                    </div>
+                    <h2>Makeup Product</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="anchor-btn">Learn More</a>
+                </div>
+            </section>
+       </main>
+    </body>
+</html>

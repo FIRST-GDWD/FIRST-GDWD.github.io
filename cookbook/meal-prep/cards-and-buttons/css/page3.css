@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    width: 90vw;
+    max-width: 800px;
+    margin: 0 auto;
+}
+h3 {
+    text-align: center;
+    margin: 24px 0;
+}
+
+#two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 50%;
+}
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.card h2 {
+    font-size: 36px;
+    margin-top: 10px;
+}
+.card p {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+/*
+    Now let's make our anchor element stand out more and look like a button.
+
+    We'll target the .anchor-btn class and give it a display of block to have it strecth 100% of it's containers width. Alternatively, if you can use inline-block if you don't wish to have it stretch,
+
+    Then let's stylize it by giving it a background-color, color, removing the text-decoration, giving it a bold font-weight and font-size of 20px.
+
+    Then, let's fix it's alignment by having the text align center and giving some padding to add some spacing on the top and bottom of the content. We can also add spacing on the left/right of the content to give it a minimum size.
+*/
+.anchor-btn {
+    display: block;
+    background-color: lightcoral;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+/*
+    Now technically, our first card is done! However, let's make our anchor element a bit more interactive and also make our card look more aesthetically pleasing.
+*/

@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    width: 90vw;
+    max-width: 800px;
+    margin: 0 auto;
+}
+h3 {
+    text-align: center;
+    margin: 24px 0;
+}
+
+#two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 50%;
+}
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+/*
+    Let's also style our h2 and p element.
+    For the h2, let's give it a font-size of 36px and a margin-top to get some breathing room in-between the h2 and the img's div container.
+
+    Then, let's change the paragraphs font-family to a sans-serif for some contrast. Let's also set the font-size to 18px and the margin to 15px on the top/bottom and 0px on the left/right. This will space add some spacing between the elements above and below the paragraph.
+*/
+.card h2 {
+    font-size: 36px;
+    margin-top: 10px;
+}
+.card p {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin: 15px 0;
+}

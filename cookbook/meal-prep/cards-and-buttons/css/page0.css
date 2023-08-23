@@ -1,0 +1,38 @@
+/*
+    Let's start by clearing out some of the default styles and changing our box-sizing to a more accurate method.
+    
+    The asterisk (*) selector is the universal selector meaning it can be used to select any and all types of elements in the html.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+    Let's target our main element and give it a width of 90vw so that it repsonsively resizes with the viewport, a max-width of 800px so that for larger screens it doesn't look awkward and finally a margin with 0 top/bottom and auto left/right to center our main element.
+*/
+main {
+    width: 90vw;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/*
+    Let's also align our h3 in the center and give it some top and bottom margin for some better spacing.
+*/
+h3 {
+    text-align: center;
+    margin: 24px 0;
+}
+
+/*
+    Let's start setting up our two column layout. By applying a display of flex to the section, we turn it into a flex-container and anything we place inside it will become a flex-child. We can now use flex properties to manipulate it's children.
+
+    The first property we'll add is flex-wrap with a value of wrap so that our flex-children wrap appropriately when there is not more spacing for them on a row.
+
+    Then, let's add a justify-content: center; declaration to center our cards within their container. We'll working on the spacing between them later on.
+*/
+#two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
