@@ -6,24 +6,49 @@
         <title>Pokemon Cards (Exercise)</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="css/setup.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" data-meal-prep>
     </head>
     <body>
         <div id="section-3">
             <div class="card-container">
-                <!--
-                    This is a screenshot of the card style you're aiming for.
-                -->
-                <img 
-                    src="images/pokemon-card-0.png" 
-                    alt="example card"
-                    class="example-card"
-                >
+                <div id="pokemon-card-0" class="card-style-3">
+                    <div class="pokemon-header">
+                        <h2 class="name">Pikachu</h2>
+                        <div class="health">
+                            40 HP <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+                    <img src="images/pikachu.png" alt="pikachu">
+                    <div class="details">
+                        Mouse Pokemon. Length: 1'4", Weight 13 lbs.
+                    </div>
+                    <div class="attack">
+                        <div class="energy">
+                            <i class="fa-solid fa-asterisk"></i>
+                        </div>
+                        <div class="description">
+                            <span class="bold">Gnaw</span>
+                        </div>
+                        <div class="power">10</div>
+                    </div>
+                    <div class="attack">
+                        <div class="energy">
+                            <i class="fa-solid fa-bolt"></i>
+                            <i class="fa-solid fa-asterisk"></i>
+                        </div>
+                        <div class="description">
+                            <span class="bold">Thunder Jolt</span>
+                            Flip a coin. If tails, Pikachu deals 10 damage
+                            to itself
+                        </div>
+                        <div class="power">30</div>
+                    </div>
+                    <div class="data">
+                        When several of these Pokemon gather, their electricity
+                        can cause lightnight storms. LV. 12 #25
+                    </div>
+                </div>
 
-                <!--
-                    These remaining 4 cards should be styled to match the
-                    example above as closely as possible.
-                -->
                 <div id="pokemon-card-1" class="card-style-3">
                     <div class="pokemon-header">
                         <h2 class="name">Bulbasaur</h2>

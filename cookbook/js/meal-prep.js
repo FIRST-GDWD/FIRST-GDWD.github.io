@@ -244,6 +244,24 @@ const mealPrepRecipes = [
         pageCount: 11,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "trek-cards",
+        categories: "exercise, week4",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "animagram-cards",
+        categories: "exercise, week4",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "pokemon-cards",
+        categories: "exercise, week4",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
