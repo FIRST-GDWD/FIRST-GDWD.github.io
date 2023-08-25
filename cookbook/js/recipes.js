@@ -63,6 +63,24 @@ const mealPrepRecipes = [
         pageCount: 10,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "three-cards",
+        categories: "content-layout, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "media-and-text",
+        categories: "content-layout, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "comparison-tables",
+        categories: "content-layout, grid, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
