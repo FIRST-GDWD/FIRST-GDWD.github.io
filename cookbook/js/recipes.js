@@ -81,6 +81,36 @@ const mealPrepRecipes = [
         pageCount: 1,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "hero-left-flex",
+        categories: "content-layout, hero, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "hero-right-flex-column",
+        categories: "content-layout, hero, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "hero-left-position",
+        categories: "content-layout, hero",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "hero-center-flex",
+        categories: "content-layout, hero, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "hero-parallax",
+        categories: "content-layout, hero, flex",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
