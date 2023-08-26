@@ -274,6 +274,12 @@ const mealPrepRecipes = [
         pageCount: 9,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "three-heroes",
+        categories: "exercise, week4",
+        pageCount: 3,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
