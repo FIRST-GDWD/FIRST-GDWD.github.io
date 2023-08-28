@@ -135,6 +135,12 @@ const mealPrepRecipes = [
         pageCount: 4,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "gallery-masonry-vertical-columns",
+        categories: "content-layout, gallery",
+        pageCount: 4,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
