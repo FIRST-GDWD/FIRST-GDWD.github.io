@@ -129,6 +129,12 @@ const mealPrepRecipes = [
         pageCount: 4,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "gallery-masonry-vertical-flex",
+        categories: "content-layout, gallery, flex",
+        pageCount: 4,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
