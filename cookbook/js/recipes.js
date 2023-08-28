@@ -117,6 +117,12 @@ const mealPrepRecipes = [
         pageCount: 4,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "gallery-grid-cropped",
+        categories: "content-layout, gallery, grid",
+        pageCount: 4,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
