@@ -633,6 +633,27 @@ body.noComments #cssPreview .cssBlock .terminator::after {
     width: calc(100% + 34px);
 }
 
+#recipes .recipeCards .recipePreview,
+#appetizers .recipeCards .recipePreview,
+#troubleshooting .recipeCards .recipePreview   {
+    overflow: hidden;
+}
+
+#recipes .recipeCards .recipePreview iframe,
+#appetizers .recipeCards .recipePreview iframe {
+    width: 400%;
+    height: 400%;
+    transform: scale(0.25);
+    transform-origin: top left;
+}
+
+#troubleshooting .recipeCards .recipePreview iframe {
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+
 
 /**********************************************************
     ANIMATIONS

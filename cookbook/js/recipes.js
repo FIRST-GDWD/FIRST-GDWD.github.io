@@ -141,6 +141,78 @@ const mealPrepRecipes = [
         pageCount: 4,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "navbar-header-left",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-right",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-center",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-justified",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-logo",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-logo-cta",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-justified-logo-cta",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-centered-multi-level",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-sticky-logo-cta",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-header-sticky-multi-level",
+        categories: "navigation-layout, navbar, header",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-footer-center",
+        categories: "navigation-layout, navbar, footer",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "navbar-footer-multi-level-columns",
+        categories: "navigation-layout, navbar, footer",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
