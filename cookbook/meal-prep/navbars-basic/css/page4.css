@@ -11,7 +11,7 @@ body {
     background: linear-gradient(to bottom, green, #3e6d3e);
     display: flex;
     justify-content: space-between;
-    align-items: center; /* new */
+    align-items: center;
 }
 
 #navbar a {

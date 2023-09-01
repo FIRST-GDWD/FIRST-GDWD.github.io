@@ -672,6 +672,7 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
 function convertStringToEscapedHTML(stringWithNormalSpaces) {
     return stringWithNormalSpaces
         .replace(/&nbsp;/g, "&amp;nbsp;")
+        .replace(/&copy;/g, "&amp;copy;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/ /g, "<span class='space'>&nbsp;</span>")
@@ -684,7 +685,7 @@ function convertStringToEscapedHTML(stringWithNormalSpaces) {
         .replace(/\*\//g, "*/</span>")
         .replace(/{/g, "<span class='cssBlock'>{")
         .replace(/}/g, "}</span>")
-        .replace(/(?<![&<]nbsp|[&<]lt|[&<]gt);/g, "<span class='terminator'>;</span>")
+        .replace(/(?<![&<]nbsp|[&<]lt|[&<]gt|[&<]copy|[&<]amp);/g, "<span class='terminator'>;</span>")
         .replace(/(?<=(<span class='space'>&nbsp;<\/span>){2,})([a-zA-Z])/g, `<span class='newProperty'></span>$2`)
         .replace(/(?<=<span class='space'>&nbsp;<\/span>)([a-zA-Z0-9'""])/g, `<span class='textStart'></span>$1`);
 }

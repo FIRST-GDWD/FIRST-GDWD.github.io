@@ -11,7 +11,7 @@ body {
     background: linear-gradient(to bottom, green, #3e6d3e);
     display: flex;
     justify-content: space-between;
-    align-items: center; /* new */
+    align-items: center; 
 }
 
 #navbar a {
@@ -48,7 +48,7 @@ body {
     
     It's not that the buttons are the least 
     important (in fact, CTAs are usually very 
-    important to a site), but think of the
+    important to a site), but think of the CTA
     position as more of a funnel at the end
     of a flow.
 
@@ -61,7 +61,34 @@ body {
     you see, just in a different way.
 
     Anyway, let's get our button in the HTML;
-    we're going to need to assign a new id
+    we're going to need to assign a new class
     to the last anchor so that we can style 
-    it on its own
+    it on its own.
+
+    Let's also change the content to be a 
+    more realistic CTA.
+
+    (Go do this in the HTML)
+
+    Now let's style a button here. We're 
+    going to want to adjust the padding
+    a bit compared to the other anchors,
+    and also add in some margin, in 
+    addition to font and color changes.
+*/
+
+#navbar .cta-button {
+    background-color: white;
+    color: green;
+    border-radius: 36px;
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: center;
+    margin-right: 24px;
+}
+
+/*
+    Looking pretty professional now, right?
 */

@@ -286,6 +286,12 @@ const mealPrepRecipes = [
         pageCount: 8,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "navbars-basic",
+        categories: "demo, week5",
+        pageCount: 12,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
