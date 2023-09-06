@@ -298,6 +298,12 @@ const mealPrepRecipes = [
         pageCount: 16,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "hover-galleries",
+        categories: "exercise, week5",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
