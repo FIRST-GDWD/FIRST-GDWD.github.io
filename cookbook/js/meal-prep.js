@@ -292,6 +292,12 @@ const mealPrepRecipes = [
         pageCount: 12,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "dropdown-prep",
+        categories: "demo, week5",
+        pageCount: 16,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
