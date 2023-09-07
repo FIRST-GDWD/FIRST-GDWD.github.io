@@ -53,6 +53,14 @@ body {
     transition: 
         opacity 0.25s,
         visibility 0.25s;
+
+    /*
+        If your dropdown menu seems to be placed
+        behind content on your page, you may need
+        to include a z-index, which pull it 
+        closer to you as a viewer.
+    */
+    z-index: 10;
 }
 
 /*

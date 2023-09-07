@@ -310,6 +310,12 @@ const mealPrepRecipes = [
         pageCount: 10,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "adopt-me-plz",
+        categories: "exercise, week5",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
