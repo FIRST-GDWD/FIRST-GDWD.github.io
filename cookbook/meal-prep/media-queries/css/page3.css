@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#header, #main, #footer {
+    width: 100vw;
+    height: 150px;
+    background-color: teal;
+}
+
+@media screen and (max-width: 768px) {
+    #main, #footer {
+        background-color: orange;
+    }
+}
+
+/*
+    Let's create another media query. This time we'll
+    set it's media feature to be a min-length of 300px.
+
+    min-length is another common media feature used to
+    make our webpages responsive. Unlike max-length, this
+    sets a condition that will only apply styles if the
+    minimum width is met.
+*/
+@media screen and (min-width: 300px) {
+    /*
+        Now, let's target our #footer and give it a
+        background-color of purple.
+
+        Now, you may see the purple show up automatically.
+        This is because our screen, in this case, the preview,
+        is at or larger that 300px, which is the condition
+        we set for this style to be applied.
+
+        You'll also notice that the styles from our previous
+        media query aren't being applied to our #footer. Can
+        anyone remember why?
+
+        It's because CSS is applied from top to down, which means
+        our latest (and most specific) rules will get applied last.
+        (I think that needs rephrasing.)
+
+        Now, let's go over one more way we can use media queries.
+    */
+    #footer {
+        background-color: purple;
+    }
+}

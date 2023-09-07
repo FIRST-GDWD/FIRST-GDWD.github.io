@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+/*
+    Let's start by removing all of our media queries.
+    We'll be making new ones that better fit the site.
+
+    Then, we can remove the #main selector from this css rule.
+    We don't want our main to extend to the egdes of the screen.
+
+    Let's remove the height from here as well.
+*/
+#header, #footer {
+    width: 100vw;
+}
+
+/*
+    Now, let's target our #header and add a height of 100vh, a
+    background-image, a background-size of cover, and a
+    background-position of center.
+    This should give us the beginnings of a hero.
+*/
+#header {
+    height: 100vh;
+    background-image: url(../images/hero.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* removed all media queries */

@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#header, #main, #footer {
+    width: 100vw;
+    height: 150px;
+    background-color: teal;
+}
+
+/*  
+    Now, let's introduce media queries.
+    In web development, we commonly use media queries
+    to conditionally apply, edit, and/or remove styles
+    in our html at different screen sizes.
+
+    To create a media query, you first must add
+    "@media" followed by "screen" which is a type of media.
+    Then, you'll add an "and" and also target a media feature.
+    
+    There are many different media features but in our case,
+    we'll be targetting the max-width feature which is one
+    of the two we often use to make our webapges responsive 
+    at different widths.
+
+    We'll want to write out a set of parenthesis and write
+    "max-width: 768px;" in between them. We'll follow this
+    up with a declaration block which is where we'll target
+    our selectors to add or change some styles based off of
+    the media feature we added which serves as a condition.
+
+    Now, we have our first media query which is basically
+    just one big css rule that will hold other css rules
+    inside of it. However, the rules inside of it will
+    only be applied if the conditions of the media feature
+    are met. Meaning, styles added here won't show up
+    past a width of 768px.
+
+    We also refer to the max and min width media features
+    as breakpoints often.
+
+    Now, let's get a style in here.
+*/
+@media screen and (max-width: 768px) {
+
+}

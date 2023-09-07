@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#header, #main, #footer {
+    width: 100vw;
+    height: 150px;
+    background-color: teal;
+}
+
+@media screen and (max-width: 768px) {
+    /*
+        Let's target our #main and #footer and give
+        them a background-color of orange. We'll want
+        to make sure that when we write this CSS rule,
+        we write it inbetween the curly braces of our
+        recently added media query.
+
+        Now, grow and shrink your preview to see
+        how our background color changes on depending
+        on if our screen's width meet's the condition
+        we applied.
+
+        As long as our screen is at a width of 768px and
+        below, our #main and #footer background will be
+        orange but whenever it's 769px and above, our
+        #main and #footer will be teal based on the
+        style we applied to them outside of the media query.
+
+        Now, let's try another approach.
+    */
+    #main, #footer {
+        background-color: orange;
+    }
+}

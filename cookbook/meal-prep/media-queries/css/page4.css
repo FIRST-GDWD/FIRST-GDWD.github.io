@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#header, #main, #footer {
+    width: 100vw;
+    height: 150px;
+    background-color: teal;
+}
+
+@media screen and (max-width: 768px) {
+    #main, #footer {
+        background-color: orange;
+    }
+}
+
+@media screen and (min-width: 300px) {
+    #footer {
+        background-color: purple;
+    }
+}
+
+/*
+    Let's create another media query. This time we're going
+    to use two conditions. To do that, we'll start off with
+    the usual "@media and". 
+    Then we'll add a min-width of 400px. After, we'll add 
+    another "and" and a set of parenthesis.
+    Inside of those parenthesis, we'll add max-width of 768px.
+
+    By adding an "and" between the media features, we can set
+    multiple conditions. Here, we're setting a condition that
+    that will only apply the styles if the screen is at or 
+    larger than 400px but is smaller than or at 768px.
+*/
+@media screen and (min-width: 400px) and (max-width: 768px) {
+    /*
+        Let's target our #footer again and this time we'll apply
+        a background-color of red to it.
+
+        Now, as you shrink and grow your screen, you should notice
+        that the #footer background changes to red whenever it's width
+        is at or larger than 400px and at or smaller that 768px.
+
+        We see that once it get's larger than 768px, it reverts to the
+        purple background color we applied to it on our previous media
+        query. We also see that whenever it's smaller than 400px but
+        at or larger than 300px, it takes on that same purple due to
+        that same media query we created previously.
+    */
+    #footer {
+        background-color: red;
+    }
+}
+/*
+    It is important to note that applying a background color
+    based on the breakpoints is a efficient and great
+    way to know exactly when we've passed from one breakpoint to another.
+    
+    You can remove the background colors at the end when
+    you're positive everything is working if you want but
+    keep in mind that you can always use it for troubleshooting
+    if need be.
+
+    Now, let's move on and see media queries in action with some
+    actual content we need to make responsive.
+*/

@@ -1,0 +1,21 @@
+/* 
+    We'll start off with our usual page layout setup:
+*/
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+/* 
+    Now let's target our header, main, and footer ids.
+    We'll give them a width of 100vw, a height of 150px
+    and a background-color of teal.
+*/
+#header, #main, #footer {
+    width: 100vw;
+    height: 150px;
+    background-color: teal;
+}
