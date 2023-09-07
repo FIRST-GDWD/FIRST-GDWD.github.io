@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    background-color: teal;
 }
 
 #header, #footer {
@@ -126,17 +127,20 @@ body {
 /*
     Let's start by adjusting our header styles to fit smaller screens.
     Our hero seems to look fine for anything above 725px but not anything
-    below that width. We know that a good range for tablet sizes is between 481px and 768px in width. Which means, our hero only looks fine for a few tablet models that have a viewport width higher than 725px, which is excluding a lot of devices. So, we'll have to create a breakpoint that will
+    below that width. We know that a good range for tablet sizes 
+    is between 481px and 768px in width. 
+    
+    Which means, our hero only looks fine for a few tablet models 
+    that have a viewport width higher than 725px, which is excluding 
+    a lot of devices. So, we'll have to create a breakpoint that will
     adjust the styles for screens lower than 725px.
 
-    Do you remember how we can create a media query with a breakpoint of 725px?
-
-    We'll start by adding '@media screen and ()' then we'll call the condition
-    we want to set in-between the parenthesis, in this case, we want to use
-    'max-width: 725px', so these styles only get applied to the elements when
-    the viewport is at a width of 725px or below.
+    So, we'll start adding some new CSS rules into the 725px breakpoint.
 */
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 725px) and (min-width: 481px) {
+    body {
+        background-color: orange;
+    }
     /*
         Our font-sizes for our h1 and h3 are too big for smaller
         screens, so we can fix that by adding a style here that
@@ -152,5 +156,11 @@ body {
     }
     .hero-content h3 {
         font-size: 1.125rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: purple;
     }
 }

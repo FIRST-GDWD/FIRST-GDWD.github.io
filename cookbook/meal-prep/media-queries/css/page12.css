@@ -4,6 +4,8 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    /* you can remove this at the end of the demo */
+    /* background-color: teal; */
 }
 
 #header, #footer {
@@ -124,6 +126,10 @@ body {
 }
 
 @media screen and (max-width: 725px) {
+    /* you can remove this at the end of the demo */
+    /* body {
+        background-color: orange;
+    } */
     .hero-content h1 {
         font-size: 2.75rem;
     }
@@ -154,6 +160,11 @@ body {
     We'll have to target an @media screen and (max-width: 480px).
 */
 @media screen and (max-width: 480px) {
+    /* you can remove this at the end of the demo */
+    /* body {
+        background-color: purple;
+    } */
+
     /*
         We're going to want to lower our font-size for our h1 and h3 again.
         we can set our h1 to 1.625rem and our h3 to 1rem.
@@ -195,7 +206,7 @@ body {
 
     /*
         We can target our .img-container and change it's height
-        to 200px. Then we''ll give it  a width of 100% and change
+        to 200px. Then we'll give it  a width of 100% and change
         the flex to auto so it doesn't have that awkward spacing.
     */
     .promotion .img-container {
@@ -227,5 +238,5 @@ body {
     }
 }
 /*
-    That will include the demo on media queries.
+    That will conclude the demo on media queries.
 */

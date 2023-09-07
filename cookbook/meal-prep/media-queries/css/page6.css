@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    background-color: teal;
 }
 
 #header, #footer {
@@ -81,3 +82,15 @@ body {
     Our hero is done, let's move on to styling our
     gallery.
 */
+@media screen and (max-width: 725px) and (min-width: 481px) {
+    body {
+        background-color: orange;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: purple;
+    }
+}
+

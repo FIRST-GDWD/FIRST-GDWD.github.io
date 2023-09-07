@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    background-color: teal;
 }
 
 #header, #footer {
@@ -123,7 +124,10 @@ body {
     text-decoration: none;
 }
 
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 725px) and (min-width: 481px) {
+    body {
+        background-color: orange;
+    }
     .hero-content h1 {
         font-size: 2.75rem;
     }
@@ -154,3 +158,9 @@ body {
     I think our webpage looks good for tablet screens now.
     Let's move on to making them responsive for mobile screens.
 */
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: purple;
+    }
+}

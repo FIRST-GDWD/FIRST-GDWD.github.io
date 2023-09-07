@@ -1,5 +1,16 @@
+/*
+    This is a demo focusing on Media Queries.
+
+    By this point, you should have gone over the
+    PowerPoint on this topic, but this will most
+    likely be the first practical application
+    of those concepts.
+*/
+
 /* 
-    We'll start off with our usual page layout setup:
+    We'll start off with our usual page layout setup,
+    and we'll also add a default background color
+    to our body element.
 */
 * {
     box-sizing: border-box;
@@ -7,15 +18,5 @@
 body {
     margin: 0px;
     font-family: sans-serif;
-}
-
-/* 
-    Now let's target our header, main, and footer ids.
-    We'll give them a width of 100vw, a height of 150px
-    and a background-color of teal.
-*/
-#header, #main, #footer {
-    width: 100vw;
-    height: 150px;
     background-color: teal;
 }

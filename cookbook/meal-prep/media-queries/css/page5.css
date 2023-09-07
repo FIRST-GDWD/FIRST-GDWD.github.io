@@ -4,15 +4,14 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    background-color: teal;
 }
 /*
-    Let's start by removing all of our media queries.
-    We'll be making new ones that better fit the site.
+    "Coincidentally", the media queries from the first part of the
+    demo are the same ones we'll be using through the rest of the
+    demo, so we'll leave them down below for now.
 
-    Then, we can remove the #main selector from this css rule.
-    We don't want our main to extend to the egdes of the screen.
-
-    Let's remove the height from here as well.
+    Next, we'll add in widths for the header and footer.
 */
 #header, #footer {
     width: 100vw;
@@ -31,4 +30,19 @@ body {
     background-position: center;
 }
 
-/* removed all media queries */
+/*
+    Here are our breakpoints from before.
+*/
+
+@media screen and (max-width: 725px) and (min-width: 481px) {
+    body {
+        background-color: orange;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: purple;
+    }
+}
+
