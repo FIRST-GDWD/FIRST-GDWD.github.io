@@ -186,6 +186,7 @@ body {
     Navbar Styling
 **************************************************************/
 #nav {
+    background: radial-gradient(ellipse 150% 80%, #FFFFFF99 30%, #FFFFFF00 80%);
     display: flex;
     justify-content: space-around;
 }
@@ -429,6 +430,7 @@ body {
     background: url("../images/bottom.png");
     background-size: 90%;
     background-position: center top;
+    background-repeat: no-repeat;
     height: 100px;
     opacity: 0.75;
 }
@@ -436,47 +438,87 @@ body {
 /**************************************************************
     Media Queries Styling
 **************************************************************/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-width: 801px) {
     #grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "header  header  header"
+            "navbar  navbar  navbar"
+            "banner  banner  banner"
+            "card-1  card-2  card-3"
+            "aside   blog    blog"
+            "footer  footer  footer"
+            "bottom  bottom  bottom";
+    }
+
+    #header h1 {
+        font-size: 48px;
+    }
+
+    #nav {
+        flex-wrap: wrap;
+    }
+
+    #nav a {
+        flex: 190px;
+        border-bottom: 2px solid grey;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #grid-layout {
+        display: grid;
         grid-template-columns: 1fr;
         grid-template-areas:
             "header"
             "navbar"
             "banner"
+            "card-1"
+            "card-2"
+            "card-3"
             "blog"
-            "cards"
             "aside"
             "footer"
             "bottom";
     }
 
-    /* Mobile Header Styling */
     #header {
-        flex-direction: column;
-    }
-
-    #header h1 {
-        font-size: 36px;
-    }
-    
-    #social-section {
-        text-align: center;
-    }
-    /* End Mobile Header Styling */
-
-    /* Mobile NAV Styling */
-    #nav ul {
         flex-direction: column;
         align-items: center;
     }
 
-    /* End Mobile NAV Styling */
-
-    #cards-container {
-        flex-direction: column;
+    #header #shield-image {
+        display: none;
     }
 
-    #cards-container img {
-        width: 100%;
+    #header h1 {
+        font-size: 40px;
+    }
+
+    #social-section {
+        flex: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #nav {
+        flex-wrap: wrap;
+    }
+
+    #nav a {
+        flex: 150px;
+        border-bottom: 2px solid grey;
+    }
+
+    #banner-container,
+    #card-1,
+    #card-2,
+    #card-3,
+    #aside,
+    #main {
+        background-color: transparent;
+        margin: 0px;
+        padding: 0px;
     }
 }

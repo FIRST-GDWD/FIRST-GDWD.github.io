@@ -186,6 +186,7 @@ body {
     Navbar Styling
 **************************************************************/
 #nav {
+    background: radial-gradient(ellipse 150% 80%, #FFFFFF99 30%, #FFFFFF00 80%);
     display: flex;
     justify-content: space-around;
 }
@@ -429,6 +430,7 @@ body {
     background: url("../images/bottom.png");
     background-size: 90%;
     background-position: center top;
+    background-repeat: no-repeat;
     height: 100px;
     opacity: 0.75;
 }
