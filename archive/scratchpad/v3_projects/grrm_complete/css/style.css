@@ -493,13 +493,18 @@ body {
     }
 
     #header h1 {
-        font-size: 40px;
+        font-size: 36px;
     }
 
     #social-section {
-        flex: 80%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    #search-bar,
+    #search-button {
+        display: none;
     }
 
     #nav {
