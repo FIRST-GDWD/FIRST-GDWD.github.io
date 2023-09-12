@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FEFEFE;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: indigo;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#header {
+    position: sticky;
+    top: 0px;
+    width: 100vw;
+    border-bottom: 1px solid #e1d6ec;
+    background-color: #FEFEFE;
+}
+
+#banner {
+    background-color: #bb2525;
+    color: #FEFEFE;
+    text-align: center;
+    padding: 8px;
+}
+
+#banner a {
+    color: white;
+    text-decoration: underline;
+}
+
+#upper-navbar,
+#lower-navbar,
+#layout {
+    max-width: 1600px;
+    margin: 0px auto;
+    padding: 12px 48px;
+}
+
+#upper-navbar,
+#lower-navbar {
+    display: flex;
+    align-items: center;
+}
+
+#branding {
+    display: flex;
+    align-items: center;
+}
+
+#upper-navbar #branding:hover {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#logo {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 28px;
+    color: white;
+    background-color: indigo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding-bottom: 4px;
+    border-radius: 50%;
+}
+
+#brandname {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    margin: 8px 0px 0px 12px;
+}
+
+#search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 24px;
+    border: 3px solid indigo;
+    border-radius: 48px;
+    padding: 18px 24px;
+    font-size: 18px;
+}
+
+#search-bar span {
+    color: #888888;
+}
+
+#search-bar i {
+    color: indigo;
+    font-size: 24px;
+}
+
+#upper-navbar a {
+    padding: 12px;
+    border-radius: 48px;
+}
+
+#upper-navbar a:hover {
+    background-color: #e1d6ec;
+    text-decoration: none;
+}
+
+#lower-navbar {
+    justify-content: space-between;
+    padding-bottom: 24px;
+}
+
+#hero {
+    background:
+        radial-gradient(circle at top left, #e43e0c 10%, #f8bf5f 40%, #f8bf5f11),
+        radial-gradient(circle at bottom right, #4a1b95 10%, #e238f2 40%, #ff7c8d11);
+        border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 0px 96px;
+}
+
+#hero-content {
+    width: 50%;
+    text-align: center;
+}
+
+#hero-content h1 {
+    font-size: 60px;
+}
+
+#hero-content h3 {
+    font-weight: normal;
+    font-size: 28px;
+}
+
+#hero-content a {
+    background-color: #FEFEFE;
+    display: inline-block;
+    font-size: 28px;
+    padding: 12px 24px;
+    border-radius: 48px;
+    box-shadow: 0px 4px 8px #00000066;
+}
+
+#hero-content a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.section {
+    padding: 48px 0px;
+}
+
+.section h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.round-list {
+    display: flex;
+}
+
+.round-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 12px;
+}
+
+.round-list a img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 12px;
+}
+
+@media screen and (max-width: 1050px) {
+    #upper-navbar {
+        flex-wrap: wrap;
+    }
+
+    #logo {
+        font-size: 24px;
+        width: 36px;
+        height: 36px;
+        padding-bottom: 2px;
+    }
+
+    #brandname {
+        font-size: 40px;
+    }
+
+    #search-bar {
+        margin-right: 0px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    #upper-navbar #links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #lower-navbar {
+        display: none;
+    }
+
+    #hero-content {
+        width: 80%;
+    }
+
+    #hero-content h1 {
+        font-size: 48px;
+    }
+
+    #hero-content h3 {
+        font-size: 24px;
+    }
+
+    .round-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .round-list a {
+        flex: 30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #banner {
+        display: none;
+    }
+    #upper-navbar {
+        max-width: 1600px;
+        margin: 0px auto;
+        padding: 12px 12px;
+        display: flex;
+        align-items: center;
+    }
+    #search-bar {
+        justify-content: flex-end;
+        margin-right: 12px;
+    }
+    #search-bar span {
+        display: none;
+    }
+    #hero-content h1 {
+        font-size: 36px;
+    }
+
+    #hero-content h3 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #banner {
+        display: none;
+    }
+    #upper-navbar {
+        padding: 0px 12px;
+    }
+    #search-bar {
+        justify-content: flex-end;
+        margin: 0px 12px 0px 0px;
+        padding: 0px;
+        border: 0px;
+        flex: auto;
+    }
+    #search-bar span {
+        display: none;
+    }
+}
