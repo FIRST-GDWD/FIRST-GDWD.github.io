@@ -41,7 +41,8 @@ a:hover {
 
 #upper-navbar,
 #lower-navbar,
-#layout {
+#layout,
+#footer {
     max-width: 1600px;
     margin: 0px auto;
     padding: 12px 48px;
@@ -186,6 +187,123 @@ a:hover {
     margin-bottom: 12px;
 }
 
+.halloween-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 3fr;
+    grid-template-areas:
+        "text text img1 img5"
+        "img2 img3 img4 img5";
+}
+
+#halloween-text {
+    grid-area: text;
+    padding: 24px;
+}
+
+#halloween-image-1 {
+    grid-area: img1;
+}
+
+#halloween-image-2 {
+    grid-area: img2;
+}
+
+#halloween-image-3 {
+    grid-area: img3;
+}
+
+#halloween-image-4 {
+    grid-area: img4;
+}
+
+#halloween-image-5 {
+    grid-area: img5;
+}
+
+.halloween-grid div {
+    padding: 12px;
+}
+
+.halloween-grid img {
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#halloween-image-5 img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.masonry {
+    columns: 5 auto;
+    column-gap: 24px;
+}
+
+.section h4 {
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.section h2 {
+    font-size: 48px;
+    margin-top: 0px;
+}
+
+.masonry div {
+    padding-bottom: 24px;
+}
+
+.masonry img {
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#halloween-image-5 img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#footer {
+    background: linear-gradient(to bottom, indigo, #340158);
+    color: white;
+}
+
+#footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+#footer-navbar {
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#footer-navbar span,
+#footer-navbar a {
+    margin-right: 24px;
+    margin-bottom: 12px
+}
+
+#footer-columns-navbar {
+    padding: 48px 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#footer-columns-navbar a {
+    display: block;
+    padding: 8px 0px;
+}
+
 @media screen and (max-width: 1050px) {
     #upper-navbar {
         flex-wrap: wrap;
@@ -238,6 +356,43 @@ a:hover {
     .round-list a {
         flex: 30%;
     }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .masonry {
+        columns: 4 auto;
+        column-gap: 24px;
+    }
+
+    .masonry div {
+        padding-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .halloween-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "text text text"
+            "img1 img2 img5"
+            "img3 img4 img5";
+    }
+
+    #halloween-text {
+        padding: 0px 0px 24px;
+        text-align: center;
+    }
+
+    .masonry {
+        columns: 3 auto;
+        column-gap: 24px;
+    }
+    
+    .masonry div {
+        padding-bottom: 24px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -264,6 +419,45 @@ a:hover {
 
     #hero-content h3 {
         font-size: 20px;
+    }
+
+    #layout,
+    #footer {
+        padding: 12px 12px;
+    }
+
+    .halloween-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "text text"
+            "img1 img2"
+            "img5 img5"
+            "img3 img4";
+    }
+
+    .masonry {
+        columns: 2 auto;
+        column-gap: 24px;
+        padding: 8px;
+    }
+    
+    .masonry div {
+        padding-bottom: 24px;
+    }
+
+    #footer-columns-navbar {
+        justify-content: flex-start;
+        padding: 36px 8px;
+    }
+
+    #footer-columns-navbar div {
+        flex: 50%;
+        margin-bottom: 24px;
+    }
+
+    #footer-navbar {
+        justify-content: flex-start;
+        padding: 0px 8px;
     }
 }
 
