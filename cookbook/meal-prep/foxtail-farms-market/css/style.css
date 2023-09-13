@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap');
+
+/*************************************************************
+    Page setup styles
+*************************************************************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*************************************************************
+    Navbar styles
+*************************************************************/
+#header-1,
+#footer {
+    background-color: #000;
+    color: #FFF;
+}
+
+#header-1 .navbar,
+#layout,
+#footer .navbar {
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+#header-1 .navbar,
+#footer .navbar {
+    display: flex;
+    align-items: center;
+}
+
+#header-1 .navbar img {
+    height: 200px;
+    margin-right: auto;
+}
+
+#header-1 .navbar a,
+#footer .navbar a {
+    text-decoration: none;
+    background-color: #000;
+    color: #FFF;
+    padding: 20px;
+    margin: 0px 8px;
+    transition: 
+        border 0.25s,
+        background-color 0.25s;
+}
+
+#header-1 .navbar a:hover,
+#footer .navbar a:hover {
+    background-color: #e1a177;
+}
+
+#header-1 .navbar #logo:hover {
+    background-color: #000;
+}
+
+#footer .navbar {
+    justify-content: center;
+}
+
+#footer-topper img {
+    width: 200px;
+    transform: scaleX(-1) rotate(-5deg) translateY(36px);
+}
+
+/*************************************************************
+    Main Content styles
+*************************************************************/
+
+.section {
+    margin: 48px 36px;
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-by-side .text-container,
+.side-by-side .image-container {
+    flex: 1;
+}
+
+.side-by-side .image-container img {
+    width: 100%;
+}
+
+h2 {
+    font-size: 100px;
+    font-weight: normal;
+    font-family: 'Lobster', cursive;
+    margin: 0px;
+}
+
+.cta {
+    background-color: #e1a177;
+    border: 3px solid #FFF;
+    border-radius: 36px;
+    color: #FFF;
+    display: inline-block;
+    padding: 16px 24px;
+    margin: 16px 0px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 
+        background-color 0.25s,
+        border 0.25s,
+        color 0.25s;
+}
+
+.cta:hover {
+    background-color: #FFF;
+    border: 3px solid #e1a177;
+    color: #e1a177;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px;
+}
+
+.product-card {
+    border: 3px solid #e1a177;
+    box-shadow: 8px 8px #e1a177;
+    padding: 24px;
+}
+
+.product-card img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+}
+
+.product-label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 8px;
+}
+
+.product-price-buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-size: 24px;
+}
+
+.product-button {
+    background-color: #e1a177;
+    border: 3px solid #FFF;
+    border-radius: 24px;
+    color: #FFF;
+    display: inline-block;
+    padding: 8px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 
+        background-color 0.25s,
+        border 0.25s,
+        color 0.25s;
+}
+
+.product-button:hover {
+    background-color: #FFF;
+    border: 3px solid #e1a177;
+    color: #e1a177;
+}
+
+/*************************************************************
+    Breakpoint styles
+*************************************************************/
+
+@media screen and (max-width: 1000px) {
+    .product-price,
+    .product-button {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #header-1 .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #header-1 #logo {
+        width: 100%;
+        text-align: center;
+        margin: 0px 0px -12px;
+        padding: 0px;
+    }
+
+    #header-1 #logo img {
+        height: 150px;
+    }
+
+    .section {
+        position: relative;
+    }
+
+    .side-by-side {
+        flex-direction: column;
+    }
+
+    .side-by-side .image-container {
+        text-align: right;
+        padding: 48px 0px;
+    }
+
+    .side-by-side .image-container img {
+        width: 300px;
+        position: absolute;
+        bottom: -100px;
+        right: -40px;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+
+    .product-price,
+    .product-button {
+        font-size: 18px;
+    }
+
+    #footer .navbar {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
