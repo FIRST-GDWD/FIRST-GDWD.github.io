@@ -273,7 +273,7 @@ h2 {
 .overlap-divider {
     position: absolute;
     height: 250px;
-    width: 100vw;
+    width: 100%;
     background-color: #e1a177;
     transform: translateY(-250px);
     z-index: -10;
