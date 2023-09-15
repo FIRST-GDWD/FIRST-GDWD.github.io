@@ -360,7 +360,13 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "restaurant-home",
-        categories: "exercise, week6",
+        categories: "project, week6",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
+    {
+        recipeName: "restaurant-menu",
+        categories: "project, week6",
         pageCount: 1,
         includesLocalCSS: true,
     },
