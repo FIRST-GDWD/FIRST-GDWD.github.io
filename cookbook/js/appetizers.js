@@ -9,6 +9,7 @@ const recipeNames = [
     "linking-html-and-css",
     "identifying-boxes",
     "google-fonts",
+    "pantheon-wordpress-setup"
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "appetizers";
