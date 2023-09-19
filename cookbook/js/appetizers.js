@@ -11,6 +11,7 @@ const recipeNames = [
     "google-fonts",
     "pantheon-wordpress-setup",
     "creating-a-post",
+    "setting-a-featured-image",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "appetizers";
