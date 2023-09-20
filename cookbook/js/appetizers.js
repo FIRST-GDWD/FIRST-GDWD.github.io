@@ -12,6 +12,8 @@ const recipeNames = [
     "pantheon-wordpress-setup",
     "creating-a-post",
     "setting-a-featured-image",
+    "adding-a-menu-wordpress",
+    "custom-css-wordpress",
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "appetizers";
