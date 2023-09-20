@@ -34,7 +34,8 @@ body {
     margin-bottom: 0px;
 }
 
-.cookbookPage > p {
+.cookbookPage > p,
+.cookbookPage > ul {
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -109,7 +110,8 @@ p.indent {
 }
 
 @media screen and (max-width: 1000px) {
-    .cookbookPage > p {
+    .cookbookPage > p,
+    .cookbookPage > ul {
         max-width: none;
     }
 
