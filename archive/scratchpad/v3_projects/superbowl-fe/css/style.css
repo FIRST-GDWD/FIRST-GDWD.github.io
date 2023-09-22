@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: #EEEEEE;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-shadow: 0px 4px 8px #000000AA
+}
+
+#layout {
+    background-image: 
+        linear-gradient(#00330033, #00330033),
+        url("../images/josiah-day-oxgb4fGNmMM-unsplash.jpg");
+    background-size: cover;
+    max-width: 840px;
+    margin: 36px auto; 
+    text-align: center;
+    padding: 12px;
+    border: 12px solid #ffc681;
+}
+
+#layout > div {
+    border: 12px solid #ffc681;
+    padding: 48px;
+}
+
+span {
+    display: inline-block;
+}
+
+.s span {
+    height: 16px;
+    font-size: 18px;
+}
+
+.s.eyebrow span {
+    width: 450px;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+}
+
+.xxl span {
+    height: 100px;
+    font-size: 90px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.m span {
+    height: 28px;
+    font-size: 28px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.m.subheader span {
+    margin-top: 24px;
+}
+
+.vs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 48px auto;
+}
+
+.vs-container .team {
+    width: 250px;
+    text-align: center;
+}
+
+.vs-container .team .img {
+    height: 320px;
+    background-color: #777777;
+}
+
+.vs-container .team img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+img.reverse {
+    transform: scaleX(-1)
+}
+
+.vs-container .team .label span {
+    height: 28px;
+    font-size: 36px;
+    margin-top: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.vs-container .team .label span:first-child {
+    width: 250px;
+}
+
+.vs-container .team .label span:last-child {
+    width: 200px;
+    margin-top: 8px
+}
+
+.vs-container .vs {
+    font-weight: bold;
+    font-size: 48px;
+    margin: 60px 0px;
+}
+
+.l span {
+    height: 60px;
+    font-size: 60px;
+    margin-top: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.m.info span {
+    margin-top: 8px
+}
+
+.m.info span:first-child {
+    margin-top: 16px;
+}
+
+.s.info span {
+    margin-top: 36px;
+}
+
+.s.info span:last-child {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 700px) {
+    .vs-container {
+        flex-direction: column;
+    }
+}

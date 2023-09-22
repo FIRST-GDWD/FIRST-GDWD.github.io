@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: #EEEEEE;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+#layout {
+    max-width: 800px;
+    margin: 36px auto;
+    background-color: #CCCCCC;
+    text-align: center;
+    padding: 48px;
+}
+
+span {
+    background-color: #AAAAAA;
+    display: inline-block;
+}
+
+.s span {
+    height: 16px;
+}
+
+.s.eyebrow span {
+    width: 450px;
+    margin-bottom: 16px;
+}
+
+.xxl span {
+    height: 100px;
+    width: 80%;
+}
+
+.m span {
+    height: 28px;
+}
+
+.m.subheader span {
+    width: 300px;
+    margin-top: 24px;
+}
+
+.vs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 48px auto;
+}
+
+.vs-container .team {
+    width: 250px;
+    text-align: center;
+}
+
+.vs-container .team .img {
+    height: 320px;
+    background-color: #777777;
+}
+
+.vs-container .team .label span {
+    height: 28px;
+    margin-top: 16px;
+}
+
+.vs-container .team .label span:first-child {
+    width: 250px;
+}
+
+.vs-container .team .label span:last-child {
+    width: 200px;
+    margin-top: 8px
+}
+
+.vs-container .vs {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.l span {
+    height: 72px;
+    width: 550px;
+    margin-top: 24px;
+}
+
+.m.info span {
+    width: 700px;
+    margin-top: 8px
+}
+
+.m.info span:first-child {
+    margin-top: 16px;
+}
+
+.s.info span {
+    width: 350px;
+    margin-top: 16px;
+}
+
+@media screen and (max-width: 700px) {
+    .vs-container {
+        flex-direction: column;
+    }
+}
