@@ -37,14 +37,18 @@
 */
 
 function reactToMoveRightButton() {
-    // Here's a freebie answer, as an example.
-    // The code below will cause the 'moveRight' function to run when you 
-    // push the MOVE RIGHT button, causing the character to move to the right
-    // (assuming no boulder is in the way)
-
+    /* 
+        Here's a freebie answer, as an example.
+        The code below will cause the 'moveRight' function to run when you 
+        push the MOVE RIGHT button, causing the character to move to the right
+        (assuming no boulder is in the way)
+    */
     moveRight();
 }
 
+/*
+    The correct code to complete this exercise is listed below.
+*/
 function reactToMoveLeftButton() {
     moveLeft();
 }

@@ -59,6 +59,7 @@ const currentPage = document.getElementById("currentPage");
 const recipeDocs = {};
 const recipeHTML = {};
 const recipeCSS = {};
+const recipeJS = {};
 
 let pageRecipe = "";
 let mealPrepPageNumber = 0;
@@ -613,6 +614,7 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
                 doc.querySelector("head link[rel=stylesheet][data-meal-prep]");
             const seasoningLink = 
                 doc.querySelector("head link[rel=stylesheet][data-seasoning]");
+            const jsLink = doc.querySelector("script[data-meal-prep]");
             if (mealPrepLink) {
                 showCSSPreview();
                 fetchCSSRecipeCodeAndPrint(recipe, mealPrepLink.href);
@@ -624,6 +626,12 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
                 fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);
             } else  {
                 hideCSSPreview();
+            }
+            if (jsLink) {
+                showJSPreview();
+                fetchJSRecipeCodeAndPrint(recipe, jsLink.src);
+            } else {
+                hideJSPreview();
             }
             if (isMealPlanPage()) {
                 displayCookbook();
@@ -637,7 +645,7 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
 function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
     const cleanedCssFilePath = cssFilePath.substring(cssFilePath.indexOf('css/'));
     const actualCssFilePath = doesMealPrepHaveLocalCSS(recipe)
-        ? getMealPrepLocalCSSPath(cleanedCssFilePath, recipe)
+        ? getMealPrepLocalPath(cleanedCssFilePath, recipe)
         : applyRootFolderToPath(cleanedCssFilePath);
     document.getElementById("cssPreview").innerHTML = "Loading CSS...";
     fetch(actualCssFilePath)
@@ -666,6 +674,40 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
         })
         .catch(error => {
             console.log("Error in fetching recipe CSS: ", error);
+        });
+}
+
+function fetchJSRecipeCodeAndPrint(recipe, jsFilePath) {
+    const cleanedJsFilePath = jsFilePath.substring(jsFilePath.indexOf('js/'));
+    const actualJsFilePath = 
+        getMealPrepLocalPath(cleanedJsFilePath, recipe);
+    document.getElementById("jsPreview").innerHTML = "Loading JS...";
+    fetch(actualJsFilePath)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                hideJSPreview();
+                return undefined;
+            }
+        })
+        .then(js => {
+            if (js == undefined)
+                return;
+
+            let recipeKey = recipe;
+            if (isMealPlanPage()) {
+                recipeKey += mealPrepPageNumber;
+            }
+            if (!(recipeKey in recipeJS)) {
+                recipeJS[recipeKey] = js;
+            }
+            document.getElementById("jsPreview").innerHTML = 
+                convertStringToEscapedHTML(recipeJS[recipeKey]);
+            
+        })
+        .catch(error => {
+            console.log("Error in fetching recipe JS: ", error);
         });
 }
 
@@ -786,6 +828,16 @@ function showCSSPreview() {
     document.getElementById("cssPreview").classList.remove("hide");
 }
 
+function hideJSPreview() {
+    document.getElementById("recipeDetailsHeadingJS").classList.add("hide");
+    document.getElementById("jsPreview").classList.add("hide");
+}
+
+function showJSPreview() {
+    document.getElementById("recipeDetailsHeadingJS").classList.remove("hide");
+    document.getElementById("jsPreview").classList.remove("hide");
+}
+
 
 /***********************************************************************
  * other utility functions
@@ -814,7 +866,7 @@ function getMealPrepHTMLPath(recipeName, pageNumber=0) {
     return applyRootFolderToPath(`${recipeName}/${MEAL_PREP_FILE_NAME}${pageNumber}.html`);
 }
 
-function getMealPrepLocalCSSPath(path, recipeName) {
+function getMealPrepLocalPath(path, recipeName) {
     return applyRootFolderToPath(
         `${recipeName}/${path}`,
     );

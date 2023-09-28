@@ -290,9 +290,11 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 
 .recipeCards #htmlPreview,
 .recipeCards #cssPreview,
+.recipeCards #jsPreview,
 .recipeCards #recipeListHeading,
 .recipeCards #recipeDetailsHeadingHTML,
-.recipeCards #recipeDetailsHeadingCSS {
+.recipeCards #recipeDetailsHeadingCSS,
+.recipeCards #recipeDetailsHeadingJS {
     display: none;
 }
 
@@ -403,8 +405,10 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 
 .recipeList #htmlPreview,
 .recipeList #cssPreview,
+.recipeList #jsPreview,
 .recipeList #recipeDetailsHeadingHTML,
-.recipeList #recipeDetailsHeadingCSS {
+.recipeList #recipeDetailsHeadingCSS,
+.recipeList #recipeDetailsHeadingJS {
     display: none;
 }
 
@@ -489,10 +493,9 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
     margin-top: 0px;
 }
 
-
-
 .recipeDetails #recipeDetailsHeadingHTML,
-.recipeDetails #recipeDetailsHeadingCSS
+.recipeDetails #recipeDetailsHeadingCSS,
+.recipeDetails #recipeDetailsHeadingJS
 {
     margin-left: 36px;
 }
@@ -506,7 +509,8 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 }
 
 .recipeDetails #htmlPreview,
-.recipeDetails #cssPreview {
+.recipeDetails #cssPreview,
+.recipeDetails #jsPreview {
     font-family: monospace;
     margin: 0px 36px;
     overflow-x: auto;
@@ -515,6 +519,7 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 
 .recipeDetails #htmlPreview,
 .recipeDetails #cssPreview,
+.recipeDetails #jsPreview,
 .recipeList #recipeListPreview {
     background-color: white;
     box-shadow: inset 0px 0px 8px 4px #00000033;
@@ -522,7 +527,8 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 }
 
 #htmlPreview .comment,
-#cssPreview .comment {
+#cssPreview .comment,
+#jsPreview .comment {
     background-color:#e5624420;
 }
 
@@ -533,7 +539,8 @@ body.noComments .comment {
 }
 
 body.noComments #htmlPreview .comment br + br,
-body.noComments #cssPreview .comment + br + br {
+body.noComments #cssPreview .comment + br + br,
+body.noComments #jsPreview .comment + br + br {
     display: none;
 }
 
@@ -575,32 +582,48 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 
 .seasonings .recipeDetails #recipeDetailsHeadingCSS,
 #meal-prep .recipeDetails #recipeDetailsHeadingCSS,
-#recipes .recipeDetails #recipeDetailsHeadingCSS {
+#recipes .recipeDetails #recipeDetailsHeadingCSS,
+.seasonings .recipeDetails #recipeDetailsHeadingJS,
+#meal-prep .recipeDetails #recipeDetailsHeadingJS,
+#recipes .recipeDetails #recipeDetailsHeadingJS {
     margin-top: 0px;
+}
+
+.seasonings .recipeDetails #recipeDetailsHeadingJS,
+#meal-prep .recipeDetails #recipeDetailsHeadingJS,
+#recipes .recipeDetails #recipeDetailsHeadingJS {
+    order: 1;
+}
+
+.seasonings .recipeDetails #jsPreview,
+#meal-prep .recipeDetails #jsPreview,
+#recipes .recipeDetails #jsPreview {
+    order: 2;
+    margin-bottom: 16px;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingCSS,
 #meal-prep .recipeDetails #recipeDetailsHeadingCSS,
 #recipes .recipeDetails #recipeDetailsHeadingCSS {
-    order: 1;
+    order: 3
 }
 
 .seasonings .recipeDetails #cssPreview,
 #meal-prep .recipeDetails #cssPreview,
 #recipes .recipeDetails #cssPreview {
-    order: 2;
+    order: 4;
 }
 
 .seasonings .recipeDetails #recipeDetailsHeadingHTML,
 #meal-prep .recipeDetails #recipeDetailsHeadingHTML,
 #recipes .recipeDetails #recipeDetailsHeadingHTML {
-    order: 3;
+    order: 5;
 }
 
 .seasonings .recipeDetails #htmlPreview,
 #meal-prep .recipeDetails #htmlPreview,
 #recipes .recipeDetails #htmlPreview {
-    order: 4;
+    order: 6;
 }
 
 /**********************************************************
@@ -920,9 +943,9 @@ body.noComments #cssPreview .cssBlock .terminator::after {
         text-align: center;
     }
 
-    
     .recipeDetails #htmlPreview, 
-    .recipeDetails #cssPreview {
+    .recipeDetails #cssPreview, 
+    .recipeDetails #jsPreview {
         font-size: 11px;
         margin: 0px 24px 24px;
     }
