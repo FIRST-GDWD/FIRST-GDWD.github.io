@@ -219,6 +219,12 @@ const mealPrepRecipes = [
         pageCount: 1,
         includesLocalCSS: true,
     },
+    {
+        recipeName: "contact-form",
+        categories: "miscellaneous",
+        pageCount: 1,
+        includesLocalCSS: true,
+    },
 ];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
