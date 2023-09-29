@@ -15,7 +15,8 @@ const recipeNames = [
     "adding-a-menu-wordpress",
     "custom-css-wordpress",
     "wordpress-backup",
-    "relabeling-default-home-link"
+    "relabeling-default-home-link",
+    "getform-io"
 ];
 const mealPrepRecipes = [];
 const ROOT_RECIPE_FOLDER = "appetizers";
