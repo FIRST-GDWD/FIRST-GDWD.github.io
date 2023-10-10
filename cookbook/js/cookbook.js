@@ -86,10 +86,15 @@ if (recipeNames.length > 0) {
     }
 } else if (filteredMealPrepRecipes.length > 0) {
     for (let mealPrepRecipe of filteredMealPrepRecipes) {
-        let recipeHTMLPath = getMealPrepHTMLPath(
-            mealPrepRecipe.recipeName, 
-            mealPrepRecipe.pageCount-1,
-        );
+        let recipeHTMLPath;
+        if (mealPrepRecipe.hasLocalProject) {
+            recipeHTMLPath = getMealPrepHTMLPath(
+                mealPrepRecipe.recipeName, 
+                mealPrepRecipe.pageCount-1,
+            );
+        } else {
+            recipeHTMLPath = getRecipeHTMLPath(mealPrepRecipe.recipeName);
+        }
         generateAndAddRecipe(mealPrepRecipe.recipeName, recipeHTMLPath);
     }
 }
@@ -223,9 +228,9 @@ function doesMealPrepIncludeRecipe(recipeName) {
     return (filteredMealPrepRecipes.find(recipe => recipe.recipeName == recipeName) !== undefined);
 }
 
-function doesMealPrepHaveLocalCSS(recipeName) {
+function doesMealPrepHaveLocalProject(recipeName) {
     const matchingRecipe = filteredMealPrepRecipes.find(recipe => recipe.recipeName == recipeName);
-    return matchingRecipe !== undefined && matchingRecipe.includesLocalCSS;
+    return matchingRecipe !== undefined && matchingRecipe.hasLocalProject;
 }
 
 function preloadRecipeTitle(recipeName) {
@@ -307,7 +312,7 @@ cookbookPage.onanimationend = function() {
     if (cookbookPage.classList.contains(FADE_IN_CLASS)) {
         cookbookPage.classList.remove(FADE_IN_CLASS);
     } else if (cookbookPage.classList.contains(FADE_OUT_CLASS)) {
-        if (isMealPlanPage() && pageView == PAGE_MODE_MEAL_PREP) {
+        if (isMealPrepPage() && pageView == PAGE_MODE_MEAL_PREP) {
             fetchHTMLRecipeCodeAndPrint(pageRecipe);
         }
         else {
@@ -585,18 +590,18 @@ function getTitleText() {
  * fetch and load dynamic content functions
  **********************************************************************/
 
-function fetchHTMLRecipeCodeAndPrint(recipe) {
+function fetchHTMLRecipeCodeAndPrint(recipeName) {
     document.getElementById("htmlPreview").innerHTML = "Loading HTML...";
-    const recipePath = isMealPlanPage()
-        ? getMealPrepHTMLPath(recipe, mealPrepPageNumber)
-        : getRecipeHTMLPath(recipe);
+    const recipePath = isMealPrepPage() && doesMealPrepHaveLocalProject(recipeName)
+        ? getMealPrepHTMLPath(recipeName, mealPrepPageNumber)
+        : getRecipeHTMLPath(recipeName);
     bigPreviewSrc = recipePath;
     reloadRecipePreview();
     fetch(recipePath)
         .then(response => response.text())
         .then(html => {
-            let recipeKey = recipe;
-            if (isMealPlanPage()) {
+            let recipeKey = recipeName;
+            if (isMealPrepPage()) {
                 recipeKey += mealPrepPageNumber;
             }
             if (!(recipeKey in recipeHTML)) {
@@ -616,23 +621,23 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
             const jsLink = doc.querySelector("script[data-meal-prep]");
             if (mealPrepLink) {
                 showCSSPreview();
-                fetchCSSRecipeCodeAndPrint(recipe, mealPrepLink.href);
+                fetchCSSRecipeCodeAndPrint(recipeName, mealPrepLink.href);
             } else if (seasoningLink) {
                 showCSSPreview();
-                fetchCSSRecipeCodeAndPrint(recipe, seasoningLink.href);
+                fetchCSSRecipeCodeAndPrint(recipeName, seasoningLink.href);
             } else if (cssLinks.length == 1) {
                 showCSSPreview();
-                fetchCSSRecipeCodeAndPrint(recipe, cssLinks[0].href);
+                fetchCSSRecipeCodeAndPrint(recipeName, cssLinks[0].href);
             } else  {
                 hideCSSPreview();
             }
             if (jsLink) {
                 showJSPreview();
-                fetchJSRecipeCodeAndPrint(recipe, jsLink.src);
+                fetchJSRecipeCodeAndPrint(recipeName, jsLink.src);
             } else {
                 hideJSPreview();
             }
-            if (isMealPlanPage()) {
+            if (isMealPrepPage()) {
                 displayCookbook();
             }
         })
@@ -641,10 +646,10 @@ function fetchHTMLRecipeCodeAndPrint(recipe) {
         });
 }
 
-function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
+function fetchCSSRecipeCodeAndPrint(recipeName, cssFilePath) {
     const cleanedCssFilePath = cssFilePath.substring(cssFilePath.indexOf('css/'));
-    const actualCssFilePath = doesMealPrepHaveLocalCSS(recipe)
-        ? getMealPrepLocalPath(cleanedCssFilePath, recipe)
+    const actualCssFilePath = doesMealPrepHaveLocalProject(recipeName)
+        ? getMealPrepLocalPath(cleanedCssFilePath, recipeName)
         : applyRootFolderToPath(cleanedCssFilePath);
     document.getElementById("cssPreview").innerHTML = "Loading CSS...";
     fetch(actualCssFilePath)
@@ -660,8 +665,8 @@ function fetchCSSRecipeCodeAndPrint(recipe, cssFilePath) {
             if (css == undefined)
                 return;
 
-            let recipeKey = recipe;
-            if (isMealPlanPage()) {
+            let recipeKey = recipeName;
+            if (isMealPrepPage()) {
                 recipeKey += mealPrepPageNumber;
             }
             if (!(recipeKey in recipeCSS)) {
@@ -695,7 +700,7 @@ function fetchJSRecipeCodeAndPrint(recipe, jsFilePath) {
                 return;
 
             let recipeKey = recipe;
-            if (isMealPlanPage()) {
+            if (isMealPrepPage()) {
                 recipeKey += mealPrepPageNumber;
             }
             if (!(recipeKey in recipeJS)) {
@@ -808,7 +813,7 @@ function clearPreviewedRecipeHeadingLinks() {
 }
 
 function displayIndividualRecipe(recipe, recipeTitle) {
-    let view = isMealPlanPage() ? PAGE_MODE_MEAL_PREP : PAGE_MODE_RECIPE;
+    let view = isMealPrepPage() ? PAGE_MODE_MEAL_PREP : PAGE_MODE_RECIPE;
     setPageView(view, recipe, recipeTitle);
     cardsButton.classList.add(FADE_OUT_CLASS);
     listButton.classList.add(FADE_OUT_CLASS);
@@ -841,7 +846,7 @@ function showJSPreview() {
 /***********************************************************************
  * other utility functions
  **********************************************************************/
-function isMealPlanPage() {
+function isMealPrepPage() {
     if (recipeNames.length > 0) {
         return false;
     } else if (mealPrepRecipes.length > 0) {
