@@ -298,12 +298,19 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
     display: none;
 }
 
+.recipeCards .recipeLink {
+    flex: 280px;
+    display: flex;
+}
+
 .recipeCards .cookbookRecipe {
     background-color: white;
     border: 3px solid #ff7050;
     border-radius: 12px;
     box-shadow: 4px 4px 4px #00000033;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     margin: 12px;
     min-width: 300px;
@@ -312,18 +319,9 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.recipeCards.cookbookWithLinks .cookbookRecipe {
-    cursor: default;
-}
-
 .recipeCards .cookbookRecipe:hover {
     box-shadow: 8px 8px 8px #00000033;
     transform: translateY(-8px);
-}
-
-.recipeCards.cookbookWithLinks .cookbookRecipe:hover {
-    box-shadow: 4px 4px 4px #00000033;
-    transform: none;
 }
 
 .recipeCards .recipeHeading {
@@ -336,14 +334,13 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
     padding: 6px 12px;
 }
 
-.recipeHeading a {
+.recipeLink {
     text-decoration: none;
     color: #e56144;
-    cursor: pointer;
 }
 
 .recipeCards .recipePreview {
-    height: 300px;
+    flex: 300px;
     position: relative;
     width: 100%;
 }
@@ -367,7 +364,7 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 
 .recipeCards .recipeOverlay {
     background: linear-gradient(to top, white 5%, transparent 20%, transparent);
-    height: 100%;
+    height: 101%;
     position: absolute;
     top: 0px;
     width: 100%;

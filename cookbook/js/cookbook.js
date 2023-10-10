@@ -98,33 +98,32 @@ if (recipeNames.length > 0) {
 function generateAndAddRecipe(recipeName, recipePath) {
     let recipeHeadingId = `${recipeName}${HEADING_ID_POSTFIX}`;
     let recipeIframeId = `${recipeName}${IFRAME_ID_POSTFIX}`;
-    let href = "";
+    let href = `#${recipeName}`;
     let modifiedRecipePath = recipePath;
     if (!IS_DYNAMIC_LOAD) {
         href = recipePath;
         modifiedRecipePath = `${recipePath}?${HIDE_NAV_PARAM}`;
     }
     cookbookPageColumnOne.innerHTML += `
-        <div class="${COOKBOOK_RECIPE_CLASS}" data-recipe="${recipeName}">
-            <h2 class="recipeHeading">
-                <a 
-                    href="${href}" 
-                    id="${recipeHeadingId}" 
-                    class="${LINK_CLASS}" 
-                    data-recipe="${recipeName}"
-                >
-                    Loading...
-                </a>
-                <span class="recipeDots"></span>
-            </h2>
-            <div class="recipePreview">
-                <iframe 
-                    src="${modifiedRecipePath}" 
-                    id="${recipeIframeId}" 
-                    scrolling="no"></iframe>
-                <div class="recipeOverlay"></div>
+        <a 
+            href="${href}" 
+            class="${LINK_CLASS}" 
+            data-recipe="${recipeName}"
+        >
+            <div class="${COOKBOOK_RECIPE_CLASS}" data-recipe="${recipeName}">
+                <h2 class="recipeHeading">
+                    <span id="${recipeHeadingId}">Loading...</span>
+                    <span class="recipeDots"></span>
+                </h2>
+                <div class="recipePreview">
+                    <iframe 
+                        src="${modifiedRecipePath}" 
+                        id="${recipeIframeId}" 
+                        scrolling="no"></iframe>
+                    <div class="recipeOverlay"></div>
+                </div>
             </div>
-        </div>
+        </a>
     `;
 }
 
