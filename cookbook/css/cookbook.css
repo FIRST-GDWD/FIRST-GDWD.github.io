@@ -154,11 +154,11 @@ nav {
     background-color: #ecf1fa;
     border-bottom: 3px solid #1a3159;
     min-height: 64px;
-    padding: 12px 28px 12px 12px;
+    padding: 12px;
     position: absolute;
     transform: translateY(0%);
     transition: transform 0.25s;
-    width: 100vw;
+    width: 100%;
     z-index: -50;
 }
 
@@ -735,12 +735,14 @@ body.noComments #cssPreview .cssBlock .terminator::after {
     width: calc(100% + 34px);
 }
 
+#meal-prep .recipeCards .recipePreview,
 #recipes .recipeCards .recipePreview,
 #appetizers .recipeCards .recipePreview,
 #troubleshooting .recipeCards .recipePreview   {
     overflow: hidden;
 }
 
+#meal-prep .recipeCards .recipePreview iframe,
 #recipes .recipeCards .recipePreview iframe,
 #appetizers .recipeCards .recipePreview iframe {
     width: 400%;

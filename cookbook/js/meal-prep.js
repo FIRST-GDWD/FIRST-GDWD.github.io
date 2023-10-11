@@ -394,6 +394,52 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
 ];
+const categories = [
+    {
+        label: "Week 1",
+        value: "week1",
+    },
+    {
+        label: "Week 2",
+        value: "week2",
+    },
+    {
+        label: "Week 3",
+        value: "week3",
+    },
+    {
+        label: "Week 4",
+        value: "week4",
+    },
+    {
+        label: "Week 5",
+        value: "week5",
+    },
+    {
+        label: "Week 6",
+        value: "week6",
+    },
+    {
+        label: "Week 8",
+        value: "week8",
+    },
+    {
+        label: "Demo",
+        value: "demo",
+    },
+    {
+        label: "Drills",
+        value: "drills",
+    },
+    {
+        label: "Exercise",
+        value: "exercise",
+    },
+    {
+        label: "Project",
+        value: "project",
+    },
+];
 const ROOT_RECIPE_FOLDER = "meal-prep";
 const IS_DYNAMIC_LOAD = true;
 

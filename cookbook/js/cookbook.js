@@ -103,8 +103,46 @@ if (localStorage.getItem(PAGE_MODE_KEY) !== null) {
 /***********************************************************************
  * initial loading of dynamic content
  **********************************************************************/
+// initial load of recipe cards
 loadRecipeCards();
+addEventHandlersToRecipeCards();
 
+// initial load of categories (if provided)
+if (typeof categories !== "undefined" && categories.length > 0) {
+    let defaultButtonClasses = "categoryButton";
+    if (filterCategory == "") {
+        defaultButtonClasses += " selected";
+    }
+    filterOptions.innerHTML += `
+            <button 
+                class="${defaultButtonClasses}" 
+                data-category=""
+            >
+                None
+            </button>
+        `;
+    for (let category of categories) {
+        let classes = "categoryButton";
+        if (category.value == filterCategory) {
+            classes += " selected";
+            sortFilterButton.classList.add(SELECTED_CLASS);
+        }
+        filterOptions.innerHTML += `
+            <button 
+                class="${classes}" 
+                data-category="${category.value}"
+            >
+                ${category.label}
+            </button>
+        `;
+    }
+} else {
+    filterSection.classList.add(HIDE_CLASS);
+}
+
+/***********************************************************************
+ * functions for loading dynamic content
+ **********************************************************************/
 function loadRecipeCards() {
     filteredMealPrepRecipes = getFilteredMealPrepRecipes();
 
@@ -172,44 +210,9 @@ function generateAndAddRecipe(recipeName, recipePath) {
     `;
 }
 
-if (typeof categories !== "undefined") {
-    if (categories.length > 0) {
-        let defaultButtonClasses = "categoryButton";
-        if (filterCategory == "") {
-            defaultButtonClasses += " selected";
-        }
-        filterOptions.innerHTML += `
-                <button 
-                    class="${defaultButtonClasses}" 
-                    data-category=""
-                >
-                    None
-                </button>
-            `;
-        for (let category of categories) {
-            let classes = "categoryButton";
-            if (category.value == filterCategory) {
-                classes += " selected";
-            }
-            filterOptions.innerHTML += `
-                <button 
-                    class="${classes}" 
-                    data-category="${category.value}"
-                >
-                    ${category.label}
-                </button>
-            `;
-        }
-    } else {
-        filterSection.classList.add(HIDE_CLASS);
-    }
-}
-
 /***********************************************************************
- * after loading, add event handlers for dynamically loaded content
+ * functions to add event handlers for dynamically loaded content
  **********************************************************************/
-
-addEventHandlersToRecipeCards();
 
 function addEventHandlersToRecipeCards() {
     if (recipeNames.length > 0) {
@@ -425,7 +428,9 @@ function reloadRecipePreview() {
         `;
         document.getElementById("bigRecipePreview").onload = function () {
             this.contentDocument.body.style.marginRight = "32px";
-            setTitleContentFromIframeDocument(this.contentDocument);
+            if (pageView == PAGE_MODE_RECIPE) {
+                setTitleContentFromIframeDocument(this.contentDocument);
+            }
         }
     }
 }
@@ -473,7 +478,7 @@ function applySortFilterChanges() {
     sortingMethod = newSortingMethod;
 
     // modify drawer button
-    if (sortingMethod != SORT_DEFAULT && filterCategory != "") {
+    if (sortingMethod != SORT_DEFAULT || filterCategory != "") {
         sortFilterButton.classList.add(SELECTED_CLASS);
     } else {
         sortFilterButton.classList.remove(SELECTED_CLASS);

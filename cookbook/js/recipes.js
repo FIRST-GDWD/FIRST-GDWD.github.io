@@ -226,6 +226,64 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
 ];
+const categories = [
+    {
+        label: "Page Layout",
+        value: "page-layout",
+    },
+    {
+        label: "Content Layout",
+        value: "content-layout",
+    },
+    {
+        label: "Navigation Layout",
+        value: "navigation-layout",
+    },
+    {
+        label: "Miscellaneous",
+        value: "miscellaneous",
+    },
+    {
+        label: "Single Column",
+        value: "single-column",
+    },
+    {
+        label: "Two Columns",
+        value: "two-columns",
+    },
+    {
+        label: "Three Columns",
+        value: "three-columns",
+    },
+    {
+        label: "Hero",
+        value: "hero",
+    },
+    {
+        label: "Gallery",
+        value: "gallery",
+    },
+    {
+        label: "Navbar",
+        value: "navbar",
+    },
+    {
+        label: "Header",
+        value: "header",
+    },
+    {
+        label: "Footer",
+        value: "footer",
+    },
+    {
+        label: "Flexbox",
+        value: "flex",
+    },
+    {
+        label: "Grid",
+        value: "grid",
+    },
+];
 const ROOT_RECIPE_FOLDER = "recipes";
 const IS_DYNAMIC_LOAD = true;
 

@@ -230,10 +230,6 @@ const categories = [
         value: "document-flow",
     },
     {
-        label: "Layout Modules",
-        value: "layout-modules",
-    },
-    {
         label: "Flexbox",
         value: "flexbox",
     },
