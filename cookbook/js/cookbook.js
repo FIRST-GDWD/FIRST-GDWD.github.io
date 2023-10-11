@@ -489,6 +489,7 @@ function applySortFilterChanges() {
     if (hasFilterChange) {
         reloadRecipeCards();
         setTitleBasedOnCurrentFilter();
+        setPageView(pageMode, "", "", true);
     }
 
     if (hasSortingChange) {
@@ -743,7 +744,8 @@ window.onpopstate = function(event) {
         }
         if (state.category) {
             filterCategory = state.category;
-            filteredMealPrepRecipes = getFilteredMealPrepRecipes();
+            reloadRecipeCards();
+            setTitleBasedOnCurrentFilter();
         }
         document.querySelector("title").innerHTML = newTitle;
     }
