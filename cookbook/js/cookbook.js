@@ -281,7 +281,7 @@ function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
 let pageMode = defaultPageMode;
 let pageView = defaultPageMode;
 updateBackToText();
-updateTitleText(TITLE_DEFAULT_TEXT);
+setTitleBasedOnCurrentFilter();
 
 let hashWithoutParams = location.hash.substring(1).split("?")[0];
 let hashMatchesRecipe = 
@@ -454,7 +454,6 @@ if (sortFilterButton) {
 if (cancelChangesButton) {
     cancelChangesButton.onclick = closeSortFilterHeader;
 }
-
 function closeSortFilterHeader() {
     sortFilterButton.classList.toggle(OPEN_CLASS);
     if (sortFilterButton.classList.contains(OPEN_CLASS)) {
@@ -467,6 +466,7 @@ function closeSortFilterHeader() {
     newFilterCategory = filterCategory;
     newSortingMethod = sortingMethod;
 }
+
 if (applyChangesButton) {
     applyChangesButton.onclick = applySortFilterChanges;
 }
@@ -488,6 +488,7 @@ function applySortFilterChanges() {
 
     if (hasFilterChange) {
         reloadRecipeCards();
+        setTitleBasedOnCurrentFilter();
     }
 
     if (hasSortingChange) {
@@ -1072,4 +1073,22 @@ function setTitleContentFromIframeDocument(doc) {
     const cleanedTitle = 
         rawTitle.replace(` - ${document.title}`, "");
     updateTitleText(cleanedTitle);
+}
+
+function setTitleBasedOnCurrentFilter() {
+    const categoryLabel = getCurrentCategoryLabel();
+    if (categoryLabel) {
+        updateTitleText(`${TITLE_DEFAULT_TEXT} : ${categoryLabel}`);
+    } else {
+        updateTitleText();
+    }
+}
+
+function getCurrentCategoryLabel() {
+    const matchingCategoryObject = 
+        categories.find((element) => element.value == filterCategory);
+    if (matchingCategoryObject) {
+        return matchingCategoryObject.label;
+    }
+    return "";
 }

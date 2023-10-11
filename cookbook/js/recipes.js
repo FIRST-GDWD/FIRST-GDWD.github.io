@@ -228,15 +228,15 @@ const mealPrepRecipes = [
 ];
 const categories = [
     {
-        label: "Page Layout",
+        label: "Page Layouts",
         value: "page-layout",
     },
     {
-        label: "Content Layout",
+        label: "Content Layouts",
         value: "content-layout",
     },
     {
-        label: "Navigation Layout",
+        label: "Navigation Layouts",
         value: "navigation-layout",
     },
     {
@@ -256,23 +256,23 @@ const categories = [
         value: "three-columns",
     },
     {
-        label: "Hero",
+        label: "Heroes",
         value: "hero",
     },
     {
-        label: "Gallery",
+        label: "Galleries",
         value: "gallery",
     },
     {
-        label: "Navbar",
+        label: "Navbars",
         value: "navbar",
     },
     {
-        label: "Header",
+        label: "Headers",
         value: "header",
     },
     {
-        label: "Footer",
+        label: "Footers",
         value: "footer",
     },
     {

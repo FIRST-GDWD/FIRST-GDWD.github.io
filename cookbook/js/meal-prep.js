@@ -424,7 +424,7 @@ const categories = [
         value: "week8",
     },
     {
-        label: "Demo",
+        label: "Demoes",
         value: "demo",
     },
     {
@@ -432,11 +432,11 @@ const categories = [
         value: "drills",
     },
     {
-        label: "Exercise",
+        label: "Exercises",
         value: "exercise",
     },
     {
-        label: "Project",
+        label: "Projects",
         value: "project",
     },
 ];
