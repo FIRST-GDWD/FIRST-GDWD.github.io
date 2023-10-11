@@ -69,11 +69,39 @@
             </header>
             <header id="bottomHeader">
                 <div id="cookbookButtons">
-                    <button id="cardsButton" class="hide">Cards View</button>
-                    <button id="listButton" class="hide">List View</button>
-                    <button id="backButton" class="hide">Back to <span id="backTo"></span></button>
-                    <button id="commentsButton" class="hide"><span id="hideCommentsLabel">Hide</span><span id="showCommentsLabel">Show</span> Comments</button>
+                    <div id="viewButtons" class="hide">
+                        <button id="cardsButton">Cards View</button>
+                        <button id="listButton">List View</button>
+                        <button id="sortFilterButton">
+                            <span id="sortFilterLabel">Sort/Filter</span>&nbsp;
+                            <span id="sortFilterClose"><i class="fa-solid fa-xmark"></i></span>
+                        </button>
+                    </div>
+                    <div id="detailsButtons" class="hide">
+                        <button id="backButton">Back to <span id="backTo"></span></button>
+                        <button id="commentsButton"><span id="hideCommentsLabel">Hide</span><span id="showCommentsLabel">Show</span> Comments</button>
+                    </div>
                 </div>
+            </header>
+            <header id="filtersAndSortingHeader" class="hide">
+                <div id="sortingSection">
+                    <h4>Sorting Methods</h4>
+                    <div id="sortingOptions">
+                        <button id="defaultSortButton" class="default selected">Default</button>
+                        <button id="alphaAscSortButton">A - Z</button>
+                        <button id="alphaDescSortButton">Z - A</button>
+                    </div>
+                </div>
+                <div id="filterSection">
+                    <h4>Filter Categories</h4>
+                    <div id="filterOptions"></div>
+                </div>
+                <div id="confirmationSection">
+                    <h4>Confirm Changes</h4>
+                    <div id="confirmationOptions">
+                        <button id="applyChangesButton" class="">Apply</button>
+                        <button id="cancelChangesButton" class="">Cancel</button>
+                    </div>
             </header>
         </nav>
         

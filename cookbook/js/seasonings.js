@@ -196,6 +196,60 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
 ];
+const categories = [
+    {
+        label: "Basic",
+        value: "basic",
+    },
+    {
+        label: "Intermediate",
+        value: "intermediate",
+    },
+    {
+        label: "Advanced",
+        value: "advanced",
+    },
+    {
+        label: "Box Model",
+        value: "box-model",
+    },
+    {
+        label: "Text Related",
+        value: "text",
+    },
+    {
+        label: "Background Related",
+        value: "background",
+    },
+    {
+        label: "List Related",
+        value: "lists",
+    },
+    {
+        label: "Document Flow",
+        value: "document-flow",
+    },
+    {
+        label: "Layout Modules",
+        value: "layout-modules",
+    },
+    {
+        label: "Flexbox",
+        value: "flexbox",
+    },
+    {
+        label: "Grid",
+        value: "grid",
+    },
+    {
+        label: "Container Properties",
+        value: "container-property",
+    },
+    {
+        label: "Item Properties",
+        value: "item-property",
+    },
+];
 const ROOT_RECIPE_FOLDER = "seasonings";
 const IS_DYNAMIC_LOAD = true;
 

@@ -33,13 +33,6 @@ nav {
     z-index: 100;
 }
 
-#topHeader {
-    background-color: #1a3159;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
 #mealPrepFooter {
     background-color: #1a3159;
     color: white;
@@ -48,6 +41,16 @@ nav {
     bottom: 0px;
     width: 100vw;
     padding: 12px 0px;
+}
+
+/*****************************************************
+  TOP HEADER
+*****************************************************/
+#topHeader {
+    background-color: #1a3159;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
 #topHeader #brand {
@@ -136,6 +139,10 @@ nav {
     color: #1a3159;
 }
 
+/*****************************************************
+  BOTTOM HEADERS AND BUTTONS
+*****************************************************/
+
 #bottomHeader {
     background-color: #faf8ec;
     border-bottom: 3px solid #1a3159;
@@ -143,9 +150,60 @@ nav {
     padding: 12px;
 }
 
+#filtersAndSortingHeader {
+    background-color: #ecf1fa;
+    border-bottom: 3px solid #1a3159;
+    min-height: 64px;
+    padding: 12px 28px 12px 12px;
+    position: absolute;
+    transform: translateY(0%);
+    transition: transform 0.25s;
+    width: 100vw;
+    z-index: -50;
+}
+
+#filtersAndSortingHeader.hide {
+    display: block;
+    transform: translateY(-100%);
+}
+
+#sortFilterButton #sortFilterClose i {
+    transform: rotate(135deg);
+    transition: 
+        transform 0.25s;
+}
+
+#sortFilterButton:hover #sortFilterClose i {
+    transform: rotate(-45deg);
+}
+
+#sortFilterButton.open #sortFilterClose i {
+    transform: rotate(0deg);
+}
+
+#sortFilterButton.open:hover #sortFilterClose i {
+    transform: rotate(90deg);
+}
+
+#filtersAndSortingHeader h4,
+#filtersAndSortingHeader #sortingOptions,
+#filtersAndSortingHeader #confirmationOptions,
 #cookbookButtons,
 .cookbookButtons {
     text-align: center;
+}
+
+#filterOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 80%;
+    margin: 0px auto;
+}
+
+#confirmationOptions {
+    padding-bottom: 24px;
 }
 
 #mealPrepFooter .cookbookButtons {
@@ -159,7 +217,8 @@ nav {
 
 #cookbookButtons button,
 .cookbookButtons button,
-#cookbookButtons a {
+#cookbookButtons a,
+#filtersAndSortingHeader button {
     background-color: white;
     border: 3px solid #ff7050;
     border-radius: 16px;
@@ -230,6 +289,20 @@ body.noComments .cookbookButtons #commentsButton #showCommentsLabel {
 body.noComments #cookbookButtons #commentsButton #hideCommentsLabel,
 body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
     display: none;
+}
+
+#cookbookButtons #sortFilterButton,
+#filtersAndSortingHeader button {
+    background-color: white;
+    border-color: #1a3159;
+    color: #1a3159;
+}
+
+#cookbookButtons #sortFilterButton.selected,
+#filtersAndSortingHeader button:hover,
+#filtersAndSortingHeader button.selected {
+    background-color: #1a3159;
+    color: white;
 }
 
 #title h1 {
@@ -398,6 +471,15 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 .recipeList #cookbookPageColumnOne,
 .recipeList #cookbookPageColumnTwo {
     flex: 1;
+}
+
+.recipeList #cookbookPageColumnOne {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipeList #cookbookPageColumnOne h2 {
+    margin-bottom: 0px;
 }
 
 .recipeList #htmlPreview,
@@ -681,10 +763,8 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 
 .recipeList #recipeListPreview.fadeOut,
 #cookbookPage.fadeOut,
-#cardsButton.fadeOut,
-#listButton.fadeOut,
-#backButton.fadeOut,
-#commentsButton.fadeOut,
+#viewButtons.fadeOut,
+#detailsButtons.fadeOut,
 #title.fadeOut {
     animation: fadeOut 0.3s;
     animation-fill-mode: forwards;
@@ -692,10 +772,8 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 
 .recipeList #recipeListPreview.fadeIn,
 #cookbookPage.fadeIn,
-#cardsButton.fadeIn,
-#listButton.fadeIn,
-#backButton.fadeIn,
-#commentsButton.fadeIn,
+#viewButtons.fadeIn,
+#detailsButtons.fadeIn,
 #title.fadeIn {
     animation: fadeIn 0.3s;
     animation-fill-mode: forwards;
