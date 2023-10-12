@@ -34,7 +34,7 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "linebreaks",
+        recipeName: "br",
         categories: "miscellaneous, block",
         pageCount: 1,
         hasLocalProject: false,

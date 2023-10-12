@@ -764,6 +764,7 @@ function updateBackToText() {
 }
 
 function updateTitleText(text = TITLE_DEFAULT_TEXT) {
+    console.trace();
     titleH1.textContent = text;
 }
 

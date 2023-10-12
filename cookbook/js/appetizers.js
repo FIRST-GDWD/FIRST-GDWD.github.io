@@ -16,7 +16,7 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "template-to-repository",
+        recipeName: "importing-template-to-repository",
         categories: "setup",
         pageCount: 1,
         hasLocalProject: false,
@@ -40,7 +40,7 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "google-fonts",
+        recipeName: "utilizing-google-fonts",
         categories: "design, external-resource",
         pageCount: 1,
         hasLocalProject: false,
@@ -70,13 +70,13 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "custom-css-wordpress",
+        recipeName: "adding-custom-css-wordpress",
         categories: "wordpress, design, video",
         pageCount: 1,
         hasLocalProject: false,
     },
     {
-        recipeName: "wordpress-backup",
+        recipeName: "backup-wordpress",
         categories: "wordpress",
         pageCount: 1,
         hasLocalProject: false,
@@ -88,7 +88,7 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "getform-io",
+        recipeName: "making-a-functional-form-getform-io",
         categories: "coding, external-resource",
         pageCount: 1,
         hasLocalProject: false,
@@ -120,7 +120,7 @@ const categories = [
         value: "external-resource",
     },
     {
-        label: "Video Tutorial",
+        label: "Video Tutorials",
         value: "video",
     },
 ];
