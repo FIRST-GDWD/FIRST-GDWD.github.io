@@ -424,7 +424,7 @@ const categories = [
         value: "week8",
     },
     {
-        label: "Demoes",
+        label: "Demos",
         value: "demo",
     },
     {
