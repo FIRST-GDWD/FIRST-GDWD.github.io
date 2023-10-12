@@ -199,6 +199,7 @@ nav {
     justify-content: center;
     gap: 8px;
     width: 80%;
+    max-width: 1000px;
     margin: 0px auto;
 }
 
@@ -218,7 +219,8 @@ nav {
 #cookbookButtons button,
 .cookbookButtons button,
 #cookbookButtons a,
-#filtersAndSortingHeader button {
+#filtersAndSortingHeader button,
+#filtersAndSortingHeader #applyChangesButton {
     background-color: white;
     border: 3px solid #ff7050;
     border-radius: 16px;
@@ -248,6 +250,20 @@ nav {
 #mealPrepFooter .cookbookButtons button.disabled {
     background-color: #ff7050;
     color: white;
+}
+
+/* #filtersAndSortingHeader #applyChangesButton {
+    background-color: #fca38f;
+    color: white;
+}
+
+#filtersAndSortingHeader #applyChangesButton:hover {
+    background-color: #ff7050;
+} */
+
+#filtersAndSortingHeader #applyChangesButton {
+    color: white;
+    background-color: #ff7050;
 }
 
 #cookbookButtons #commentsButton,
@@ -321,7 +337,6 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 }
 
 #meal-prep #title {
-    display: block;
     background-color: #FFFFFFDD;
     border-radius: 45px;
     margin: 36px;
@@ -330,7 +345,7 @@ body.noComments .cookbookButtons #commentsButton #hideCommentsLabel {
 
 #meal-prep #title h1 {
     margin-top: 0px;
-}
+} 
 
 #title.recipe h3 {
     display: none;
@@ -916,7 +931,8 @@ body.noComments #cssPreview .cssBlock .terminator::after {
     }
 
     #cookbookButtons button,
-    #cookbookButtons a {
+    #cookbookButtons a,
+    #filtersAndSortingHeader button {
         font-size: 12px;
         min-width: 100px;
     }
@@ -1075,5 +1091,11 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 
     #meal-prep .dropdown-menu.meal-prep-filter {
         display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #filterOptions {
+        width: 90%;
     }
 }

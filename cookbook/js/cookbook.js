@@ -465,6 +465,38 @@ function closeSortFilterHeader() {
 
     newFilterCategory = filterCategory;
     newSortingMethod = sortingMethod;
+
+    // reset selected state of sort buttons
+    for (let sortButton of sortButtons) {
+        sortButton.classList.remove(SELECTED_CLASS);
+        switch(sortButton.id) {
+            case "defaultSortButton":
+                if (newSortingMethod == SORT_DEFAULT) {
+                    sortButton.classList.add(SELECTED_CLASS);
+                }
+                break;
+        
+            case "alphaAscSortButton":
+                if (newSortingMethod == SORT_ALPHA_ASC) {
+                    sortButton.classList.add(SELECTED_CLASS);
+                }
+                break;
+            
+            case "alphaDescSortButton":
+                if (newSortingMethod == SORT_ALPHA_DESC) {
+                    sortButton.classList.add(SELECTED_CLASS);
+                }
+                break;
+        }
+    }
+
+    // reset selected state of filter buttons
+    for (let filterButton of filterButtons) {
+        filterButton.classList.remove(SELECTED_CLASS);
+        if (filterButton.dataset.category == newFilterCategory) {
+            filterButton.classList.add(SELECTED_CLASS);
+        }
+    }
 }
 
 if (applyChangesButton) {
@@ -764,7 +796,6 @@ function updateBackToText() {
 }
 
 function updateTitleText(text = TITLE_DEFAULT_TEXT) {
-    console.trace();
     titleH1.textContent = text;
 }
 
