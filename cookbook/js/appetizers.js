@@ -16,6 +16,12 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
+        recipeName: "adding-a-code-ruler",
+        categories: "vs-code",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "importing-template-to-repository",
         categories: "setup",
         pageCount: 1,
