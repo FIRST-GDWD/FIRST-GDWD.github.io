@@ -16,6 +16,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "basic-html-drills",
+        categories: "drills, week1",
+        pageCount: 8,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "lists",
         categories: "demo, week1",
         pageCount: 10,
@@ -31,12 +37,6 @@ const mealPrepRecipes = [
         recipeName: "anchors",
         categories: "demo, week1",
         pageCount: 10,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "basic-html-drills",
-        categories: "drills, week1",
-        pageCount: 7,
         hasLocalProject: true,
     },
     {
