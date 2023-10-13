@@ -34,6 +34,12 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
+        recipeName: "subscripts",
+        categories: "styling, inline",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "br",
         categories: "miscellaneous, block",
         pageCount: 1,
