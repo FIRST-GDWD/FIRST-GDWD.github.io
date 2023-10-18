@@ -5,6 +5,7 @@ const HEADING_ID_POSTFIX = "_heading";
 const IFRAME_ID_POSTFIX = "_iframe";
 const COOKBOOK_RECIPE_CLASS = "cookbookRecipe";
 const LINK_CLASS = "recipeLink"
+const RECIPE_PREVIEW_IFRAME_CLASS = "recipePreviewIframe";
 const PREVIEWING_CLASS = "previewing";
 const PAGE_MODE_KEY = "mode";
 const PAGE_MODE_NONE = "none";
@@ -81,6 +82,7 @@ const recipeHTML = {};
 const recipeCSS = {};
 const recipeJS = {};
 
+let dynamicRecipeCardsRawHTML = "";
 let pageRecipe = "";
 let mealPrepPageNumber = 0;
 let bigPreviewSrc = "";
@@ -144,6 +146,7 @@ if (typeof categories !== "undefined" && categories.length > 0) {
  * functions for loading dynamic content
  **********************************************************************/
 function loadRecipeCards() {
+    dynamicRecipeCardsRawHTML = "";
     filteredMealPrepRecipes = getFilteredMealPrepRecipes();
 
     if (recipeNames.length > 0) {
@@ -165,6 +168,7 @@ function loadRecipeCards() {
             generateAndAddRecipe(mealPrepRecipe.recipeName, recipeHTMLPath);
         }
     }
+    cookbookPageColumnOne.innerHTML += dynamicRecipeCardsRawHTML;
 }
 
 function reloadRecipeCards() {
@@ -187,7 +191,7 @@ function generateAndAddRecipe(recipeName, recipePath) {
         href = recipePath;
         modifiedRecipePath = `${recipePath}?${HIDE_NAV_PARAM}`;
     }
-    cookbookPageColumnOne.innerHTML += `
+    dynamicRecipeCardsRawHTML += `
         <a 
             href="${href}" 
             class="${LINK_CLASS}" 
@@ -200,8 +204,10 @@ function generateAndAddRecipe(recipeName, recipePath) {
                 </h2>
                 <div class="recipePreview">
                     <iframe 
-                        src="${modifiedRecipePath}" 
+                        data-recipe-path="${modifiedRecipePath}"
+                        src="" 
                         id="${recipeIframeId}" 
+                        class="${RECIPE_PREVIEW_IFRAME_CLASS}"
                         scrolling="no"></iframe>
                     <div class="recipeOverlay"></div>
                 </div>
@@ -243,6 +249,7 @@ function addEventHandlersToRecipeCards() {
     const cookbookRecipes = document.getElementsByClassName(COOKBOOK_RECIPE_CLASS);
     for (let cookbookRecipe of cookbookRecipes) {
         cookbookRecipe.onclick = onCookbookRecipeClickInCardsView;
+        addIframeLoadOnScroll(cookbookRecipe);
     }
 }
 
@@ -274,10 +281,26 @@ function addRecipeEventHandlers(recipeName, recipeHTMLPath) {
     }
 }
 
+function addIframeLoadOnScroll(element) {
+    new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (
+                entry.intersectionRatio > 0
+            ) {
+                const iframe = 
+                    element.getElementsByClassName(RECIPE_PREVIEW_IFRAME_CLASS)[0];
+                iframe.src = iframe.dataset.recipePath;
+                observer.disconnect();
+            }
+        });
+    }, {
+        rootMargin: "0px 0px 500px 0px",
+    }).observe(element);
+}
+
 /***********************************************************************
  * remaining Page initialization
  **********************************************************************/
-
 let pageMode = defaultPageMode;
 let pageView = defaultPageMode;
 updateBackToText();
