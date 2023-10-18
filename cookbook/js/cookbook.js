@@ -451,7 +451,10 @@ function reloadRecipePreview() {
         `;
         document.getElementById("bigRecipePreview").onload = function () {
             this.contentDocument.body.style.marginRight = "32px";
-            if (pageView == PAGE_MODE_RECIPE) {
+            if (
+                pageView == PAGE_MODE_RECIPE || 
+                pageView == PAGE_MODE_MEAL_PREP
+            ) {
                 setTitleContentFromIframeDocument(this.contentDocument);
             }
         }
