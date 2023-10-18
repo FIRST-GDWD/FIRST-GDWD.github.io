@@ -93,6 +93,18 @@ const mealPrepRecipes = [
         pageCount: 1,
         hasLocalProject: false,
     },
+    {
+        recipeName: "audio",
+        categories: "media, inline",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "video",
+        categories: "media, inline",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
 ];
 const categories = [
     {

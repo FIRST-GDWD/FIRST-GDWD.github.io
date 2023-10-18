@@ -932,7 +932,8 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 
     #cookbookButtons button,
     #cookbookButtons a,
-    #filtersAndSortingHeader button {
+    #filtersAndSortingHeader button,
+    #filtersAndSortingHeader #applyChangesButton {
         font-size: 12px;
         min-width: 100px;
     }
