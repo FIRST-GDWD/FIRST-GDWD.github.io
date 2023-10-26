@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>For Lia - Anchors in Canvas</title>
+    </head>
+    <body>
+        
+
+        <!--
+            This is an anchor (link) to the IDL syllabus.
+
+            It works because of the href attribute, which
+            points to the "idl" id further down.
+        -->
+        <a href="#idl">Jump to IDL Syllabus</a>
+
+        <p style="text-align: center;" id="campus">
+            <span style="font-size: 14pt;">
+                <strong>Campus Syllabus: <a class="instructure_file_link instructure_scribd_file auto_open" title="GDWD 101 Syllabus-1.pdf" href="/courses/1908/files/1562492?wrap=1" target="_blank" rel="noopener" data-canvas-previewable="false">GDWD 101 Syllabus</a></strong>
+            </span>
+        </p>
+
+        <!--
+            This is a paragraph element that Canvas 
+            created, and I added an id attribute to it
+            with the value of "idl".
+
+            It's this value that the anchor above
+            connects to.
+        -->
+        <p style="text-align: center;" id="idl">
+            <span style="font-size: 14pt;"><strong>IDL Syllabus: <a class="instructure_file_link instructure_scribd_file auto_open" title="GDWD 101IDL Syllabus-1.pdf" href="/courses/1908/files/1562493?wrap=1" target="_blank" rel="noopener" data-canvas-previewable="false">GDWD 101IDL Syllabus</a></strong>
+            </span>
+        </p>
+
+    </body>
+</html>
