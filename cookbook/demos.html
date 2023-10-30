@@ -4,13 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Coding Cookbook</title>
+        <title>Class Demos - The Coding Cookbook</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="css/cookbook.css" rel="stylesheet">
-        <link href="css/appetizer.css" rel="stylesheet">
-        <link href="css/lightbox.css" rel="stylesheet">
     </head>
-    <body>
+    <body id="recipes">
         <div id="background"></div>
         <nav>
             <header id="topHeader">
@@ -70,98 +68,78 @@
                     </div>
                 </div>
             </header>
+            <header id="bottomHeader">
+                <div id="cookbookButtons">
+                    <div id="viewButtons" class="hide">
+                        <button id="cardsButton">Cards View</button>
+                        <button id="listButton">List View</button>
+                        <button id="sortFilterButton">
+                            <span id="sortFilterLabel">Sort/Filter</span>&nbsp;
+                            <span id="sortFilterClose"><i class="fa-solid fa-xmark"></i></span>
+                        </button>
+                    </div>
+                    <div id="detailsButtons" class="hide">
+                        <button id="backButton">Back to <span id="backTo"></span></button>
+                        <button id="commentsButton"><span id="hideCommentsLabel">Hide</span><span id="showCommentsLabel">Show</span> Comments</button>
+                    </div>
+                </div>
+            </header>
+            <header id="filtersAndSortingHeader" class="hide">
+                <div id="sortingSection">
+                    <h4>Sorting Methods</h4>
+                    <div id="sortingOptions">
+                        <button id="defaultSortButton" class="default selected">Default</button>
+                        <button id="alphaAscSortButton">A - Z</button>
+                        <button id="alphaDescSortButton">Z - A</button>
+                    </div>
+                </div>
+                <div id="filterSection">
+                    <h4>Filter Categories</h4>
+                    <div id="filterOptions"></div>
+                </div>
+                <div id="confirmationSection">
+                    <h4>Confirm Changes</h4>
+                    <div id="confirmationOptions">
+                        <button id="applyChangesButton" class="">Apply</button>
+                        <button id="cancelChangesButton" class="">Cancel</button>
+                    </div>
+            </header>
         </nav>
         
-        <header id="title" class="">
-            <h1>Welcome to the Coding Cookbook!</h1>
-            <h3>Your FIRST supplier for HTML, CSS, and Layout resources (and more!)</h3>
+        <header id="title" class="fadeOut hide">
+            <h1>Class Demos</h1>
+            <h3>Resources to Help You Cook at Your Own Pace</h3>
         </header>
         
-        <div id="cookbookPage" class="recipeCards cookbookWithLinks">
+        
+        <div id="cookbookPage" class="recipeNone">
             <div id="cookbookPageColumnOne">
-                <a 
-                    href="ingredients.html" 
-                    class="recipeLink" 
-                >
-                    <div class="cookbookRecipe">
-                        <h2 class="recipeHeading">
-                            HTML Ingredients
-                            <span class="recipeDots"></span>
-                        </h2>
-                        <div class="recipePreview">
-                            <img 
-                                src="images/ingredients.png" 
-                            >
-                            <div class="recipeOverlay"></div>
-                        </div>
-                    </div>
-                </a>
-                <a 
-                    href="seasonings.html" 
-                    class="recipeLink" 
-                >
-                    <div class="cookbookRecipe">
-                        <h2 class="recipeHeading">
-                            CSS Seasonings
-                            <span class="recipeDots"></span>
-                        </h2>
-                        <div class="recipePreview">
-                            <img 
-                                src="images/seasonings.png" 
-                            >
-                            <div class="recipeOverlay"></div>
-                        </div>
-                    </div>
-                </a>
-                <a 
-                    href="recipes.html" 
-                    class="recipeLink" 
-                >
-                    <div class="cookbookRecipe">
-                        <h2 class="recipeHeading">
-                            Layout Recipes
-                            <span class="recipeDots"></span>
-                        </h2>
-                        <div class="recipePreview">
-                            <img 
-                                src="images/recipes.png" 
-                            >
-                            <div class="recipeOverlay"></div>
-                        </div>
-                    </div>
-                </a>
-                <a 
-                    href="more.html" 
-                    class="recipeLink" 
-                >
-                    <div class="cookbookRecipe">
-                        <h2 class="recipeHeading">
-                            Tutorials and Troubleshooting
-                            <span class="recipeDots"></span>
-                        </h2>
-                        <div class="recipePreview">
-                            <img 
-                                src="images/troubleshooting.png" 
-                            >
-                            <div class="recipeOverlay"></div>
-                        </div>
-                    </div>
-                </a>
+                <h4 id="recipeListHeading">TABLE OF CONTENTS</h4>
+                <h4 id="recipeDetailsHeadingHTML">HTML</h4>
+                <div id="htmlPreview"></div>
+                <h4 id="recipeDetailsHeadingCSS">CSS</h4>
+                <div id="cssPreview"></div>
+                <h4 id="recipeDetailsHeadingJS">JavaScript</h4>
+                <div id="jsPreview"></div>
             </div>
             <div id="cookbookPageColumnTwo">
                 <div id="previewContainer">
                     <h4>PREVIEW</h4>
                     <div id="recipeListPreview">
-                        <iframe 
-                            id="bigRecipePreview" 
-                            src="ingredients.html?hideNav"></iframe>
+                        <iframe id="bigRecipePreview" src="meal-prep/headings/page3.html"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- <script src="js/index.js"></script>
-        <script src="js/cookbook.js"></script> -->
-        <script src="js/hideNav.js"></script>
+
+        <footer id="mealPrepFooter" class="hide">
+            <div class="cookbookButtons">
+                <button id="prevButton" class="disabled">Prev</button>
+                <span id="currentPage">Page 1 of -</span>
+                <button id="nextButton" class="disabled">Next</button>
+            </div>
+        </footer>
+        <script src="js/demos.js"></script>
+        <script src="js/cookbook.js"></script>
     </body>
 </html>
