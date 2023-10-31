@@ -6,19 +6,39 @@
 
     Good luck, and have fun!
 */
+
 #license {
-    border: 3px solid black;
-    width: 500px;
+    background: linear-gradient(
+        to bottom right,
+        rgb(253, 204, 115),
+        rgb(237, 140, 79)
+    );
+    border: 2px solid black;
+    width: 700px;
 }
 
-#left-side {
-    display: inline-block;
-    width: 60%;
-}
+#left-side, 
 #right-side {
     display: inline-block;
 }
 
-#right-side img {
-    height: 200px;
+#id-and-expiration div {
+    display: inline-block;
+}
+
+#small-pic, #data-fields {
+    display: inline-block;
+}
+
+#data-left, #data-right {
+    display: inline-block;
+}
+
+#signature {
+    text-align: center;
+}
+
+#donor, 
+#real-id {
+    display: inline-block;
 }
