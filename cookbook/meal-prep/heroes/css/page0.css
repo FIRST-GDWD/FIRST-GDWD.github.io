@@ -1,4 +1,13 @@
 /*
+    Before doing anything else, jump down to the
+    HTML part of the demo and add the code as
+    directed; you'll need an HTML element to 
+    target before you start writing CSS!
+
+    Then, add the standard page layout setup below.
+*/
+
+/*
     Standard page layout setup
 */
 
@@ -12,7 +21,7 @@ body {
 }
 
 /*
-    First, we need to learn about background-image.
+    Next, we need to learn about background-image.
 
     This is a CSS property that lets you add an 
     image to an HTML element's background (duh)
@@ -23,14 +32,19 @@ body {
     is called url().
 
     Similar to the src attribute of an image,
-    we need to provide a path to the image
-    we want to load.
+    we need to provide a file path to the image
+    we want to load.  
+    
+    As a reminder, a file path basically is a
+    set of directions to the computer, telling 
+    it how to get from where the code is
+    to where the file we want to access is.
 
     HOWEVER, there's one problem: when we 
     specified the src attribute from index.html,
-    that was in the root of the project folder.
+    that file was in the root of our project folder.
     
-    All was had to provide was something like
+    All we had to provide was something like
     "images/image-to-load.jpg", because the 
     index.html file had access to the "images"
     folder.
@@ -50,7 +64,7 @@ body {
     in order to find the "images" folder.
 
     That is done by including something really
-    weird looking in the file path: "../"
+    weird-looking in the file path: "../"
 
     This "dot dot slash" says "go outside of
     the current folder".
@@ -80,7 +94,7 @@ body {
 
         We'll make it a big one: we'll have it 
         fill up 100% of the view height by using
-        100vh.
+        100vh (vh is a unit, short for "view height").
     */
     height: 100vh;
 }

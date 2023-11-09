@@ -96,17 +96,17 @@ body {
         of its container.
 
         However, which container it is positioned relative 
-        to is tricky, because it depends on the nearest
-        RELATIVEly positioned element.  
+        to is a little complicated, because it depends on 
+        the nearest RELATIVE-ly positioned element.  
         
         This can get a little tricky, so to simplify things
         just remember that if you want to use 
-        position: absolute; 
+            position: absolute; 
         you also need to set position: relative; on the 
         container of whatever you want to position.
 
         So, we're going to set position: relative; here,
-        and that will allow us to ABSOLUTEly position
+        and that will allow us to ABSOLUTE-ly position
         the .hero-content.
     */
     position: relative;
@@ -128,6 +128,9 @@ body {
     in the interest of having our hero work at
     as many screen sizes as possible, relative
     units make things a bit more flexible.
+
+    (try out different values for top and left,
+    and see how they change the content's position)
 */
 #hero-3 .hero-content {
     position: absolute;
@@ -137,7 +140,8 @@ body {
 
 /*
     To keep things simple, we'll reuse the same
-    styles of the headings and buttons.
+    styles of the headings and buttons, just in
+    hero-3 instead.
 */
 
 #hero-3 h2 {

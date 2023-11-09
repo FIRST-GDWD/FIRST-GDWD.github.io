@@ -29,9 +29,9 @@ body {
 /*
     If we want our flexbox content to be stacked in 
     a column like "normal" HTML content, then we need
-    to change the direction of our flexbox
+    to change the direction of our flexbox.
 
-    (ask if they know how to do that)
+    (Remember how to do that?)
 
     However, changing the flex-direction also means
     that our main-axis and cross-axis change.
@@ -48,14 +48,19 @@ body {
     background-position: center center;
     display: flex;
     flex-direction: column; /* new */
-    justify-content: center; /* vertically centered */
-    align-items: flex-end; /* horizontally right */
+    justify-content: center; /* changed so it's now vertically centered */
+    align-items: flex-end; /* changed so it's now horizontally right */
 }
 
 /*
     With that out of the way, now we can style
     our text elements (along with adding in some
     fake button styling for our CTA).
+
+    These margin and padding value are somewhat
+    arbitrary, so feel free to try out different 
+    ones, but remember that we want to keep the 
+    text away from the focus of the image.
 */
 
 #hero-2 h2 {

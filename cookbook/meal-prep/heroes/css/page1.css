@@ -20,7 +20,7 @@ body {
         - contain
         - cover
 
-    (Demo both of them)
+    (try out both of them)
 
     The 'contain' value tells the background
     to ensure that the entire image is in view,
@@ -43,5 +43,22 @@ body {
 #hero-1 {
     background-image: url("../images/lizard.jpg");
     height: 100vh;
-    background-size: cover;
+    background-size: cover; /* new property */
 }
+
+/*
+    However, there's still a large chunk of our 
+    image that is cropped out (especially if
+    you're viewing in the VS Code preview).
+
+    For testing out heroes, you'll definitely
+    want to view them out in the browser for
+    a more accurate test (by using the 
+    "Open with Live Server option in VS Code)
+
+    But even then, your image may not be 
+    cropped the way you want.
+
+    Continue on to the next page to find out
+    how we can address that!
+*/

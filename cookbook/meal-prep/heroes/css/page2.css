@@ -8,26 +8,19 @@ body {
 }
 
 /*
-    However, there's still a large chunk of our 
-    image that is cropped out (especially if
-    you're viewing in the VS Code preview).
-
-    For testing out heroes, you'll definitely
-    want to view them out in the browser for
-    a more accurate test.
-
-    But even then, your image may not be 
-    cropped the way you want.
-
-    To address that, we have yet another
-    background related property we can use:
+    To address the cropping issue, we have yet 
+    another background related property we can use:
     background-position.
 
     The background-position property lets us
     "anchor" a part of the image on the screen.
 
     Common values involve the different sides 
-    of the image (left, bottom right, top center, 
+    of the image, such as 
+        left
+        bottom right
+        top center
+        center left
     etc), which will ensure the specified side(s)
     of the image are always in view.
 
@@ -42,7 +35,7 @@ body {
     background-image: url("../images/lizard.jpg");
     height: 100vh;
     background-size: cover;
-    background-position: center center;
+    background-position: center center; /* new property */
 }
 
 /*

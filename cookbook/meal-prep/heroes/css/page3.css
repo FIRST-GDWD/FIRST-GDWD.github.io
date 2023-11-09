@@ -24,16 +24,19 @@ body {
     Flexbox makes all that a snap, so let's try
     that out for this hero.
 
-    (Ask students how to activate flexbox and
-    which properties to use to align the content)
+    Do you remember how to activate Flexbox,
+    and which Flexbox properties we can used to
+    align content horizontally and vertically?
 */
 #hero-1 {
     background-image: url("../images/lizard.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center center;
+
+    /* new properties */
     display: flex;
-    justify-content: flex-start; /* left for rows */
+    justify-content: flex-start; /* i.e. left alignment for rows */
     align-items: center;
 }
 
@@ -65,6 +68,7 @@ body {
     for that (which we'll learn today).
 
     Second, even if we did pick a value like 250px,
+    (try it out with padding-left temporarily)
     watch what happens when shrink the screen...
 
     The text doesn't adapt to the shrinking screen,
@@ -74,6 +78,8 @@ body {
     Using a relative width value for both font-size
     and padding allows our hero content to adapt
     better to the screen size.
+
+    (change padding-left back to 10vw now)
 
     Again, there is no perfect code that will work
     for all circumstances: eventually the design

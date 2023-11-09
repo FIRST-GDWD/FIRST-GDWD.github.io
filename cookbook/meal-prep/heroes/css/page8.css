@@ -43,6 +43,8 @@ body {
 
 .spacer {
     height: 50vh;
+    
+    /* these are the new properties we're adding */
     background-image: url("../images/emerald-seas.jpg");
     background-size: cover;
     background-attachment: fixed;

@@ -32,6 +32,10 @@ body {
 /*
     First, we'll style our spacer, basically just
     giving it a height and nothing else.
+
+    This class's only purpose is to add empty space
+    between our two heroes, just so we can keep
+    them visually separate in the demo.
 */
 .spacer {
     height: 50vh;
@@ -52,13 +56,14 @@ body {
     height: 100vh;
     background-size: cover;
     background-position: center center;
+
     /*
         But what happens if we try to apply the 
         same flexbox properties (but aligned to
         the right)?
     */
     display: flex;
-    justify-content: flex-end; /* right for rows */
+    justify-content: flex-end; /* i.e. alignment right for rows */
     align-items: center;
 }
 

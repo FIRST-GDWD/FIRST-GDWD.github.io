@@ -115,15 +115,18 @@ body {
     in the middle of the hero.
 
     Flexbox gets a little difficult if you're
-    trying to position elements inside of a
-    flexbox, but if you just want to center 
-    something (both horizontally and vertically),
+    trying to position the elements inside of it, 
+    but if you just want to center something 
+    (both horizontally and vertically),
     then there's nothing simpler than flexbox.
 
     To illustrate this, we're going back to
     the HTML one last time, and we're going
     to copy the same strucure as the previous
     one, just with different content.
+
+    Come back here when you've added the last
+    hero in the HTML.
 */
 
 /*
@@ -138,8 +141,10 @@ body {
     height: 100vh;
     background-size: cover;
     background-position: center center;
+
+    /* these properties are key to centering hero-content */
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
 }
 
@@ -151,7 +156,7 @@ body {
 #hero-4 .hero-content {
     text-align: center;
     color: white;
-    padding-top: 20vh; /* push it down a little */
+    padding-top: 20vh; /* this will push it down a little */
 }
 
 /*
@@ -171,7 +176,7 @@ body {
 }
 
 /*
-    Reversing the colors for the buttons.
+    Here, we will reverse the colors for the buttons.
 */
 #hero-4 a {
     font-size: 1.5vw;
