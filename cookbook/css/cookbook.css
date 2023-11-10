@@ -1100,3 +1100,54 @@ body.noComments #cssPreview .cssBlock .terminator::after {
         width: 90%;
     }
 }
+
+@media print {
+    #background,
+    nav,
+    .recipeDetails #cookbookPageColumnTwo {
+        display: none;
+    }
+
+    #mealPrepFooter {
+        position: fixed;
+        top: 80px;
+        bottom: auto;
+        right: -20px;
+        width: 150px;
+        background-color: transparent;
+        color: #1a3159;
+        padding: 4px;
+    }
+
+    #mealPrepFooter button {
+        display: none;
+    }
+
+    #mealPrepFooter #currentPage {
+        padding: 8px;
+        border: 2px dashed grey;
+    }
+
+    .recipeDetails #cookbookPageColumnOne {
+        max-width: 100%;
+    }
+
+    .recipeDetails#cookbookPage {
+        background-color: transparent;
+        border-radius: 0px;
+        margin: 0px;
+    }
+
+    .recipeDetails #cssPreview,
+    .recipeDetails #htmlPreview,
+    .recipeDetails #jsPreview {
+        box-shadow: none;
+        overflow-x: visible;
+        border: 1px solid grey;
+        white-space: wrap;
+    }
+
+    #title h1 {
+        font-size: 36px;
+    }
+}
