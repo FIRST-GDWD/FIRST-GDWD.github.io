@@ -12,7 +12,7 @@ body {
     of navbars, the Flexbox Container property
     justify-content makes things pretty easy.
 
-    Showcase the effects of the different
+    Here are the effects of the different
     values that we can use, including: 
     - flex-start (default, aka left for a row)
     - center
@@ -22,7 +22,9 @@ body {
 #navbar {
     background: linear-gradient(to bottom, green, #3e6d3e);
     display: flex;
-    justify-content: space-between;
+    
+    /* try the different values mentioned above here */
+    justify-content: space-between; /* new */
 }
 
 #navbar a {
