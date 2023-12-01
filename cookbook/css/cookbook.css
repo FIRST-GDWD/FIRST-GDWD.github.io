@@ -139,6 +139,11 @@ nav {
     color: #1a3159;
 }
 
+#topHeader a.selected,
+#topHeader #navLinks .dropdown-items a.selected {
+    background-color: #546a90;
+}
+
 /*****************************************************
   BOTTOM HEADERS AND BUTTONS
 *****************************************************/
