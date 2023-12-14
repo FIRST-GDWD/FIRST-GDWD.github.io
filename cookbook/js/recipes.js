@@ -129,12 +129,12 @@ const mealPrepRecipes = [
         pageCount: 4,
         hasLocalProject: true,
     },
-    {
-        recipeName: "gallery-masonry-vertical-flex",
-        categories: "content-layout, gallery, flex",
-        pageCount: 4,
-        hasLocalProject: true,
-    },
+    // {
+    //     recipeName: "gallery-masonry-vertical-flex",
+    //     categories: "content-layout, gallery, flex",
+    //     pageCount: 4,
+    //     hasLocalProject: true,
+    // },
     {
         recipeName: "gallery-masonry-vertical-columns",
         categories: "content-layout, gallery",
