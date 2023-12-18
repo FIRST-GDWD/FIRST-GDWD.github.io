@@ -396,32 +396,24 @@ const mealPrepRecipes = [
 ];
 const categories = [
     {
-        label: "Week 1",
+        label: "Session 1",
         value: "week1",
     },
     {
-        label: "Week 2",
+        label: "Session 2",
         value: "week2",
     },
     {
-        label: "Week 3",
+        label: "Session 3",
         value: "week3",
     },
     {
-        label: "Week 4",
+        label: "Session 4",
         value: "week4",
     },
     {
-        label: "Week 5",
+        label: "Session 5",
         value: "week5",
-    },
-    {
-        label: "Week 6",
-        value: "week6",
-    },
-    {
-        label: "Week 8",
-        value: "week8",
     },
     {
         label: "Demos",
