@@ -30,7 +30,7 @@ const mealPrepRecipes = [
     {
         recipeName: "images",
         categories: "demo, week1",
-        pageCount: 8,
+        pageCount: 9,
         hasLocalProject: true,
     },
     {
