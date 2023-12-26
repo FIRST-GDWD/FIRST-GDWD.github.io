@@ -226,18 +226,6 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
-        recipeName: "three-column-grid-layouts",
-        categories: "demo, week3",
-        pageCount: 9,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "mebay-product-page",
-        categories: "exercise, week3",
-        pageCount: 1,
-        hasLocalProject: true,
-    },
-    {
         recipeName: "two-column-mixed-layouts",
         categories: "demo, week3",
         pageCount: 10,
@@ -245,8 +233,20 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "metube",
+        categories: "exercise, week3",
+        pageCount: 1,
+        hasLocalProject: true,
+    },
+    {
+        recipeName: "mebay-product-page",
         categories: "project, week3",
         pageCount: 1,
+        hasLocalProject: true,
+    },
+    {
+        recipeName: "three-column-grid-layouts",
+        categories: "demo, deprecated",
+        pageCount: 9,
         hasLocalProject: true,
     },
     {
@@ -430,6 +430,10 @@ const categories = [
     {
         label: "Projects",
         value: "project",
+    },
+    {
+        label: "Deprecated",
+        value: "deprecated",
     },
 ];
 const ROOT_RECIPE_FOLDER = "meal-prep";
