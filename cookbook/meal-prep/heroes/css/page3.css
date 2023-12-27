@@ -58,7 +58,7 @@ body {
     padding values, but as we'll see, that can
     become a little problematic.
 
-    First of, anytime you find yourself providing
+    First off, anytime you find yourself providing
     margin/padding values over 100px, there's a
     good chance there's a better way of doing
     what you're trying to do; most likely,
