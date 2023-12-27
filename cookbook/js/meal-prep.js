@@ -300,7 +300,7 @@ const mealPrepRecipes = [
     {
         recipeName: "navbars-basic",
         categories: "demo, week5",
-        pageCount: 12,
+        pageCount: 10,
         hasLocalProject: true,
     },
     {
