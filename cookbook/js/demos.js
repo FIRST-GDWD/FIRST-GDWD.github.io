@@ -94,9 +94,9 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
-        recipeName: "cards-and-buttons",
+        recipeName: "cards-and-buttons-v2",
         categories: "demo, week4, css",
-        pageCount: 11,
+        pageCount: 10,
         hasLocalProject: true,
     },
     {
