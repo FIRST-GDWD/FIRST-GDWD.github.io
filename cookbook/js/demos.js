@@ -118,6 +118,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "media-queries-v2",
+        categories: "demo, week5, css",
+        pageCount: 15,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "dropdown-prep",
         categories: "demo, week5, css",
         pageCount: 16,
@@ -127,12 +133,6 @@ const mealPrepRecipes = [
         recipeName: "dropdown-nav",
         categories: "demo, week5, css",
         pageCount: 10,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "media-queries",
-        categories: "demo, week5, css",
-        pageCount: 13,
         hasLocalProject: true,
     },
 ];

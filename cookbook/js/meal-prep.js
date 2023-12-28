@@ -304,6 +304,24 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "media-queries-v2",
+        categories: "demo, week5",
+        pageCount: 15,
+        hasLocalProject: true,
+    },
+    {
+        recipeName: "media-queries-exercise",
+        categories: "exercise, week5",
+        pageCount: 1,
+        hasLocalProject: true,
+    },
+    {
+        recipeName: "grrm",
+        categories: "project, week5",
+        pageCount: 1,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "dropdown-prep",
         categories: "demo, week5",
         pageCount: 16,
@@ -324,24 +342,6 @@ const mealPrepRecipes = [
     {
         recipeName: "adopt-me-plz",
         categories: "exercise, week5",
-        pageCount: 1,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "media-queries",
-        categories: "demo, week5",
-        pageCount: 13,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "media-queries-exercise",
-        categories: "exercise, week5",
-        pageCount: 1,
-        hasLocalProject: true,
-    },
-    {
-        recipeName: "grrm",
-        categories: "project, week5",
         pageCount: 1,
         hasLocalProject: true,
     },
