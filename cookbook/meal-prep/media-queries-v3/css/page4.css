@@ -74,11 +74,15 @@ body {
     We're going to use an approach that makes
     images VERY adaptable to their containers,
     with the caveat that the can be cropped.
+
+    We'll also round the corners, because
+    why not?
 */
 .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 24px;
 }
 
 /*
@@ -102,10 +106,14 @@ body {
 }
 
 /*
-    And also increase the size of the heading text.
+    Let's also increase the size of the heading text.
+
+    And while we're in here, let's give it a slight
+    color accent.
 */
 .content-container h1 {
     font-size: 48px;
+    color: #ffb700;
 }
 
 /* 
