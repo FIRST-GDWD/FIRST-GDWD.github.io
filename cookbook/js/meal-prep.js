@@ -317,7 +317,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "grrm",
-        categories: "project, week5",
+        categories: "exercise, week5",
         pageCount: 1,
         hasLocalProject: true,
     },
@@ -341,7 +341,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "adopt-me-plz",
-        categories: "exercise, week5",
+        categories: "project, week5",
         pageCount: 1,
         hasLocalProject: true,
     },
