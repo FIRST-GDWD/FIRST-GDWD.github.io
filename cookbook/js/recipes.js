@@ -220,6 +220,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "side-by-side-responsive",
+        categories: "miscellaneous",
+        pageCount: 2,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "contact-form",
         categories: "miscellaneous",
         pageCount: 1,
