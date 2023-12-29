@@ -324,7 +324,7 @@ const mealPrepRecipes = [
     {
         recipeName: "dropdown-prep",
         categories: "demo, week5",
-        pageCount: 16,
+        pageCount: 11,
         hasLocalProject: true,
     },
     {
