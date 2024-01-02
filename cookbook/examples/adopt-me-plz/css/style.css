@@ -87,6 +87,10 @@ body {
     background: #edd0b3;
 }
 
+/*
+    Hero styling ************************************************
+*/
+
 .hero {
     background-image: url("../images/matt-nelson-aI3EBLvcyu4-unsplash.jpg");
     background-size: cover;
@@ -133,6 +137,10 @@ body {
     border: 5px solid black;
 }
 
+/*
+    Layout and general page styling
+*/
+
 #layout {
     background-color: #FFFFFFCC;
     border-radius: 60px;
@@ -154,26 +162,35 @@ p {
     font-size: 24px;
 }
 
+/*
+    Media Query for responsiveness
+*/
 @media screen and (max-width: 800px) {
     #navbar {
         flex-direction: column;
         align-items: center;
     }
+
     #navbar #logo {
         margin-right: 0px;
     }
+
     #navbar #links a {
         padding: 12px;
     }
+
     #layout {
         margin: 24px;
     }
+
     #layout img {
         width: 100%;
     }
+
     h1 {
         font-size: 48px;
     }
+    
     h2 {
         font-size: 20px;
     }
