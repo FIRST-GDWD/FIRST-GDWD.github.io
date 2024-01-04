@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 96vh;
+    background-image: url("../images/kh_finalworld.jpg");
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+#layout {
+    max-width: 1200px;
+    width: 75%;
+    margin: 48px auto;
+    background-color: #FFFFFF99;
+    border: 8px solid navy;
+    border-radius: 24px;
+    padding: 36px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+#flex-container {
+    display: flex;
+    gap: 36px;
+}
+
+#agenda,
+#assignments {
+    background-color: azure;
+    padding: 36px;
+    flex: 1;
+}
+
+#assignments img {
+    width: 100%;
+    display: inline-block;
+    margin: 24px 0px;
+}
+
+.wrapper {
+    background-color: skyblue;
+    padding: 12px;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 8px 0px;
+}
+
+.type {
+    font-weight: bold;
+    font-size: 18px;
+}
