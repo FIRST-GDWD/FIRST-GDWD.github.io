@@ -37,10 +37,22 @@ h1 {
     flex: 1;
 }
 
+#assignments h2:first-child {
+    margin-top: 0px;
+}
+
 #assignments img {
-    width: 100%;
+    width: 60%;
     display: inline-block;
     margin: 24px 0px;
+}
+
+.img-container {
+    background-color: #bcbfbe;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0px;
+    margin: 36px 0px;
 }
 
 .wrapper {
@@ -56,4 +68,5 @@ ul li {
 .type {
     font-weight: bold;
     font-size: 18px;
+    margin-right: 16px;
 }
