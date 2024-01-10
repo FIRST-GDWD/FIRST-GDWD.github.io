@@ -42,17 +42,23 @@ h1 {
 }
 
 #assignments img {
-    width: 60%;
     display: inline-block;
     margin: 24px 0px;
+    width: 100%;
 }
 
-.img-container {
+.img-container.more-space {
     background-color: #8abdba;
     display: flex;
     justify-content: center;
     padding: 24px 0px;
     margin: 36px 0px;
+}
+
+.img-container.more-space img {
+    width: 60%;
+    display: inline-block;
+    margin: 24px 0px;
 }
 
 .wrapper {
