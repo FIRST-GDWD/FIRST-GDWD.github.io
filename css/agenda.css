@@ -25,6 +25,10 @@ h1 {
     margin-bottom: 48px;
 }
 
+.centered {
+    text-align: center;
+}
+
 #flex-container {
     display: flex;
     gap: 36px;
