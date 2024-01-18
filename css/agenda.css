@@ -51,7 +51,7 @@ h1 {
     width: 100%;
 }
 
-.img-container.more-space {
+#assignments .img-container.more-space {
     background-color: #8abdba;
     display: flex;
     justify-content: center;
@@ -59,10 +59,22 @@ h1 {
     margin: 36px 0px;
 }
 
-.img-container.more-space img {
+#assignments .img-container.more-space img {
     width: 60%;
     display: inline-block;
     margin: 24px 0px;
+}
+
+#assignments .img-container.more-space-offset {
+    background-color: #09202f;
+    display: flex;
+    justify-content: center;
+    padding: 48px 0px 0px 36px;
+    margin: 36px 0px;
+}
+
+#assignments .img-container.more-space-offset img {
+    margin: 0px;
 }
 
 .wrapper {
