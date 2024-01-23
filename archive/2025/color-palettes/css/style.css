@@ -1,0 +1,12 @@
+#palette1 {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#palette1-color1 {
+    background-color: #BFB5AF;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 24px;
+}
