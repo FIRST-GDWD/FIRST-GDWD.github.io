@@ -52,7 +52,7 @@ h1 {
 }
 
 #assignments .img-container.more-space {
-    background-color: #141b25;
+    background-color: #606369;
     display: flex;
     justify-content: center;
     padding: 24px 0px;
@@ -60,7 +60,7 @@ h1 {
 }
 
 #assignments .img-container.more-space img {
-    width: 60%;
+    width: 70%;
     display: inline-block;
     margin: 24px 0px;
 }
