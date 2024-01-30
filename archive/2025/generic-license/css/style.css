@@ -6,23 +6,119 @@
 
     Good luck, and have fun!
 */
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 #license {
+    background: linear-gradient(to bottom right,#6ae34c, rgb(38, 170, 60));
     border: 3px solid black;
     border-radius: 24px;
     width: 700px;
+    padding: 20px;
 }
 
 h1 {
-    border: 3px solid red;
+    font-size: 54px;
+    margin: 0px;
+    color: navy;
 }
 
 #left-side {
-    border: 3px solid red;
     display: inline-block;
     width: 65%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #right-side {
-    border: 3px solid red;
     display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h4 {
+    background-color: navy;
+    color: white;
+    padding: 8px;
+    font-size: 20px;
+    text-align: center;
+    margin: 4px 0px;
+}
+
+#id-and-expiration {
+    padding: 8px;
+}
+
+#id-and-expiration div {
+    display: inline-block;
+    color: navy;
+}
+
+#id-and-expiration span {
+    color: #ac1231;
+    font-weight: bold;
+}
+
+#address {
+    padding: 8px;
+    font-weight: bold;
+}
+
+#small-pic,
+#data-fields {
+    display: inline-block;
+}
+
+#small-pic img {
+    width: 90px;
+    opacity: 0.5;
+}
+
+#data-fields {
+    color: navy;
+    padding: 8px
+}
+
+#data-fields span {
+    color: #ac1231;
+    font-weight: bold;
+}
+
+#signature {
+    color: black;
+    text-align: center;
+    margin: 8px;
+    font-family: 'Ms Madi', script;
+    font-size: 24px;
+    font-weight: bold;;
+}
+
+#data-left,
+#data-right {
+    display: inline-block;
+}
+
+#right-side img {
+    width: 200px;
+}
+
+#donor,
+#real-id {
+    display: inline-block;
+}
+
+#donor-and-real-id {
+    text-align: center;
+    padding: 8px;
+}
+
+#donor {
+    color: #ac1231;
+    font-weight: bold;
+    font-size: 18px
+}
+
+#real-id {
+    color: white;
+    background-color: gold;
+    border-radius: 50%;
+    padding: 1px 4px 4px;
+    font-size: 24px;
+    margin-left: 24px;
 }
