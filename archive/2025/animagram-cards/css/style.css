@@ -1,0 +1,17 @@
+/*
+    Write your CSS for the assignment here.
+
+    You shouldn't need to modify the HTML;
+    however, you are allowed to. 
+    
+    Just be aware that you may break some
+    of the setup.css styling if you do so.
+*/
+.card-style-2 {
+    max-width: 350px;
+}
+
+.card-style-2 img {
+    width: 50%;
+    border-radius: 50%;
+}
