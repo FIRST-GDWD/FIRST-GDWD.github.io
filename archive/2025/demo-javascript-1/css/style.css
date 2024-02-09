@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.single-column {
+    width: 800px;
+    margin: 200px auto;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px;
+    align-items: center;
+}
+
+#yes {
+    background-color: pink;
+    padding: 24px 48px;
+    border-radius: 24px;
+    /* 
+        I added this to make the 
+        button growth more smooth.
+    */
+    transition: 
+        padding 0.25s,
+        font-size 0.25s;
+}
+
+#no {
+    background-color: red;
+    padding: 24px 48px;
+    border-radius: 24px;
+}
+
+#gif {
+    transform-origin: center;
+}
