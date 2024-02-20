@@ -1,0 +1,139 @@
+/*
+    Write your CSS for the assignment here.
+
+    You shouldn't need to modify the HTML;
+    however, you are allowed to. 
+    
+    Just be aware that you may break some
+    of the setup.css styling if you do so.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+    display: block;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.card-style-3 {
+    background-color: gold;
+    border: 16px solid gold;
+    border-radius: 12px;
+    padding: 15px;
+    width: 350px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#pokemon-card-1, #pokemon-card-2 {
+    background: linear-gradient(-25deg, olive, forestgreen, lightgreen);
+}
+
+#pokemon-card-3 {
+    background: linear-gradient(-25deg, orange, orangered, red);
+}
+
+#pokemon-card-4 {
+    background: linear-gradient(-25deg, skyblue,teal,aquamarine);
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.card-style-3 .pokemon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.card-style-3 h2 {
+    margin: 0px;
+}
+
+.card-style-3 img {
+    border: 5px solid goldenrod;
+    width: 100%;
+}
+
+.card-style-3 .details {
+    font-size: 12px;
+    text-align: center;
+    background: linear-gradient(to right, goldenrod, gold, goldenrod);
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.card-style-3 .attack {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0px;
+    padding: 8px 0px 16px;
+    border-bottom: 2px solid black;
+}
+
+.card-style-3 .attack-1 {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0px;
+    padding: 8px 0px 16px;
+    border-bottom: 2px solid black;
+}
+
+.card-style-3 .attack .energy {
+    min-width: 50px;
+    text-align: center;
+}
+
+.card-style-3 i {
+    background: radial-gradient(white 40%, #333333);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    font-size: 14px;
+}
+
+.card-style-3 .attack .description {
+    margin: 0px 4px;
+    font-size: 14px;
+}
+
+.card-style-3 .bold {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-style-3 .power {
+    font-size: 24px;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+}
+
+.card-style-3 .data {
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid goldenrod;
+    padding: 2px 8px;
+}

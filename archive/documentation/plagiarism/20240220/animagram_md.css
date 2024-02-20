@@ -1,0 +1,104 @@
+/*
+    Write your CSS for the assignment here.
+
+    You shouldn't need to modify the HTML;
+    however, you are allowed to. 
+    
+    Just be aware that you may break some
+    of the setup.css styling if you do so.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: serif;
+    display: block;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    color: rgb(250, 159, 174);
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.card-style-2 {
+    background-color: white;
+    border-radius: 36px;
+    padding: 24px;
+    max-width: 350px;
+    margin: 16px;
+}
+
+.card-style-2 h2, .card-style-2 p {
+    text-align: center;
+    padding: 0px 36px;
+}
+
+.card-style-2 .animagram-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-style-2 .animagram-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 36px;
+    font-size: 24px;
+}
+
+.card-style-2 .animagram-header .logo {
+    font-size: 36px;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 66px;
+    text-align: center;
+}
+
+.card-style-2 .animagram-header .brand-name {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.card-style-2 .profile-pic-container {
+    padding: 36px 36px 0px;
+    text-align: center;
+}
+
+.card-style-2 .profile-pic-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
