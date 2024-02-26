@@ -72,3 +72,110 @@ body {
 #navbar .dropdown-menu a:hover {
     background: slateblue;
 }
+
+#sidebar {
+    display: flex;
+}
+
+
+/*
+    NEW CODE FOR THE HAMBURGER MENU DEMO ***********
+*/
+#hamburger-container {
+    display: none;
+    color: white;
+    font-size: 30px;
+}
+
+#hamburger-icon {
+    padding: 20px;
+    cursor: pointer;
+}
+
+#close-container {
+    display: none;
+}
+
+/*
+    In this mobile media breakpoint, we
+    restructure the dropdown menus and containers
+    inside their new sidebar container, putting
+    their contents into a stack and positioning
+    it on the right side of the page.
+
+    The sidebar is hidden by default, until
+    the 'active' class is added to it
+    via JavaScript.
+*/
+@media screen and (max-width: 700px) {
+    #hamburger-container {
+        display: block;
+    }
+
+    #close-container {
+        display: block;
+    }
+
+    /*
+        This is the default state for 
+        the sidebar, pushed offscreen to
+        the right of the page
+    */
+    #sidebar {
+        position: absolute;
+        background: darkslateblue;
+        right: -50vw;
+        top: 0px;
+        flex-direction: column;
+        width: 50vw;
+        height: 100vh;
+        transition: right 0.25s;
+    }
+
+    /*
+        When the active class is added in JS,
+        we move it back into view via the 
+        'right' property.
+    */
+    #sidebar.active {
+        right: 0px;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-container i {
+        display: none;
+    }
+
+    #navbar .dropdown-container a {
+        width: 100%;
+        padding: 8px 8px 8px 24px;
+    }
+
+    #navbar .dropdown-container a:hover {
+        background: slateblue;
+    }
+
+    #navbar .dropdown-menu a {
+        padding: 8px 8px 8px 60px;
+    }
+
+    #navbar .dropdown-menu a:last-child {
+        margin-bottom: 8px;
+    }
+
+    #close-container {
+        color: white;
+        font-size: 30px;
+        text-align: right;
+        padding: 24px;
+    }
+
+    #close-button {
+        cursor: pointer;
+    }
+}

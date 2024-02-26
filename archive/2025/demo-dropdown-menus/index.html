@@ -11,31 +11,50 @@
     <body>
         <div id="navbar">
             <a id="logo" href="#">BRAND NAME</a>
-            <div class="dropdown-container">
-                <a href="#">Gallery <i class="fa-solid fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="#">Drawings</a>
-                    <a href="#">Photography</a>
-                    <a href="#">Photoshop</a>
-                    <a href="#">Illustrator</a>
-                </div>
+
+            <!-- this is a new container for the hamburger button -->
+            <div id="hamburger-container">
+                <i id="hamburger-icon" class="fa-solid fa-bars"></i>
             </div>
-            <div class="dropdown-container">
-                <a href="#">About <i class="fa-solid fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="#">Passions</a>
-                    <a href="#">Hobbies</a>
-                    <a href="#">Goals</a>
+
+            <!-- 
+                We wrapped all of our dropdown-container divs in a 
+                new container with an id called "sidebar" 
+            -->
+            <div id="sidebar">
+
+                <!-- this is a new container for the close button -->
+                <div id="close-container">
+                    <i id="close-button" class="fa-solid fa-xmark"></i>
                 </div>
-            </div>
-            <div class="dropdown-container">
-                <a href="#">Contact <i class="fa-solid fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="#">Collaborations</a>
-                    <a href="#">Commissions</a>
-                    <a href="#">Pricing</a>
+                
+                <div class="dropdown-container">
+                    <a href="#">Gallery <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#">Drawings</a>
+                        <a href="#">Photography</a>
+                        <a href="#">Photoshop</a>
+                        <a href="#">Illustrator</a>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <a href="#">About <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#">Passions</a>
+                        <a href="#">Hobbies</a>
+                        <a href="#">Goals</a>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <a href="#">Contact <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#">Collaborations</a>
+                        <a href="#">Commissions</a>
+                        <a href="#">Pricing</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="js/hamburger.js"></script>
     </body>
 </html>
