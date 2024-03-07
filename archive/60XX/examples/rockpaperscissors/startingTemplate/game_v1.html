@@ -14,21 +14,16 @@
 
     <script src="js/logic.js"></script>
     <script type="text/javascript">
-      /* Page-specific JavaScript Code goes here */
+      let yourPickText = document.getElementById("yourPickText");
+      let myPickText = document.getElementById("myPickText");
+      let resultText = document.getElementById("result");
 
-      // Create variables to store references to the
-      // yourPickText, myPickText, and result elements by their ids
+      let yourPick = getRandomPick();
+      let myPick = getRandomPick();
 
-
-      // Use the getRandomPick() function from your logic library
-      // to get random Rock Paper Scissors values for yourPick and myPick
-
-
-      // Set yourPick and myPick values in their corresponding element innerHTML
-      // Also set the return value of getResultText(yourPick, myPick)
-      // in the result element's innerHTML
-
-
+      yourPickText.innerHTML = yourPick;
+      myPickText.innerHTML = myPick;
+      resultText.innerHTML = getResultText(myPick, yourPick);
     </script>
   </body>
 </html>
