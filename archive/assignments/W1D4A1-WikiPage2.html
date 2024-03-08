@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wiki Page 2 | Exercise</title>
+    </head>
+    <body>
+        <p><span style="font-size: 10pt;"><strong>*Note: It is imperative that all of your coursework throughout your time here at F.I.R.S.T. be saved on an external hard/flash drive from now through graduation. You will be referencing your work again in the future to be added to your portfolio, so we expect you not to delete any of your work, including working files.*</strong></span></p>
+        <p><img src="images/wiki2.png" alt="wiki2.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2481/files/1379804" data-api-returntype="File" /></p>
+        <p>&nbsp;</p>
+        <div style="background-color: #dfffdf; border: 3px solid #99dd99; padding: 24px; border-radius: 4px;">
+            <p><strong>OBJECTIVES:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>Create a simplified version of the Graphic Design Wikipedia page, similar to Wiki Page 1, but with more content
+                            <ul>
+                                <li>Include content up THROUGH the end of the Skills section</li>
+                            </ul>
+                        </li>
+                        <li>Practice using the HTML Elements and Attributes you've learned so far</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><strong>NEW CONCEPTS WE'LL BE USING:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li><a href="https://first-gdwd.github.io/cookbook/ingredients.html#anchors">Anchor elements (&lt;a&gt;)</a></li>
+                        <li>HTML Attributes (<em>href</em> attribute for &lt;a&gt; elements, <em>id</em> attributes for anything we want to anchor to)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO COMPLETE:</strong></p>
+        <p>Once again, we're going to take advantage of Wiki pages' relatively simple structure, to practice what we've learned recently in HTML.&nbsp; Our goal is to <span style="background-color: #fbeeb8;">recreate a SIMPLIFIED version of the Graphic Design Wikipedia page</span> up <span style="background-color: #fbeeb8;">THROUGH the Skills section</span>, <span style="background-color: #fbeeb8;">including the new HTML content</span> we've learned about.&nbsp;</p>
+        <p>We're still not worrying too much about appearance; we won't be able to change much aside from the text styling until we learn about CSS, so we're primarily focusing on creating HTML elements properly and getting content on the page. Let's get started!</p>
+        <p>&nbsp;</p>
+        <ul>
+            <li style="list-style-type: none;">
+                <ol style="list-style-type: decimal;">
+                    <li><span>Navigate to the <a class="inline_disabled" href="https://en.wikipedia.org/wiki/Graphic_design" target="_blank" rel="noopener">"Graphic design" Wikipedia page</a> in the Chrome browser</span></li>
+                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>In Visual Studio Code, duplicate your </span><strong>code-skeleton</strong><span>&nbsp;project folder inside of your repository folder, and rename the duplicate</span> "</span><strong style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;">wiki-page-2</strong><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;">"</span></li>
+                    <li>This time, you're responsible for writing up the elements, tags, and attributes you need yourself; however, you'll still be copy/pasting the content found on the Wikipedia page.
+                        <ul style="list-style-type: disc;">
+                            <li><span style="background-color: #fbeeb8;">The main new requirement compared to Wiki Page 1 is including anchor elements</span>
+                                <ul style="list-style-type: circle;">
+                                    <li><span style="background-color: #fbeeb8;">the anchors in the "Contents" section should be functional, meaning you can click on them and they'll take you to another section on the page.&nbsp;</span></li>
+                                    <li><span style="background-color: #f8cac6;">There are many more anchors on the actual page, but they are optional for this assignment; the only required anchors are the ones in the "Contents" section</span></li>
+                                </ul>
+                            </li>
+                            <li>By the time you complete the page, you should have used many of the same elements as before, but also some new ones:
+                                <ul style="list-style-type: circle;">
+                                    <li>Heading elements (like &lt;h1&gt;, &lt;h3&gt;, etc.)</li>
+                                    <li>Paragraph elements (&lt;p&gt;)</li>
+                                    <li>List elements (&lt;ul&gt; or &lt;ol&gt;)</li>
+                                    <li>List Item elements (&lt;li&gt;)</li>
+                                    <li>Horizontal Rule elements (&lt;hr&gt;)</li>
+                                    <li>Image elements (&lt;img&gt;)
+                                        <ul style="list-style-type: circle;">
+                                            <li>including&nbsp;<em>src, alt</em>, and probably&nbsp;<em>width </em>and/or <em>height </em>attributes</li>
+                                            <li><span style="background-color: #fbeeb8;">there are a lot more images this time; you can choose where in the content they should go</span></li>
+                                        </ul>
+                                    </li>
+                                    <li>Text styling elements (&lt;b&gt; and &lt;i&gt; and &lt;sup&gt;)</li>
+                                    <li><span style="background-color: #fbeeb8;">Anchor elements (&lt;a&gt;)</span>
+                                        <ul style="list-style-type: circle;">
+                                            <li><span style="background-color: #fbeeb8;">including&nbsp;<em>href</em> attributes, and the <em>id</em> attribute on elements you want to anchor to</span></li>
+                                            <li><span style="background-color: #f8cac6;">again, the only REQUIRED anchor elements for this assignment are the ones in the "Contents" section</span></li>
+                                            <li><span style="background-color: #fbeeb8;">remember that href="#" will create a "dummy" hyperlink that doesn't go anywhere</span>
+                                                <ul style="list-style-type: circle;">
+                                                    <li><span style="background-color: #fbeeb8;">whereas an <em>href </em>with a value after a # (e.g. href="#my-id") will connect it to the element with that <em>id </em>on the page</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>When completed, your preview window in Visual Studio Code should resemble the screenshot at the top of the assignment (though it could look different if your window width is wider or smaller).&nbsp;&nbsp;</p>
+        <p>&nbsp;</p>
+        <div style="background-color: azure; border: 3px solid skyblue; padding: 24px; border-radius: 4px;">
+            <h4><strong>CHALLENGE</strong></h4>
+            <p><strong>Dummy Links</strong></p>
+            <p>As mentioned earlier in the assignment, there are a LOT of anchors on the original page that are not required for your assignment...but that doesn't mean that you can't implement them if you have the time! Add as many of the anchors from the original page as you can, using "dummy" links (i.e. anchor elements with href="#")</p>
+            <p><strong>Go further!</strong></p>
+            <p>If you find yourself finishing early and are wondering what to do, notice that we didn't add all the sections from the Wikipedia page.&nbsp;</p>
+            <p>Venture forth into the unknown, and try your best to add the remaining section content on Graphic Design!</p>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO SUBMIT:</strong></p>
+        <p><strong><img id="1564205" src="images/SubmissionOverview.png" alt="SubmissionOverview.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2481/files/1564205" data-api-returntype="File" /></strong></p>
+        <ul>
+            <li style="list-style-type: none;">
+                <ul>
+                    <li><span>SAVE ALL OF YOUR WORK BEFORE PROCEEDING (inside Visual Studio Code)</span></li>
+                    <li><span>Open your Github Desktop app and <strong>commit</strong>&nbsp;and&nbsp;<strong>push</strong>&nbsp;any changes you made in the project folder</span></li>
+                    <li><span>Go to github.com in the Google Chrome browser and ensure the changes to your project folder were "pushed" up to your github.com repository</span></li>
+                    <li><span>Open the Github Pages site (Settings -&gt; Pages -&gt; Visit site)</span>
+                        <ul>
+                            <li><span>or alternatively, go to the Environments/Deployments section of your repository page, click "github-pages", and then click the most recent deployment</span></li>
+                        </ul>
+                    </li>
+                    <li><span>Add your project folder name at the end of your URL&nbsp;</span></li>
+                    <li><span>Open the link to your new webpage for the project.&nbsp; </span>
+                        <ul>
+                            <li><strong>Confirm it actually works before you submit it!!!</strong></li>
+                        </ul>
+                    </li>
+                    <li><span>Copy the URL in the address bar and submit it to receive credit for this assignment.</span>
+                        <ul>
+                            <li>Example URL:<span>&nbsp;</span><span>http://username.github.io/code-skeleton/</span></li>
+                            <li>This example assumes you followed the initial setup instructions correctly; if you deviated or made any mistakes, your URL may look a little different</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+    </body>
+</html>
