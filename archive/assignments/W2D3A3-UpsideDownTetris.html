@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>&nbsp;</p>
+        <p style="text-align: center;"><img src="images/tetris_simple.png" alt="tetris_simple.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664580" data-api-returntype="File" /></p>
+        <p style="text-align: center;"><span style="font-size: 10pt;">NOTE: To be clear, you will not be creating an actual game of Tetris in this exercise, you will just be using what you learned about the Box Model to create the blocks inside.</span></p>
+        <p>&nbsp;</p>
+        <div style="background-color: #dfffdf; border: 3px solid #99dd99; padding: 24px; border-radius: 4px;">
+            <p><strong>OBJECTIVES:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>Create at least THREE (3) rows of Tetris blocks (or other shapes)<br />
+                            <ul>
+                                <li>with at least FIVE (5) different color styles</li>
+                            </ul>
+                        </li>
+                        <li>Practice using the CSS Properties you've learned today</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><strong>NEW CONCEPTS WE'LL BE USING:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>CSS Properties
+                            <ul>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#border">border</a>
+                                    <ul>
+                                        <li>border-width, border-style, border-color</li>
+                                    </ul>
+                                </li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#border-radius">border-radius</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#padding">padding</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#margin">margin (optional)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO COMPLETE:</strong></p>
+        <p>Today we learned about the Box Model, and the three main components of it: border, padding, and margin.&nbsp; We're going to have you use what you learned in order to create a bunch of blocks in a template that resembles one of the oldest video games: Tetris!</p>
+        <p>Tetris is actually a pretty good analogy for Document Flow, just in reverse.&nbsp; In Tetris, block shapes fall down the screen and stack and form rows; in HTML, it's the opposite: HTML elements that you add flow "up" the screen, with inline elements flowing side to side, while block elements stack on separate lines.</p>
+        <p>Our goal for today is to utilize these new skills to create at least three rows of blocks in the Tetris, using CSS classes to color and style those blocks.&nbsp; We want you to include at least five different color styles (which could include different shapes as well).</p>
+        <p>&nbsp;</p>
+        <p><em>If you're unsure about how to unzip the project template below, or how to get it into your repository, check out the following tutorial from the Coding Cookbook - <a href="https://first-gdwd.github.io/cookbook/appetizers/importing-template-to-repository.html">Importing a Code Template.</a></em></p>
+        <p>&nbsp;</p>
+        <ol>
+            <li style="list-style-type: none;">
+                <ol style="list-style-type: decimal;">
+                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>Download and unzip the <a class="instructure_file_link inline_disabled" title="upside-down-tetris.zip" href="files/upside-down-tetris.zip" target="_blank" rel="noopener" data-canvas-previewable="false" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664583" data-api-returntype="File">upside-down tetris template</a>; place the unzipped folder into your repository with the name <strong>"upside-down-tetris".</strong>&nbsp; It should contain:</span></span>
+                        <ul style="list-style-type: disc;">
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>a css folder</span></span>
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>setup.css (don't modify this file)</span></span></li>
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>style.css (this is the file you'll be writing your CSS in)</span></span></li>
+                                </ul>
+                            </li>
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>an empty images folder</span></span></li>
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>index.html</span></span></li>
+                        </ul>
+                    </li>
+                    <li>Your objective is to <span style="background-color: #fbeeb8;">create at least THREE (3) rows of Tetris blocks (or other shapes)</span> inside the &lt;div&gt; element with the id of "block-area", and those rows should <span style="background-color: #fbeeb8;">include at least FIVE (5) different colors/styles of blocks</span>.</li>
+                    <li>To create a Tetris block
+                        <ol style="list-style-type: upper-alpha;">
+                            <li><span style="background-color: #fbeeb8;">add a &lt;div&gt; element with a "tetris-block" class</span> inside the block-area element</li>
+                            <li><span style="background-color: #fbeeb8;">In the CSS, create a rule for your "tetris-block" class</span>, and <span style="background-color: #fbeeb8;">set the following recommended properties</span> (you are free to deviate from these as long as you meet the requirements of the assignment)
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="background-color: #fbeeb8;">padding</span></li>
+                                    <li><span style="background-color: #fbeeb8;">border-width</span></li>
+                                    <li><span style="background-color: #fbeeb8;">border-style</span> (use outset, if you want to match the image above)</li>
+                                    <li><span style="background-color: #fbeeb8;">display</span></li>
+                                </ul>
+                            </li>
+                            <li>This won't cause the block to display yet; you need to add another class to complete the styling of the block.</li>
+                        </ol>
+                    </li>
+                    <li>To create a color style
+                        <ol style="list-style-type: upper-alpha;">
+                            <li><span style="background-color: #fbeeb8;">create a new CSS rule using a class selector</span> (probably named after the color you want to set)</li>
+                            <li><span style="background-color: #fbeeb8;">set the following recommended properties</span> in that CSS rule
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="background-color: #fbeeb8;">background-color</span></li>
+                                    <li><span style="background-color: #fbeeb8;">border-color</span></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>After creating a Tetris block and a color style, <span style="background-color: #fbeeb8;">add the new class to the Tetris block</span>
+                        <ul style="list-style-type: disc;">
+                            <li>e.g. &lt;div class="tetris-block red"&gt;&lt;/div&gt;</li>
+                            <li>remember that to add multiple classes to an HTML element, you just put both of them in the class attribute value (between the double quotes) with spaces between them</li>
+                        </ul>
+                    </li>
+                    <li><span style="background-color: #fbeeb8;">Repeat Step 4 and create at least FOUR (4) other color styles</span></li>
+                    <li><span style="background-color: #fbeeb8;">Create a LOT more Tetris blocks in the block-area &lt;div&gt;, enough to fill THREE (3) rows</span>
+                        <ul style="list-style-type: disc;">
+                            <li>You don't need to type out EVERY single &lt;div&gt; element; copy/pasting is fine, as long as you maintain good indentation and update the appropriate classes in each &lt;div&gt;</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <p>&nbsp;</p>
+        <p>When completed, your preview window in Visual Studio Code should resemble something like the image at the top of the assignment, just with your own colors and styles of blocks.&nbsp; As long as you have those three rows of blocks, feel free to submit your code (make sure you test you code in the browser beforehand though!).</p>
+        <p>&nbsp;</p>
+        <div style="background-color: azure; border: 3px solid skyblue; padding: 24px; border-radius: 4px;">
+            <h4><strong>CHALLENGE</strong></h4>
+            <p>However, if you want to challenge yourself, you could make your blocks even more unique looking, as in the example below:</p>
+            <p>&nbsp;</p>
+            <p><img style="display: block; margin-left: auto; margin-right: auto;" src="images/fancy-1.png" alt="fancy-1.png" width="832" height="494" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664586" data-api-returntype="File" /></p>
+            <p>&nbsp;</p>
+            <p>The blocks in the image above take advantage of two additional CSS properties, border-radius and transform, in addition to different border-styles:</p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul style="list-style-type: disc;">
+                        <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#border">border-style</a>
+                            <ul style="list-style-type: disc;">
+                                <li>There are MANY different types of border-styles; check out more of them in the Coding Cookbook's page for the border property!</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#border-radius">border-radius</a>
+                            <ul style="list-style-type: disc;">
+                                <li>This CSS Property allows you to round the corners of a box</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#transform">transform</a><br />
+                            <ul style="list-style-type: disc;">
+                                <li>This is a fun, albeit complex property that allows you to apply mathematical transformations to an element, such as rotate() and scale().</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p>These extra properties are optional, but if you have the time, try and figure out how you can use them to modify your Tetris blocks!&nbsp; They're good properties to add to your CSS toolkit.</p>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO SUBMIT:</strong></p>
+        <p><strong><img id="1564205" src="images/SubmissionOverview.png" alt="SubmissionOverview.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664769" data-api-returntype="File" /></strong></p>
+        <ul>
+            <li style="list-style-type: none;">
+                <ul>
+                    <li><span>SAVE ALL OF YOUR WORK BEFORE PROCEEDING (inside Visual Studio Code)</span></li>
+                    <li><span>Open your Github Desktop app and <strong>commit</strong>&nbsp;and&nbsp;<strong>push</strong>&nbsp;any changes you made in the project folder</span></li>
+                    <li><span>Go to github.com in the Google Chrome browser and ensure the changes to your project folder were "pushed" up to your github.com repository</span></li>
+                    <li><span>Open the Github Pages site (Settings -&gt; Pages -&gt; Visit site)</span>
+                        <ul>
+                            <li><span>or alternatively, go to the Environments/Deployments section of your repository page, click "github-pages", and then click the most recent deployment</span></li>
+                        </ul>
+                    </li>
+                    <li><span>Add your project folder name at the end of your URL&nbsp;</span></li>
+                    <li><span>Open the link to your new webpage for the project.&nbsp; </span>
+                        <ul>
+                            <li><strong>Confirm it actually works before you submit it!!!</strong></li>
+                        </ul>
+                    </li>
+                    <li><span>Copy the URL in the address bar and submit it to receive credit for this assignment.</span>
+                        <ul>
+                            <li>Example URL:<span>&nbsp;</span><span>http://username.github.io/code-skeleton/</span></li>
+                            <li>This example assumes you followed the initial setup instructions correctly; if you deviated or made any mistakes, your URL may look a little different</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>&nbsp;</p>
+        <p style="text-align: center;"><img style="display: block; margin-left: auto; margin-right: auto;" src="images/completed.png" alt="completed.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664566" data-api-returntype="File" /><span style="font-size: 10pt;">NOTE: This image is not a representation of the final product for this assignment; your color palettes will be stacked on top of each other, not side by side.&nbsp; However, a screenshot like that doesn't fit well in Canvas, so we chopped them up and put them side by side to illustrate the total work you'll be expected to do.</span></p>
+        <p>&nbsp;</p>
+        <div style="background-color: #dfffdf; border: 3px solid #99dd99; padding: 24px; border-radius: 4px;">
+            <p><strong>OBJECTIVES:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>Create three unique color palettes of 3-5 colors each</li>
+                        <li>Practice using the CSS Properties you've learned today</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><strong>NEW CONCEPTS WE'LL BE USING:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>CSS Rules</li>
+                        <li>CSS ID Selectors</li>
+                        <li>CSS Properties
+                            <ul>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#background-color">background-color</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#color">color</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#font-family">font-family</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#text-align">text-align</a></li>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#padding">padding</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO COMPLETE:</strong></p>
+        <p>While we learned a ton of new concepts today related to CSS, we're still rather limited in that we only know how to change the color and font properties of elements.&nbsp; So this exercise is meant to be a simple yet practical application of those concepts: we're going to have you build out some color palettes using HTML and CSS!</p>
+        <p>Your instructor will be demoing how to build one color palette based on the instructions below; however, feel free to charge ahead and attempt it on your own at your own pace if you're confident!</p>
+        <p>&nbsp;</p>
+        <ol>
+            <li style="list-style-type: none;">
+                <ol style="list-style-type: decimal;">
+                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>First off, let's <span style="background-color: #fbeeb8;">modify your&nbsp;<strong>code-skeleton</strong> project to include a new CSS file</span>, and link it as well, so that you don't need to manually do this for every assignment in the future</span></span>
+                        <ul style="list-style-type: circle;">
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>Follow the steps in the following tutorial for <a href="https://first-gdwd.github.io/cookbook/appetizers/linking-html-and-css.html">Linking HTML and CSS</a>.</span></span></li>
+                        </ul>
+                    </li>
+                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>Now that you've modified it to include a CSS file, <span style="background-color: #fbeeb8;">duplicate your </span></span><span style="background-color: #fbeeb8;"><strong>code-skeleton</strong></span><span><span style="background-color: #fbeeb8;">&nbsp;project folder</span> inside of your repository folder, and <span style="background-color: #fbeeb8;">rename the duplicate</span></span><span style="background-color: #fbeeb8;"> "</span></span><span style="background-color: #fbeeb8;"><strong style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem; background-color: #fbeeb8;">color-palettes</strong><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem; background-color: #fbeeb8;">"</span></span></li>
+                    <li>Your objective is to <span style="background-color: #fbeeb8;">create THREE (3) unique color palettes</span>.&nbsp;
+                        <ul style="list-style-type: circle;">
+                            <li>Feel free to visit a color palette generator like <a href="https://coolors.co/" target="_blank" rel="noopener">https://coolors.co/</a> if you have trouble coming up with color palettes yourself.&nbsp;</li>
+                            <li>In terms of text content, <span style="background-color: #fbeeb8;">each color palette should include</span>:
+                                <ul style="list-style-type: circle;">
+                                    <li><span style="background-color: #fbeeb8;">a name</span></li>
+                                    <li><span style="background-color: #fbeeb8;">3 - 5 colors</span>, including both the color name and its hexadecimal representation</li>
+                                </ul>
+                            </li>
+                            <li>In terms of the HTML, each color palette should include:
+                                <ul style="list-style-type: circle;">
+                                    <li><span style="background-color: #fbeeb8;">a heading for the color palette name</span> (&lt;h2&gt; - &lt;h6&gt;, your choice)</li>
+                                    <li><span style="background-color: #fbeeb8;">a &lt;div&gt; element for each color</span>
+                                        <ul style="list-style-type: circle;">
+                                            <li>each containing <span style="background-color: #fbeeb8;">two additional headings</span> (again, your choice of &lt;h2&gt; - &lt;h6&gt;)</li>
+                                        </ul>
+                                    </li>
+                                    <li>the primary heading and each &lt;div&gt; element should have <span style="background-color: #fbeeb8;">unique id attributes</span></li>
+                                </ul>
+                            </li>
+                            <li>In terms of the CSS,
+                                <ul style="list-style-type: circle;">
+                                    <li>The <span style="background-color: #fbeeb8;">primary heading element</span> should be targeted and given the following CSS properties:
+                                        <ul style="list-style-type: circle;">
+                                            <li><span style="background-color: #fbeeb8;">font-family</span></li>
+                                            <li><span style="background-color: #fbeeb8;">text-align&nbsp;</span></li>
+                                        </ul>
+                                    </li>
+                                    <li>The <span style="background-color: #fbeeb8;">&lt;div&gt; elements</span> should be targeted and given the following CSS properties:
+                                        <ul style="list-style-type: circle;">
+                                            <li><span style="background-color: #fbeeb8;">background-color</span></li>
+                                            <li><span style="background-color: #fbeeb8;">color</span></li>
+                                            <li><span style="background-color: #fbeeb8;">font-family</span></li>
+                                            <li><span style="background-color: #fbeeb8;">text-align</span></li>
+                                            <li><span style="background-color: #fbeeb8;">padding: 24px;</span> (<span style="background-color: #f8cac6;">we haven't learn this one yet; just trust us that you will want to have it here</span>)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Each palette should use a<span style="background-color: #fbeeb8;"> different font-family</span>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <p>&nbsp;</p>
+        <p>When completed, your preview window in Visual Studio Code will NOT resemble the image at the top of the assignment; instead, your three color palettes should be stacked on top of each other, as in the screenshot below (which only shows 2-ish of the 3 color palettes above):</p>
+        <p>&nbsp;</p>
+        <p><img style="display: block; margin-left: auto; margin-right: auto;" src="images/completed_real.png" alt="completed_real.png" width="380" height="571" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664569" data-api-returntype="File" /></p>
+        <p>&nbsp;</p>
+        <p>Later, when we learn more CSS, you'll be able to build a layout with content side by side, but for now, we're going to keep things simple and leave them stacked.&nbsp;&nbsp;</p>
+        <p>&nbsp;</p>
+        <div style="background-color: azure; border: 3px solid skyblue; padding: 24px; border-radius: 4px;">
+            <h4><strong>CHALLENGE</strong></h4>
+            <p>You are not limited to ONLY using the CSS properties specified above; we learned quite a few other CSS properties like:</p>
+            <ul>
+                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#font-size">font-size</a></li>
+                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#font-weight">font-weight</a></li>
+                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#font-style">font-style</a></li>
+                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#text-decoration">text-decoration&nbsp;</a>&nbsp;</li>
+            </ul>
+            <p>Feel free to add additional id attributes and CSS properties to further customize your color palettes' text!</p>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO SUBMIT:</strong></p>
+        <p><strong><img id="1564205" src="images/SubmissionOverview.png" alt="SubmissionOverview.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664769" data-api-returntype="File" /></strong></p>
+        <ul>
+            <li style="list-style-type: none;">
+                <ul>
+                    <li><span>SAVE ALL OF YOUR WORK BEFORE PROCEEDING (inside Visual Studio Code)</span></li>
+                    <li><span>Open your Github Desktop app and <strong>commit</strong>&nbsp;and&nbsp;<strong>push</strong>&nbsp;any changes you made in the project folder</span></li>
+                    <li><span>Go to github.com in the Google Chrome browser and ensure the changes to your project folder were "pushed" up to your github.com repository</span></li>
+                    <li><span>Open the Github Pages site (Settings -&gt; Pages -&gt; Visit site)</span>
+                        <ul>
+                            <li><span>or alternatively, go to the Environments/Deployments section of your repository page, click "github-pages", and then click the most recent deployment</span></li>
+                        </ul>
+                    </li>
+                    <li><span>Add your project folder name at the end of your URL&nbsp;</span></li>
+                    <li><span>Open the link to your new webpage for the project.&nbsp; </span>
+                        <ul>
+                            <li><strong>Confirm it actually works before you submit it!!!</strong></li>
+                        </ul>
+                    </li>
+                    <li><span>Copy the URL in the address bar and submit it to receive credit for this assignment.</span>
+                        <ul>
+                            <li>Example URL:<span>&nbsp;</span><span>http://username.github.io/code-skeleton/</span></li>
+                            <li>This example assumes you followed the initial setup instructions correctly; if you deviated or made any mistakes, your URL may look a little different</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>   
+    </body>
+</html>
