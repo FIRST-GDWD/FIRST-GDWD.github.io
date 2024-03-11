@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bulletin Board | Exercise</title>
+    </head>
+    <body>
+        <p>&nbsp;</p>
+        <p style="text-align: center;"><img src="images/simple.png" alt="simple.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664571" data-api-returntype="File" /></p>
+        <p>&nbsp;</p>
+        <div style="background-color: #dfffdf; border: 3px solid #99dd99; padding: 24px; border-radius: 4px;">
+            <p><strong>OBJECTIVES:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>Create at least TWO (2) rows of post-its
+                            <ul>
+                                <li>each with at least THREE (3) post-its in each row</li>
+                            </ul>
+                        </li>
+                        <li>Practice using the CSS Properties you've learned today</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><strong>NEW CONCEPTS WE'LL BE USING:</strong></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li>CSS Class Selectors</li>
+                        <li>CSS Properties
+                            <ul>
+                                <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#display">display (block, inline, inline-block)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO COMPLETE:</strong></p>
+        <p>Recently, we learned our first major layout building tool: the <strong>display</strong> property!&nbsp; With this CSS property, we can now control the flow of the HTML elements on our page: we can specify whether they should sit side by side other elements (inline or inline-block) or whether they should take up an entire line on their own (block).</p>
+        <p>We also learned how to use class attributes in HTML along with class selectors in CSS to share the same CSS properties across multiple HTML elements.</p>
+        <p>Our goal for this exercise is to utilize these new skills to fill out a bulletin board with some post-its; it's up to you to remember how to use the <strong>display</strong> property to layout the post-its according to the assignment specifications!</p>
+        <p>&nbsp;</p>
+        <p>(HINT: <a href="https://first-gdwd.github.io/cookbook/demos.html#divs-spans-and-flow">This demo</a> is a good refresher on the principles you need to use in this assignment)</p>
+        <p>&nbsp;</p>
+        <p><em>If you're unsure about how to unzip the project template below, or how to get it into your repository, check out the following tutorial from the Coding Cookbook - <a href="https://first-gdwd.github.io/cookbook/appetizers/template-to-repository.html">Importing a Code Template.</a></em></p>
+        <p>&nbsp;</p>
+        <ol>
+            <li style="list-style-type: none;">
+                <ol style="list-style-type: decimal;">
+                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>Download and unzip the <a class="instructure_file_link inline_disabled" title="bulletin-board.zip" href="files/bulletin-board.zip" target="_blank" rel="noopener" data-canvas-previewable="false" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664577" data-api-returntype="File">bulletin board template</a>; place the unzipped folder into your repository with the name <strong>"bulletin-board".</strong>&nbsp; It should contain:</span></span>
+                        <ul style="list-style-type: disc;">
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>a css folder</span></span>
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>setup.css (don't modify this file)</span></span></li>
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>style.css (this is the file you'll be writing your CSS in)</span></span></li>
+                                </ul>
+                            </li>
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>an images folder</span></span>
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>corkboard.jpg</span></span></li>
+                                    <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>frame.jpg</span></span></li>
+                                </ul>
+                            </li>
+                            <li><span style="color: var(--ic-brand-font-color-dark); font-family: inherit; font-size: 1rem;"><span>index.html</span></span></li>
+                        </ul>
+                    </li>
+                    <li>Your objective is to <span style="background-color: #fbeeb8;">create at least TWO (2) rows of post-its</span> inside the &lt;div&gt; element with the id of "bulletin-board"
+                        <ul style="list-style-type: circle;">
+                            <li><span style="background-color: #fbeeb8;">and each row should contain at least THREE (3) post-its</span>&nbsp;</li>
+                        </ul>
+                    </li>
+                    <li>To create a post-it,
+                        <ol style="list-style-type: upper-alpha;">
+                            <li><span style="background-color: #fbeeb8;">add a &lt;div&gt; element with a "post-it" class</span> inside the bulletin board element</li>
+                            <li><span style="background-color: #fbeeb8;">fill the &lt;div&gt; element with whatever content you want</span> to include on your board.&nbsp;
+                                <ul style="list-style-type: disc;">
+                                    <li>Consider things like:
+                                        <ul style="list-style-type: circle;">
+                                            <li>reminders</li>
+                                            <li>motivation quotes</li>
+                                            <li>pictures</li>
+                                        </ul>
+                                    </li>
+                                    <li>Also remember you can use different HTML elements like:
+                                        <ul style="list-style-type: disc;">
+                                            <li>headings (&lt;h1&gt; - &lt;h6&gt;)</li>
+                                            <li>paragraphs (&lt;p&gt;)</li>
+                                            <li>lists (&lt;ul&gt;, &lt;ol&gt;, and &lt;li&gt;)</li>
+                                            <li>images (&lt;img&gt;)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span style="background-color: #fbeeb8;">In the CSS, create a rule for your "post-it" class</span>, and <span style="background-color: #fbeeb8;">set the following properties</span> (some of the values are up to you to pick/figure out)
+                                <ul style="list-style-type: disc;">
+                                    <li><span style="background-color: #fbeeb8;">background-color</span></li>
+                                    <li><span style="background-color: #fbeeb8;">display</span></li>
+                                    <li><span style="background-color: #fbeeb8;">width</span></li>
+                                    <li><span style="background-color: #fbeeb8;">height</span></li>
+                                    <li><span style="background-color: #fbeeb8;">margin: 24px;</span> (we haven't formally learned margin yet; just trust that this will work for now)</li>
+                                    <li><span style="background-color: #fbeeb8;">padding: 24px;</span> (we haven't formally learned padding yet; just trust that this will work for now)</li>
+                                    <li><span style="background-color: #fbeeb8;">font-family</span></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><span style="background-color: #fbeeb8;">Repeat steps 3A and 3B for additional post-its</span>
+                        <ol style="list-style-type: upper-alpha;">
+                            <li>Consider setting up different color classes that you can apply to each post-it, to add some variety</li>
+                            <li>Remember that you can add multiple classes to an HTML element.&nbsp; If we wanted to add a "yellow" class in addition to the "post-it" class, we put both of them in the class attribute, separated by a space, as in the code snippet below:
+                                <ul style="list-style-type: disc;">
+                                    <li>&lt;div class="post-it yellow"&gt;&lt;/div&gt;</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><span style="background-color: #fbeeb8;">Remember that you need to have two rows of post-its; the steps above do not include how to build such a layout.</span>&nbsp;
+                        <ul style="list-style-type: disc;">
+                            <li>Think back to what you learned about Document Flow today, and apply it to your post-its!</li>
+                            <li>Also be sure to test your code in the browser; the preview window is often too narrow to truly test your layout (unless you're working on a really wide monitor).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <p>&nbsp;</p>
+        <p>When completed, your preview window in Visual Studio Code should resemble something like the image at the top of the assignment, just with your own content.&nbsp; As long as you have those two rows of post-its, feel free to submit your code (make sure you test you code in the browser beforehand though!).</p>
+        <p>&nbsp;</p>
+        <div style="background-color: azure; border: 3px solid skyblue; padding: 24px; border-radius: 4px;">
+            <h4><strong>CHALLENGE</strong></h4>
+            <p>However, if you want to challenge yourself, there are a couple new CSS properties we could take advantage of to make our bulletin board look even more realistic, as in the image below:</p>
+            <p>&nbsp;</p>
+            <p><img src="images/fancy.png" alt="fancy.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664574" data-api-returntype="File" /></p>
+            <p>&nbsp;</p>
+            <p>The image above has subtle shadows added to the post-its, and also added rounded circles with their own shadows that resemble push pins.&nbsp; The new CSS properties used in the image above are:</p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul style="list-style-type: disc;">
+                        <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#box-shadow">box-shadow</a>
+                            <ul style="list-style-type: disc;">
+                                <li>This CSS Property accepts many values, used to offset the shadow, blur it, and even color it</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://first-gdwd.github.io/cookbook/seasonings.html#border-radius">border-radius</a>: 50%;<br />
+                            <ul style="list-style-type: disc;">
+                                <li>We'll learn more about this property soon, but for now, just trust us that when this code is applied to a square element, it will completely round the corners and turn it into a circle.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>These extra properties are optional, but if you have the time, try and figure out how you can use them to modify your bulletin board!&nbsp; They're good properties to add to your CSS toolkit.</p>
+        </div>
+        <p>&nbsp;</p>
+        <p><strong>HOW TO SUBMIT:</strong></p>
+        <p><strong><img id="1564205" src="images/SubmissionOverview.png" alt="SubmissionOverview.png" data-api-endpoint="https://first.instructure.com/api/v1/courses/2542/files/1664769" data-api-returntype="File" /></strong></p>
+        <ul>
+            <li style="list-style-type: none;">
+                <ul>
+                    <li><span>SAVE ALL OF YOUR WORK BEFORE PROCEEDING (inside Visual Studio Code)</span></li>
+                    <li><span>Open your Github Desktop app and <strong>commit</strong>&nbsp;and&nbsp;<strong>push</strong>&nbsp;any changes you made in the project folder</span></li>
+                    <li><span>Go to github.com in the Google Chrome browser and ensure the changes to your project folder were "pushed" up to your github.com repository</span></li>
+                    <li><span>Open the Github Pages site (Settings -&gt; Pages -&gt; Visit site)</span>
+                        <ul>
+                            <li><span>or alternatively, go to the Environments/Deployments section of your repository page, click "github-pages", and then click the most recent deployment</span></li>
+                        </ul>
+                    </li>
+                    <li><span>Add your project folder name at the end of your URL&nbsp;</span></li>
+                    <li><span>Open the link to your new webpage for the project.&nbsp; </span>
+                        <ul>
+                            <li><strong>Confirm it actually works before you submit it!!!</strong></li>
+                        </ul>
+                    </li>
+                    <li><span>Copy the URL in the address bar and submit it to receive credit for this assignment.</span>
+                        <ul>
+                            <li>Example URL:<span>&nbsp;</span><span>http://username.github.io/code-skeleton/</span></li>
+                            <li>This example assumes you followed the initial setup instructions correctly; if you deviated or made any mistakes, your URL may look a little different</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+    </body>
+</html>
