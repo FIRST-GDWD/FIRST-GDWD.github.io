@@ -1,189 +1,63 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>GDWD 105 Agenda (Night)</title>
-        <meta name="description" content="GDWD 105 Agenda (Night)">
-        <style>
-            body {
-                font-family: Verdana, sans-serif;
-            }
-            ul {
-                font-size: 24px;
-            }
-            #agenda {
-                padding-left: 36px;
-                margin-bottom: 36px;
-            }
-            .indent {
-                padding-left: 36px;
-            }
-            .highlight {
-                background-color: orange;
-            }
-            .warning {
-                background-color: red;
-            }
-            .green {
-                background: linear-gradient(to right, green, lightgreen, green);
-                padding: 12px;
-                text-shadow: 1px 1px 4px white;
-            }
-            h2 {
-                margin-top: 24px
-            }
-            .agendaItem {
-                font-size: 18px;
-                display: flex;
-            }
-            .agendaItem span:first-child {
-
-                width: 250px;
-            }
-            .agendaItem span:not(:first-child) {
-                flex: 1;
-            }
-            .assnItem {
-                display: flex;
-                max-width: 800px;
-            }
-            .assnItem span:first-child {
-                flex: 1;
-            }
-            .assnItem span:not(:first-child) {
-                width: 200px;
-            }
-            .done {
-                text-decoration: line-through;
-            }
-            .indent {
-                padding-left: 48px;
-            }
-        </style>
+        <title>GDWD 105 AGENDA (2018 Cohort)</title>
+        <meta name="description" content="Here's what we're doing in class today!">
+        <link href="css/agenda.css" rel="stylesheet">
     </head>
     <body style="padding:24px;">
-        <h1>GDWD 105 Agenda for December 8<sup>th</sup></h1>
-        <div id="agenda">
-        <!-- <h2>Office Hours (4:30-5:30): Available Upon Request (no guarantees on same-day requests!)</h2> -->
-        <h2>Announcements (6:10)</h2>
-        <h3>(if you're not here by 6:10, you're tardy!)</h3>
-        <h2>
-            Period 1 (6:00-8:30): Final Exam & Intro to JS Function Game</span>
-        </h2>
-        <!-- <h3>SHORT BREAK (10 MIN)</h3>
-        <h2>Period 2 (7:20-8:30): Lab Time - HTML Potluck</h2> -->
-        <h3>DINNER BREAK (45 MIN)</h3>
-        <h2>
-            Period 2 (9:15-11:00): 
-            <span >Lab Time</span>
-        </h2>
-        </div>
+        <div id="layout">
+            <h1>GDWD 105 - Agenda for March 18th, 2024</h1>
+            <div id="flex-container">
+                <div id="assignments">
+                    <h2>Warm-up Question</h2>
+                    <ul>
+                        <li>
+                            How do you feel about the idea of coding?
+                        </li>
+                    </ul>
+                    <div class="img-container">
+                        <img 
+                            src="images/anxious.webp"
+                            alt="things that make me anxious"
+                        >
+                    </div>
+                    <h2>Deliverables for Today</h2>
+                    <ul>
+                        <li><span class="type">Exercise</span>WordPress Sandbox Site Creation</li>
+                        <li><span class="type">Exercise</span>My First Blog Post</li>
+                    </ul>
+                </div>
 
-        <h1>Assignments, Deliverables &amp; More</h1>
-        <div id="agenda">
-            <h2 class="assnItem highlight">
-                <span>FINAL EXAM</span>
-                <span>Beginning of class</span>
-            </h2>
-            <h2 class="assnItem highlight">
-                <span>JS Function Game | Exercise</span>
-                <span>Due TONIGHT at 11pm</span>
-            </h2>
-        <h2 class="assnItem warning">
-            <span>RESUBMISSIONS FOR FINAL PROJECT</span>
-            <span>Due tonight at 11pm</span>
-        </h2>
-        </div>
+                <div id="agenda">
+                    <div class="wrapper">
+                        <h3>Introductions (6pm-6:10pm)</h3>
 
-        <h1>Late Policy</h1>
-        <div id="agenda">
-        <h2>
-            Late Exercises: 10% penalty
-            <br>
-            Late Projects: 21% penalty
-        </h2>
-        <h2>
-            Last Day to Resubmit assignments:
-            <br>Five (5) class days after the assignment was assigned
-        </h2>
-        <h3>(Anything turned in past this won't be graded)</h3>
+                        <h3>Period 1 (6:10pm-7:10pm)</h3>
+                        <ul>
+                            <li><span class="type">Resources</span>Course Overview and Policies</li>
+                            <li><span class="type">PowerPoint</span>Intro to CMS</li>
+                        </ul>
+                    </div>
+                    <h3 class="centered">Small Break (10min)</h3>
+                    <div class="wrapper">
+                        <h3>Period 2 (7:20pm-8:30pm)</h3>
+                        <ul>
+                            <li><span class="type">Exercise</span>WordPress Sandbox Site Creation</li>
+                            <li><span class="type">Demo</span>Intro to WordPress</li>
+                        </ul>
+                    </div>
+                    <h3 class="centered">Lunch Break (45min)</h3>
+                    <div class="wrapper">
+                        <h3>Period 3 (9:15pm-11pm)</h3>
+                        <ul>
+                            <li><span class="type">Demo</span>Intro to WordPress (cont.)</li>
+                            <li><span class="type">Exercise</span>My First Blog Post</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- <h1>End of Class Syllabus</h1>
-        <div id="agenda">
-        <div class="agendaItem done">
-            <span>3/07 (Tues - W9 Day 41)</span>
-            <span>Frame-by-Frame JS Animation</span>
-        </div>
-        <div class="agendaItem done">
-            <span>3/08 (Wed - W9 Day 42)</span>
-            <span>JS Animation - GreenSock</span>
-        </div>
-        <div class="agendaItem done">
-            <span>3/09 (Thurs - W9 Day 43)</span>
-            <span>Finals Review</span>
-        </div>
-        <div class="agendaItem ">
-            <span>3/10 (Fri - W9 Day 44)</span>
-            <span>FINAL EVAL</span>
-        </div>
-        <br>
-        <div class="agendaItem ">
-            <span>3/13 (Mon - W9 Day 45)</span>
-            <span>FINAL EXAM</span>
-        </div>
-        <br><br> -->
-        <!-- <div class="agendaItem done">
-            <span>12/12 (Day 06)</span>
-            <span>Illustrator/Motion Graphics - Planning Assignments and Critiques Part 1</span>
-        </div>
-        <div class="agendaItem done">
-            <span>12/13 (Day 07)</span>
-            <span>Illustrator/Motion Graphics - Critiques Part 2</span>
-        </div>
-        <div class="agendaItem done">
-            <span>12/14 (Day 08)</span>
-            <span>Illustrator/Motion Graphics - Lab Day</span>
-        </div>
-        <div class="agendaItem done">
-            <span>12/15 (Day 09)</span>
-            <span>Illustrator/Motion Graphics - Lab Day</span>
-        </div>
-        <div class="agendaItem done">
-            <span>12/16 (Day 10)</span>
-            <span>Illustrator/Motion Graphics - Presentations and Project Turn-in Assignments</span>
-        </div>
-        <br><br>
-        <div class="agendaItem done">
-            <span>12/19 - 01/02</span>
-            <span>Winter Break!</span>
-        </div>
-        <div class="agendaItem done">
-            <span>12/19 - 12/21</span>
-            <span>Lab Days: 9am - 5:30pm</span>
-        </div>
-        <br><br>
-        <div class="agendaItem done">
-            <span>01/03 (Day 11)</span>
-            <span>Web Development/UI/UX/Resume - Planning Assignments and Critiques Part 1</span>
-        </div>
-        <div class="agendaItem done">
-            <span>01/04 (Day 12)</span>
-            <span>Web Development/UI/UX/Resume - Critiques Part 2 | Final Exam Review #1</span>
-        </div>
-        <div class="agendaItem">
-            <span>01/05 (Day 13)</span>
-            <span>Web Development/UI/UX/Resume - Lab Day | Final Exam Review #2 | Exit Surveys</span>
-        </div>
-        <div class="agendaItem">
-            <span>01/06 (Day 14)</span>
-            <span>[NEW INSTRUCTOR!!!] Web Development/UI/UX/Resume - Presentations and Project Turn-in Assignments | Final Exam Review #3</span>
-        </div>
-        <br><br>
-        <div class="agendaItem">
-            <span>01/09 (Day 15)</span>
-            <span>[NEW INSTRUCTOR!!!] Exit Exam | Final Portfolio Site - Presentations</span>
-        </div>
-        </div> -->
 
     </body>
 </html>
