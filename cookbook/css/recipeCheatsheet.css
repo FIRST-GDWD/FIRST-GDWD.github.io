@@ -1,0 +1,90 @@
+.item {
+    border: 10px solid darkblue;
+    background-color: lightblue;
+    margin: 12px;
+    padding: 12px;
+}
+
+.inline-block {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.container {
+    border: 10px solid orangered;
+    background-color: orange;
+    margin: 12px;
+    padding: 12px;
+}
+
+.code {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 12px;
+    margin-bottom: 24px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.block {
+    padding: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.column-centered {
+    width: 50%;
+    margin: 48px auto;
+    height: 400px;
+}
+
+.grid-with-gutters {
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    grid-template-areas: ". content .";
+}
+
+.grid-column {
+    grid-area: content;
+    height: 400px;
+}
+
+h2 {
+    margin-top: 100px;
+}
+
+h2:first-child {
+    margin-top: 24px;
+}
+
+h4 {
+    margin-top: 48px;
+}
