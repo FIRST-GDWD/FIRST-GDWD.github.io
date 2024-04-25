@@ -1,3 +1,7 @@
+.cookbookPage {
+    font-size: 24px;
+}
+
 .item {
     border: 10px solid darkblue;
     background-color: lightblue;
@@ -80,6 +84,7 @@
 h2 {
     font-size: 28px;
     margin-top: 100px;
+    text-align: center;
 }
 
 h2:first-child {
@@ -96,4 +101,27 @@ h4 {
     width: 200px;
     text-align: center;
     font-weight: bold;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.position-relative {
+    position: relative;
+    height: 600px;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.left-center {
+    left: 0px;
+    top: 25%;
+}
+
+.bottom-right {
+    bottom: 0px;
+    right: 0px;
 }

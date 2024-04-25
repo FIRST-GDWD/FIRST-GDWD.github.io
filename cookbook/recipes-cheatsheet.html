@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <h2>Alignment Options</h2>
+            <h2>Center Alignment Options</h2>
             <h4>Text-Align</h4>
             <div class="container">
                 <div class="code">
@@ -212,6 +212,46 @@
                         <div class="code">
                             grid-area: content;
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Positioning Options</h2>
+            <h4>Apart</h4>
+            <div class="container">
+                <div class="code">
+                    display: flex;
+                    <br>
+                    justify-content: space-between;
+                </div>
+                <div class="flex-container space-between">
+                    <div class="item block">
+                        
+                    </div>
+                    <div class="item block">
+                        
+                    </div>
+                </div>
+            </div>
+            <h4>Custom Positioning (recommended only for large containers like heroes)</h4>
+            <div class="container">
+                <div class="code">
+                    position: relative;
+                </div>
+                <div class="position-relative">
+                    <div class="item block position-absolute left-center">
+                        position: absolute;
+                        <br>
+                        left: 0px;
+                        <br>
+                        top: 25%;
+                    </div>
+                    <div class="item block position-absolute bottom-right">
+                        position: absolute;
+                        <br>
+                        bottom: 0px;
+                        <br>
+                        right: 0px;
                     </div>
                 </div>
             </div>
