@@ -25,6 +25,11 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 12px;
+}
+
+h1 + h3 {
+    text-align: center;
     margin-bottom: 48px;
 }
 
@@ -44,8 +49,13 @@ h1 {
     flex: 1;
 }
 
-#assignments h2:first-child {
+#assignments h2:first-child,
+#agenda h2:first-child {
     margin-top: 0px;
+}
+
+#agenda h2:first-child {
+    text-align: center;
 }
 
 #assignments img {
@@ -84,7 +94,7 @@ h1 {
 .wrapper {
     background-color: skyblue;
     /* background-color: rgb(235, 140, 135); */
-    padding: 12px;
+    padding: 12px 24px;
 }
 
 ul li {
@@ -105,4 +115,17 @@ a {
 .love {
     font-size: 24px;
     color: rgb(230, 91, 91);
+}
+
+@media screen and (max-width: 1100px) {
+    
+    #flex-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #layout {
+        width: 95%;
+    }
 }

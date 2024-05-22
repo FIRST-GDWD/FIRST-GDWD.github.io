@@ -12,13 +12,53 @@
         <!--
             NOTE TO STUDENTS: You don't NEED to modify the HTML in this file.
             However, you are allowed to, if it helps you complete the project
-            in an easier or more timely fashion.  Good luck!
+            in an easier or more timely fashion.  
+            
+            Instructions/tips are given to you in comments below, guiding you
+            with what to target in CSS, and what properties to set. Some values
+            and properties are left for you to add/discover on your own.
+            
+            Good luck!
+        -->
+
+        <!--
+            Target the element with the "license" id below in CSS, and set the 
+            following CSS Properties:
+                width: 700px;
+                border
+                border-radius
+                padding: 24px;
         -->
         <div id="license">
             <div id="content">
                 <h1>FLORIDA</h1>
+                <!--
+                    Our first goal is to get the left side and right side of
+                    the license side-by-side.
+
+                    First, target the element with the id of "left-side" and 
+                    set the following CSS Properties:
+                        display: inline-block; 
+                        width: 65%;
+
+                    Then, we recommend you jump down to the comment for the 
+                    element with the id of "right-side" next, before returning 
+                    back here and continuing.
+
+                    Building a layout from the outside inward is usually the
+                    most intuitive way to implement it from a coding perspective.
+                -->
                 <div id="left-side">
                     <h4>DRIVER LICENSE</h4>
+                    <!--
+                        Next, we want to get the License Number and Expiration
+                        Date elements side-by-side.
+
+                        To make that happen, target the div elements INSIDE of 
+                        the element with the id of "id-and-expiration" (this is 
+                        a bit tricky) and set the following CSS Properties:
+                            display: inline-block;
+                    -->
                     <div id="id-and-expiration">
                         <div>License No. <span>P7777777</span></div>
                         <div>Expires <span>04-01-25</span></div>
@@ -31,6 +71,16 @@
                         SOMETOWN, FL 42714
                     </div>
                     <div id="personal-info">
+                        <!--
+                            Now we want to get the smaller headshot image
+                            and the data fields like hair color, height, etc.
+                            to be side-by-side.
+
+                            To do this, target the elements with the ids of
+                            "small-pic" and "data-fields", and set the 
+                            following properties:
+                                display: inline-block;
+                        -->
                         <div id="small-pic">
                             <img src="images/mii.png">
                         </div>
@@ -51,6 +101,11 @@
                         </div>
                     </div>
                 </div>
+                <!--
+                    Target the element with the id of "right-side" and give it:
+                        display: inline-block; 
+                        width: 34%;
+                -->
                 <div id="right-side">
                     <img src="images/mii.png">
                     <div id="donor-and-real-id">
