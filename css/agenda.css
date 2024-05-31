@@ -85,6 +85,10 @@ h1 + h3 {
     background-color: #091c2f;
 }
 
+#assignments .img-container.more-space.dark-red {
+    background-color: #871e2c;
+}
+
 #assignments .img-container.more-space img {
     width: 70%;
     display: inline-block;
