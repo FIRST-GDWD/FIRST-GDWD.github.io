@@ -111,6 +111,10 @@ h1 + h3 {
     margin: 24px 0px;
 }
 
+#assignments .img-container.more-space.black {
+    background-color: #000000;
+}
+
 #assignments .img-container.more-space-offset {
     background-color: #09202f;
     display: flex;
