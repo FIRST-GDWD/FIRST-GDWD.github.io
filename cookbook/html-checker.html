@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Checker</title>
+    </head>
+    <body>
+        <textarea id="html-input"></textarea>
+        <button 
+            id="submit"
+        >
+            SUBMIT
+        </button>
+
+        <script>
+            const htmlInput = document.getElementById("html-input");
+            const submitButton = document.getElementById("submit");
+
+            submitButton.onclick = () => {
+                const TAB_LENGTH = 4;
+                const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br"]
+                const rawInputLines = htmlInput.value.split("\n");
+                const lineObjects = [];
+                let lastLineObject = null;
+                for (let i = 0; i < rawInputLines.length; i++) {
+                    const rawInput = rawInputLines[i];
+                    const newLineObject = {};
+                    newLineObject.rawInput = rawInput;
+                    newLineObject.charCount = rawInput.length;
+                    newLineObject.trimmedInput = rawInput.trimStart();
+
+                    const tagNameRegex = /^<\s*([a-zA-Z0-9-]+)\b[^>]*/;
+                    const matches = newLineObject.trimmedInput.match(tagNameRegex);
+                    if (matches) {
+                        newLineObject.tagName = matches[1];
+                    } else {
+                        newLineObject.tagName = null;
+                    }
+
+                    const closingTagNameRegex = /<\/\s*([a-zA-Z0-9-]+)\s*>$/;
+                    const closingTagMatches = 
+                        newLineObject.trimmedInput.match(closingTagNameRegex);
+                    if (closingTagMatches) {
+                        newLineObject.closingTagName = closingTagMatches[1];
+                    } else {
+                        newLineObject.closingTagName = null;
+                    }
+
+                    const incompleteTagRegex = /<[^>]*$/;
+                    const isTagIncomplete = 
+                        incompleteTagRegex.test(newLineObject.trimmedInput);
+
+                    let indentation = 0;
+                    if (lastLineObject) {
+                        // debugger;
+                        /*
+                            If the last line has an opening tag
+                                and is not a void element
+                                and does not have a closing tag
+                                and (
+                                    the current line does not have a closing tag
+                                    or it does but it doesn't match the previous line's opening tag
+                                )
+                            OR
+                                if the last line starts with a >
+                        */
+                        if (
+                            (
+                                lastLineObject.tagName 
+                                && !VOID_ELEMENTS.includes(lastLineObject.tagName) 
+                                && !lastLineObject.closingTagName 
+                                && (
+                                    newLineObject.closingTagName == null
+                                    || newLineObject.closingTagName != lastLineObject.tagName
+                                )
+                            )
+                            || lastLineObject.trimmedInput.startsWith('>')
+                        ) {
+                            indentation = lastLineObject.indentation + TAB_LENGTH;
+                        // should this check if the closing tag matches the previous parent?
+                        } else if (
+                            (!newLineObject.tagName && newLineObject.closingTagName)
+                            || newLineObject.trimmedInput.startsWith('>')
+                        ) {
+                            indentation = lastLineObject.indentation - TAB_LENGTH;
+                        } else {
+                            indentation = lastLineObject.indentation;
+                        }
+                    }
+                    newLineObject.indentation = indentation;
+
+                    // if incomplete tag and has attributes, flag for dirty code
+
+                    lineObjects.push(newLineObject);
+                    lastLineObject = newLineObject;
+                }
+
+                console.log(lineObjects);
+            }
+        </script>
+    </body>
+</html>
