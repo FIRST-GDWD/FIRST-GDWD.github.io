@@ -1,0 +1,24 @@
+#layout {
+    display: flex;
+}
+
+#rawInput,
+#cleanedInput {
+    flex: 1;
+    min-height: 500px;
+    font-family: monospace;
+}
+
+.line {
+    display: flex;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.lineNumber {
+    width: 50px;
+    background-color: #CCCCCC;
+}
+
+.lineContent {
+    flex: 1;
+}
