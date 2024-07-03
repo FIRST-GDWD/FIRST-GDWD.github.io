@@ -8,6 +8,7 @@ submitButton.onclick = () => {
     const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br"];
     const rawInputLines = htmlInput.value.split("\n");
     const lineObjects = [];
+    const parentStack = [];
     let lastLineObject = null;
     for (let i = 0; i < rawInputLines.length; i++) {
         const rawInput = rawInputLines[i];
@@ -37,6 +38,12 @@ submitButton.onclick = () => {
 
         newLineObject.isVoidElement = VOID_ELEMENTS.includes(newLineObject.tagName);
 
+        
+
+        if (newLineObject.tagName && !newLineObject.closingTagName && !newLineObject.isVoidElement) {
+            parentStack.push(newLineObject);
+        }
+
         const incompleteTagRegex = /<[^>]*$/;
         newLineObject.isTagIncomplete = 
             incompleteTagRegex.test(newLineObject.trimmedInput);
@@ -47,13 +54,23 @@ submitButton.onclick = () => {
         // TODO: if incomplete tag and has attributes, flag for dirty code
 
         // TODO: need to track if opening/closing tags are matched up;
-        //      carla's Themed Gallery example was missing closing divs.
-        //      maybe use a stack to keep track of opening tags,
-        //      and pop them off when finding a matching closing tag?
+        //      accounted for missing closing divs...but what about extra ones?
 
+        
         let indentation = 0;
-        if (lastLineObject) {
-            debugger;
+        let foundMatchedParent = false;
+        if (!newLineObject.tagName && newLineObject.closingTagName) {
+            while(!foundMatchedParent && parentStack.length > 0) {
+                const poppedParent = parentStack.pop();
+                if (poppedParent.tagName == newLineObject.closingTagName) {
+                    indentation = poppedParent.idealIndentation;
+                    foundMatchedParent = true;
+                }
+            }
+        }
+        
+        if (!foundMatchedParent && lastLineObject) {
+            // debugger;
             if (
                 (
                     lastLineObject.isVoidElement 
