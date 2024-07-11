@@ -85,6 +85,10 @@ h1 + h3 {
     background-color: #514c50;
 }
 
+#assignments .img-container.more-space.blue-gray {
+    background-color: #344553;
+}
+
 #assignments .img-container.more-space.dark-blue-gray {
     background-color: #141a24;
 }
