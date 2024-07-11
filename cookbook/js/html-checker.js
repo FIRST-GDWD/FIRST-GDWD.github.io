@@ -55,6 +55,7 @@ submitButton.onclick = () => {
 
         // TODO: need to track if opening/closing tags are matched up;
         //      accounted for missing closing divs...but what about extra ones?
+        //      e.g. https://github.com/CarlaC2024/CarlaC2024.github.io/blob/main/projects/Portfolio/index.html
 
         
         let indentation = 0;
@@ -87,11 +88,13 @@ submitButton.onclick = () => {
             }
             /*
                 If the last line has an opening tag
-                    and is not a void element
+                    and is not a void element (or is an incomplete opening tag)
                     and does not have a closing tag
                     and (
                         the current line does not have a closing tag
-                        or it does but it doesn't match the previous line's opening tag
+                        or (it does but) it has its own opening tag
+                        or it doesn't match the previous line's opening tag
+                         
                     )
                 OR
                     if the last line starts with a >
@@ -106,6 +109,7 @@ submitButton.onclick = () => {
                     && !lastLineObject.closingTagName 
                     && (
                         newLineObject.closingTagName == null
+                        || newLineObject.tagName
                         || newLineObject.closingTagName != lastLineObject.tagName
                     )
                 )
