@@ -13,9 +13,9 @@ submitButton.onclick = () => {
     for (let i = 0; i < rawInputLines.length; i++) {
         const rawInput = rawInputLines[i];
         const newLineObject = {};
-        newLineObject.rawInput = rawInput;
+        newLineObject.rawInput = rawInput.trimEnd();
         newLineObject.charCount = rawInput.length;
-        newLineObject.trimmedInput = rawInput.trimStart();
+        newLineObject.trimmedInput = rawInput.trimStart().trimEnd();
         newLineObject.actualIndentation = 
             newLineObject.rawInput.length - newLineObject.trimmedInput.length;
 
@@ -60,17 +60,27 @@ submitButton.onclick = () => {
         
         let indentation = 0;
         let foundMatchedParent = false;
+        let isStrayClosingTag = false;
         if (!newLineObject.tagName && newLineObject.closingTagName) {
+            let parentsPoppedCount = 0;
             while(!foundMatchedParent && parentStack.length > 0) {
                 const poppedParent = parentStack.pop();
+                parentsPoppedCount++;
                 if (poppedParent.tagName == newLineObject.closingTagName) {
                     indentation = poppedParent.idealIndentation;
                     foundMatchedParent = true;
+                    if (parentsPoppedCount > 1) {
+                        newLineObject.isNearMissingClosingTags = true;
+                    }
+                } else if (parentStack.length == 0) {
+                    indentation = newLineObject.actualIndentation;
+                    isStrayClosingTag = true;
+                    newLineObject.isStrayClosingTag = true;
                 }
             }
         }
         
-        if (!foundMatchedParent && lastLineObject) {
+        if (!foundMatchedParent && !isStrayClosingTag && lastLineObject) {
             // debugger;
             if (
                 (
@@ -132,7 +142,9 @@ submitButton.onclick = () => {
         newLineObject.idealIndentation = indentation;
 
         lineObjects.push(newLineObject);
-        lastLineObject = newLineObject;
+        if (!isStrayClosingTag) {
+            lastLineObject = newLineObject;
+        }
     }
 
     rawInputElement.innerHTML = "";
@@ -140,10 +152,37 @@ submitButton.onclick = () => {
     for (let i = 0; i < lineObjects.length; i++) {
         const line = lineObjects[i];
 
+        let paddedRawTrimmedInput = line.trimmedInput.padEnd(80 - line.actualIndentation, ' ');
+        let trimmedRawInputWithCharLimit = 
+            paddedRawTrimmedInput.slice(0, 80 - line.actualIndentation) 
+            + '|' 
+            + paddedRawTrimmedInput.slice(80 - line.actualIndentation);
+
+        let paddedTrimmedInput = line.trimmedInput.padEnd(80 - line.idealIndentation, ' ');
+        let trimmedInputWithCharLimit = 
+            paddedTrimmedInput.slice(0, 80 - line.idealIndentation) 
+            + '|' 
+            + paddedTrimmedInput.slice(80 - line.idealIndentation);
+
+
+        let indentationDiff = line.idealIndentation - line.actualIndentation;
+
         let rawInputContent = "";
         rawInputContent += "<div class='line'>";
         rawInputContent += "<div class='lineNumber'>" + (i+1) + "</div>";
-        rawInputContent += "<div class='lineContent'>" + convertStringToEscapedHTML(line.rawInput) + "</div>";
+        rawInputContent += "<div class='lineContent'>";
+        for (let j = 0; j < line.actualIndentation; j++) {
+            if (indentationDiff != 0) {
+                if (j < line.idealIndentation) {
+                    rawInputContent += "<span class='goodIndent'>&nbsp;</span>";
+                } else {
+                    rawInputContent += "<span class='badIndent'>&nbsp;</span>";
+                }
+            } else {
+                rawInputContent += "&nbsp;";
+            }
+        }
+        rawInputContent += convertStringToEscapedHTML(trimmedRawInputWithCharLimit) + "</div>";
         rawInputContent += "</div>";
         
         rawInputElement.innerHTML += rawInputContent;
@@ -155,7 +194,7 @@ submitButton.onclick = () => {
         for (let j = 0; j < line.idealIndentation; j++) {
             cleanedInputContent += "&nbsp;";
         }
-        cleanedInputContent += convertStringToEscapedHTML(line.trimmedInput) + "</div>";
+        cleanedInputContent += convertStringToEscapedHTML(trimmedInputWithCharLimit) + "</div>";
         cleanedInputContent += "</div>";
 
         cleanedInputElement.innerHTML += cleanedInputContent;
@@ -170,17 +209,6 @@ function convertStringToEscapedHTML(stringWithNormalSpaces) {
         .replace(/&copy;/g, "&amp;copy;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/ /g, "<span class='space'>&nbsp;</span>")
-        .replace(/\n/g, "<br>")
-        .replace(/&lt;!--/g, "<span class='comment'>&lt;!--")
-        .replace(/--&gt;/g, "--&gt;</span>")
-        .replace(/&lt;(?!!--)/g, "<span class='tag'>&lt;")
-        .replace(/(?!--)&gt;/g, "&gt;</span>")
-        .replace(/\/\*/g, "<span class='comment'>/*")
-        .replace(/\*\//g, "*/</span>")
-        .replace(/{/g, "<span class='cssBlock'>{")
-        .replace(/}/g, "}</span>")
-        .replace(/(?<![&<]nbsp|[&<]lt|[&<]gt|[&<]copy|[&<]amp);/g, "<span class='terminator'>;</span>")
-        .replace(/(?<=(<span class='space'>&nbsp;<\/span>){2,})([a-zA-Z])/g, `<span class='newProperty'></span>$2`)
-        .replace(/(?<=<span class='space'>&nbsp;<\/span>)([a-zA-Z0-9'""])/g, `<span class='textStart'></span>$1`);
+        .replace(/ /g, "&nbsp;")
+        .replace(/\n/g, "<br>");
 }

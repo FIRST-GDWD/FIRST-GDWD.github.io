@@ -7,18 +7,28 @@
     flex: 1;
     min-height: 500px;
     font-family: monospace;
+    overflow-x: scroll;
 }
 
 .line {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50px 1fr;
     border-bottom: 1px solid #EEEEEE;
 }
 
 .lineNumber {
-    width: 50px;
+    width: 100%;;
     background-color: #CCCCCC;
 }
 
 .lineContent {
-    flex: 1;
+    white-space: nowrap;
+}
+
+.goodIndent {
+    background-color: lightgreen;
+}
+
+.badIndent {
+    background-color: lightcoral;
 }
