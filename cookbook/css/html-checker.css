@@ -21,12 +21,21 @@
     background-color: #CCCCCC;
 }
 
+.lineNumber.dirty {
+    background-color: red;
+}
+
 .lineContent {
+    
     white-space: nowrap;
 }
 
 .goodIndent {
     background-color: lightgreen;
+}
+
+.fixIndent {
+    background-color: orange;
 }
 
 .badIndent {
