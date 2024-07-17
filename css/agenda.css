@@ -105,6 +105,10 @@ h1 + h3 {
     background-color: #871e2c;
 }
 
+#assignments .img-container.more-space.reddish-black {
+    background-color: #271719;
+}
+
 #assignments .img-container.more-space.off-black {
     background-color: #050505;
 }
