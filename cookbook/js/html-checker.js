@@ -15,14 +15,16 @@ submitButton.onclick = () => {
         const newLineObject = {};
         newLineObject.rawInput = rawInput.trimEnd();
         newLineObject.charCount = rawInput.length;
+        newLineObject.exceedsCharLimit = rawInput.length > 80;
         newLineObject.trimmedInput = rawInput.trimStart().trimEnd();
+        newLineObject.isEmpty = newLineObject.trimmedInput.length == 0;
         newLineObject.actualIndentation = 
             newLineObject.rawInput.length - newLineObject.trimmedInput.length;
 
         const tagNameRegex = /^<\s*([a-zA-Z0-9-]+)\b[^>]*/;
         const matches = newLineObject.trimmedInput.match(tagNameRegex);
         if (matches) {
-            newLineObject.tagName = matches[1];
+            newLineObject.tagName = matches[1].toLowerCase();
         } else {
             newLineObject.tagName = null;
         }
@@ -31,7 +33,7 @@ submitButton.onclick = () => {
         const closingTagMatches = 
             newLineObject.trimmedInput.match(closingTagNameRegex);
         if (closingTagMatches) {
-            newLineObject.closingTagName = closingTagMatches[1];
+            newLineObject.closingTagName = closingTagMatches[1].toLowerCase();
         } else {
             newLineObject.closingTagName = null;
         }
@@ -51,8 +53,10 @@ submitButton.onclick = () => {
         const hasAttributeRegex = /\b[a-zA-Z0-9-]+="[^"]*"/;
         newLineObject.containsAttribute = hasAttributeRegex.test(newLineObject.trimmedInput);
 
-        // TODO: if incomplete tag and has attributes, flag for dirty code
         newLineObject.hasDirtyAttributes = newLineObject.isTagIncomplete && newLineObject.containsAttribute;
+
+        const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
+        newLineObject.hasCaps = containsCapsRegex.test(newLineObject.trimmedInput);
 
         // TODO: need to track if opening/closing tags are matched up;
         //      accounted for missing closing divs...but what about extra ones?
@@ -138,6 +142,8 @@ submitButton.onclick = () => {
                 indentation = lastLineObject.idealIndentation - TAB_LENGTH;
             } else {
                 indentation = lastLineObject.idealIndentation;
+                newLineObject.isExcessLineSpace = 
+                    newLineObject.isEmpty && lastLineObject.isEmpty;
             }
         }
         newLineObject.idealIndentation = indentation;
@@ -163,17 +169,37 @@ submitButton.onclick = () => {
         let indentationDiff = line.idealIndentation - line.actualIndentation;
 
         const hasDirtyCode = 
-            indentationDiff != 0
+            (indentationDiff != 0 && !line.isEmpty)
             || line.isStrayClosingTag
             || line.isNearMissingClosingTags
-            || line.hasDirtyAttributes;
+            || line.hasDirtyAttributes
+            || line.hasCaps
+            || line.isExcessLineSpace
+            || line.exceedsCharLimit;
+
+        let errorMessage = ""
+        if (hasDirtyCode) {
+            errorMessage += `Line ${i+1} has the following clean code issues:\n`;
+            if (indentationDiff != 0 && !line.isEmpty) {
+                errorMessage += 
+                    `    Line should be ${indentationDiff > 0 ? "indented " : "outdented "}`
+                    + `${Math.abs(indentationDiff)} spaces `;
+                
+                if (indentationDiff % TAB_LENGTH == 0) {
+                    const tabs = Math.abs(indentationDiff) / TAB_LENGTH;
+                    errorMessage += `(or ${tabs} ${tabs == 1 ? "tab" : "tabs"}) `;
+                }
+                    
+                errorMessage += `to the ${indentationDiff > 0 ? "right." : "left."} \n`;
+            }
+        }
 
         let rawInputContent = "";
-        rawInputContent += "<div class='line'>";
+        rawInputContent += "<div class='line' title='" + errorMessage + "'>";
         rawInputContent += "<div class='lineNumber" + (hasDirtyCode ? " dirty" : "") + "'>" + (i+1) + "</div>";
         rawInputContent += "<div class='lineContent'>";
         for (let j = 0; j < line.actualIndentation; j++) {
-            if (indentationDiff != 0) {
+            if (indentationDiff != 0 && !line.isEmpty) {
                 if (j < line.idealIndentation) {
                     rawInputContent += "<span class='goodIndent'>&nbsp;</span>";
                 } else {
@@ -183,7 +209,7 @@ submitButton.onclick = () => {
                 rawInputContent += "&nbsp;";
             }
         }
-        if (indentationDiff > 0) {
+        if (indentationDiff > 0 && !line.isEmpty) {
             let badIndentCode = trimmedRawInputWithCharLimit.slice(0, indentationDiff);
             let remainingCode = trimmedRawInputWithCharLimit.slice(indentationDiff);
             rawInputContent += "<span class='fixIndent'>" + convertStringToEscapedHTML(badIndentCode) + "</span>";
@@ -203,11 +229,11 @@ submitButton.onclick = () => {
             + paddedTrimmedInput.slice(80 - line.idealIndentation);
         
         let cleanedInputContent = "";
-        cleanedInputContent += "<div class='line'>";
+        cleanedInputContent += "<div class='line' title='" + errorMessage + "'>";
         cleanedInputContent += "<div class='lineNumber" + (hasDirtyCode ? " dirty" : "") + "'>" + (i+1) + "</div>";
         cleanedInputContent += "<div class='lineContent'>";
         for (let j = 0; j < line.idealIndentation; j++) {
-            if (indentationDiff != 0) {
+            if (indentationDiff != 0 && !line.isEmpty) {
                 cleanedInputContent += "<span class='goodIndent'>&nbsp;</span>";
             } else {
                 cleanedInputContent += "&nbsp;";
