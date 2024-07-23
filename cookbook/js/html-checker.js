@@ -90,6 +90,8 @@ submitButton.onclick = () => {
                 if (poppedParent.tagName == newLineObject.closingTagName) {
                     indentation = poppedParent.idealIndentation;
                     foundMatchedParent = true;
+                    poppedParent.matchingLineNumber = newLineObject.lineNumber;
+                    newLineObject.matchingLineNumber = poppedParent.lineNumber;
                     if (parentsPoppedCount > 1) {
                         newLineObject.isNearMissingClosingTags = true;
                     }
@@ -254,7 +256,7 @@ submitButton.onclick = () => {
         line.errorMessage = errorMessage;
 
         let rawInputContent = "";
-        rawInputContent += "<div class='line" + (line.hasDirtyCode ? " dirty" : "") + "' title='" + errorMessage + "'>";
+        rawInputContent += `<div class='line ${line.hasDirtyCode ? " dirty" : ""}' title='${errorMessage}' data-line-number='${line.lineNumber}' data-matching-line-number='${line.matchingLineNumber ? line.matchingLineNumber : 0}'>`;
         rawInputContent += "<div class='lineNumber'>" + line.lineNumber + "</div>";
         rawInputContent += "<div class='lineContent'>";
         for (let j = 0; j < line.actualIndentation; j++) {
@@ -291,7 +293,7 @@ submitButton.onclick = () => {
             + paddedTrimmedInput.slice(LINE_CHAR_LIMIT - line.idealIndentation);
         
         let cleanedInputContent = "";
-        cleanedInputContent += "<div class='line" + (line.hasDirtyCode ? " dirty" : "") + "' title='" + errorMessage + "'>";
+        cleanedInputContent += `<div class='line ${line.hasDirtyCode ? " dirty" : ""}' title='${errorMessage}' data-line-number='${line.lineNumber}' data-matching-line-number='${line.matchingLineNumber ? line.matchingLineNumber : 0}'>`;
         cleanedInputContent += "<div class='lineNumber'>" + line.lineNumber + "</div>";
         cleanedInputContent += "<div class='lineContent'>";
         for (let j = 0; j < line.idealIndentation; j++) {
@@ -324,6 +326,24 @@ submitButton.onclick = () => {
             `<div class='issue'>${convertStringToEscapedHTML(line.errorMessage)}</div>`;
     }
     issuesListElement.innerHTML = newIssuesListHTML;
+
+
+    let lineElements = document.getElementsByClassName("line");
+    for (const lineElement of lineElements) {
+        if (lineElement.dataset.matchingLineNumber != 0) {
+            lineElement.onmouseover = (element) => {
+                const twins = document.querySelectorAll(`[data-line-number="${lineElement.dataset.lineNumber}"]`);
+                const spouses = document.querySelectorAll(`[data-line-number="${lineElement.dataset.matchingLineNumber}"]`);
+
+                Array.from(lineElements).forEach(ln => ln.classList.remove("areMarried"));
+                twins.forEach(twin => twin.classList.add("areMarried"));
+                spouses.forEach(spouse => spouse.classList.add("areMarried"));
+            };
+            lineElement.onmouseout = (element) => {
+                Array.from(lineElements).forEach(ln => ln.classList.remove("areMarried"));
+            };
+        }
+    }
 
     console.log(lineObjects);
 }

@@ -49,3 +49,7 @@
 .badIndent {
     background-color: lightcoral;
 }
+
+.line.areMarried {
+    background-color: rgb(252, 205, 252);
+}
