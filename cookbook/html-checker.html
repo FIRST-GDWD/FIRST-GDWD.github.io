@@ -8,7 +8,21 @@
     </head>
     <body>
         <textarea id="html-input"></textarea>
-        <button id="submit">SUBMIT</button>
+        <button id="submit"
+        >
+            <span>+</span> SUBMIT
+        </button>
+        <div id="report">
+            <h1>HTML Dirty Code Report</h1>
+            <div id="overall">
+                <div id="lineStats">
+                    <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
+                    <h3>Lines of bad indentation: <span id="badIndentationCount"></span></h3>
+                </div>
+                <h2><span id="dirtyPercent"></span>% DIRTY</h2>
+            </div>
+            <div id="issuesList"></div>
+        </div>
 
             <!-- 
         This is a comment 
@@ -17,9 +31,11 @@
         <diV 
             id="layout"
           >
+        
                 <div id="rawInput"></DIV>
             <div id="cleanedInput"></div>
     </div>
+    </section>
 
 
         <script src="js/html-checker.js"></script>

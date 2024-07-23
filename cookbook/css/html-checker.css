@@ -16,12 +16,20 @@
     border-bottom: 1px solid #EEEEEE;
 }
 
+.line:hover {
+    background-color: aliceblue;
+}
+
+.line.dirty:hover {
+    background-color: #fff0f1;
+}
+
 .lineNumber {
     width: 100%;;
     background-color: #CCCCCC;
 }
 
-.lineNumber.dirty {
+.line.dirty .lineNumber {
     background-color: red;
 }
 
