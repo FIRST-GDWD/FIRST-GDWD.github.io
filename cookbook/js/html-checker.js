@@ -6,7 +6,7 @@ const cleanedInputElement = document.getElementById("cleanedInput");
 submitButton.onclick = () => {
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
-    const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br"];
+    const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br", "input"];
     const rawInputLines = htmlInput.value.split("\n");
     const lineObjects = [];
     const parentStack = [];
@@ -28,7 +28,14 @@ submitButton.onclick = () => {
         if (matches) {
             newLineObject.tagName = matches[1].toLowerCase();
         } else {
-            newLineObject.tagName = null;
+            const firstOpeningTagRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*/;
+            const firstOpeningTagMatches = 
+                newLineObject.trimmedInput.match(firstOpeningTagRegex);
+            if (firstOpeningTagMatches) {
+                newLineObject.tagName = firstOpeningTagMatches[1];
+            } else {
+                newLineObject.tagName = null;
+            }
         }
 
         const closingTagNameRegex = /<\/\s*([a-zA-Z0-9-]+)\s*>$/;

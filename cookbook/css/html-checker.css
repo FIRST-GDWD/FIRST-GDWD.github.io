@@ -1,13 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.report,
+#inputContainer {
+    margin: 48px;
+    border: 5px solid gray;
+    border-radius: 24px;
+}
+
+#inputContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 48px;
+    gap: 100px;
+}
+
+#inputContainer h2 {
+    flex: 1;
+}
+
+#inputContainer #textInputContainer {
+    flex: 2;
+}
+#inputContainer #urlInputContainer {
+    flex: 1;
+}
+
+#inputContainer textarea,
+#inputContainer input,
+#inputContainer button {
+    min-width: 100% !important;
+}
+
+.report {
+    padding: 24px 48px;
+}
+
+.report h1 {
+    font-size: 48px;
+}
+
+.report #overall {
+    display: flex;
+    align-items: center;
+}
+
+#overall #lineStats {
+    flex: 1;
+}
+
+#overall h2 {
+    font-size: 36px;
+}
+
+#overall #dirtyPercent {
+    font-size: 72px;
+}
+
+#legendContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 12px;
+}
+
+#legendContainer > div {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#legendContainer .block {
+    display: inline-block;
+    border: 3px solid black;
+    width: 25px;
+    height: 25px;
+}
+
+#legendContainer > div div {
+    flex: 1;
+}
+
 #layout {
     display: flex;
+    gap: 24px;
+}
+
+#layout > div {
+    flex: 1;
+    overflow-x: scroll;
 }
 
 #rawInput,
 #cleanedInput {
-    flex: 1;
     min-height: 500px;
     font-family: monospace;
-    overflow-x: scroll;
 }
 
 .line {
@@ -16,40 +110,46 @@
     border-bottom: 1px solid #EEEEEE;
 }
 
-.line:hover {
+.line:hover,
+.lightblue {
     background-color: aliceblue;
 }
 
-.line.dirty:hover {
+.line.dirty:hover,
+.pink {
     background-color: #fff0f1;
 }
 
 .lineNumber {
-    width: 100%;;
+    width: 100%;
     background-color: #CCCCCC;
 }
 
-.line.dirty .lineNumber {
+.line.dirty .lineNumber,
+.red {
     background-color: red;
 }
 
 .lineContent {
-    
     white-space: nowrap;
 }
 
-.goodIndent {
+.goodIndent,
+.lightgreen {
     background-color: lightgreen;
 }
 
-.fixIndent {
+.fixIndent,
+.orange {
     background-color: orange;
 }
 
-.badIndent {
+.badIndent,
+.lightred {
     background-color: lightcoral;
 }
 
-.line.areMarried {
-    background-color: rgb(252, 205, 252);
+.line.areMarried,
+.purple {
+    background-color: rgb(254, 218, 254);
 }

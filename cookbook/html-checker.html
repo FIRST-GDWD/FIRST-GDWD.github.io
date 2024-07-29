@@ -7,34 +7,87 @@
         <link href="css/html-checker.css" rel="stylesheet">
     </head>
     <body>
-        <textarea id="html-input"></textarea>
-        <button id="submit"
-        >
-            <span>+</span> SUBMIT
-        </button>
-        <div id="report">
+        <div id="inputContainer">
+            <h2>Input</h2>
+            <div id="textInputContainer">
+                <h3>Raw HTML Input</h3>
+                <textarea id="html-input"></textarea>
+                <button id="submit">
+                    <span>+</span> SUBMIT
+                </button>
+            </div>
+            <div id="urlInputContainer">
+                <h3>URL Input</h3>
+                <input id="urlInput" value="">
+                <button id="urlSubmit">
+                    SUBMIT <span> + </span>
+                </button>
+            </div>
+        </div>
+        <div class="report">
             <h1>HTML Dirty Code Report</h1>
             <div id="overall">
                 <div id="lineStats">
+                    <h3>Lines of incorrect indentation: <span id="badIndentationCount"></span></h3>
                     <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
-                    <h3>Lines of bad indentation: <span id="badIndentationCount"></span></h3>
                 </div>
                 <h2><span id="dirtyPercent"></span>% DIRTY</h2>
             </div>
+            <h4>Issues List</h4>
             <div id="issuesList"></div>
-        </div>
 
             <!-- 
         This is a comment 
              
             -->
+            <h4>Interactive Cleanup Helper</h4>
+            <div>
+                <h6>Legend</h6>
+                <div id="legendContainer">
+                    <div>
+                        <span class="block red"></span>
+                        <div>Dirty Code On or Near Line #</div>
+                    </div>
+                    <div>
+                        <span class="block lightblue"></span>
+                        <div>(On Hover) Clean Line</div>
+                    </div>
+                    <div>
+                        <span class="block purple"></span>
+                        <div>(On Hover) Matching Opening/Closing Tags</div>
+                    </div>
+                    <div>
+                        <span class="block pink"></span>
+                        <div>(On Hover) Dirty Line</div>
+                    </div>
+                    <div>
+                        <span class="block lightgreen"></span>
+                        <div>Good Indent Spaces</div>
+                    </div>
+                    <div>
+                        <span class="block lightred"></span>
+                        <div>Bad Indent Spaces (Outdent Them)</div>
+                    </div>
+                    <div>
+                        <span class="block orange"></span>
+                        <div> Bad Indent Spaces (Indent Them)</div>
+                    </div>
+                </div>
+            </div>
         <diV 
             id="layout"
           >
-        
+            <div>
+                <h5>Raw Code Input</h5>
                 <div id="rawInput"></DIV>
+            </div>
+            <div>
+                <h5>Cleaned Code Input</h5>
             <div id="cleanedInput"></div>
+                </div>
     </div>
+    
+</div>
     </section>
 
 
