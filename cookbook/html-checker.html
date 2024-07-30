@@ -4,10 +4,78 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" alt="and lots of other stuff">
         <title>HTML Dirty Code Report</title>
+        <link href="css/cookbook.css" rel="stylesheet">
         <link href="css/html-checker.css" rel="stylesheet">
     </head>
     <body>
-        <h1>HTML Dirty Code Report</h1>
+        <div id="background"></div>
+        <nav>
+            <header id="topHeader">
+                <h2 id="brand"><a href="./">The Coding Cookbook</a></h2>
+                <div id="quote"></div>
+                <div id="navLinks">
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="ingredients.html">
+                                HTML
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="ingredients.html">Elements</a></h2>
+                            <h2><a href="ingredients-cheatsheet.html">Cheatsheet</a></h2>
+                            <h2><a href="html-checker.html">Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="seasonings.html">
+                                CSS
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="seasonings.html">Properties</a></h2>
+                            <h2><a href="seasonings-cheatsheet.html">Cheatsheet</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="recipes.html">
+                                Layouts
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="recipes.html?category=page-layout">Page Layouts</a></h2>
+                            <h2><a href="recipes.html?category=content-layout">Content Layouts</a></h2>
+                            <h2><a href="recipes.html?category=navigation-layout">Navigation</a></h2>
+                            <h2><a href="recipes.html?category=miscellaneous">Miscellaneous</a></h2>
+                            <h2><a href="recipes-cheatsheet.html">Cheatsheet</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="more.html" class="selected">
+                                More
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="demos.html">Class Demos</a></h2>
+                            <h2><a href="appetizers.html">Tutorials</a></h2>
+                            <h2><a href="troubleshooting.html" class="selected">Troubleshooting</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </nav>
+        
+        <header id="title">
+            <h1>HTML Dirty Code Report</h1>
+            <h3>Submit your code below to get your "Dirty Code Report Card"!</h3>
+        </header>
+
         <div id="inputContainer">
             <h2>Input</h2>
             <div id="textInputContainer">
@@ -25,7 +93,7 @@
                 </button>
             </div>
         </div>
-        <div class="report">
+        <div id="report" class="hide">
             <h2>Report Card</h2>
             <div id="overall">
                 <div id="lineStats">
@@ -64,7 +132,9 @@
                 <p>
                     Hover over a line or line number with an error, and the
                     particular issues associated with that line will show up
-                    in a tool tip.
+                    in a tool tip. Hovering over the tag of an element split up
+                    across multiple lines will cause both its opening and 
+                    closing tag to be highlighted.
                 </p>
                 <p>
                     We recommend addressing the issues from top to bottom.
@@ -111,11 +181,11 @@
           >
             <div>
                 <h5>Raw Code Input</h5>
-                <div id="rawInput"></DIV>
+                <div id="rawInput" class="code"></DIV>
             </div>
             <div>
                 <h5>Cleaned Code (Indentation Only)</h5>
-            <div id="cleanedInput"></div>
+            <div id="cleanedInput" class="code"></div>
                 </div>
     </div>
     

@@ -1,5 +1,6 @@
 const htmlInput = document.getElementById("html-input");
 const submitButton = document.getElementById("submit");
+const reportElement = document.getElementById("report");
 const rawInputElement = document.getElementById("rawInput");
 const cleanedInputElement = document.getElementById("cleanedInput");
 
@@ -330,7 +331,7 @@ submitButton.onclick = () => {
     let newIssuesListHTML = "";
     for (const line of dirtyLines) {
         newIssuesListHTML += 
-            `<div class='issue'>${convertStringToEscapedHTML(line.errorMessage)}</div>`;
+            `<div class='issue'>${convertStringToEscapedHTML(line.errorMessage, false)}</div>`;
     }
     issuesListElement.innerHTML = newIssuesListHTML;
 
@@ -352,15 +353,21 @@ submitButton.onclick = () => {
         }
     }
 
+    reportElement.classList.remove("hide");
+    reportElement.classList.add("fadeIn");
+
     console.log(lineObjects);
 }
 
-function convertStringToEscapedHTML(stringWithNormalSpaces) {
-    return stringWithNormalSpaces
+function convertStringToEscapedHTML(stringWithNormalSpaces, shouldReplaceSpaces=true) {
+    let result = stringWithNormalSpaces
         .replace(/&nbsp;/g, "&amp;nbsp;")
         .replace(/&copy;/g, "&amp;copy;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/ /g, "&nbsp;")
         .replace(/\n/g, "<br>");
+    if (shouldReplaceSpaces) {
+        result = result.replace(/ /g, "&nbsp;");
+    }
+    return result;
 }

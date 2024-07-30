@@ -11,11 +11,12 @@ h1 {
     text-align: center;
 }
 
-.report,
+#report,
 #inputContainer {
+    background-color: #FFFFFFDD;
     margin: 48px;
-    border: 5px solid gray;
-    border-radius: 24px;
+    border: 5px solid #1a3159;
+    border-radius: 45px;
 }
 
 #inputContainer {
@@ -42,22 +43,23 @@ h1 {
     min-width: 100% !important;
 }
 
-.report {
+#report {
     padding: 24px 48px;
+    opacity: 0;
 }
 
-.report h1 {
+#report h1 {
     font-size: 48px;
 }
 
-.report #overall {
+#report #overall {
     display: flex;
     align-items: center;
-    border: 5px solid gray;
+    border: 5px solid #1a3159;
     border-width: 5px 0px;
 }
 
-.report #overall,
+#report #overall,
 h4,
 #issuesListContainer p,
 #issuesListContainer #issuesList,
@@ -90,18 +92,28 @@ h6 {
     font-size: 72px;
 }
 
+#issuesList {
+    background-color: white;
+    border: 3px solid #ff7050;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #00000033;
+    margin: 0px 24px;
+}
+
 #issuesList .issue {
-    margin: 12px 0px;
-    padding: 12px;
+    margin: 24px 0px;
 }
 
 #cleanupHelperHeading {
-    border-top: 5px solid gray;
+    border-top: 5px solid #1a3159;
     padding-top: 24px;
 }
 
 #legendOuterContainer {
-    background-color: lightgray;
+    background-color: white;
+    border: 3px solid #ff7050;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #00000033;
     padding: 24px;
 }
 
@@ -147,6 +159,7 @@ h6 {
 }
 
 .line {
+    background-color: white;
     display: grid;
     grid-template-columns: 50px 1fr;
     
@@ -165,8 +178,7 @@ h6 {
 
 .line.dirty:hover,
 .line.dirty .lineContent:hover,
-.pink,
-#issuesList .issue {
+.pink {
     background-color: #fff0f1;
     cursor: help;
 }
@@ -182,6 +194,7 @@ h6 {
 }
 
 .lineContent {
+    background-color: white;
     white-space: nowrap;
 }
 

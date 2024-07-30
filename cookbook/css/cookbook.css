@@ -796,7 +796,8 @@ body.noComments #cssPreview .cssBlock .terminator::after {
 #cookbookPage.fadeIn,
 #viewButtons.fadeIn,
 #detailsButtons.fadeIn,
-#title.fadeIn {
+#title.fadeIn,
+div.fadeIn {
     animation: fadeIn 0.3s;
     animation-fill-mode: forwards;
 }
