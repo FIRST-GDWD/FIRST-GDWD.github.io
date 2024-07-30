@@ -40,7 +40,36 @@ h1 {
 #inputContainer textarea,
 #inputContainer input,
 #inputContainer button {
-    min-width: 100% !important;
+    min-width: 100%;
+}
+
+#inputContainer input,
+#inputContainer textarea {
+    border: 3px solid #ff7050;
+    outline: 0px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#inputContainer button {
+    background-color: #ff7050;
+    border: 3px solid #ff7050;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 12px;
+    margin-top: 12px;
+}
+
+#inputContainer .buttonContainer {
+    display: flex;
+    gap: 24px;
+}
+
+#inputContainer .buttonContainer button {
+    flex: 1;
+    min-width: auto;
 }
 
 #report {

@@ -16,7 +16,7 @@
                 <div id="navLinks">
                     <div class="dropdown-menu">
                         <h2 class="dropdown-trigger">
-                            <a href="ingredients.html">
+                            <a href="ingredients.html" class="selected">
                                 HTML
                                 <i class="fa-solid fa-chevron-down"></i>
                             </a>
@@ -24,7 +24,7 @@
                         <div class="dropdown-items">
                             <h2><a href="ingredients.html">Elements</a></h2>
                             <h2><a href="ingredients-cheatsheet.html">Cheatsheet</a></h2>
-                            <h2><a href="html-checker.html">Dirty Code Report</a></h2>
+                            <h2><a href="html-checker.html" class="selected">Dirty Code Report</a></h2>
                         </div>
                     </div>
                     <div class="dropdown-menu">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="dropdown-menu">
                         <h2 class="dropdown-trigger">
-                            <a href="more.html" class="selected">
+                            <a href="more.html">
                                 More
                                 <i class="fa-solid fa-chevron-down"></i>
                             </a>
@@ -64,7 +64,7 @@
                         <div class="dropdown-items">
                             <h2><a href="demos.html">Class Demos</a></h2>
                             <h2><a href="appetizers.html">Tutorials</a></h2>
-                            <h2><a href="troubleshooting.html" class="selected">Troubleshooting</a></h2>
+                            <h2><a href="troubleshooting.html">Troubleshooting</a></h2>
                         </div>
                     </div>
                 </div>
@@ -77,19 +77,19 @@
         </header>
 
         <div id="inputContainer">
-            <h2>Input</h2>
-            <div id="textInputContainer">
+            <form id="textInputContainer" onsubmit="event.preventDefault();">
                 <h3>Raw HTML Input</h3>
                 <textarea id="html-input"></textarea>
-                <button id="submit">
-                    <span>+</span> SUBMIT
-                </button>
-            </div>
+                <div class="buttonContainer">
+                    <button id="submit">SUBMIT</button>
+                    <button id="clear" type="reset">CLEAR</button>
+                </div>
+            </form>
             <div id="urlInputContainer">
-                <h3>URL Input</h3>
+                <h3>URL Input (under construction)</h3>
                 <input id="urlInput" value="">
                 <button id="urlSubmit">
-                    SUBMIT <span> + </span>
+                    SUBMIT
                 </button>
             </div>
         </div>
