@@ -7,6 +7,10 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
 .report,
 #inputContainer {
     margin: 48px;
@@ -49,6 +53,29 @@ body {
 .report #overall {
     display: flex;
     align-items: center;
+    border: 5px solid gray;
+    border-width: 5px 0px;
+}
+
+.report #overall,
+h4,
+#issuesListContainer p,
+#issuesListContainer #issuesList,
+#helperContainer {
+    padding: 0px 24px;
+}
+
+p:last-of-type {
+    margin-bottom: 36px;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+h6 {
+    font-size: 12px;
+    margin-top: 0px;
 }
 
 #overall #lineStats {
@@ -63,15 +90,30 @@ body {
     font-size: 72px;
 }
 
+#issuesList .issue {
+    margin: 12px 0px;
+    padding: 12px;
+}
+
+#cleanupHelperHeading {
+    border-top: 5px solid gray;
+    padding-top: 24px;
+}
+
+#legendOuterContainer {
+    background-color: lightgray;
+    padding: 24px;
+}
+
 #legendContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 12px;
     font-size: 12px;
 }
 
 #legendContainer > div {
-    width: 300px;
+    width: 290px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -96,28 +138,37 @@ body {
 #layout > div {
     flex: 1;
     overflow-x: scroll;
+    padding: 24px;
 }
 
 #rawInput,
 #cleanedInput {
-    min-height: 500px;
     font-family: monospace;
 }
 
 .line {
     display: grid;
     grid-template-columns: 50px 1fr;
+    
+}
+
+.lineNumber,
+.lineContent {
     border-bottom: 1px solid #EEEEEE;
 }
 
 .line:hover,
+.lineContent:hover,
 .lightblue {
     background-color: aliceblue;
 }
 
 .line.dirty:hover,
-.pink {
+.line.dirty .lineContent:hover,
+.pink,
+#issuesList .issue {
     background-color: #fff0f1;
+    cursor: help;
 }
 
 .lineNumber {
@@ -150,6 +201,7 @@ body {
 }
 
 .line.areMarried,
+.line.areMarried .lineContent,
 .purple {
     background-color: rgb(254, 218, 254);
 }
