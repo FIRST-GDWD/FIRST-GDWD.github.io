@@ -77,119 +77,129 @@
         </header>
 
         <div id="inputContainer">
-            <form id="textInputContainer" onsubmit="event.preventDefault();">
-                <h3>Raw HTML Input</h3>
-                <textarea id="html-input"></textarea>
-                <div class="buttonContainer">
-                    <button id="submit">SUBMIT</button>
+            <form onsubmit="event.preventDefault();">
+                <div id="textInputContainer"> 
+                    <h3>Raw HTML Input</h3>
+                    <textarea 
+                        id="html-input" 
+                        placeholder="Paste your HTML here..."
+                    ></textarea>
+                </div>
+                <div id="orContainer">OR</div>
+                <div id="urlInputContainer">
+                    <h3>URL Input</h3>
+                    <input 
+                        id="urlInput" 
+                        value=""
+                        placeholder="Paste the URL to your live site here..."
+                    >
+                </div>
+                <div id="buttonContainer">
                     <button id="clear" type="reset">CLEAR</button>
+                    <button id="submit">SUBMIT</button>
                 </div>
             </form>
-            <div id="urlInputContainer">
-                <h3>URL Input</h3>
-                <input id="urlInput" value="">
-                <button id="urlSubmit">
-                    SUBMIT
-                </button>
-            </div>
+            
         </div>
         <div id="report" class="hide">
-            <h2>Report Card</h2>
-            <div id="overall">
-                <div id="lineStats">
-                    <h3>Lines of incorrect indentation: <span id="badIndentationCount"></span></h3>
-                    <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
+            <h2 id="reportHeader">Report Card</h2>
+            <div id="innerReportContainer">
+                <div id="overall">
+                    <div id="lineStats">
+                        <h3>Lines of incorrect indentation: <span id="badIndentationCount"></span></h3>
+                        <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
+                    </div>
+                    <h2><span id="dirtyPercent"></span>% DIRTY</h2>
                 </div>
-                <h2><span id="dirtyPercent"></span>% DIRTY</h2>
-            </div>
-            <div id="issuesListContainer">
-                <h4>Issues List</h4>
-                <p>
-                    Below are the clean code issues this tool was able to detect in 
-                    your code.  However, note that this tool is best at detecting 
-                    syntax issues (i.e. issues with the grammar of a programming 
-                    language) and suggesting how to fix them. Logic errors, on the 
-                    other hand, are harder for it to target specifically.
-                </p>
-                <div id="issuesList"></div>
-            </div>
+                <div id="issuesListContainer">
+                    <h4>Issues List</h4>
+                    <p>
+                        Below are the clean code issues this tool was able to detect in 
+                        your code.  However, note that this tool is best at detecting 
+                        syntax issues (i.e. issues with the grammar of a programming 
+                        language) and suggesting how to fix them. Logic errors, on the 
+                        other hand, are harder for it to target specifically.
+                    </p>
+                    <div id="issuesList"></div>
+                </div>
 
-            <!-- 
-        This is a comment 
-             
-            -->
-            <h4 id="cleanupHelperHeading">Interactive Cleanup Helper</h4>
-            <div id="helperContainer">
-                <h6>Directions</h6>
-                <p>
-                    The code below on the left is the raw, unedited code you 
-                    submitted to this tool;
-                    the code below on the right is same code, but processed to 
-                    fix your indentation issues. However, certain dirty code 
-                    issues (particularly logic errors) may prevent this tool 
-                    from correctly fixing your indentation, such as stray tags.
-                </p>
-                <p>
-                    Hover over a line or line number with an error, and the
-                    particular issues associated with that line will show up
-                    in a tool tip. Hovering over the tag of an element split up
-                    across multiple lines will cause both its opening and 
-                    closing tag to be highlighted.
-                </p>
-                <p>
-                    We recommend addressing the issues from top to bottom.
-                    Sometimes, addressing an issue earlier on in your code
-                    can fix issues lower down.
-                </p>
+                <!-- 
+            This is a comment 
                 
-                <div id="legendOuterContainer">
-                    <h6>Legend</h6>
-                    <div id="legendContainer">
-                        <div>
-                            <span class="block red"></span>
-                            <div>Dirty Code On or Near Line #</div>
-                        </div>
-                        <div>
-                            <span class="block lightblue"></span>
-                            <div>(On Hover) Clean Line</div>
-                        </div>
-                        <div>
-                            <span class="block purple"></span>
-                            <div>(On Hover) Matching Opening/Closing Tags</div>
-                        </div>
-                        <div>
-                            <span class="block pink"></span>
-                            <div>(On Hover) Dirty Line</div>
-                        </div>
-                        <div>
-                            <span class="block lightgreen"></span>
-                            <div>Good Indent Spaces</div>
-                        </div>
-                        <div>
-                            <span class="block lightred"></span>
-                            <div>Bad Indent Spaces (Outdent Them)</div>
-                        </div>
-                        <div>
-                            <span class="block orange"></span>
-                            <div> Bad Indent Spaces (Indent Them)</div>
+                -->
+                <h4 id="cleanupHelperHeading">Interactive Cleanup Helper</h4>
+                <div id="helperContainer">
+                    <h6>Directions</h6>
+                    <p>
+                        The code below on the left is the raw, unedited code you 
+                        submitted to this tool;
+                        the code below on the right is same code, but processed to 
+                        fix your indentation issues. However, certain dirty code 
+                        issues (particularly logic errors) may prevent this tool 
+                        from correctly fixing your indentation, such as stray tags.
+                    </p>
+                    <p>
+                        Hover over a line or line number with an error, and the
+                        particular issues associated with that line will show up
+                        in a tool tip. Hovering over the tag of an element split up
+                        across multiple lines will cause both its opening and 
+                        closing tag to be highlighted.
+                    </p>
+                    <p>
+                        We recommend addressing the issues from top to bottom.
+                        Sometimes, addressing an issue earlier on in your code
+                        can fix issues lower down.
+                    </p>
+                    
+                    <div id="legendOuterContainer">
+                        <h6>Legend</h6>
+                        <div id="legendContainer">
+                            <div>
+                                <span class="block red"></span>
+                                <div>Dirty Code On or Near Line #</div>
+                            </div>
+                            <div>
+                                <span class="block lightblue"></span>
+                                <div>(On Hover) Clean Line</div>
+                            </div>
+                            <div>
+                                <span class="block purple"></span>
+                                <div>(On Hover) Matching Opening/Closing Tags</div>
+                            </div>
+                            <div>
+                                <span class="block pink"></span>
+                                <div>(On Hover) Dirty Line</div>
+                            </div>
+                            <div>
+                                <span class="block lightgreen"></span>
+                                <div>Good Indent Spaces</div>
+                            </div>
+                            <div>
+                                <span class="block lightred"></span>
+                                <div>Bad Indent Spaces (Outdent Them)</div>
+                            </div>
+                            <div>
+                                <span class="block orange"></span>
+                                <div> Bad Indent Spaces (Indent Them)</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <diV 
-            id="layout"
-          >
-            <div>
-                <h5>Raw Code Input</h5>
-                <div id="rawInput" class="code"></DIV>
-            </div>
-            <div>
-                <h5>Cleaned Code (Indentation Only)</h5>
-            <div id="cleanedInput" class="code"></div>
+                <diV 
+                    id="layout"
+                >
+                    <div>
+                        <h5>Raw Code Input</h5>
+                        <div id="rawInput" class="code"></DIV>
+                    </div>
+                    <div>
+                        <h5>Cleaned Code (Indentation Cleanup Only)</h5>
+                        <div id="cleanedInput" class="code"></div>
+                    </div>
                 </div>
-    </div>
+            </div>
     
-</div>
+        </div>
     </section>
 
 

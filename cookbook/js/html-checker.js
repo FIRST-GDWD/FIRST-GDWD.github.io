@@ -7,25 +7,31 @@ const rawInputElement = document.getElementById("rawInput");
 const cleanedInputElement = document.getElementById("cleanedInput");
 
 submitButton.onclick = () => {
-    generateReportOnHTML(htmlInput.value.split("\n"));
-}
-
-urlSubmitButton.onclick = () => {
-    fetchHTMLFromURL(urlInput.value);
+    reportElement.classList.add("hide");
+    // add artificial delay, to make a change appear to occur on the page
+    setTimeout(() => {
+        if (htmlInput.value) {
+            urlInput.value = "";
+            generateReportOnHTML(htmlInput.value);
+        } else if (urlInput.value) {
+            fetchHTMLFromURL(urlInput.value);
+        }
+    }, 250);
 }
 
 function fetchHTMLFromURL(url) {
     fetch(url)
         .then(response => response.text())
         .then(html => {
-            generateReportOnHTML(html.split("\n"));
+            generateReportOnHTML(html);
         })
         .catch(error => {
             console.log("Error in fetching recipe: ", error);
         });
 }
 
-function generateReportOnHTML(rawInputLines) {
+function generateReportOnHTML(rawInput) {
+    const rawInputLines = rawInput.split("\n");
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
     const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br", "input"];
