@@ -1,14 +1,34 @@
 const htmlInput = document.getElementById("html-input");
 const submitButton = document.getElementById("submit");
+const urlInput = document.getElementById("urlInput");
+const urlSubmitButton = document.getElementById("urlSubmit");
 const reportElement = document.getElementById("report");
 const rawInputElement = document.getElementById("rawInput");
 const cleanedInputElement = document.getElementById("cleanedInput");
 
 submitButton.onclick = () => {
+    generateReportOnHTML(htmlInput.value.split("\n"));
+}
+
+urlSubmitButton.onclick = () => {
+    fetchHTMLFromURL(urlInput.value);
+}
+
+function fetchHTMLFromURL(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            generateReportOnHTML(html.split("\n"));
+        })
+        .catch(error => {
+            console.log("Error in fetching recipe: ", error);
+        });
+}
+
+function generateReportOnHTML(rawInputLines) {
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
     const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br", "input"];
-    const rawInputLines = htmlInput.value.split("\n");
     const lineObjects = [];
     const parentStack = [];
     let lastLineObject = null;
