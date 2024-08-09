@@ -135,7 +135,7 @@ p:last-of-type {
 }
 
 h4 {
-    text-decoration: underline;
+    
 }
 
 h6 {
@@ -174,10 +174,10 @@ h6 {
     margin: 24px 0px;
 }
 
-/* #cleanupHelperHeading {
-    border-top: 5px solid #1a3159;
-    padding-top: 24px;
-} */
+#issuesListContainer,
+#cleanupHelperHeading {
+    padding-top: 36px;
+}
 
 #legendContainer {
     display: flex;
@@ -279,4 +279,88 @@ h6 {
 .line.areMarried .lineContent,
 .purple {
     background-color: rgb(254, 218, 254);
+}
+
+@media screen and (max-width: 1400px) {
+    #layout {
+        flex-direction: column;
+    }
+
+    #overall {
+        gap: 36px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #inputContainer form {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #inputContainer form #orContainer {
+        align-self: center;
+        font-size: 36px;
+    }
+
+    #inputContainer button {
+        flex: 1;
+    }
+
+    #overall {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 0px;
+    }
+
+    #overall h2 {
+        margin-bottom: 0px;
+    }
+
+    #layout > div {
+        padding: 0px;
+    }
+
+    #legendOuterContainer h6 {
+        margin-bottom: 16px;
+    }
+
+    #report #innerReportContainer {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #inputContainer,
+    #report {
+        margin: 24px;
+    }
+
+    #inputContainer form {
+        padding: 24px;
+    }
+
+    #inputContainer button {
+        min-width: auto;
+    }
+
+    #overall h2 {
+        font-size: 24px;
+    }
+
+    #overall #dirtyPercent {
+        font-size: 36px;
+    }
+
+    #report #overall,
+    h4,
+    #issuesListContainer p,
+    #helperContainer {
+        padding: 0px;
+    }
+
+    #overall, 
+    #issuesList, 
+    #legendOuterContainer {
+        margin: 0px;
+    }
 }
