@@ -89,8 +89,6 @@ function generateReportOnHTML(rawInput) {
 
         newLineObject.isVoidElement = VOID_ELEMENTS.includes(newLineObject.tagName);
 
-        
-
         if (newLineObject.tagName && !newLineObject.closingTagName && !newLineObject.isVoidElement) {
             parentStack.push(newLineObject);
         }
@@ -103,6 +101,10 @@ function generateReportOnHTML(rawInput) {
         newLineObject.containsAttribute = hasAttributeRegex.test(newLineObject.trimmedInput);
 
         newLineObject.hasDirtyAttributes = newLineObject.isTagIncomplete && newLineObject.containsAttribute;
+
+        const isDirtySplitElementRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
+        newLineObject.isDirtySplitElement =
+            isDirtySplitElementRegex.test(newLineObject.trimmedInput);
 
         // const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
         const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>?/;
@@ -232,6 +234,7 @@ function generateReportOnHTML(rawInput) {
             || line.isStrayClosingTag
             || line.isNearMissingClosingTags
             || line.hasDirtyAttributes
+            || line.isDirtySplitElement
             || line.hasCaps
             || line.isExcessLineSpace
             || line.exceedsCharLimit;
@@ -268,6 +271,13 @@ function generateReportOnHTML(rawInput) {
                     `  - Since this opening tag is split across multiple lines, `
                     + `the attribute(s) here should be moved to their own lines `
                     + `and indented.\n` 
+            }
+
+            if (line.isDirtySplitElement) {
+                errorMessage += 
+                    `  - Since this element is split across multiple lines, `
+                    + `the content following the opening tag `
+                    + `should be moved to its own line and indented.\n` 
             }
 
             if (line.hasCaps) {
