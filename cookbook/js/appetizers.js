@@ -4,6 +4,48 @@
 const recipeNames = [];
 const mealPrepRecipes = [
     {
+        recipeName: "pantheon-wordpress-setup",
+        categories: "setup, wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "creating-a-post",
+        categories: "wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "setting-a-featured-image",
+        categories: "wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "adding-a-menu-wordpress",
+        categories: "wordpress, video",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "adding-custom-css-wordpress",
+        categories: "wordpress, design, video",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "backup-wordpress",
+        categories: "wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "relabeling-default-home-link",
+        categories: "wordpress, video",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "web-dev-startup",
         categories: "setup",
         pageCount: 1,
@@ -48,48 +90,6 @@ const mealPrepRecipes = [
     {
         recipeName: "utilizing-google-fonts",
         categories: "design, external-resource",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "pantheon-wordpress-setup",
-        categories: "setup, wordpress",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "creating-a-post",
-        categories: "wordpress",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "setting-a-featured-image",
-        categories: "wordpress",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "adding-a-menu-wordpress",
-        categories: "wordpress, video",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "adding-custom-css-wordpress",
-        categories: "wordpress, design, video",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "backup-wordpress",
-        categories: "wordpress",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "relabeling-default-home-link",
-        categories: "wordpress, video",
         pageCount: 1,
         hasLocalProject: false,
     },
