@@ -58,6 +58,7 @@ function generateReportOnHTML(rawInput) {
         "li",
         "img",
         "span",
+        "nav",
         "header",
         "footer",
         "main",
