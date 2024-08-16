@@ -35,6 +35,43 @@ function generateReportOnHTML(rawInput) {
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
     const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br", "input"];
+    const VALID_ELEMENTS = [
+        "html",
+        "head",
+        "body",
+        "div",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "i",
+        "b",
+        "sup",
+        "sub",
+        "hr",
+        "br",
+        "ul",
+        "ol",
+        "li",
+        "img",
+        "span",
+        "header",
+        "footer",
+        "main",
+        "section",
+        "aside",
+        "figure",
+        "video",
+        "audio",
+        "link",
+        "title",
+        "meta",
+        "a",
+        "script",
+    ];
     const lineObjects = [];
     const parentStack = [];
     let lastLineObject = null;
@@ -88,6 +125,11 @@ function generateReportOnHTML(rawInput) {
         }
 
         newLineObject.isVoidElement = VOID_ELEMENTS.includes(newLineObject.tagName);
+        newLineObject.isValidOpeningTag = 
+            (!newLineObject.tagName || VALID_ELEMENTS.includes(newLineObject.tagName));
+        newLineObject.isValidClosingTag = 
+            (!newLineObject.closingTagName || VALID_ELEMENTS.includes(newLineObject.closingTagName));
+            
 
         if (newLineObject.tagName && !newLineObject.closingTagName && !newLineObject.isVoidElement) {
             parentStack.push(newLineObject);
@@ -237,7 +279,9 @@ function generateReportOnHTML(rawInput) {
             || line.isDirtySplitElement
             || line.hasCaps
             || line.isExcessLineSpace
-            || line.exceedsCharLimit;
+            || line.exceedsCharLimit
+            || !line.isValidOpeningTag
+            || !line.isValidClosingTag;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -295,6 +339,16 @@ function generateReportOnHTML(rawInput) {
             if (line.exceedsCharLimit) {
                 errorMessage += 
                     `  - This line exceeds the ${LINE_CHAR_LIMIT} character limit.\n`;
+            }
+
+            if (!line.isValidOpeningTag) {
+                errorMessage += 
+                    `  - The opening tag name ${line.tagName} is not a valid HTML tag name.\n`;
+            }
+
+            if (!line.isValidClosingTag) {
+                errorMessage += 
+                    `  - The closing tag name ${line.closingTagName} is not a valid HTML tag name.\n`;
             }
         }
         line.errorMessage = errorMessage;
