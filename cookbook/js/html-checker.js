@@ -125,7 +125,13 @@ function generateReportOnHTML(rawInput) {
             }
         }
 
-        newLineObject.isVoidElement = VOID_ELEMENTS.includes(newLineObject.tagName);
+        newLineObject.isVoidElement = 
+            VOID_ELEMENTS.includes(newLineObject.tagName)
+            || (
+                lastLineObject
+                && lastLineObject.isVoidElement
+                && !lastLineObject.trimmedInput.includes(">")
+            );
         newLineObject.isValidOpeningTag = 
             (!newLineObject.tagName || VALID_ELEMENTS.includes(newLineObject.tagName));
         newLineObject.isValidClosingTag = 
@@ -144,6 +150,10 @@ function generateReportOnHTML(rawInput) {
         newLineObject.containsAttribute = hasAttributeRegex.test(newLineObject.trimmedInput);
 
         newLineObject.hasDirtyAttributes = newLineObject.isTagIncomplete && newLineObject.containsAttribute;
+
+        const closeAfterAttributeRegex = /^(?!.*<).*[^<]\S.*>$/;
+        newLineObject.isDirtyClosedSplitTag = 
+            closeAfterAttributeRegex.test(newLineObject.trimmedInput);
 
         const isDirtySplitElementRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
         newLineObject.isDirtySplitElement =
@@ -201,6 +211,7 @@ function generateReportOnHTML(rawInput) {
             /*
                 If the last line has an opening tag
                     and is not a void element (or is an incomplete opening tag)
+                    and is not a line with an attribute and > on the same line
                     and does not have a closing tag
                     and (
                         the current line does not have a closing tag
@@ -219,6 +230,7 @@ function generateReportOnHTML(rawInput) {
                         || lastLineObject.isTagIncomplete
                     )
                     && !lastLineObject.closingTagName 
+                    && !lastLineObject.isDirtyClosedSplitTag
                     && (
                         newLineObject.closingTagName == null
                         || newLineObject.tagName
@@ -238,6 +250,10 @@ function generateReportOnHTML(rawInput) {
                 || (
                     newLineObject.trimmedInput.startsWith('>')
                     && !lastLineObject.isTagIncomplete
+                )
+                || (
+                    lastLineObject.isDirtyClosedSplitTag
+                    && lastLineObject.isVoidElement
                 )
             ) {
                 indentation = lastLineObject.idealIndentation - TAB_LENGTH;
@@ -277,6 +293,7 @@ function generateReportOnHTML(rawInput) {
             || line.isStrayClosingTag
             || line.isNearMissingClosingTags
             || line.hasDirtyAttributes
+            || line.isDirtyClosedSplitTag
             || line.isDirtySplitElement
             || line.hasCaps
             || line.isExcessLineSpace
@@ -316,6 +333,13 @@ function generateReportOnHTML(rawInput) {
                     `  - Since this opening tag is split across multiple lines, `
                     + `the attribute(s) here should be moved to their own lines `
                     + `and indented.\n` 
+            }
+
+            if (line.isDirtyClosedSplitTag) {
+                errorMessage += 
+                    `  - Since this opening tag is split across multiple lines, `
+                    + `the closing triangle bracket (>) here should be moved to its own line `
+                    + `and outdented to align with the opening triangle bracket (<) above.\n` 
             }
 
             if (line.isDirtySplitElement) {
