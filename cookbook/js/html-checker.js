@@ -151,6 +151,11 @@ function generateReportOnHTML(rawInput) {
 
         newLineObject.hasDirtyAttributes = newLineObject.isTagIncomplete && newLineObject.containsAttribute;
 
+        const hasSingleAttributeRegex = /^\s*[a-zA-Z0-9-]+\s*=\s*"[^"]*"\s*$/;
+        newLineObject.containsSingleAttribute = 
+            hasSingleAttributeRegex.test(newLineObject.trimmedInput);
+
+
         const closeAfterAttributeRegex = /^(?!.*<).*[^<]\S.*>$/;
         newLineObject.isDirtyClosedSplitTag = 
             closeAfterAttributeRegex.test(newLineObject.trimmedInput);
@@ -203,7 +208,10 @@ function generateReportOnHTML(rawInput) {
                 ) 
                 || (
                     lastLineObject.isVoidAttribute
-                    && !lastLineObject.trimmedInput.startsWith('>')
+                    && !(
+                        lastLineObject.trimmedInput.startsWith('>')
+                        || lastLineObject.trimmedInput.startsWith('/>')
+                    )
                 )
             ) {
                 newLineObject.isVoidAttribute = true;
@@ -236,10 +244,16 @@ function generateReportOnHTML(rawInput) {
                         || newLineObject.tagName
                         || newLineObject.closingTagName != lastLineObject.tagName
                     )
-                    && !newLineObject.trimmedInput.startsWith('>')
+                    && !(
+                        newLineObject.trimmedInput.startsWith('>')
+                        || newLineObject.trimmedInput.startsWith('/>')
+                    )
                 )
                 || (
-                    lastLineObject.trimmedInput.startsWith('>')
+                    (
+                        lastLineObject.trimmedInput.startsWith('>')
+                        || lastLineObject.trimmedInput.startsWith('/>')
+                    )
                     && !lastLineObject.isVoidAttribute
                 )
             ) {
@@ -248,7 +262,10 @@ function generateReportOnHTML(rawInput) {
             } else if (
                 (!newLineObject.tagName && newLineObject.closingTagName)
                 || (
-                    newLineObject.trimmedInput.startsWith('>')
+                    (
+                        newLineObject.trimmedInput.startsWith('>')
+                        || newLineObject.trimmedInput.startsWith('/>')
+                    )
                     && !lastLineObject.isTagIncomplete
                 )
                 || (
@@ -297,7 +314,7 @@ function generateReportOnHTML(rawInput) {
             || line.isDirtySplitElement
             || line.hasCaps
             || line.isExcessLineSpace
-            || line.exceedsCharLimit
+            || (!line.containsSingleAttribute && line.exceedsCharLimit)
             || !line.isValidOpeningTag
             || !line.isValidClosingTag;
 
@@ -361,7 +378,7 @@ function generateReportOnHTML(rawInput) {
                     + `this line of code can be removed.\n`;
             }
 
-            if (line.exceedsCharLimit) {
+            if (!line.containsSingleAttribute && line.exceedsCharLimit) {
                 errorMessage += 
                     `  - This line exceeds the ${LINE_CHAR_LIMIT} character limit.\n`;
             }
