@@ -5,8 +5,8 @@
 body {
     min-height: 96vh;
     background-image: 
-        /* linear-gradient(#FF000066, #FF000066), */
-        url("../images/kh_finalworld.jpg");
+        linear-gradient(#ff7300, #000000); /*,*/
+        /* url("../images/kh_finalworld.jpg"); */
     background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
@@ -17,8 +17,8 @@ body {
     width: 75%;
     margin: 48px auto;
     background-color: #FFFFFF99;
-    border: 8px solid navy;
-    /* border: 8px solid rgb(245, 80, 129); */
+    /* border: 8px solid navy; */
+    border: 8px solid black;
     border-radius: 24px;
     padding: 36px;
 }
@@ -140,8 +140,8 @@ h1 + h3 {
 }
 
 .wrapper {
-    background-color: skyblue;
-    /* background-color: rgb(235, 140, 135); */
+    /* background-color: skyblue; */
+    background-color: #ff7300d6;
     padding: 12px 24px;
 }
 
