@@ -23,7 +23,21 @@ function fetchHTMLFromURL(url) {
     fetch(url)
         .then(response => response.text())
         .then(html => {
-            generateReportOnHTML(html);
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const links = doc.querySelectorAll('head link[rel=stylesheet]');
+            let selectedCSSPath = '';
+            for (let i = 0; i < links.length; i++) {
+                const linkElement = links[i];
+                if (linkElement.href.startsWith('/css/')) {
+                    selectedCSSPath = linkElement.href;
+                    break;
+                }
+            }
+            if (selectedCSSPath) {
+                // probably need to append resource path to root URL.
+                //generateReportOnCSS(selectedCSSPath);
+            }
         })
         .catch(error => {
             console.log("Error in fetching recipe: ", error);
@@ -119,87 +133,9 @@ function generateReportOnHTML(rawInput) {
                 isStrayClosingBracket = true;
                 newLineObject.isStrayClosingBracket = true;
             }
-        }
-
-        // TODO: continue here
-        
-        if (!foundMatchedParent && !isStrayClosingTag && lastLineObject) {
-            // debugger;
-            if (
-                (
-                    lastLineObject.isVoidElement 
-                    && lastLineObject.isTagIncomplete
-                    && !newLineObject.tagName
-                    && newLineObject.containsAttribute
-                ) 
-                || (
-                    lastLineObject.isVoidAttribute
-                    && !(
-                        lastLineObject.trimmedInput.startsWith('>')
-                        || lastLineObject.trimmedInput.startsWith('/>')
-                    )
-                )
-            ) {
-                newLineObject.isVoidAttribute = true;
-            }
-            /*
-                If the last line has an opening tag
-                    and is not a void element (or is an incomplete opening tag)
-                    and is not a line with an attribute and > on the same line
-                    and does not have a closing tag
-                    and (
-                        the current line does not have a closing tag
-                        or (it does but) it has its own opening tag
-                        or it doesn't match the previous line's opening tag
-                         
-                    )
-                OR
-                    if the last line starts with a >
-            */
-            if (
-                (
-                    lastLineObject.tagName 
-                    && (
-                        !lastLineObject.isVoidElement
-                        || lastLineObject.isTagIncomplete
-                    )
-                    && !lastLineObject.closingTagName 
-                    && !lastLineObject.isDirtyClosedSplitTag
-                    && (
-                        newLineObject.closingTagName == null
-                        || newLineObject.tagName
-                        || newLineObject.closingTagName != lastLineObject.tagName
-                    )
-                    && !(
-                        newLineObject.trimmedInput.startsWith('>')
-                        || newLineObject.trimmedInput.startsWith('/>')
-                    )
-                )
-                || (
-                    (
-                        lastLineObject.trimmedInput.startsWith('>')
-                        || lastLineObject.trimmedInput.startsWith('/>')
-                    )
-                    && !lastLineObject.isVoidAttribute
-                )
-            ) {
+        } else if (!foundMatchedParent && !isStrayClosingTag && lastLineObject) {
+            if (lastLineObject.isBlockOpener) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
-            // should this check if the closing tag matches the previous parent?
-            } else if (
-                (!newLineObject.tagName && newLineObject.closingTagName)
-                || (
-                    (
-                        newLineObject.trimmedInput.startsWith('>')
-                        || newLineObject.trimmedInput.startsWith('/>')
-                    )
-                    && !lastLineObject.isTagIncomplete
-                )
-                || (
-                    lastLineObject.isDirtyClosedSplitTag
-                    && lastLineObject.isVoidElement
-                )
-            ) {
-                indentation = lastLineObject.idealIndentation - TAB_LENGTH;
             } else {
                 indentation = lastLineObject.idealIndentation;
                 newLineObject.isExcessLineSpace = 
@@ -233,16 +169,10 @@ function generateReportOnHTML(rawInput) {
 
         line.hasDirtyCode = 
             (indentationDiff != 0 && !line.isEmpty)
-            || line.isStrayClosingTag
-            || line.isNearMissingClosingTags
-            || line.hasDirtyAttributes
-            || line.isDirtyClosedSplitTag
-            || line.isDirtySplitElement
-            || line.hasCaps
+            || line.isStrayClosingBracket
+            // || line.isNearMissingClosingTags
             || line.isExcessLineSpace
-            || (!line.containsSingleAttribute && line.exceedsCharLimit)
-            || !line.isValidOpeningTag
-            || !line.isValidClosingTag;
+            || line.exceedsCharLimit;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -260,43 +190,16 @@ function generateReportOnHTML(rawInput) {
                 errorMessage += `to the ${indentationDiff > 0 ? "right." : "left."} \n`;
             }
 
-            if (line.isStrayClosingTag) {
+            if (line.isStrayClosingBracket) {
                 errorMessage += 
-                    `  - This line appears to contain a stray closing tag, ` 
-                    + `which does not match to an opening tag.\n`
+                    `  - This line appears to contain a stray closing bracket, ` 
+                    + `which does not match to an opening bracket.\n`
             }
 
-            if (line.isNearMissingClosingTags) {
-                errorMessage += 
-                    `  - This line is near where a missing closing tag is expected.\n`;
-            }
-
-            if (line.hasDirtyAttributes) {
-                errorMessage += 
-                    `  - Since this opening tag is split across multiple lines, `
-                    + `the attribute(s) here should be moved to their own lines `
-                    + `and indented.\n` 
-            }
-
-            if (line.isDirtyClosedSplitTag) {
-                errorMessage += 
-                    `  - Since this opening tag is split across multiple lines, `
-                    + `the closing triangle bracket (>) here should be moved to its own line `
-                    + `and outdented to align with the opening triangle bracket (<) above.\n` 
-            }
-
-            if (line.isDirtySplitElement) {
-                errorMessage += 
-                    `  - Since this element is split across multiple lines, `
-                    + `the content following the opening tag `
-                    + `should be moved to its own line and indented.\n` 
-            }
-
-            if (line.hasCaps) {
-                errorMessage += 
-                    `  - This line uses uppercase letters for tag or attribute names; `
-                    + `lowercase letters are preferred.\n`;
-            }
+            // if (line.isNearMissingClosingTags) {
+            //     errorMessage += 
+            //         `  - This line is near where a missing closing tag is expected.\n`;
+            // }
 
             if (line.isExcessLineSpace) {
                 errorMessage += 
@@ -304,19 +207,9 @@ function generateReportOnHTML(rawInput) {
                     + `this line of code can be removed.\n`;
             }
 
-            if (!line.containsSingleAttribute && line.exceedsCharLimit) {
+            if (line.exceedsCharLimit) {
                 errorMessage += 
                     `  - This line exceeds the ${LINE_CHAR_LIMIT} character limit.\n`;
-            }
-
-            if (!line.isValidOpeningTag) {
-                errorMessage += 
-                    `  - The opening tag name ${line.tagName} is not a valid HTML tag name.\n`;
-            }
-
-            if (!line.isValidClosingTag) {
-                errorMessage += 
-                    `  - The closing tag name ${line.closingTagName} is not a valid HTML tag name.\n`;
             }
         }
         line.errorMessage = errorMessage;
