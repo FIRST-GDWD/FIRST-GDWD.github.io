@@ -16,25 +16,26 @@ body {
     flex-direction: column; 
     justify-content: center; 
     align-items: flex-end;
+    padding-right: 60px;
+    margin-bottom: 100px;
 }
 
 #hero-2 h2 {
-    font-size: 8vw;
-    margin-bottom: 5vh;
-    margin-right: 5vw;
+    font-size: 120px;
+    margin-bottom: 36px;
 }
 
 #hero-2 h4 {
-    font-size: 3vw;
-    margin: 0px 5vw 0px 0px;
+    font-size: 48px;
+    margin: 0px;
 }
 
 #hero-2 a {
-    font-size: 1.5vw;
+    font-size: 28px;
     display: inline-block;
     background-color: #333333;
     color: white;
     text-decoration: none;
     padding: 24px;
-    margin: 5vh 5vw 10vh 0px;
+    margin-top: 36px;
 }
