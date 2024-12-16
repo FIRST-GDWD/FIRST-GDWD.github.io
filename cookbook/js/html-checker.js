@@ -71,6 +71,7 @@ function generateReportOnHTML(rawInput) {
         "title",
         "meta",
         "a",
+        "button",
         "script",
     ];
     const lineObjects = [];
