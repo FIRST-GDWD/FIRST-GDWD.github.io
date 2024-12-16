@@ -12,9 +12,14 @@ submitButton.onclick = () => {
     setTimeout(() => {
         if (htmlInput.value) {
             urlInput.value = "";
-            generateReportOnHTML(htmlInput.value);
+            generateReportOnCSS(htmlInput.value);
         } else if (urlInput.value) {
-            fetchHTMLFromURL(urlInput.value);
+            const url = urlInput.value;
+            if (url.endsWith(".css")) {
+                fetchCSSFromURL(url);
+            } else {
+                fetchHTMLFromURL(url);
+            }
         }
     }, 250);
 }
@@ -26,17 +31,37 @@ function fetchHTMLFromURL(url) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             const links = doc.querySelectorAll('head link[rel=stylesheet]');
-            let selectedCSSPath = '';
+            let firstLocalCSSPath = '';
+            let preferredLocalCSSPath = '';
+            debugger;
             for (let i = 0; i < links.length; i++) {
                 const linkElement = links[i];
-                if (linkElement.href.startsWith('/css/')) {
-                    selectedCSSPath = linkElement.href;
-                    break;
+                if (linkElement.href.includes("/css/")) {
+                    if (!firstLocalCSSPath) {
+                        firstLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                    }
+                    if (
+                        linkElement.href.includes("style.css")
+                        || linkElement.href.includes("drill.css") 
+                        || linkElement.href.includes("index.css")
+                    ) {
+                        preferredLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                    }
                 }
             }
-            if (selectedCSSPath) {
-                // probably need to append resource path to root URL.
-                //generateReportOnCSS(selectedCSSPath);
+
+            const urlObject = new URL(url);
+            const urlPartsArray = urlObject.pathname.split('/');
+            if (urlPartsArray[urlPartsArray.length - 1].includes('.')) {
+                urlPartsArray.pop();
+            }
+            const rootPath = 
+                urlObject.origin + urlPartsArray.join('/') + '/';
+
+            if (preferredLocalCSSPath) {
+                fetchCSSFromURL(rootPath + preferredLocalCSSPath);
+            } else {
+                fetchCSSFromURL(rootPath + firstLocalCSSPath);
             }
         })
         .catch(error => {
@@ -44,51 +69,28 @@ function fetchHTMLFromURL(url) {
         });
 }
 
-function generateReportOnHTML(rawInput) {
+function fetchCSSFromURL(url) {
+    console.log("fetchCSSFromURL: " + url);
+    fetch(url)
+        .then(response => response.text())
+        .then(css => {
+            generateReportOnCSS(css);
+        })
+        .catch(error => {
+            console.log("Error in fetching CSS: ", error);
+        });
+}
+
+function generateReportOnCSS(rawInput) {
+    console.log("generateReportOnCSS: " + rawInput)
     const rawInputLines = rawInput.split("\n");
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
-    const VOID_ELEMENTS = ["link", "meta", "img", "hr", "br", "input"];
-    const VALID_ELEMENTS = [
-        "html",
-        "head",
-        "body",
-        "div",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "p",
-        "i",
-        "b",
-        "sup",
-        "sub",
-        "hr",
-        "br",
-        "ul",
-        "ol",
-        "li",
-        "img",
-        "span",
-        "nav",
-        "header",
-        "footer",
-        "main",
-        "section",
-        "aside",
-        "figure",
-        "video",
-        "audio",
-        "link",
-        "title",
-        "meta",
-        "a",
-        "script",
-    ];
     const lineObjects = [];
-    const parentStack = [];
+    const blockParentStack = [];
+    const functionParentStack = [];
+    const commentParentStack = [];
+    let lastPropertyStart = null;
     let lastLineObject = null;
     for (let i = 0; i < rawInputLines.length; i++) {
         const rawInput = rawInputLines[i];
@@ -104,48 +106,206 @@ function generateReportOnHTML(rawInput) {
 
         newLineObject.isBlockOpener = newLineObject.trimmedInput.endsWith('{');
         newLineObject.isBlockCloser = newLineObject.trimmedInput.startsWith('}');
-            
 
-        // TODO: change to CSS rule/selector/block terminology, and set logic
+        newLineObject.isFunctionOpener = newLineObject.trimmedInput.endsWith('(');
+        newLineObject.isFunctionCloser = 
+            newLineObject.trimmedInput.startsWith(');')
+            || newLineObject.trimmedInput.startsWith(')');
+
+        if (newLineObject.isFunctionCloser && newLineObject.trimmedInput.endsWith(')')) {
+            newLineObject.isMissingSemiColon = true;
+        }
+
+        const openParenCount = newLineObject.trimmedInput.split('(').length - 1;
+        const closedParenCount = newLineObject.trimmedInput.split(')').length - 1;
+
+        if (
+            openParenCount != closedParenCount 
+        ) {
+            if (openParenCount > 1 || closedParenCount > 1) {
+                newLineObject.isDirtyFunction = true;
+            }
+
+            if (openParenCount > closedParenCount && !newLineObject.isFunctionOpener) {
+                newLineObject.isDirtyFunction = true;
+                newLineObject.isFunctionOpener = true;
+            }
+            if (closedParenCount > openParenCount && !newLineObject.isFunctionCloser) {
+                newLineObject.isDirtyFunction = true;
+                newLineObject.isFunctionCloser = true;
+            }
+        }
+
+        newLineObject.isCommentOpener = newLineObject.trimmedInput.endsWith('/*');
+        newLineObject.isCommentCloser = newLineObject.trimmedInput.startsWith('*/');
+
+        if (
+            !(
+                newLineObject.trimmedInput.startsWith('/*') 
+                && newLineObject.trimmedInput.endsWith('*/')
+            )
+        ) {
+            if (
+                newLineObject.trimmedInput.startsWith('/*') && !newLineObject.isCommentOpener) {
+                newLineObject.isDirtyComment = true;
+                newLineObject.isCommentOpener = true;
+            }
+
+            if (newLineObject.trimmedInput.endsWith('*/') && !newLineObject.isCommentCloser) {
+                newLineObject.isDirtyComment = true;
+                newLineObject.isCommentCloser = true;
+            }
+        }
+
+        newLineObject.isImport = newLineObject.trimmedInput.startsWith('@import ');
+        newLineObject.isMediaQuery = newLineObject.trimmedInput.startsWith('@media ');
+
+        newLineObject.isPropertyStart = 
+            newLineObject.trimmedInput.includes(':') 
+            && !newLineObject.isBlockOpener
+            && !(
+                newLineObject.trimmedInput.startsWith('/*') 
+                && newLineObject.trimmedInput.endsWith('*/')
+            );
+        newLineObject.isPropertyHalf = newLineObject.trimmedInput.endsWith(':');
+        newLineObject.isPropertyEnd = newLineObject.trimmedInput.endsWith(';');
+
+        if (
+            newLineObject.isPropertyStart 
+            && !newLineObject.isPropertyHalf 
+            && !newLineObject.isPropertyEnd
+            && !newLineObject.isFunctionOpener
+        ) {
+            newLineObject.isIncompleteProperty = true;
+        }
+
+        newLineObject.needsCommaSplit = 
+            newLineObject.trimmedInput.includes(',')
+            && !newLineObject.trimmedInput.endsWith(',')
+            && !newLineObject.isPropertyStart
+            && !lastPropertyStart;
+        
+
         if (newLineObject.isBlockOpener) {
-            parentStack.push(newLineObject);
+            blockParentStack.push(newLineObject);
+        }
+
+        if (newLineObject.isFunctionOpener) {
+            functionParentStack.push(newLineObject);
+        }
+
+        if (newLineObject.isCommentOpener) {
+            commentParentStack.push(newLineObject);
         }
 
         
         let indentation = 0;
-        let foundMatchedParent = false;
+        let foundMatchedBlockParent = false;
+        let foundMatchedFunctionParent = false;
+        let foundMatchedCommentParent = false;
         let isStrayClosingBracket = false;
+        let isStrayClosingParen = false;
+        let isStrayClosingComment = false;
+
         if (newLineObject.isBlockCloser) {
             let parentsPoppedCount = 0;
-            if (parentStack.length > 0) {
-                const poppedParent = parentStack.pop();
+            if (blockParentStack.length > 0) {
+                const poppedParent = blockParentStack.pop();
                 parentsPoppedCount++;
 
                 indentation = poppedParent.idealIndentation;
-                foundMatchedParent = true;
+                foundMatchedBlockParent = true;
                 poppedParent.matchingLineNumber = newLineObject.lineNumber;
                 newLineObject.matchingLineNumber = poppedParent.lineNumber;
                 // if (parentsPoppedCount > 1) {
                 //     newLineObject.isNearMissingClosingTags = true;
                 // }
-            } else if (parentStack.length == 0) {
+            } else if (blockParentStack.length == 0) {
                 indentation = newLineObject.actualIndentation;
                 isStrayClosingBracket = true;
                 newLineObject.isStrayClosingBracket = true;
             }
-        } else if (!foundMatchedParent && !isStrayClosingTag && lastLineObject) {
-            if (lastLineObject.isBlockOpener) {
+            
+            if (lastPropertyStart && lastLineObject) {
+                lastLineObject.isMissingSemiColon = true;
+                lastPropertyStart = null;
+            }
+        } 
+        
+        if (newLineObject.isFunctionCloser) {
+            let parentsPoppedCount = 0;
+            if (functionParentStack.length > 0) {
+                const poppedParent = functionParentStack.pop();
+                parentsPoppedCount++;
+
+                indentation = poppedParent.idealIndentation;
+                foundMatchedFunctionParent = true;
+                poppedParent.matchingLineNumber = newLineObject.lineNumber;
+                newLineObject.matchingLineNumber = poppedParent.lineNumber;
+            } else if (functionParentStack.length == 0) {
+                indentation = newLineObject.actualIndentation;
+                isStrayClosingParen = true;
+                newLineObject.isStrayClosingParen = true;
+            }
+        }
+
+        if (newLineObject.isCommentCloser) {
+            let parentsPoppedCount = 0;
+            if (commentParentStack.length > 0) {
+                const poppedParent = commentParentStack.pop();
+                parentsPoppedCount++;
+
+                indentation = poppedParent.idealIndentation;
+                foundMatchedCommentParent = true;
+                poppedParent.matchingLineNumber = newLineObject.lineNumber;
+                newLineObject.matchingLineNumber = poppedParent.lineNumber;
+            } else if (commentParentStack.length == 0) {
+                indentation = newLineObject.actualIndentation;
+                isStrayClosingComment = true;
+                newLineObject.isStrayClosingComment = true;
+            }
+        }
+
+        if (
+            !foundMatchedBlockParent 
+            && !foundMatchedFunctionParent 
+            && !foundMatchedCommentParent
+            && !isStrayClosingBracket 
+            && !isStrayClosingParen 
+            && !isStrayClosingComment
+            && lastLineObject
+        ) {
+            if (
+                lastLineObject.isBlockOpener 
+                || lastLineObject.isFunctionOpener
+                || lastLineObject.isCommentOpener
+            ) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
+            } else if (lastPropertyStart) {
+                indentation = lastPropertyStart.idealIndentation + TAB_LENGTH;
             } else {
                 indentation = lastLineObject.idealIndentation;
                 newLineObject.isExcessLineSpace = 
                     newLineObject.isEmpty && lastLineObject.isEmpty;
             }
         }
+
+        if (newLineObject.isPropertyStart) {
+            if (lastPropertyStart && lastLineObject) {
+                lastLineObject.isMissingSemiColon = true;
+            }
+            lastPropertyStart = newLineObject;
+
+        }
+
+        if (newLineObject.isPropertyEnd) {
+            lastPropertyStart = null;
+        }
+        
         newLineObject.idealIndentation = indentation;
 
         lineObjects.push(newLineObject);
-        if (!isStrayClosingTag) {
+        if (!isStrayClosingBracket) {
             lastLineObject = newLineObject;
         }
     }
@@ -167,12 +327,20 @@ function generateReportOnHTML(rawInput) {
 
         let indentationDiff = line.idealIndentation - line.actualIndentation;
 
+        let giveImportWarning = line.isImport && line.lineNumber > 1;
+
         line.hasDirtyCode = 
             (indentationDiff != 0 && !line.isEmpty)
             || line.isStrayClosingBracket
             // || line.isNearMissingClosingTags
             || line.isExcessLineSpace
-            || line.exceedsCharLimit;
+            || (line.exceedsCharLimit && !line.isImport)
+            || giveImportWarning
+            || line.isDirtyFunction
+            || line.isDirtyComment
+            || line.isMissingSemiColon
+            || line.isIncompleteProperty
+            || line.needsCommaSplit;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -207,9 +375,41 @@ function generateReportOnHTML(rawInput) {
                     + `this line of code can be removed.\n`;
             }
 
-            if (line.exceedsCharLimit) {
+            if (line.exceedsCharLimit && !line.isImport) {
                 errorMessage += 
                     `  - This line exceeds the ${LINE_CHAR_LIMIT} character limit.\n`;
+            }
+
+            if (giveImportWarning) {
+                errorMessage += 
+                    `  - @import statements should be the very first thing in the file; they may not work properly otherwise.\n`;
+            }
+
+            if (line.isDirtyFunction) {
+                errorMessage += 
+                    `  - If the parentheses of a value function are not on the same line, those parentheses and each input in between them should all have their own lines.\n`;
+            }
+
+            if (line.isDirtyComment) {
+                errorMessage += 
+                    `  - If the /* and */ of a comment are not on the same line, those /* and */ and whatever is in between them should be on separate lines.\n`;
+                errorMessage += 
+                    `  - OR, if these are lines of code you commented out, they probably should not be left in your submission!\n`;
+            }
+
+            if (line.isMissingSemiColon) {
+                errorMessage += 
+                    `  - This line seems to be missing a semicolon (;).\n`;
+            }
+
+            if (line.isIncompleteProperty && !line.isMissingSemiColon) {
+                errorMessage += 
+                    `  - This CSS Property seems to be missing a semicolon (;), or was split across multiple lines. If it was split, everything after the colon (:) should be moved to the next line as well.\n`;
+            }
+
+            if (line.needsCommaSplit) {
+                errorMessage += 
+                    `  - When sharing styles across multiple selectors with commas (,), it is cleaner to have each group of selectors on their own line with the comma at the end.\n`;
             }
         }
         line.errorMessage = errorMessage;
