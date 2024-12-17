@@ -198,6 +198,11 @@ function generateReportOnCSS(rawInput) {
             newLineObject.isMediaQuery
             && !newLineObject.trimmedInput.includes('{');
 
+        const multiplePropertiesRegex = 
+            /[^:;]+\s*:\s*[^;]+;.*[^:;]+\s*:\s*[^;]+/;
+        newLineObject.hasMultipleProperties =
+            multiplePropertiesRegex.test(newLineObject.trimmedInput)
+            && !newLineObject.isImport;
 
         newLineObject.isPropertyStart = 
             newLineObject.trimmedInput.includes(':') 
@@ -227,6 +232,9 @@ function generateReportOnCSS(rawInput) {
             newLineObject.trimmedInput.length > 1
             && newLineObject.trimmedInput.endsWith('}'); // dirty closer
 
+        newLineObject.hasDoubleSemiColons =
+            newLineObject.trimmedInput.includes(';;');
+
         if (
             newLineObject.isPropertyStart 
             && !newLineObject.isPropertyHalf 
@@ -240,6 +248,12 @@ function generateReportOnCSS(rawInput) {
             newLineObject.isPropertyStart
             && newLineObject.isPropertyEnd
             && !newLineObject.trimmedInput.includes(': ');
+
+        newLineObject.isDirtyComma =
+            newLineObject.trimmedInput.includes(',')
+            && !newLineObject.trimmedInput.endsWith(',')
+            && !newLineObject.trimmedInput.includes(', ')
+            && !newLineObject.isImport;
 
         if (newLineObject.isBlockOpener) {
             blockParentStack.push(newLineObject);
@@ -262,6 +276,7 @@ function generateReportOnCSS(rawInput) {
         let isStrayClosingParen = false;
         let isStrayClosingComment = false;
 
+        newLineObject.isInMediaQuery = false;
         newLineObject.isInBlock = false;
         newLineObject.isInFunction = false;
         newLineObject.isInComment = false;
@@ -273,7 +288,7 @@ function generateReportOnCSS(rawInput) {
                 parentsPoppedCount++;
 
                 if (newLineObject.isDirtyClosingBlock && lastLineObject) {
-                    indentation = lastLineObject.idealIndentation;
+                    indentation = poppedParent.idealIndentation + TAB_LENGTH;
                 } else {
                     indentation = poppedParent.idealIndentation;
                 }
@@ -353,6 +368,9 @@ function generateReportOnCSS(rawInput) {
                 || lastLineObject.isMediaQuery
             ) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
+                if (lastLineObject.isBlockOpener && lastLineObject.isInBlock) {
+                    lastLineObject.isNestedBlock = true;
+                }
                 if (lastLineObject.isBlockOpener && !lastLineObject.isMediaQuery) {
                     newLineObject.isInBlock = true;
                 }
@@ -395,7 +413,8 @@ function generateReportOnCSS(rawInput) {
             && !newLineObject.trimmedInput.endsWith(',')
             && !newLineObject.isPropertyStart
             && !lastPropertyStart
-            && !newLineObject.isInComment;
+            && !newLineObject.isInComment
+            && !newLineObject.isImport;
 
         if (newLineObject.isPropertyStart) {
             if (lastPropertyStart && lastLineObject) {
@@ -447,10 +466,14 @@ function generateReportOnCSS(rawInput) {
             || giveImportWarning
             || line.isDirtyFunction
             || line.isDirtyComment
+            || line.isNestedBlock
             || line.isDirtyOpeningBlock
             || line.isDirtyClosingBlock
+            || line.isDirtyComma
             || line.isDirtyColon
             || line.isMissingSemiColon
+            || line.hasDoubleSemiColons
+            || line.hasMultipleProperties
             || line.isBrokenPropertyStart
             || line.isIncompleteProperty
             || line.needsCommaSplit
@@ -527,9 +550,26 @@ function generateReportOnCSS(rawInput) {
                     `  - OR, if these are lines of code you commented out, they probably should not be left in your submission!\n`;
             }
 
+            if (line.isNestedBlock) {
+                errorMessage += 
+                    `  - This new CSS Rule seems to be inside of another Declaration Block. `
+                    + `Be sure to end the previous CSS Rule with a closing curly bracket ( } ) before starting a new one.\n`;
+            }
+
             if (line.isMissingSemiColon) {
                 errorMessage += 
                     `  - This line seems to be missing a semicolon ( ; ) at the end.\n`;
+            }
+
+            if (line.hasDoubleSemiColons) {
+                errorMessage += 
+                    `  - This line has two semicolons ( ;; ). CSS Properties only need one to terminate, so remove the spare.\n`;
+            }
+
+            if (line.hasMultipleProperties) {
+                errorMessage += 
+                    `  - This line seems to have multiple CSS Properties; `
+                    + `split the line up so that each CSS Property has its own line.\n`;
             }
 
             if (line.isBrokenPropertyStart) {
@@ -553,9 +593,14 @@ function generateReportOnCSS(rawInput) {
                     `  - The closing bracket ( } ) of a Declaration Block should be on its own line.\n`;
             }
 
+            if (line.isDirtyComma) {
+                errorMessage += 
+                    `  - Add a space after a comma ( , ) in a CSS Property to make it cleaner.\n`;
+            }
+
             if (line.isDirtyColon) {
                 errorMessage += 
-                    `  - Include a space after the Assignment Operator ( : ) in a CSS Property to make it cleaner.\n`;
+                    `  - Add a space after the Assignment Operator ( : ) in a CSS Property to make it cleaner.\n`;
             }
 
             if (line.needsCommaSplit) {

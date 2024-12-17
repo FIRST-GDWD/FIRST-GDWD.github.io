@@ -114,17 +114,6 @@
                     </div>
                     <h2><span id="dirtyPercent"></span>% DIRTY</h2>
                 </div>
-                <div id="issuesListContainer">
-                    <h4>Issues List</h4>
-                    <p>
-                        Below are the clean code issues this tool was able to detect in 
-                        your code.  However, note that this tool is best at detecting 
-                        syntax issues (i.e. issues with the grammar of a programming 
-                        language) and suggesting how to fix them. Logic errors, on the 
-                        other hand, are harder for it to target specifically.
-                    </p>
-                    <div id="issuesList"></div>
-                </div>
 
                 <!-- 
             This is a comment 
@@ -139,7 +128,8 @@
                         but processed to 
                         fix your indentation issues. However, certain dirty code 
                         issues (particularly logic errors) may prevent this tool 
-                        from correctly fixing your indentation, such as stray tags.
+                        from correctly fixing your indentation, such as 
+                        stray tags (or conversely, missing tags).
                     </p>
                     <p>
                         Hover over a line or line number with an error, and the
@@ -149,7 +139,8 @@
                         closing tag to be highlighted.
                     </p>
                     <p>
-                        We recommend addressing the issues from top to bottom.
+                        We recommend addressing the issues one at a time 
+                        from top to bottom.
                         Sometimes, addressing an issue earlier on in your code
                         can fix issues lower down.
                     </p>
@@ -199,6 +190,18 @@
                         <h5>Cleaned Code (Indentation Cleanup Only)</h5>
                         <div id="cleanedInput" class="code"></div>
                     </div>
+                </div>
+
+                <div id="issuesListContainer">
+                    <h4>Issues List</h4>
+                    <p>
+                        Below are the clean code issues this tool was able to detect in 
+                        your code.  However, note that this tool is best at detecting 
+                        syntax issues (i.e. issues with the grammar of a programming 
+                        language) and suggesting how to fix them. Logic errors, on the 
+                        other hand, are harder for it to target specifically.
+                    </p>
+                    <div id="issuesList"></div>
                 </div>
             </div>
     
