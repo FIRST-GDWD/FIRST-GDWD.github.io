@@ -1,4 +1,4 @@
-const htmlInput = document.getElementById("html-input");
+const htmlInput = document.getElementById("css-input");
 const submitButton = document.getElementById("submit");
 const urlInput = document.getElementById("urlInput");
 const urlSubmitButton = document.getElementById("urlSubmit");
