@@ -105,7 +105,15 @@ function generateReportOnCSS(rawInput) {
             newLineObject.rawInput.length - newLineObject.trimmedInput.length;
 
         newLineObject.isBlockOpener = newLineObject.trimmedInput.endsWith('{');
-        newLineObject.isBlockCloser = newLineObject.trimmedInput.startsWith('}');
+        newLineObject.isBlockCloser = newLineObject.trimmedInput.endsWith('}');
+
+        newLineObject.isDirtyOpeningBlock = 
+            newLineObject.isBlockOpener
+            && !newLineObject.trimmedInput.includes(' {');
+
+        newLineObject.isDirtyClosingBlock = 
+            newLineObject.isBlockCloser
+            && !newLineObject.trimmedInput.startsWith('}');
 
         newLineObject.isDirtyCssRule = 
             (newLineObject.trimmedInput.includes('{') && !newLineObject.isBlockOpener)
@@ -140,8 +148,21 @@ function generateReportOnCSS(rawInput) {
             }
         }
 
-        newLineObject.isCommentOpener = newLineObject.trimmedInput.endsWith('/*');
-        newLineObject.isCommentCloser = newLineObject.trimmedInput.startsWith('*/');
+        const isLineOnlyCommentCharacters = newLineObject.trimmedInput
+            .split('')
+            .every(char => char === '/' || char === '*');
+        newLineObject.isCommentOpener = 
+            newLineObject.trimmedInput.endsWith('/*')
+            || (
+                newLineObject.trimmedInput.startsWith('/*')
+                && isLineOnlyCommentCharacters
+            );
+        newLineObject.isCommentCloser = 
+            newLineObject.trimmedInput.startsWith('*/')
+            || (
+                newLineObject.trimmedInput.endsWith('*/')
+                && isLineOnlyCommentCharacters
+            );
 
         if (
             !(
@@ -150,12 +171,17 @@ function generateReportOnCSS(rawInput) {
             )
         ) {
             if (
-                newLineObject.trimmedInput.startsWith('/*') && !newLineObject.isCommentOpener) {
+                newLineObject.trimmedInput.startsWith('/*') 
+                && !newLineObject.isCommentOpener
+            ) {
                 newLineObject.isDirtyComment = true;
                 newLineObject.isCommentOpener = true;
             }
 
-            if (newLineObject.trimmedInput.endsWith('*/') && !newLineObject.isCommentCloser) {
+            if (
+                newLineObject.trimmedInput.endsWith('*/') 
+                && !newLineObject.isCommentCloser
+            ) {
                 newLineObject.isDirtyComment = true;
                 newLineObject.isCommentCloser = true;
             }
@@ -177,12 +203,29 @@ function generateReportOnCSS(rawInput) {
             newLineObject.trimmedInput.includes(':') 
             && !newLineObject.isBlockOpener
             && !newLineObject.isMediaQuery
+            && !newLineObject.isImport
+            && !(
+                newLineObject.trimmedInput.startsWith('/*') 
+                && newLineObject.trimmedInput.endsWith('*/')
+            );
+        newLineObject.isBrokenPropertyStart = 
+            newLineObject.trimmedInput.includes('=') 
+            && !newLineObject.isBlockOpener
+            && !newLineObject.isMediaQuery
+            && !newLineObject.isImport
             && !(
                 newLineObject.trimmedInput.startsWith('/*') 
                 && newLineObject.trimmedInput.endsWith('*/')
             );
         newLineObject.isPropertyHalf = newLineObject.trimmedInput.endsWith(':');
-        newLineObject.isPropertyEnd = newLineObject.trimmedInput.endsWith(';');
+        newLineObject.isPropertyEnd = 
+            newLineObject.trimmedInput.endsWith(';')
+            || newLineObject.trimmedInput.endsWith(';}') // dirty closer
+            || newLineObject.trimmedInput.endsWith('}'); // dirty closer
+        
+        newLineObject.isDirtyPropertyEnd =
+            newLineObject.trimmedInput.length > 1
+            && newLineObject.trimmedInput.endsWith('}'); // dirty closer
 
         if (
             newLineObject.isPropertyStart 
@@ -193,12 +236,10 @@ function generateReportOnCSS(rawInput) {
             newLineObject.isIncompleteProperty = true;
         }
 
-        newLineObject.needsCommaSplit = 
-            newLineObject.trimmedInput.includes(',')
-            && !newLineObject.trimmedInput.endsWith(',')
-            && !newLineObject.isPropertyStart
-            && !lastPropertyStart;
-        
+        newLineObject.isDirtyColon =
+            newLineObject.isPropertyStart
+            && newLineObject.isPropertyEnd
+            && !newLineObject.trimmedInput.includes(': ');
 
         if (newLineObject.isBlockOpener) {
             blockParentStack.push(newLineObject);
@@ -221,13 +262,21 @@ function generateReportOnCSS(rawInput) {
         let isStrayClosingParen = false;
         let isStrayClosingComment = false;
 
+        newLineObject.isInBlock = false;
+        newLineObject.isInFunction = false;
+        newLineObject.isInComment = false;
+
         if (newLineObject.isBlockCloser) {
             let parentsPoppedCount = 0;
             if (blockParentStack.length > 0) {
                 const poppedParent = blockParentStack.pop();
                 parentsPoppedCount++;
 
-                indentation = poppedParent.idealIndentation;
+                if (newLineObject.isDirtyClosingBlock && lastLineObject) {
+                    indentation = lastLineObject.idealIndentation;
+                } else {
+                    indentation = poppedParent.idealIndentation;
+                }
                 foundMatchedBlockParent = true;
                 poppedParent.matchingLineNumber = newLineObject.lineNumber;
                 newLineObject.matchingLineNumber = poppedParent.lineNumber;
@@ -242,6 +291,14 @@ function generateReportOnCSS(rawInput) {
             
             if (lastPropertyStart && lastLineObject) {
                 lastLineObject.isMissingSemiColon = true;
+                lastPropertyStart = null;
+            }
+
+            if (
+                newLineObject.isDirtyPropertyEnd
+                && !newLineObject.trimmedInput.endsWith(';}')
+            ) {
+                newLineObject.isMissingSemiColon = true;
                 lastPropertyStart = null;
             }
         } 
@@ -296,14 +353,49 @@ function generateReportOnCSS(rawInput) {
                 || lastLineObject.isMediaQuery
             ) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
+                if (lastLineObject.isBlockOpener && !lastLineObject.isMediaQuery) {
+                    newLineObject.isInBlock = true;
+                }
+                if (lastLineObject.isFunctionOpener) {
+                    newLineObject.isInFunction = true;
+                }
+                if (lastLineObject.isCommentOpener) {
+                    newLineObject.isInComment = true;
+                }
             } else if (lastPropertyStart) {
                 indentation = lastPropertyStart.idealIndentation + TAB_LENGTH;
+                newLineObject.isInBlock = lastLineObject.isInBlock;
+                newLineObject.isInFunction = lastLineObject.isInFunction;
+                newLineObject.isInComment = lastLineObject.isInComment;
+                newLineObject.lastPropertyStartLineNumber = lastPropertyStart.lineNumber;
+            } else if (
+                lastLineObject.lastPropertyStartLineNumber
+                || lastLineObject.isDirtyClosingBlock
+            ) {
+                indentation = lastLineObject.idealIndentation - TAB_LENGTH;
+                newLineObject.isInBlock = lastLineObject.isInBlock;
+                newLineObject.isInFunction = lastLineObject.isInFunction;
+                newLineObject.isInComment = lastLineObject.isInComment;
+                newLineObject.isExcessLineSpace = 
+                    newLineObject.isEmpty && lastLineObject.isEmpty;
             } else {
                 indentation = lastLineObject.idealIndentation;
+                newLineObject.isInBlock = lastLineObject.isInBlock;
+                newLineObject.isInFunction = lastLineObject.isInFunction;
+                newLineObject.isInComment = lastLineObject.isInComment;
                 newLineObject.isExcessLineSpace = 
                     newLineObject.isEmpty && lastLineObject.isEmpty;
             }
         }
+
+        
+
+        newLineObject.needsCommaSplit = 
+            newLineObject.trimmedInput.includes(',')
+            && !newLineObject.trimmedInput.endsWith(',')
+            && !newLineObject.isPropertyStart
+            && !lastPropertyStart
+            && !newLineObject.isInComment;
 
         if (newLineObject.isPropertyStart) {
             if (lastPropertyStart && lastLineObject) {
@@ -350,13 +442,16 @@ function generateReportOnCSS(rawInput) {
             || line.isStrayClosingBracket
             || line.isStrayClosingParen
             || line.isStrayClosingComment
-            // || line.isNearMissingClosingTags
             || line.isExcessLineSpace
             || (line.exceedsCharLimit && !line.isImport)
             || giveImportWarning
             || line.isDirtyFunction
             || line.isDirtyComment
+            || line.isDirtyOpeningBlock
+            || line.isDirtyClosingBlock
+            || line.isDirtyColon
             || line.isMissingSemiColon
+            || line.isBrokenPropertyStart
             || line.isIncompleteProperty
             || line.needsCommaSplit
             || line.hasBrokenMediaFeatures
@@ -404,11 +499,6 @@ function generateReportOnCSS(rawInput) {
                     + `which does not match to an opening /* (used for comments).\n`
             }
 
-            // if (line.isNearMissingClosingTags) {
-            //     errorMessage += 
-            //         `  - This line is near where a missing closing tag is expected.\n`;
-            // }
-
             if (line.isExcessLineSpace) {
                 errorMessage += 
                     `  - More than one consecutive line of empty space is excessive; `
@@ -439,17 +529,38 @@ function generateReportOnCSS(rawInput) {
 
             if (line.isMissingSemiColon) {
                 errorMessage += 
-                    `  - This line seems to be missing a semicolon ( ; ).\n`;
+                    `  - This line seems to be missing a semicolon ( ; ) at the end.\n`;
             }
 
-            if (line.isIncompleteProperty && !line.isMissingSemiColon && !line.isDirtyCssRule) {
+            if (line.isBrokenPropertyStart) {
+                errorMessage += 
+                    `  - This line seems to be using an equal sign ( = ) as the Assignment Operator. Replace it with a colon ( : ). `
+                    + `Remember that in CSS, colons ( : ) are the Assignment Operators for CSS Properties.\n`;
+            }
+
+            if (line.isIncompleteProperty && !line.isMissingSemiColon && !line.isDirtyCssRule && !line.isDirtyClosingBlock) {
                 errorMessage += 
                     `  - This CSS Property seems to be missing a semicolon ( ; ), or was split across multiple lines. If it was split, everything after the colon (:) should be moved to the next line as well.\n`;
             }
 
+            if (line.isDirtyOpeningBlock) {
+                errorMessage += 
+                    `  - Include a space before the opening bracket ( { ) in a CSS Rule or Media Query to make it cleaner.\n`;
+            }
+
+            if (line.isDirtyClosingBlock) {
+                errorMessage += 
+                    `  - The closing bracket ( } ) of a Declaration Block should be on its own line.\n`;
+            }
+
+            if (line.isDirtyColon) {
+                errorMessage += 
+                    `  - Include a space after the Assignment Operator ( : ) in a CSS Property to make it cleaner.\n`;
+            }
+
             if (line.needsCommaSplit) {
                 errorMessage += 
-                    `  - When sharing styles across multiple selectors with commas ( , ), it is cleaner to have each group of selectors on their own line with the comma at the end.\n`;
+                    `  - When sharing styles across multiple selectors with commas ( , ), it is cleaner to have each group of selectors on their own line with the comma(s) at the end.\n`;
             }
 
             if (line.hasBrokenMediaFeatures) {
