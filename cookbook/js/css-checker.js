@@ -107,6 +107,10 @@ function generateReportOnCSS(rawInput) {
         newLineObject.isBlockOpener = newLineObject.trimmedInput.endsWith('{');
         newLineObject.isBlockCloser = newLineObject.trimmedInput.startsWith('}');
 
+        newLineObject.isDirtyCssRule = 
+            (newLineObject.trimmedInput.includes('{') && !newLineObject.isBlockOpener)
+            || (newLineObject.trimmedInput.includes('}') && !newLineObject.isBlockCloser);
+
         newLineObject.isFunctionOpener = newLineObject.trimmedInput.endsWith('(');
         newLineObject.isFunctionCloser = 
             newLineObject.trimmedInput.startsWith(');')
@@ -160,9 +164,19 @@ function generateReportOnCSS(rawInput) {
         newLineObject.isImport = newLineObject.trimmedInput.startsWith('@import ');
         newLineObject.isMediaQuery = newLineObject.trimmedInput.startsWith('@media ');
 
+        newLineObject.hasBrokenMediaFeatures =
+            newLineObject.isMediaQuery
+            && newLineObject.trimmedInput.includes(';');
+
+        newLineObject.isIncompleteMediaQuery =
+            newLineObject.isMediaQuery
+            && !newLineObject.trimmedInput.includes('{');
+
+
         newLineObject.isPropertyStart = 
             newLineObject.trimmedInput.includes(':') 
             && !newLineObject.isBlockOpener
+            && !newLineObject.isMediaQuery
             && !(
                 newLineObject.trimmedInput.startsWith('/*') 
                 && newLineObject.trimmedInput.endsWith('*/')
@@ -279,6 +293,7 @@ function generateReportOnCSS(rawInput) {
                 lastLineObject.isBlockOpener 
                 || lastLineObject.isFunctionOpener
                 || lastLineObject.isCommentOpener
+                || lastLineObject.isMediaQuery
             ) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
             } else if (lastPropertyStart) {
@@ -331,7 +346,10 @@ function generateReportOnCSS(rawInput) {
 
         line.hasDirtyCode = 
             (indentationDiff != 0 && !line.isEmpty)
+            || line.isDirtyCssRule
             || line.isStrayClosingBracket
+            || line.isStrayClosingParen
+            || line.isStrayClosingComment
             // || line.isNearMissingClosingTags
             || line.isExcessLineSpace
             || (line.exceedsCharLimit && !line.isImport)
@@ -340,7 +358,9 @@ function generateReportOnCSS(rawInput) {
             || line.isDirtyComment
             || line.isMissingSemiColon
             || line.isIncompleteProperty
-            || line.needsCommaSplit;
+            || line.needsCommaSplit
+            || line.hasBrokenMediaFeatures
+            || line.isIncompleteMediaQuery;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -358,10 +378,30 @@ function generateReportOnCSS(rawInput) {
                 errorMessage += `to the ${indentationDiff > 0 ? "right." : "left."} \n`;
             }
 
+            if (line.isDirtyCssRule) {
+                errorMessage += 
+                    `  - This line appears to contain opening and/or closing bracket(s) ` 
+                    + `in the middle of other code. CSS Rules should have the Selectors and opening bracket ({) `
+                    + `on one line, the CSS Properties on their own lines, and the closing bracket (}) `
+                    + `on its own line as well.\n`
+            }
+
             if (line.isStrayClosingBracket) {
                 errorMessage += 
                     `  - This line appears to contain a stray closing bracket, ` 
                     + `which does not match to an opening bracket.\n`
+            }
+
+            if (line.isStrayClosingParen) {
+                errorMessage += 
+                    `  - This line appears to contain a stray closing parenthesis, ` 
+                    + `which does not match to an opening parenthesis.\n`
+            }
+
+            if (line.isStrayClosingComment) {
+                errorMessage += 
+                    `  - This line appears to contain a stray closing */ ` 
+                    + `which does not match to an opening /* (used for comments).\n`
             }
 
             // if (line.isNearMissingClosingTags) {
@@ -399,17 +439,27 @@ function generateReportOnCSS(rawInput) {
 
             if (line.isMissingSemiColon) {
                 errorMessage += 
-                    `  - This line seems to be missing a semicolon (;).\n`;
+                    `  - This line seems to be missing a semicolon ( ; ).\n`;
             }
 
-            if (line.isIncompleteProperty && !line.isMissingSemiColon) {
+            if (line.isIncompleteProperty && !line.isMissingSemiColon && !line.isDirtyCssRule) {
                 errorMessage += 
-                    `  - This CSS Property seems to be missing a semicolon (;), or was split across multiple lines. If it was split, everything after the colon (:) should be moved to the next line as well.\n`;
+                    `  - This CSS Property seems to be missing a semicolon ( ; ), or was split across multiple lines. If it was split, everything after the colon (:) should be moved to the next line as well.\n`;
             }
 
             if (line.needsCommaSplit) {
                 errorMessage += 
-                    `  - When sharing styles across multiple selectors with commas (,), it is cleaner to have each group of selectors on their own line with the comma at the end.\n`;
+                    `  - When sharing styles across multiple selectors with commas ( , ), it is cleaner to have each group of selectors on their own line with the comma at the end.\n`;
+            }
+
+            if (line.hasBrokenMediaFeatures) {
+                errorMessage += 
+                    `  - Media Features like max-width and min-width should not use semicolons ( ; ), since they are not CSS Properties.\n`;
+            }
+
+            if (line.isIncompleteMediaQuery) {
+                errorMessage += 
+                    `  - This Media Query is missing an opening bracket ( { ) at the end.\n`;
             }
         }
         line.errorMessage = errorMessage;
