@@ -16,6 +16,12 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
+        recipeName: "adding-a-block",
+        categories: "wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "setting-a-featured-image",
         categories: "wordpress",
         pageCount: 1,
