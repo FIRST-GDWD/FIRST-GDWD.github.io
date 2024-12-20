@@ -195,6 +195,12 @@ const mealPrepRecipes = [
         pageCount: 1,
         hasLocalProject: false,
     },
+    {
+        recipeName: "background-image",
+        categories: "intermediate, background",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
 ];
 const categories = [
     {
