@@ -5,7 +5,13 @@ const recipeNames = [];
 const mealPrepRecipes = [
     {
         recipeName: "pantheon-wordpress-setup",
-        categories: "setup, wordpress",
+        categories: "setup, pantheon, wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "deleting-a-pantheon-site",
+        categories: "pantheon, wordpress",
         pageCount: 1,
         hasLocalProject: false,
     },
@@ -112,12 +118,16 @@ const categories = [
         value: "setup",
     },
     {
-        label: "Visual Studio Code",
-        value: "vs-code",
+        label: "Pantheon",
+        value: "pantheon",
     },
     {
         label: "WordPress",
         value: "wordpress",
+    },
+    {
+        label: "Visual Studio Code",
+        value: "vs-code",
     },
     {
         label: "Coding",
