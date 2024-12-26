@@ -40,8 +40,8 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "adding-custom-css-wordpress",
-        categories: "wordpress, design, video",
+        recipeName: "installing-google-fonts-plugin",
+        categories: "wordpress",
         pageCount: 1,
         hasLocalProject: false,
     },
@@ -54,6 +54,12 @@ const mealPrepRecipes = [
     {
         recipeName: "relabeling-default-home-link",
         categories: "wordpress, video",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "adding-custom-css-wordpress",
+        categories: "wordpress, design, video",
         pageCount: 1,
         hasLocalProject: false,
     },
