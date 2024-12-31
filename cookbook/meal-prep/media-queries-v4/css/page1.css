@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+/* 
+    Our nav just BARELY fits when the screen is
+    400px wide, and the nav item text starts to 
+    wrap.  If we shrink the screen further, the
+    nav items start to overflow off the edge of
+    the page.  That's not good!
+
+    We need a way to keep all of the nav items
+    on the screen, without having them overflow.
+
+    How can we make this happen?
+
+    One of the methods from the Responsiveness
+    powerpoint should hopefully come to mind: 
+    if your page needs to be more responsive,
+    take side-by-side content and stack it!
+
+    And how can we stack the content in our nav?
+    
+    With Flexbox Properties! With Flexbox, we
+    actually have a couple different options
+    when it comes to side-by-side content: 
+    we can either allow the Flexbox Items
+    to wrap, or we can convert the Flexbox
+    from a row to a column.
+
+    (try out both flex container properties 
+    below, but one at a time)
+*/
+
+#nav {
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    /* 
+        Try out the properties below uncommented
+        one at a time, but just realize we'll
+        be removing them again shortly. 
+
+        We'll start with flex-wrap.
+    */
+
+    /* flex-wrap: wrap; */
+
+    /*
+        Allowing the Flexbox Items to wrap
+        actually doesn't look that bad for
+        this example, but in other cases,
+        it won't look so nice, so let's take
+        a look at our other option: changing
+        the Flexbox direction from a row
+        to a column.
+    */
+    
+    /* flex-direction: column; */
+
+    /*
+        That gets our content in a column...
+        but it doesn't look great left
+        aligned like that.
+
+        However, we'll deal with that later,
+        because there's a problem. Move down
+        and read the next comment below to
+        find out what that problem is.
+    */
+}
+
+#nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+}
+
+
+/*
+    Here's the problem: if we modify the CSS
+    Rule up above, that would affect the whole page
+    at ALL widths. Try it out: expand your page 
+    width, and you'll see that the nav is ALWAYS
+    in a column.  That looks even worse at wider
+    page widths.
+    
+    We really only want to change things when 
+    content in the nav starts looking bad (which
+    is somewhere around 450px and below).
+
+    How can we make that happen?
+
+    With Media Queries! Now we finally get to
+    see why media queries are so useful (and
+    essential) to modern, responsive web design.
+*/
