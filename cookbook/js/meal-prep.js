@@ -304,9 +304,9 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
-        recipeName: "media-queries-v3",
+        recipeName: "media-queries-v4",
         categories: "demo, week5",
-        pageCount: 10,
+        pageCount: 11,
         hasLocalProject: true,
     },
     {
