@@ -56,6 +56,10 @@ body {
 }
 
 /* 
+    To address these new design issues that occur
+    at a wider width than our original Media 
+    Query, we need to create a new one.
+
     Since the design of our side by side content 
     starts to break around 740px, that's what
     we're going to set our new Media Query to,
@@ -78,6 +82,15 @@ body {
     and STOP at 450px. That way, we have no 
     overlap across our Media Queries, and they
     should remain completely independent.
+
+    (And because of that, it doesn't matter which
+    order we write our Media Queries in. However,
+    because the widths this new Media Query is
+    targeting is in between the default "desktop"
+    width and the more narrow Mobile Breakpoint,
+    it makes sense to add it in between our default
+    code and our Mobile Breakpoint, so that's
+    where we're going to put it.)
 
     To do that, we're going to use TWO Media
     Features: max-width AND min-width, which
