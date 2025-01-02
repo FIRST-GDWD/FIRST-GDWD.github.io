@@ -157,7 +157,6 @@ body {
     now coded to adapt to its container, it will
     shrink as well).
 */
-
 .image-container {
     height: 400px;
 }
