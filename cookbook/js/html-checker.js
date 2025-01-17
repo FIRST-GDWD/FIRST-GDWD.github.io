@@ -49,6 +49,7 @@ function generateReportOnHTML(rawInput) {
         "p",
         "i",
         "b",
+        "u",
         "sup",
         "sub",
         "hr",
