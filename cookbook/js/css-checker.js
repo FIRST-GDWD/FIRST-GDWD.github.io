@@ -42,6 +42,7 @@ function fetchHTMLFromURL(url) {
                     }
                     if (
                         linkElement.href.includes("style.css")
+                        || linkElement.href.includes("styles.css")
                         || linkElement.href.includes("drill.css") 
                         || linkElement.href.includes("index.css")
                     ) {
