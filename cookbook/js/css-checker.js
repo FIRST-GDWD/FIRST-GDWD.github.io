@@ -417,7 +417,7 @@ function generateReportOnCSS(rawInput) {
             && !newLineObject.isInComment
             && !newLineObject.isImport;
 
-        if (newLineObject.isPropertyStart) {
+        if (newLineObject.isPropertyStart && !newLineObject.isInComment) {
             if (lastPropertyStart && lastLineObject) {
                 lastLineObject.isMissingSemiColon = true;
             }
