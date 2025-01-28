@@ -136,6 +136,8 @@ function generateReportOnHTML(rawInput) {
                 && lastLineObject.isVoidElement
                 && !lastLineObject.trimmedInput.includes(">")
             );
+        newLineObject.hasClosingVoidTag =
+            newLineObject.isVoidElement && newLineObject.closingTagName;
         newLineObject.isValidOpeningTag = 
             (!newLineObject.tagName || VALID_ELEMENTS.includes(newLineObject.tagName));
         newLineObject.isValidClosingTag = 
@@ -321,7 +323,8 @@ function generateReportOnHTML(rawInput) {
             || line.isExcessLineSpace
             || (!line.containsSingleAttribute && line.exceedsCharLimit)
             || !line.isValidOpeningTag
-            || !line.isValidClosingTag;
+            || !line.isValidClosingTag
+            || line.hasClosingVoidTag;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -390,12 +393,18 @@ function generateReportOnHTML(rawInput) {
 
             if (!line.isValidOpeningTag) {
                 errorMessage += 
-                    `  - The opening tag name ${line.tagName} is not a valid HTML tag name.\n`;
+                    `  - The opening tag name "${line.tagName}" is not a valid HTML tag name.\n`;
             }
 
             if (!line.isValidClosingTag) {
                 errorMessage += 
-                    `  - The closing tag name ${line.closingTagName} is not a valid HTML tag name.\n`;
+                    `  - The closing tag name "${line.closingTagName}" is not a valid HTML tag name.\n`;
+            }
+
+            if (line.hasClosingVoidTag) {
+                errorMessage += 
+                    `  - The closing tag name "${line.closingTagName}" represents a void element. `
+                    + ` Void elements should not have closing tags.\n`;
             }
         }
         line.errorMessage = errorMessage;
