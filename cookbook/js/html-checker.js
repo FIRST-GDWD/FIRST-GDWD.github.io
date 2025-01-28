@@ -166,7 +166,8 @@ function generateReportOnHTML(rawInput) {
 
         const isDirtySplitElementRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
         newLineObject.isDirtySplitElement =
-            isDirtySplitElementRegex.test(newLineObject.trimmedInput);
+            isDirtySplitElementRegex.test(newLineObject.trimmedInput)
+            && !newLineObject.isVoidElement;
 
         // const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
         const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>?/;
