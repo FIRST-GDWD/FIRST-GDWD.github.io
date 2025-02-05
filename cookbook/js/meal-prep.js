@@ -238,7 +238,7 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
-        recipeName: "mebay-product-page",
+        recipeName: "mebay-product-page-v2",
         categories: "project, week3",
         pageCount: 1,
         hasLocalProject: true,
