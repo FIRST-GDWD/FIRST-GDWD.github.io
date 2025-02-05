@@ -205,57 +205,6 @@ function generateReportOnCSS(rawInput) {
             multiplePropertiesRegex.test(newLineObject.trimmedInput)
             && !newLineObject.isImport;
 
-        newLineObject.isPropertyStart = 
-            newLineObject.trimmedInput.includes(':') 
-            && !newLineObject.isBlockOpener
-            && !newLineObject.isMediaQuery
-            && !newLineObject.isImport
-            && !(
-                newLineObject.trimmedInput.startsWith('/*') 
-                && newLineObject.trimmedInput.endsWith('*/')
-            );
-        newLineObject.isBrokenPropertyStart = 
-            newLineObject.trimmedInput.includes('=') 
-            && !newLineObject.isBlockOpener
-            && !newLineObject.isMediaQuery
-            && !newLineObject.isImport
-            && !(
-                newLineObject.trimmedInput.startsWith('/*') 
-                && newLineObject.trimmedInput.endsWith('*/')
-            );
-        newLineObject.isPropertyHalf = newLineObject.trimmedInput.endsWith(':');
-        newLineObject.isPropertyEnd = 
-            newLineObject.trimmedInput.endsWith(';')
-            || newLineObject.trimmedInput.endsWith(';}') // dirty closer
-            || newLineObject.trimmedInput.endsWith('}'); // dirty closer
-        
-        newLineObject.isDirtyPropertyEnd =
-            newLineObject.trimmedInput.length > 1
-            && newLineObject.trimmedInput.endsWith('}'); // dirty closer
-
-        newLineObject.hasDoubleSemiColons =
-            newLineObject.trimmedInput.includes(';;');
-
-        if (
-            newLineObject.isPropertyStart 
-            && !newLineObject.isPropertyHalf 
-            && !newLineObject.isPropertyEnd
-            && !newLineObject.isFunctionOpener
-        ) {
-            newLineObject.isIncompleteProperty = true;
-        }
-
-        newLineObject.isDirtyColon =
-            newLineObject.isPropertyStart
-            && newLineObject.isPropertyEnd
-            && !newLineObject.trimmedInput.includes(': ');
-
-        newLineObject.isDirtyComma =
-            newLineObject.trimmedInput.includes(',')
-            && !newLineObject.trimmedInput.endsWith(',')
-            && !newLineObject.trimmedInput.includes(', ')
-            && !newLineObject.isImport;
-
         if (newLineObject.isBlockOpener) {
             blockParentStack.push(newLineObject);
         }
@@ -306,7 +255,9 @@ function generateReportOnCSS(rawInput) {
             }
             
             if (lastPropertyStart && lastLineObject) {
-                lastLineObject.isMissingSemiColon = true;
+                if (!lastLineObject.trimmedInput.endsWith(";")) {
+                    lastLineObject.isMissingSemiColon = true;
+                }
                 lastPropertyStart = null;
             }
 
@@ -314,7 +265,9 @@ function generateReportOnCSS(rawInput) {
                 newLineObject.isDirtyPropertyEnd
                 && !newLineObject.trimmedInput.endsWith(';}')
             ) {
-                newLineObject.isMissingSemiColon = true;
+                if (!newLineObject.trimmedInput.endsWith(';')) {
+                    newLineObject.isMissingSemiColon = true;
+                }
                 lastPropertyStart = null;
             }
         } 
@@ -407,7 +360,67 @@ function generateReportOnCSS(rawInput) {
             }
         }
 
+
+        newLineObject.isPropertyStart = 
+            newLineObject.trimmedInput.includes(':') 
+            && newLineObject.isInBlock
+            && !newLineObject.isBlockOpener
+            && !newLineObject.isMediaQuery
+            && !newLineObject.isImport
+            && !(
+                newLineObject.trimmedInput.startsWith('/*') 
+                && newLineObject.trimmedInput.endsWith('*/')
+            );
+        newLineObject.isBrokenPropertyStart = 
+            newLineObject.trimmedInput.includes('=') 
+            && newLineObject.isInBlock
+            && !newLineObject.isBlockOpener
+            && !newLineObject.isMediaQuery
+            && !newLineObject.isImport
+            && !(
+                newLineObject.trimmedInput.startsWith('/*') 
+                && newLineObject.trimmedInput.endsWith('*/')
+            );
+        newLineObject.isPropertyHalf = 
+            newLineObject.trimmedInput.endsWith(':')
+            && newLineObject.isInBlock;
+        newLineObject.isPropertyEnd = 
+            newLineObject.isInBlock
+            && (
+                newLineObject.trimmedInput.endsWith(';')
+                || newLineObject.trimmedInput.endsWith(';}') // dirty closer
+                || newLineObject.trimmedInput.endsWith('}') // dirty closer
+            );
         
+        newLineObject.isDirtyPropertyEnd =
+            newLineObject.trimmedInput.length > 1
+            && newLineObject.isInBlock
+            && newLineObject.trimmedInput.endsWith('}'); // dirty closer
+
+        newLineObject.hasDoubleSemiColons =
+            newLineObject.trimmedInput.includes(';;');
+
+        if (
+            newLineObject.isPropertyStart 
+            && !newLineObject.isPropertyHalf 
+            && !newLineObject.isPropertyEnd
+            && !newLineObject.isFunctionOpener
+        ) {
+            newLineObject.isIncompleteProperty = true;
+        }
+
+        newLineObject.isDirtyColon =
+            newLineObject.isPropertyStart
+            && newLineObject.isPropertyEnd
+            && !newLineObject.trimmedInput.includes(': ');
+
+        newLineObject.isDirtyComma =
+            newLineObject.trimmedInput.includes(',')
+            && !newLineObject.trimmedInput.endsWith(',')
+            && !newLineObject.trimmedInput.includes(', ')
+            && !newLineObject.isImport;
+
+
 
         newLineObject.needsCommaSplit = 
             newLineObject.trimmedInput.includes(',')
@@ -418,7 +431,7 @@ function generateReportOnCSS(rawInput) {
             && !newLineObject.isImport;
 
         if (newLineObject.isPropertyStart && !newLineObject.isInComment) {
-            if (lastPropertyStart && lastLineObject) {
+            if (lastPropertyStart && lastLineObject && !lastLineObject.trimmedInput.endsWith(";")) {
                 lastLineObject.isMissingSemiColon = true;
             }
             lastPropertyStart = newLineObject;
