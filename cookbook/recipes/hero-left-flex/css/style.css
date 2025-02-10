@@ -15,10 +15,12 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
     margin-bottom: 100px;
 }
 
 #hero-1 h1 {
     font-size: 120px; 
-    padding-left: 100px;
+    position: absolute;
+    left: 20%;
 }
