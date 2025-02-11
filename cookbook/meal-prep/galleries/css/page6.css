@@ -61,9 +61,7 @@ body {
     fragile design, meaning it's easy to
     break if you add or remove images.
 
-    That example is in the Layouts section
-    of the Coding Cookbook, if you want to
-    see how it's done, but we're going to
+    So instead, we're going to
     show you a better (and simpler!) way
     to build a vertical masonry gallery,
     using a somewhat archaic CSS Property.
