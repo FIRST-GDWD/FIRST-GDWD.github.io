@@ -274,6 +274,7 @@ function generateReportOnCSS(rawInput) {
         
         if (newLineObject.isFunctionCloser) {
             let parentsPoppedCount = 0;
+            newLineObject.isInBlock = true;
             if (functionParentStack.length > 0) {
                 const poppedParent = functionParentStack.pop();
                 parentsPoppedCount++;
@@ -330,6 +331,7 @@ function generateReportOnCSS(rawInput) {
                 }
                 if (lastLineObject.isFunctionOpener) {
                     newLineObject.isInFunction = true;
+                    newLineObject.isInBlock = true;
                 }
                 if (lastLineObject.isCommentOpener) {
                     newLineObject.isInComment = true;
