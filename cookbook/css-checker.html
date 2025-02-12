@@ -6,6 +6,7 @@
         <title>CSS Dirty Code Report (Work In Progress)</title>
         <link href="css/cookbook.css" rel="stylesheet">
         <link href="css/html-checker.css" rel="stylesheet">
+        <link href="css/css-checker.css" rel="stylesheet">
     </head>
     <body>
         <div id="background"></div>
@@ -103,7 +104,7 @@
             
         </div>
         <div id="report" class="hide">
-            <h2 id="reportHeader">Report Card</h2>
+            <h2 id="reportHeader">Report Card <span class="nestedOverrideText">| CSS Nesting Override Activated: Nested CSS Rules are now "clean"</span></h2>
             <div id="innerReportContainer">
                 <h4>Statistics and Score</h4>
                 <div id="overall">
@@ -194,6 +195,18 @@
                         syntax issues (i.e. issues with the grammar of a programming 
                         language) and suggesting how to fix them. Logic errors, on the 
                         other hand, are harder for it to target specifically.
+                    </p>
+                    <p>
+                        NOTE: If you have discovered the relatively new method of 
+                        writing CSS Rules referred to as "CSS Nesting", you will
+                        find that the CSS Dirty Code Report considers this approach as 
+                        "dirty" code, since it is more advanced and also not 
+                        what we teach in this curriculum.  However, if you have 
+                        spoken with your instructor and they feel you are ready 
+                        to use CSS Nesting, add the following text to the end 
+                        of the URL for this page and refresh it to enable an 
+                        manual override which allows for CSS Nesting: 
+                        ?allowCSSNesting
                     </p>
                     <div id="issuesList"></div>
                 </div>

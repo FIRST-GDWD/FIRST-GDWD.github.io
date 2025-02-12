@@ -83,7 +83,11 @@ function fetchCSSFromURL(url) {
 }
 
 function generateReportOnCSS(rawInput) {
-    console.log("generateReportOnCSS: " + rawInput)
+    console.log("generateReportOnCSS: " + rawInput);
+
+    let allowNestedCSSRules = shouldAllowNestedCSSRules();
+    
+
     const rawInputLines = rawInput.split("\n");
     const TAB_LENGTH = 4;
     const LINE_CHAR_LIMIT = 80;
@@ -482,7 +486,7 @@ function generateReportOnCSS(rawInput) {
             || giveImportWarning
             || line.isDirtyFunction
             || line.isDirtyComment
-            || line.isNestedBlock
+            || (line.isNestedBlock && !allowNestedCSSRules)
             || line.isDirtyOpeningBlock
             || line.isDirtyClosingBlock
             || line.isDirtyComma
@@ -566,7 +570,7 @@ function generateReportOnCSS(rawInput) {
                     `  - OR, if these are lines of code you commented out, they probably should not be left in your submission!\n`;
             }
 
-            if (line.isNestedBlock) {
+            if (line.isNestedBlock && !allowNestedCSSRules) {
                 errorMessage += 
                     `  - This new CSS Rule seems to be inside of another Declaration Block. `
                     + `Be sure to end the previous CSS Rule with a closing curly bracket ( } ) before starting a new one.\n`;
@@ -743,4 +747,26 @@ function convertStringToEscapedHTML(stringWithNormalSpaces, shouldReplaceSpaces=
         result = result.replace(/ /g, "&nbsp;");
     }
     return result;
+}
+
+function shouldAllowNestedCSSRules() {
+    let params = null;
+    
+    if (location.hash.includes("?")) {
+        let paramsWithoutHash = location.hash.substring(1).split("?")[1];
+        params = new URLSearchParams(paramsWithoutHash);
+    } else if (location.search) {
+        params = new URLSearchParams(location.search);
+    }
+
+    if (params) {
+        const pageParam = params.get('allowCSSNesting');
+        if (pageParam !== null) {
+            const report = document.getElementById("report");
+            report.classList.add("nestedOverride");
+            return true;
+        }
+    }
+
+    return false;
 }
