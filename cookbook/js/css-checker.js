@@ -86,7 +86,6 @@ function generateReportOnCSS(rawInput) {
     console.log("generateReportOnCSS: " + rawInput);
 
     let allowNestedCSSRules = shouldAllowNestedCSSRules();
-    
 
     const rawInputLines = rawInput.split("\n");
     const TAB_LENGTH = 4;
