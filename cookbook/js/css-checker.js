@@ -152,6 +152,9 @@ function generateReportOnCSS(rawInput) {
             }
         }
 
+        newLineObject.isSingleLineComment = 
+            newLineObject.trimmedInput.startsWith('/*')
+            && newLineObject.trimmedInput.endsWith('*/');
         const isLineOnlyCommentCharacters = newLineObject.trimmedInput
             .split('')
             .every(char => char === '/' || char === '*');
@@ -168,12 +171,7 @@ function generateReportOnCSS(rawInput) {
                 && isLineOnlyCommentCharacters
             );
 
-        if (
-            !(
-                newLineObject.trimmedInput.startsWith('/*') 
-                && newLineObject.trimmedInput.endsWith('*/')
-            )
-        ) {
+        if (!newLineObject.isSingleLineComment) {
             if (
                 newLineObject.trimmedInput.startsWith('/*') 
                 && !newLineObject.isCommentOpener
@@ -363,6 +361,10 @@ function generateReportOnCSS(rawInput) {
                 newLineObject.isExcessLineSpace = 
                     newLineObject.isEmpty && lastLineObject.isEmpty;
             }
+        }
+
+        if (newLineObject.isSingleLineComment) {
+            newLineObject.isInComment = true;
         }
 
 
