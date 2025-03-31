@@ -76,6 +76,10 @@ function generateReportOnHTML(rawInput) {
         "script",
         "form",
         "input",
+        "table",
+        "th",
+        "tr",
+        "td",
     ];
     const lineObjects = [];
     const parentStack = [];
