@@ -1,0 +1,44 @@
+#container {
+    position: relative;
+    /* width: 500px; */
+}
+
+#background {
+    width: 100%;
+}
+
+#svg-img {
+    position: absolute;
+    left: 0px;
+    transition: transform 0.25s;
+    display: none;
+}
+
+#svg-img image:hover {
+    transform: scale(1.05);
+}
+
+#svg {
+    position: absolute;
+    left: 0px;
+    transition: transform 0.25s;
+
+}
+
+#svg:hover {
+    transform: scale(1.05);
+}
+
+#svg-shape {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+}
+
+#svg-shape circle {
+    transition: opacity 0.5s;
+}
+
+#svg-shape circle:hover {
+    opacity: 0.5;
+}
