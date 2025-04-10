@@ -204,7 +204,7 @@ const mealPrepRecipes = [
     {
         recipeName: "wiki-with-sidebar",
         categories: "exercise, week3",
-        pageCount: 1,
+        pageCount: 2,
         hasLocalProject: true,
     },
     {
