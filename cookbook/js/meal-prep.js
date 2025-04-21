@@ -268,6 +268,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "side-by-side",
+        categories: "demo, week4",
+        pageCount: 7,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "pokemon-cards",
         categories: "exercise, week4",
         pageCount: 1,

@@ -100,6 +100,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "side-by-side",
+        categories: "demo, week4, css",
+        pageCount: 7,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "heroes-v2",
         categories: "demo, week4, css",
         pageCount: 10,
