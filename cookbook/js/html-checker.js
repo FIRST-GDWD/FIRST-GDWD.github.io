@@ -506,7 +506,7 @@ function generateReportOnHTML(rawInput) {
     reportElement.classList.remove("hide");
     reportElement.classList.add("fadeIn");
 
-    console.log(lineObjects);
+    //console.log(lineObjects);
 }
 
 function convertStringToEscapedHTML(stringWithNormalSpaces, shouldReplaceSpaces=true) {

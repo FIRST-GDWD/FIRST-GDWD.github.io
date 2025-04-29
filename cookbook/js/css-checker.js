@@ -36,9 +36,13 @@ function fetchHTMLFromURL(url) {
             debugger;
             for (let i = 0; i < links.length; i++) {
                 const linkElement = links[i];
-                if (linkElement.href.includes("/css/")) {
+                if (linkElement.href.includes("/css/") || linkElement.href.includes("/CSS/")) {
                     if (!firstLocalCSSPath) {
-                        firstLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                        if (linkElement.href.includes("/css/")) {
+                            firstLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                        } else if (linkElement.href.includes("/CSS/")) {
+                            firstLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('CSS/'));
+                        }
                     }
                     if (
                         linkElement.href.includes("style.css")
@@ -46,7 +50,11 @@ function fetchHTMLFromURL(url) {
                         || linkElement.href.includes("drill.css") 
                         || linkElement.href.includes("index.css")
                     ) {
-                        preferredLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                        if (linkElement.href.includes("/css/")) {
+                            preferredLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('css/'));
+                        } else if (linkElement.href.includes("/CSS/")) {
+                            preferredLocalCSSPath = linkElement.href.substring(linkElement.href.indexOf('CSS/'));
+                        }
                     }
                 }
             }
@@ -71,7 +79,7 @@ function fetchHTMLFromURL(url) {
 }
 
 function fetchCSSFromURL(url) {
-    console.log("fetchCSSFromURL: " + url);
+    //console.log("fetchCSSFromURL: " + url);
     fetch(url)
         .then(response => response.text())
         .then(css => {
@@ -83,7 +91,7 @@ function fetchCSSFromURL(url) {
 }
 
 function generateReportOnCSS(rawInput) {
-    console.log("generateReportOnCSS: " + rawInput);
+    //console.log("generateReportOnCSS: " + rawInput);
 
     let allowNestedCSSRules = shouldAllowNestedCSSRules();
 
@@ -734,7 +742,7 @@ function generateReportOnCSS(rawInput) {
     reportElement.classList.remove("hide");
     reportElement.classList.add("fadeIn");
 
-    console.log(lineObjects);
+    //console.log(lineObjects);
 }
 
 function convertStringToEscapedHTML(stringWithNormalSpaces, shouldReplaceSpaces=true) {
