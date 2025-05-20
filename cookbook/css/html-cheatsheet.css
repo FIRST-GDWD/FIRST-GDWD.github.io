@@ -167,7 +167,7 @@ div.code {
 .cheatsheet-grid div:nth-child(6n+4),
 .cheatsheet-grid div:nth-child(6n+5),
 .cheatsheet-grid div:nth-child(6n+6) {
-    background-color: rgba(128, 128, 128, 0.15);
+    background-color: #e3e5e8;
 }
 
 .cheatsheet-grid h3 {
