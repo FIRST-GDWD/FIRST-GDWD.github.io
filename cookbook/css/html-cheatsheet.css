@@ -164,6 +164,12 @@ div.code {
     margin-top: 0px;
 }
 
+.cheatsheet-grid div:nth-child(6n+1),
+.cheatsheet-grid div:nth-child(6n+2),
+.cheatsheet-grid div:nth-child(6n+3) {
+    background-color: white;
+}
+
 .cheatsheet-grid div:nth-child(6n+4),
 .cheatsheet-grid div:nth-child(6n+5),
 .cheatsheet-grid div:nth-child(6n+6) {
