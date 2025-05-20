@@ -147,10 +147,27 @@ div.code {
 
 .cheatsheet-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: minmax(50px, auto);
+    grid-template-columns: 1fr 1fr 1fr;
     margin-left: 24px;
     margin-bottom: 60px;
+}
+
+.cheatsheet-grid div {
+    padding: 8px 12px;
+}
+
+.cheatsheet-grid div p {
+    margin: 12px 0px;
+}
+
+.cheatsheet-grid div p:first-child {
+    margin-top: 0px;
+}
+
+.cheatsheet-grid div:nth-child(6n+4),
+.cheatsheet-grid div:nth-child(6n+5),
+.cheatsheet-grid div:nth-child(6n+6) {
+    background-color: rgba(128, 128, 128, 0.15);
 }
 
 .cheatsheet-grid h3 {
@@ -160,4 +177,36 @@ div.code {
 
 .bold {
     font-weight: bold;
+}
+
+@media screen and (max-width: 1225px) {
+
+    .cheatsheet-grid {
+        grid-template-columns: 1fr;
+        margin-left: 0px;
+        margin-bottom: 60px;
+    }
+
+    .cheatsheet-grid div:nth-child(1),
+    .cheatsheet-grid div:nth-child(2),
+    .cheatsheet-grid div:nth-child(3) {
+        display: none;
+    }
+
+    .cheatsheet-grid div:nth-child(6n+2),
+    .cheatsheet-grid div:nth-child(6n+5) {
+        padding-left: 40px;
+    }
+
+    .cheatsheet-grid div {
+        padding: 12px 16px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .cheatsheet-grid div:nth-child(6n+2) .code,
+    .cheatsheet-grid div:nth-child(6n+5) .code {
+        font-size: 16px;
+        line-height: 18px;
+    }
 }
