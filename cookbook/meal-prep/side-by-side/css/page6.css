@@ -53,7 +53,7 @@ body {
     paragraph to be treated as a group, or a unit.
 
     And to make that happen, we need to wrap both of them
-    in a next container, much like we did earlier with
+    in a new container, much like we did earlier with
     the image element.
 
     So let's go back into the HTML, and then come back
@@ -70,7 +70,7 @@ body {
     it is no longer considered a flex item.  Instead,
     the "text-container" is the new flex item.
 
-    So we need to update our selectors below one again,
+    So we need to update our selectors below once again,
     from
         #side-by-side-container h2
     to
