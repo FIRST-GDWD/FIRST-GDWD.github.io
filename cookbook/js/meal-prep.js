@@ -112,12 +112,6 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
-        recipeName: "box-model-margin-drills",
-        categories: "drills, week2",
-        pageCount: 9,
-        hasLocalProject: true,
-    },
-    {
         recipeName: "box-model-padding-drills",
         categories: "drills, week2",
         pageCount: 7,
@@ -125,6 +119,12 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "box-model-border-drills",
+        categories: "drills, week2",
+        pageCount: 9,
+        hasLocalProject: true,
+    },
+    {
+        recipeName: "box-model-margin-drills",
         categories: "drills, week2",
         pageCount: 9,
         hasLocalProject: true,
