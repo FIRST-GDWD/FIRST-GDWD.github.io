@@ -70,14 +70,14 @@ function generateAndAddShowcase(url) {
 
 let xPercent = 0.5;
 let xVel = 0;
-let speed = 20;
+let speed = 25;
 document.addEventListener("mousemove", e => {
     xPercent = (e.clientX / window.innerWidth);
     if (Math.abs(xPercent-0.5) > 0.16) {
         if (xPercent > 0.5) {
             xVel = (xPercent-0.34 - 0.33) * speed;
         } else {
-            xVel = -(0.33 - (xPercent-0.16)) * speed;
+            xVel = (xPercent-0.34) * speed;
         }
     } else {
         xVel = 0;
@@ -98,4 +98,4 @@ function moveViewerBasedOnMouse() {
     }
 }
 
-setInterval(moveViewerBasedOnMouse, 10);
+setInterval(moveViewerBasedOnMouse, 15);
