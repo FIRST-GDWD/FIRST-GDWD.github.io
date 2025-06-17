@@ -1,22 +1,5 @@
-const showcaseURLs = [
-    "https://sammiballs.github.io/projects/alley-posters/",
-    "https://quisdofeles.github.io/projects/alley-posters/",
-    "https://liliannaboyer.github.io/projects/studio-gallery-v2/",
-    "https://evaortiz71.github.io/projects/studio-gallery-v2/",
-    "https://antionejh.github.io/2025/projects/studio-gallery-v2/",
-    "https://shamariaking7.github.io/projects/studio-gallery-v2/",
-    "https://saga-laha.github.io/projects/studio-gallery-v2/",
-    "https://aaroncortez764.github.io/aaroncortez769.github.io/projects/studio-gallery-v2/",
-    "https://tatyanna-first.github.io/exercicses/alley-posters-v2/",
-    "https://moonstar25.github.io/projects/box-farming/",
-    "https://dstyen.github.io/projects/studio-gallery-v2/",
-    "https://deontwitty.github.io/projects/studio-gallery-v2/index.html",
-    "https://sheilawilliamson37.github.io/sheilawilliamson37.github.io-skeleton-code-/projects/studio-gallery-v2/",
-    "https://mzuroff.github.io/projects/studio-gallery-v2/",
-    "https://gassedbeauty.github.io/projects/alley-posters-v2/",
-    "https://johnnyhudson5.github.io/projects/studio-gallery-v2/",
+// showcaseURLs is defined in other js files
 
-];
 const gallery = document.getElementById("gallery");
 const backWall = document.getElementById("backWall");
 const leftWall = document.getElementById("leftWall");
@@ -30,7 +13,7 @@ let maxWidth = 600;
 let position = 0;
 
 if (showcaseURLs.length > 2) {
-    maxWidth = (showcaseURLs.length*425);
+    maxWidth = (showcaseURLs.length*showcaseWidth);
     showcaseArea.style.width = maxWidth + "px";
     backWall.style.width = maxWidth + "px";
     ceiling.style.width = maxWidth + "px";
@@ -61,7 +44,7 @@ function generateAndAddShowcase(url) {
             </a>
             <div class="caption">
                 <a href="${url}" target="_blank">
-                    Visit Showcase Webpage
+                    ${labelText}
                 </a>
             </div>
         </div>

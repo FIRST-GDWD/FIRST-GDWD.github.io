@@ -1,0 +1,53 @@
+.wall {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    border: 3px solid #666666;
+    background: 
+        radial-gradient(#00000011, #00000088),
+        url("../images/groceryshelves_trimmed.jpg");
+    background-size: contain;
+}
+
+.floor {
+    background: 
+        radial-gradient(
+            #00000088,
+            #00000022
+        ),
+        url("../images/marbleflooring_trimmed.jpg") top left / 100px;
+    transform: 
+        rotateX(90deg);
+}
+
+.showcase {
+    width: 200px;
+    text-align: center;
+}
+
+.showcaseFrame {
+    border-color: rgb(152, 152, 152);
+    border-style: ridge;
+    background-color: white;
+    width: 50%;
+    display: inline-block;
+}
+
+.showcasePreview iframe {
+    width: 1000%;
+    height: 1000%;
+    transform: scale(0.10);
+}
+
+.caption {
+    border-color: white;
+    border-style: solid;
+    background-color: rgb(219, 219, 219);
+    line-height: 10px
+}
+
+.caption a {
+    color: #111111;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8px;
+}
