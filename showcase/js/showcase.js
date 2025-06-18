@@ -70,6 +70,10 @@ document.addEventListener("mousemove", e => {
     }
 });
 
+document.addEventListener("mouseleave", e => {
+    xVel = 0;
+});
+
 function moveViewerBasedOnMouse() {
     if (gallery && maxWidth > 600) {
 
