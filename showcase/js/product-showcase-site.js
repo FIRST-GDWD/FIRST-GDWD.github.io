@@ -16,3 +16,4 @@ const showcaseURLs = [
 
 const labelText = "View Product Showcase";
 const showcaseWidth = 225;
+const zCloseness = 490;

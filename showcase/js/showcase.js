@@ -80,7 +80,7 @@ function moveViewerBasedOnMouse() {
         } else if (position > maxWidth - 450) {
             position = maxWidth - 450;
         }
-        gallery.style.transform = `translateZ(450px) translateY(-0px) translateX(-${position}px)`
+        gallery.style.transform = `translateZ(${zCloseness}px) translateY(-0px) translateX(-${position}px)`
     }
 }
 

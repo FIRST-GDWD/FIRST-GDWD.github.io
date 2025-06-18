@@ -19,3 +19,4 @@ const showcaseURLs = [
 
 const labelText = "Visit Showcase Webpage";
 const showcaseWidth = 425;
+const zCloseness = 450;
