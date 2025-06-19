@@ -12,6 +12,7 @@
     border: 10px solid rgb(77, 38, 10);
     background-color: antiquewhite;
     padding: 15px;
+    box-shadow: 4px 4px 4px #00000033, inset 0px 0px 4px black;
 }
 
 .showcasePreview {

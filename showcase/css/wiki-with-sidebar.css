@@ -5,7 +5,7 @@
     border: 3px solid #666666;
     background: 
         radial-gradient(#00000011, #00000088),
-        url("../images/groceryshelves_trimmed.jpg");
+        url("../images/bookshelves_trimmed.jpg");
     background-size: contain;
 }
 
@@ -27,6 +27,7 @@
 
 .showcaseFrame {
     border-style: ridge;
+    border-color: #230f04;
     background-color: antiquewhite;
     width: 50%;
     display: inline-block;
@@ -42,6 +43,7 @@
 .caption {
     line-height: 10px;
     border-style: ridge;
+    padding: 4px 4px 6px;
 }
 
 .caption a {

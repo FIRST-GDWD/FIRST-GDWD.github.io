@@ -14,6 +14,6 @@ const showcaseURLs = [
     "https://mzuroff.github.io/exercises/wiki-with-sidebar/"
 ];
 
-const labelText = "View Product Showcase";
+const labelText = "View Wiki Page";
 const showcaseWidth = 225;
 const zCloseness = 490;
