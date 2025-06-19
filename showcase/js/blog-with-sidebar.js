@@ -1,4 +1,5 @@
 const showcaseURLs = [
+    "https://first-gdwd.github.io/cookbook/examples/blog-with-sidebar/",
     "https://kiayambenavides.github.io/exercises/blog-with-sidebar-exercise/",
     "https://malis86.github.io/exercises/blog-with-sidebar/",
     "https://gray-whale-graphics.github.io/exercises/blog-with-sidebar/",
