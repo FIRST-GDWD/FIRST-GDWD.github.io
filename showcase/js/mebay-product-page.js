@@ -7,6 +7,10 @@ const showcaseURLs = [
     "https://scoodlese.github.io/projects/mebay/",
     "https://xavionroseboro.github.io/projects/mebay-product-page/index.html",
     "https://kay678.github.io/mebay-product-page/",
+    "https://richardmahadeo.github.io/projects/MeBay/",
+    "https://rainbowcheesewedge.github.io/projects/mebay/index.html",
+    "https://zasha349.github.io/projects/mebay-product-page/",
+    "https://melissazarama.github.io/projects/mebay-product-page/",
 ];
 
 const labelText = "View Product Page";
