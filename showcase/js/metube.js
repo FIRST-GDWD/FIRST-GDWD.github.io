@@ -1,15 +1,16 @@
 const showcaseURLs = [
     "https://first-gdwd.github.io/cookbook/examples/metube/",
-    "https://zasha349.github.io/exercise/metube/",
-    "https://kiayambenavides.github.io/exercises/metube-exercise-part2/",
-    "https://rainbowcheesewedge.github.io/exercises/two-columns-mixed(metube)/index.html",
-    "https://gray-whale-graphics.github.io/exercises/metube/",
-    "https://treasurejones.github.io/metube/",
-    "https://teyebourke.github.io/demos/14-two-column-mix/",
-    "https://trelonda89.github.io/demos/metube/",
-    "https://pushinglotuses.github.io/demos/14-two-column-mixed/",
-    "https://scoodlese.github.io/exercises/me-tube/",
-    "https://xavionroseboro.github.io/demos/list-demo/two-columns-mixed/index.html",
+    "https://liliannaboyer.github.io/exercises/metube/",
+    "https://evaortiz71.github.io/exercises/metube/",
+    "https://shamariaking7.github.io/exercises/metube/",
+    "https://saga-laha.github.io/exercises/metube/",
+    "http://aaroncortez764.github.io/aaroncortez769.github.io/exercises/metube/",
+    "https://tatyanna-first.github.io/exercicses/metube/",
+    "https://moonstar25.github.io/exercises/metube/",
+    "https://dstyen.github.io/exercises/metube/",
+    "https://deontwitty.github.io/exercise%20/me-tube/",
+    "https://sheilawilliamson37.github.io/sheilawilliamson37.github.io-skeleton-code-/exercises/MeTube/",
+    "https://mzuroff.github.io/exercises/MoeTube/",
 ];
 
 const labelText = "View MeTube Page";
