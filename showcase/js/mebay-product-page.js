@@ -1,6 +1,6 @@
 const showcaseURLs = [
     "https://first-gdwd.github.io/cookbook/examples/mebay-product-page-v2/",
-    "http://liliannaboyer.github.io/projects/mebay-product-page/",
+    "https://liliannaboyer.github.io/projects/mebay-product-page/",
     "https://evaortiz71.github.io/projects/mebay-product-page/",
     "https://gassedbeauty.github.io/projects/mebay/",
     "https://johnnyhudson5.github.io/projects/mebay-product-page/",
