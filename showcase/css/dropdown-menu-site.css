@@ -1,0 +1,57 @@
+.wall {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    border: 3px solid #666666;
+    background: 
+        radial-gradient(#00000011, #00000088),
+        url("../images/monitors_trimmed.jpg");
+    background-size: contain;
+}
+
+.floor {
+    background: 
+        radial-gradient(
+            #00000088,
+            #00000022
+        ),
+        url("../images/polished-concrete.jpg") top left / 100px;
+    transform: 
+        rotateX(90deg);
+}
+
+.showcase {
+
+    text-align: center;
+}
+
+.showcaseFrame {
+    border-style: solid;
+    border-color: #333333;
+    background-color: rgb(0, 25, 31);
+
+    display: inline-block;
+}
+
+.showcasePreview iframe {
+    background-color: white;
+    width: 500%;
+    height: 500%;
+    transform: scale(0.20);
+}
+
+.caption {
+    line-height: 10px;
+    border-style: solid;
+    border-color: #333333;
+    background-color: rgb(0, 25, 31);
+    width: 200px;
+    margin: 10px auto;
+    padding: 4px 4px 6px;
+}
+
+.caption a {
+    color: rgb(214, 213, 213);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8px;
+}
