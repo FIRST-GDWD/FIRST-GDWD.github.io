@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0px;
+}
+
+#the-maze {
+    width: 550px;
+    font-size: 0px;
+}
+
+.tile {
+    background-color: rgb(188, 194, 200);
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.top {
+    border-top: 5px ridge black;
+}
+
+.left {
+    border-left: 5px ridge black;
+}
+
+.right {
+    border-right: 5px ridge black;
+}
+
+.bottom {
+    border-bottom: 5px ridge black;
+}
