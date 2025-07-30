@@ -74,6 +74,10 @@ nav {
     padding: 14px;
 }
 
+#topHeader #demos {
+    display: none;
+}
+
 #topHeader #quote {
     flex: 1;
     text-align: center;
