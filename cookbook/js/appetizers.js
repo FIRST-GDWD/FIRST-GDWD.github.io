@@ -99,12 +99,12 @@ const mealPrepRecipes = [
         pageCount: 1,
         hasLocalProject: false,
     },
-    {
-        recipeName: "identifying-boxes",
-        categories: "design",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
+    // {
+    //     recipeName: "identifying-boxes",
+    //     categories: "design",
+    //     pageCount: 1,
+    //     hasLocalProject: false,
+    // },
     {
         recipeName: "utilizing-google-fonts",
         categories: "design, external-resource",
