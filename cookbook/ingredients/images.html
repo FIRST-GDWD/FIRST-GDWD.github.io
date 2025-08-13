@@ -10,14 +10,25 @@
     <body>
         <p>
             An image (img) element requires the source (src) attribute in 
-            order to display anything. Including the alternate (alt) 
+            order to display anything. The src attribute provides instructions
+            to the computer for where to find the image you want to load.
+        </p>
+        <p>
+            Assuming your images are in an "images" folder adjacent to the 
+            HTML file you're adding the images to, the value you specify to 
+            src will look something like this: src="images/image-file-name.jpg"
+            This tells the img element to first look inside of a nearby "images"
+            folder, and then to load up the specified file name inside of it.
+        </p>
+        <p>
+            Including the alternate (alt) 
             attribute, which provides an alternate textual description
             of the image, is also good practice.
         </p>
         <p>
             Image elements are inline elements, 
 
-            <img src="images/cookbook.jpg" alt="cookbook page" class="small">
+            <img src="images/cookbook.jpg" alt="cookbook page" width="250">
             
             meaning they will appear "in line" with any text before 
             and after it, unless you alter their display properties or 
@@ -31,7 +42,7 @@
         <img
             src="images/vintage-red-plaid-bhg-cookbook.webp"
             alt="old Better Homes and Gardens cookbook"
-            class="small"
+            width="250"
         >
         <p>
             By default, an image will display at whatever its natural 
@@ -44,8 +55,8 @@
         >
         <p>
             To address this issue, we can either use CSS to resize
-            an image (as was done with the first two images on 
-            this page) or we can use the width or height attributes,
+            an image (the preferred approach, once you've learned CSS) 
+            or we can use the width or height attributes,
             as was used on the image below.
         </p>
         <img 
