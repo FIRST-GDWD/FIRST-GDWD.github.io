@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Bouncing Ball example</title>
+    <style>
+      /* Set up a simple "room" for the ball to bounce around in */
+      #room {
+        border: 5px solid black;
+        position: relative;
+      }
+      /*
+        Style the ball, and include some flex properties in case you want to
+        put any content inside of the ball for fun :-)
+      */
+      .ball {
+        align-items: center;
+        background-color: red;
+        border-radius: 50%;
+        display: flex;
+        font-weight: bold;
+        font-family: Verdana;
+        justify-content: center;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- A simple parent and child pair is all we need for our simulation -->
+    <div id="room">
+      <div class="ball"></div>
+    </div>
+    <script type="text/javascript">
+      // Initializing room and ball dimensions
+      let roomWidth = 600;
+      let roomHeight = 500;
+      let ballWidth = 50;
+      let ballHeight = 50;
+
+      // Setting the dimensions above in their elements' style properties
+      let room = document.getElementById('room');
+      room.style.width = roomWidth + 'px';
+      room.style.height = roomHeight + 'px';
+
+    //   let ball = document.getElementById('ball');
+      
+
+      // Initializing the physics simulation variables for the ball
+      let ballX = 0;
+      let ballY = 0;
+      let ballXSpeed = 25;
+      let ballYSpeed = 0;
+      let gravity = 8;
+      let opacity = 0.3;
+
+      // Implementing ball physics
+      function moveBall() {
+        debugger;
+        if (room.children.length > 20) {
+            return;
+        }
+        let ball = document.createElement("div");
+        ball.classList.add("ball");
+        room.appendChild(ball);
+        ball.style.width = ballWidth + 'px';
+        ball.style.height = ballHeight + 'px';
+
+        // add gravity to the ball's vertical speed
+        ballYSpeed += gravity;
+
+        // move the ball's location by the speed variables
+        ballX += ballXSpeed;
+        ballY += ballYSpeed;
+
+        // checking for collisions against the walls
+        if (ballX < 0 || ballX + ballWidth > roomWidth) {
+          // if the ball has passed the left wall, reset it to the left wall
+          if (ballX < 0) {
+            ballX = 0;
+          } else {  // otherwise, reset the ball to the right wall
+            ballX = roomWidth - ballWidth;
+          }
+          // reverse the ball's horizontal movement
+          ballXSpeed *= -1;
+        }
+
+        // checking for collisions on the floor
+        if (ballY + ballHeight > roomHeight) {
+          // if the ball has passed through the floor, reset it to the floor
+          if (ballY + ballHeight > roomHeight) {
+            ballY = roomHeight - ballHeight;
+          }
+          // to simulate friction, we reduce the speed by a fraction,
+          // as well as reversing the vertical movement to make it bounce
+          ballXSpeed *= 0.99;
+          ballYSpeed *= -0.85;
+        }
+
+        // after completing the ball's position calculation,
+        // we update the ball element's position via the top/left properties
+        ball.style.left = ballX + 'px';
+        ball.style.top = ballY + 'px';
+
+        opacity += 0.025
+        ball.style.opacity = opacity;
+      }
+
+      // use setInterval to update every 10 milliseconds, causing animation
+      setInterval(moveBall, 10);
+
+    </script>
+  </body>
+</html>
