@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 24px;
+    font-family: sans-serif;
+}
+
+#paragraph-1 {
+    background-color: #f5bcbc;
+    color: darkred;
+}
+
+#paragraph-2 {
+    background-color: #c1f8c1;
+    color: darkgreen;
+}
+
+#paragraph-3 {
+    background-color: #cce4eb;
+    color: darkblue;
+}
+
+#span-1 {
+    background-color: yellow;
+    color: magenta;
+}
+
+#span-2 {
+    background-color: green;
+    color: white;
+}
+
+#span-3 {
+    background-color: magenta;
+    color: #420142;
+}
+
+#span-4 {
+    background-color: navy;
+    color: goldenrod;
+}
+
+#span-5 {
+    background-color: honeydew;
+    color: black;
+}
+
+#span-6 {
+    background-color: red;
+    color: white;
+}
+
+#span-7 {
+    background-color: lightgreen;
+    color: peru;
+}
