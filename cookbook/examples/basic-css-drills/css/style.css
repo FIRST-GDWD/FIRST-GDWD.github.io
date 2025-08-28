@@ -6,13 +6,18 @@ body {
     margin: 0px;
     padding: 36px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("../images/greek_temple_flipped.PNG");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 section {
-    background-color: white;
-
-    padding: 36px 0px 60px;
+    background-color: rgba(255, 255, 255, 0.931);
+    margin: 36px 0px;
+    padding: 36px 24px 60px;
     width: 640px;
+
 }
 
 img {
@@ -25,6 +30,7 @@ img + p {
 }
 
 .solution {
-    box-shadow: 2px 2px 6px grey;
+    background-color: white;
+    border: 3px dashed grey;
     padding: 8px;
 }
