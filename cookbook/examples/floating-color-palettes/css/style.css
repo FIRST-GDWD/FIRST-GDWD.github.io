@@ -5,13 +5,15 @@
 body {
     margin: 0px;
     font-family: sans-serif;
+    background-color: skyblue;
 }
 
 .color-palette {
-    box-shadow: 6px 6px 12px #989898;
+    box-shadow: 6px 6px 12px #426282;
     margin: 24px;
     padding: 24px;
     text-align: center;
+    background-color: white;
 }
 
 #color-1 {
