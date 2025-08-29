@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.color-palette {
+    box-shadow: 6px 6px 12px rgb(152, 152, 152);
+    margin: 24px;
+    padding: 24px;
+    text-align: center;
+}
+
+.color {
+    padding: 24px;
+    margin: 0px;
+}
+
+#color-1 {
+    background-color: #4B7F52;
+    color: white;
+}
+
+#color-2 {
+    background-color: #7DD181;
+}
+
+#color-3 {
+    background-color: #B6F9C9;
+}
