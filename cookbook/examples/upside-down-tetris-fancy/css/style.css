@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#container {
+    width: 500px;
+    height: 100vh;
+    background-color: #555555;
+    font-size: 0px;
+}
+
+.block {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+}
+
+.red {
+    border: 20px outset red;
+    background-color: rgb(255, 56, 56);
+}
+
+.green {
+    border: 20px outset green;
+    background-color: rgb(64, 200, 64);
+}
+
+.purple {
+    border: 20px outset purple;
+    background-color: rgb(224, 46, 224);
+}
+
+.gold {
+    border: 20px outset rgb(186, 186, 1);
+    background-color: gold;
+}
+
+.blue {
+    border: 20px outset blue;
+    background-color: rgb(91, 140, 240);
+}
+
+.empty {
+    background-color: transparent;
+}
