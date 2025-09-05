@@ -1,0 +1,92 @@
+/*
+    This is a completed example of what could be done for the assignment.
+*/
+
+#gallery {
+    text-align: center;
+}
+
+.frame-1 {
+    display: inline-block;
+    border: 10px solid #654f2b;
+    margin: 70px 12px 0px;
+    box-shadow: -2px 2px 2px #444444;
+    vertical-align: top;
+}
+
+.frame-2 {
+    display: inline-block;
+    border: 10px solid #3b2c14;
+    margin: 90px 12px 20px;
+    box-shadow: 0px 2px 2px #444444;
+}
+
+.container {
+    display: inline-block;
+}
+
+.frame-3 {
+    border: 8px solid #64552d;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 30px 12px 0px 0px;
+    box-shadow: 2px 2px 2px #444444;
+}
+
+.frame-4 {
+    border: 10px solid #483b14;
+    border-radius: 2px;
+    margin: 20px 12px 0px 24px;
+    width: 100px;
+    box-shadow: 2px 2px 2px #444444;
+}
+
+.frame-1 div,
+.frame-2 div,
+.frame-3 div,
+.frame-4 div {
+    background-color: #DDDDDD;
+    border: 0px;
+    box-shadow: inset 0px 0px 4px black;
+    padding: 16px;
+}
+
+.frame-3 div {
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.frame-4 div {
+    padding: 8px;
+}
+
+.frame-1 img {
+    width: 80px;
+}
+
+.frame-2 img {
+    width: 120px;
+}
+
+.frame-3 img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /*
+        The CSS Property below addresses that peculiar
+        styling bug where images can have a gap or 
+        more spacing beneath them that we didn't give 
+        them.
+
+        By setting display: block; we get rid of this
+        unwanted extra space below it.
+    */
+    display: block;
+}
+
+.frame-4 h2 {
+    background-color: rgb(142, 199, 206);
+    padding: 8px;
+    font-size: 12px;
+    margin: 0px;
+}
