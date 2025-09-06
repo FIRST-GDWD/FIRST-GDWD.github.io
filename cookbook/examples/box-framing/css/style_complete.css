@@ -10,7 +10,7 @@
     display: inline-block;
     border: 20px solid #654f2b;
     margin: 70px 12px 0px;
-    box-shadow: -2px 2px 2px #444444;
+    box-shadow: -4px 4px 4px #444444;
     vertical-align: top;
 }
 
@@ -18,7 +18,7 @@
     display: inline-block;
     border: 20px solid #3b2c14;
     margin: 120px 12px 20px;
-    box-shadow: 0px 2px 2px #444444;
+    box-shadow: 0px 4px 4px #444444;
     vertical-align: top;
 }
 
@@ -31,7 +31,7 @@
     border-radius: 50%;
     display: inline-block;
     margin: 30px 12px 0px 0px;
-    box-shadow: 2px 2px 2px #444444;
+    box-shadow: 4px 4px 4px #444444;
 }
 
 .frame-4 {
@@ -39,7 +39,7 @@
     border-radius: 2px;
     margin: 20px 12px 0px 24px;
     width: 180px;
-    box-shadow: 2px 2px 2px #444444;
+    box-shadow: 4px 4px 4px #444444;
 }
 
 .frame-1 div,
@@ -48,7 +48,7 @@
 .frame-4 div {
     background-color: #DDDDDD;
     border: 0px;
-    box-shadow: inset 0px 0px 4px black;
+    box-shadow: inset 0px 0px 8px black;
     padding: 32px;
 }
 
