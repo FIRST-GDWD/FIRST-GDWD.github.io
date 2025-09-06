@@ -213,12 +213,12 @@ const mealPrepRecipes = [
     //     pageCount: 1,
     //     hasLocalProject: true,
     // },
-    // {
-    //     recipeName: "dropdown-nav",
-    //     categories: "navigation-layout, navbar, dropdown",
-    //     pageCount: 1,
-    //     hasLocalProject: true,
-    // },
+    {
+        recipeName: "dropdown-nav",
+        categories: "navigation-layout, navbar, dropdown",
+        pageCount: 1,
+        hasLocalProject: true,
+    },
     // {
     //     recipeName: "side-by-side-responsive",
     //     categories: "miscellaneous",
