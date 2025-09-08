@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#morning,
+#afternoon,
+#evening {
+    margin: 36px;
+    padding: 24px 36px;
+    border-radius: 24px;
+}
+
+#morning {
+    background-color: moccasin;
+}
+
+#afternoon {
+    background-color: lightsalmon;
+}
+
+#evening {
+    background-color: plum;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+ul {
+    background-color: #FFFFFF99;
+    padding: 24px 48px 24px 60px;
+    border-radius: 16px;
+}
+
+li {
+    font-size: 24px;
+    margin: 12px 0px;
+    margin-left: 20px;
+    list-style-type: "\2610    " ;
+}
+
+.important {
+    font-weight: bold;
+    color: crimson;
+}
+
+.completed {
+    text-decoration: line-through;
+    list-style-type: "\1F5F9    ";
+}
+
+.important.completed {
+    border: 1px solid green;
+    box-shadow: 
+        0px 0px 8px green,
+        inset 0px 0px 8px green;
+    border-radius: 8px;
+    padding: 12px 0px;
+    margin-left: 20px;
+    list-style-type: "\1F5F9    ";
+}
+
+.button {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 16px;
+    padding: 10px 16px 8px;
+    min-width: 150px;
+    margin-left: 16px;
+    margin-right: 8px;
+    text-align: center;
+    background-color: rgb(174, 237, 174);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.completed .button {
+    background-color: transparent;
+    border-color: #777777;
+    color: #777777;
+    cursor: default;
+}
+
