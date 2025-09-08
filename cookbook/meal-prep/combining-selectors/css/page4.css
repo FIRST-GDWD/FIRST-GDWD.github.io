@@ -16,13 +16,15 @@
         - Class Selectors
         - HTML Element Selectors
 
-    There are generally two ways to
-    combine selectors: 
-        - by having space between them
-        - and by having no space
-            between them.
+    The most common ways to
+    combine selectors are: 
+        - Descendant Selectors
+          (adding a space between them)
+        - Compound Selectors
+          (having no space between them)
     
-    When there is space between selectors,
+    When using descendant selectors,
+    there is space between selectors, and
     that tells the computer to only target
     the selector on the right when it is
     inside (or put another way, a child)
@@ -47,6 +49,11 @@
 
     "target anchors that are inside of
         an element with the 'navbar' id"
+
+    or put another way: 
+
+    "target anchors that are a descendant 
+        of an element with the 'navbar' id"
 
     because "a" (for anchor) was on the 
     right of the space, and the #navbar 

@@ -14,7 +14,7 @@ p a {
 }
 
 p.warning {
-    color: crimson;
+    background-color: crimson;
 }
 
 p.warning a {

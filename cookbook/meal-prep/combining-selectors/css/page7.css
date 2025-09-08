@@ -14,7 +14,7 @@ p a {
 }
 
 p.warning {
-    color: crimson;
+    background-color: crimson;
 }
 
 /*
@@ -42,8 +42,8 @@ p.warning a {
 
 /*
     To do this, we combine BOTH approaches
-    of combining selectors: using no spaces
-    and spaces.
+    of combining selectors: using Descendant
+    Selectors AND Compound Selectors.
 
     To translate the above selector into 
     English: 
@@ -54,14 +54,17 @@ p.warning a {
     
     So to recap: 
         - selectors that are side-by-side
-            with no spaces MUST refer to 
+            with no spaces (i.e. Compound
+            Selectors) MUST refer to 
             the same element in order to
             be targeted
         - selectors that are separated by
-            a space will target the
+            a space (i.e. Descendant 
+            Selectors) will target the
             selector on the right ONLY IF
             it is found in the selector
-            on the left
+            on the left (i.e. is a child 
+            or descendant)
 
     For some additional practice, let's
     add a little more HTML content to 

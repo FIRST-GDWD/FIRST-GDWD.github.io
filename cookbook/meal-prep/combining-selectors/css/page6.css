@@ -16,7 +16,7 @@ p a {
 /*
     Now suppose our client wanted a
     "warning" style just for
-    paragraphs, that affects the color
+    paragraphs, that affects the background-color
     of both regular text and links.
 
     We might be tempte to just use a normal
@@ -29,18 +29,19 @@ p a {
 
     So, to be more specific we're going 
     to have to use the other way of
-    combining selectors: no spaces between
-    them.
+    combining selectors: Compound Selectors
+    (i.e. selectors with no spaces between
+    them.)
 */
 
 p.warning {
-    color: crimson;
+    background-color: crimson;
 }
 
 /*
     This method of making selectors more
     specific has a different meaning
-    compared to using spaces.
+    compared to Descendant Selectors.
 
     To translate what the above selectors
     mean into English: 

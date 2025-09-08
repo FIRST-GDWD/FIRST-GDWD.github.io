@@ -17,7 +17,8 @@
     How would we target ONLY the anchors
     inside of the paragraph elements?
 
-    Same approach as before (using a space), 
+    Same approach as before 
+    (using Descendant Selectors), 
     just with different selectors.
 */
 
@@ -33,5 +34,5 @@ p a {
     Because the two are separated by a space,
     and p is on the left and a is on the right,
     we're looking for anchors (a) that are inside
-    (aka children of) paragraphs (p).
+    (aka children or descendants of) paragraphs (p).
 */
