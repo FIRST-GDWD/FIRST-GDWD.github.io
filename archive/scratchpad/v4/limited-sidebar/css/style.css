@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#sidebar {
+    background-color: #333333;
+    width: 500px;
+    min-height: 100vh;
+    padding: 24px;
+    color: white;
+}
+
+#sidebar .chapter {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+#sidebar .edit {
+    color: orange;
+    font-style: italic;
+}
+
+#sidebar .chapter.edit {
+    color: red;
+}
+
+#sidebar h4 {
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
+}
+
+#sidebar li {
+    margin: 4px 0px;
+}
