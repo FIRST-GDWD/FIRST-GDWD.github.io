@@ -39,3 +39,22 @@ body {
 #sidebar li {
     margin: 4px 0px;
 }
+
+/* SUPER CHALLENGE */
+#sidebar {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#sidebar + div {
+    display: inline-block;
+    width: 750px;
+    padding: 24px;
+}
+
+#sidebar + div h2 {
+    font-size: 36px;
+    margin-top: 60px;
+    border-bottom: 3px solid black;
+    padding-bottom: 8px;
+}
