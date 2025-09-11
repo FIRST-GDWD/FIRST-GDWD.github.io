@@ -10,12 +10,11 @@ body {
 /*
     This is an alternate way of setting up a
     Centered Single Column Page Layout,
-    focusing on the upper and lower limits
-    that the width should grow or shrink to.
+    focusing on the upper limits
+    that the width should grow to.
 */
 .single-column {
-    min-width: 600px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0px auto;
 }
 

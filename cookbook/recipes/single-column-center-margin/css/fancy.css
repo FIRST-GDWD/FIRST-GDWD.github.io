@@ -32,7 +32,7 @@ body {
 #navbar-column,
 .center-column,
 #footer-column {
-    width: 500px;
+    max-width: 500px;
     margin: 0px auto;
 }
 

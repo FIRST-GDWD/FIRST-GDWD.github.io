@@ -16,10 +16,9 @@ body {
     
     Step 1 
         Start by setting an explicit width.
-        Either absolute or relative units are fine
-        (although you'll probably also want to set
-        a min-width if using relative units,
-        as we do below).
+        (max-width is preferred, but width can 
+        work too; it's just a bit more rigid
+        than we'd usually prefer).
     
     Step 2
         Next, set the auto value on the left/right 
@@ -43,8 +42,7 @@ body {
     background-color: lightblue;
 
     /* Step 1 */
-    width: 50%; 
-    min-width: 500px;
+    max-width: 500px;
 
     /* Step 2 */
     margin: 0px auto; 
