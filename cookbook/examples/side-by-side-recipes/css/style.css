@@ -77,6 +77,14 @@ body {
     letter-spacing: 1px;
     padding: 8px 12px;
     margin-top: 8px;
+    transition:
+        background-color 0.75s,
+        color 0.75s;
+}
+
+#recipe-intro a:hover {
+    background-color: blanchedalmond;
+    color: black;
 }
 
 #column h2 {
