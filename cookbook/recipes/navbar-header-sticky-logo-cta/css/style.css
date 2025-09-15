@@ -18,6 +18,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /*
+        These two properties are responsible
+        for making the navbar "sticky".
+
+        The position property activates the
+        sticky behavior, but won't actually
+        do anything until a side property
+        (like the one below) is used.
+
+        The top property tells it how far
+        from the top it should stick.
+    */
     position: sticky;
     top: 0px;
 }
