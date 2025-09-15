@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#navbar {
+    background-color: orangered;
+    border-bottom: 5px solid black;
+}
+
+#navbar .centered-single-column {
+    display: flex;
+    align-items: center;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 24px;
+}
+
+#navbar #logo {
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.centered-single-column {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main .centered-single-column {
+    padding: 24px;
+}
