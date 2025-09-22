@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#nav {
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+}
+
+#nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+}
+
+/*
+    Now that we've seen how we can make a navbar
+    more responsive, let's explore how we can
+    make some gallery content more
+    responsive as well.
+
+    Hop over to the HTML to add in some gallery
+    code, and then return here when you're done.
+*/
+
+/*
+    Note that we are starting a new CSS rule
+    ABOVE our Media Query.  This is very 
+    important: you should NEVER have any 
+    CSS underneath your Media Queries.
+
+    The code ABOVE your Media Queries functions
+    as the "default" styling for the page.
+
+    The Media Queries below then modify that
+    default styling.
+
+    If you start writing code underneath your
+    Media Queries, then you could be potentially
+    modifying your Media Query code as well,
+    which can make things VERY confusing
+    and hard to debug when things go wrong.
+
+    So just make sure you never add CSS code
+    underneath a Media Query, and you should
+    be safe!
+
+    Next, we'll set up our .single-column-layout 
+    container, which will hold our Media and 
+    Text layout, using our standard Centered 
+    Single Column setup.
+*/
+#single-column-layout {
+    max-width: 800px;
+    margin: 48px auto;
+}
+
+/*
+    Next, let's make our heading BIG, to make
+    it stand out more, and center it.
+*/
+#single-column-layout h1 {
+    font-size: 64px;
+    text-align: center;
+}
+
+/*
+    Now, we're going to build out our basic 
+    grid gallery layout again from earlier
+    in the week.
+*/
+#basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+#basic-grid-gallery img {
+    width: 100%;
+}
+
+/*
+    That works out pretty well, and is even
+    responsive in the sense that our images
+    aren't going to overflow when the screen
+    gets too small.
+
+    ...but the images themselves do get quite
+    small.
+    
+    Also, our heading does start to wrap as
+    the screen grows smaller.  That isn't
+    terrible, but we usually prefer to avoid
+    orphaning our text when possible.
+
+    Let's see how we can use media queries so 
+    that we can see the images in their full
+    glory, in addition to cleaning up our text.
+*/
+
+
+
+/* MOBILE BREAKPOINT */
+@media screen and (max-width: 450px) {
+    body {
+        background-color: firebrick;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}

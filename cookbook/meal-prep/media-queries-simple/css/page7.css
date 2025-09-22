@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#nav {
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+}
+
+#nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+}
+
+#single-column-layout {
+    max-width: 800px;
+    margin: 48px auto;
+}
+
+#single-column-layout h1 {
+    font-size: 64px;
+    text-align: center;
+}
+
+#basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+#basic-grid-gallery img {
+    width: 100%;
+}
+
+/*
+    We left in the background-colors!
+    
+    Those colors are really helpful
+    when developing a responsive site, 
+    but we definitely don't want to
+    keep them there if we're working on
+    a professional site.
+
+    So let's just remove (or comment out)
+    those background-colors, and we'll
+    call it a day!
+*/
+
+
+/* TABLET BREAKPOINT */
+@media screen and (max-width: 640px) {
+    body {
+        /* comment this out */
+        /* background-color: skyblue; */
+    }
+
+    #single-column-layout h1 {
+        font-size: 44px;
+    }
+
+    #basic-grid-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MOBILE BREAKPOINT */
+@media screen and (max-width: 450px) {
+    body {
+        /* comment this out */
+        /* background-color: firebrick; */
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #single-column-layout h1 {
+        font-size: 32px;
+    }
+}

@@ -316,6 +316,12 @@ const mealPrepRecipes = [
         hasLocalProject: true,
     },
     {
+        recipeName: "media-queries-simple",
+        categories: "demo, week8",
+        pageCount: 8,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "media-queries-exercise",
         categories: "exercise, week5",
         pageCount: 1,

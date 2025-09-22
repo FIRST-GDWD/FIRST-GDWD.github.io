@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#nav {
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+}
+
+#nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+}
+
+#single-column-layout {
+    max-width: 800px;
+    margin: 48px auto;
+}
+
+#single-column-layout h1 {
+    font-size: 64px;
+    text-align: center;
+}
+
+#basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+#basic-grid-gallery img {
+    width: 100%;
+}
+
+
+/* TABLET BREAKPOINT */
+@media screen and (max-width: 640px) {
+    body {
+        background-color: skyblue;
+    }
+
+    /*
+        Now that we confirmed our "tablet"
+        breakpoint worked, let's first fix
+        our h1, by giving a smaller size.
+    */
+    #single-column-layout h1 {
+        font-size: 44px;
+    }
+
+    /*
+        That works great! No more wrapping
+        text! Now let's modify our grid.
+
+        Notice that we don't need to reapply
+        display: grid; because it's already
+        set in our defaut code up above.
+
+        We're only MODIFYING what was written
+        above.
+    */
+    #basic-grid-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+        Now our images fill the page!
+        Normally, we'd want to avoid our
+        image content touching the edge 
+        of the page, but it tends to be
+        more acceptable/appropriate on 
+        mobile devices.  Just think about
+        any video or image focused app 
+        on your phone: usually the images
+        go all the way to edges.
+    */
+
+}
+
+/*
+    So, our tablet breakpoint is great, but
+    what about our mobile breakpoint?
+
+    Because the two breakpoints overlap, our
+    new heading and grid content changes
+    carry over from the tablet to the mobile
+    breakpoint, and mostly look great!
+
+    ...except that our heading now starts to 
+    wrap again on mobile.
+
+    How can we fix that? Add a new CSS rule
+    in our mobile breakpoint to further 
+    shrink down the text!
+*/
+
+
+/* MOBILE BREAKPOINT */
+@media screen and (max-width: 450px) {
+    body {
+        background-color: firebrick;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*
+        Here is where we'll shrink it down
+        even further.
+    */
+    #single-column-layout h1 {
+        font-size: 32px;
+    }
+}
+
+/*
+    And with that, we have now have a pretty
+    responsive web page!
+
+    As we saw, the main ways to make flexboxes
+    and CSS grids more responsive are using
+    flex-direction and flex-wrap for flexbox,
+    and grid-template-columns for CSS Grid.
+
+    And for everything else, basically just
+    font-size, and maybe margin/padding 
+    where necessary.
+
+    But there's one thing we should do before
+    leaving this demo...
+
+    What did we forget to do?
+*/

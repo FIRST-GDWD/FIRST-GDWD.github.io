@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#nav {
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+}
+
+#nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px;
+}
+
+#single-column-layout {
+    max-width: 800px;
+    margin: 48px auto;
+}
+
+#single-column-layout h1 {
+    font-size: 64px;
+    text-align: center;
+}
+
+#basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+#basic-grid-gallery img {
+    width: 100%;
+}
+
+/*
+    As we've said before, the two ways
+    to make content more responsive
+    is to decrease font-sizes and spacing,
+    and to take content that is side by side
+    and stack it.
+
+    The former is a piece of cake: we just
+    need to modify the font-size of the h1.
+    
+    The latter (stacking side by side content)
+    with CSS grid is actually rather simple 
+    as well: if we have 2 columns in
+    the desktop version of our page, then
+    we simply need to reduce that to 1 column
+    in our media query when things get
+    too small.
+
+    Determining what is "too small" is fairly
+    subjective, and will depend on what types
+    of content we have on the page (and also
+    sometimes on client requirements).
+
+    For our demo, notice when our h1 starts 
+    to wrap (use the Inspector/Development Tools
+    to figure out the exact pixel width): 
+    it's right around 600px or so.
+    
+    Also notice that the images we used for
+    this demo have natural dimensions of 
+    640px x 426px.  Setting the grid columns
+    to 1 would mean that the images would fill
+    the screen, so we'd also want to make 
+    sure our media query is no more than 640px.
+
+    So, let's create a new media query right
+    at 640px.  That will make our images as big
+    as they can be without making them blurry or
+    pixelated, and will also prevent our text
+    from wrapping.
+*/
+
+/*
+    We might call this new breakpoint a "tablet"
+    breakpoint, since it's larger than mobile, 
+    but smaller than desktop.
+
+    But in reality, there is no standard tablet
+    resolution, so this is just a way for us
+    to more clearly refer to which media query
+    we're talking about.
+*/
+
+/* TABLET BREAKPOINT */
+@media screen and (max-width: 640px) {
+    /*
+        We'll use the same background-color
+        trick as before to visualize when
+        we enter this breakpoint.
+    */
+
+    body {
+        background-color: skyblue;
+    }
+
+    /*
+        We'll add the new styling on the 
+        next demo page.
+    */
+}
+
+/*
+    As a side note,
+    technically, our two breakpoints are 
+    overlapping: since 450px is less than 
+    640px, when we're in the mobile breakpoint,
+    we're also in the tablet breakpoint.
+
+    If we don't want this behavior, we could
+    always add a min-width to our tablet
+    media query, to add a lower bound to when
+    our styles should apply.
+
+    But in this case, we don't need to, because
+    we actually want our gallery and h1 to
+    stay different in the mobile breakpoint too.
+*/
+
+
+/* MOBILE BREAKPOINT */
+@media screen and (max-width: 450px) {
+    body {
+        background-color: firebrick;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
