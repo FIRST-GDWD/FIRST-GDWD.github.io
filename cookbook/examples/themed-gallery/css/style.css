@@ -12,7 +12,7 @@ body {
     background-image: 
         linear-gradient(to left, #233500 50%, #23350000 75%),
         url("../images/spilled-tea.jpg");
-    background-size: contain;
+    background-size: 100%, 60%;
     background-position: left center;
     background-repeat: no-repeat;
     height: 80vh;
