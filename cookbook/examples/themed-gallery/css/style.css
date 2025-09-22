@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbfce0;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#hero {
+    background-image: 
+        linear-gradient(to left, #233500 50%, #23350000 75%),
+        url("../images/spilled-tea.jpg");
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10vw;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 72px;
+    text-align: center;
+    margin: 0px;
+    width: 400px;
+}
+
+#single-column-layout {
+    max-width: 1200px;
+    margin: 48px auto;
+}
+
+.basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    border: 10px solid #344e0a;
+    background-color: #7d915b;
+}
+
+.basic-grid-gallery img {
+    width: 100%;
+}
