@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbfce0;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#navbar {
+    background-color: #7d915b;
+    border-bottom: 5px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar a {
+    color: #233500;
+    text-decoration: none;
+    padding: 24px 48px;
+    font-size: 24px;
+}
+
+#navbar a#logo {
+    font-weight: bold;
+    font-family: "Corinthia", cursive;
+    font-size: 32px;
+}
+
+#hero {
+    background-image: 
+        linear-gradient(to left, #233500 50%, #23350000 75%),
+        url("../images/spilled-tea.jpg");
+    background-size: 100%, 1300px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10vw;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 72px;
+    font-family: "Skranji", system-ui;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px;
+    width: 400px;
+}
+
+#single-column-layout {
+    max-width: 1200px;
+    margin: 48px auto;
+}
+
+.basic-grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    margin: 24px;
+    border: 10px solid #344e0a;
+    background-color: #7d915b;
+}
+
+.basic-grid-gallery img {
+    width: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+    #hero {
+        background-size: 100%, 1000px;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #hero {
+        background-size: 100%, 800px;
+        height: 40vh;
+    }
+
+    #hero h1 {
+        font-size: 48px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1000px) { 
+    .basic-grid-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #hero {
+        background-image: linear-gradient(to bottom, #233500, #233500);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    #navbar {
+        flex-wrap: wrap;
+    }
+
+    #navbar a {
+        font-size: 20px;
+        padding: 16px 24px 24px;
+    }
+
+    #navbar a#logo {
+        width: 100%;
+        text-align: center;
+        font-size: 60px;
+        padding-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 640px) { 
+    .basic-grid-gallery {
+        grid-template-columns: 1fr;
+        margin: 0px;
+        border: 0px;
+        padding: 0px;
+        background-color: transparent
+    }
+
+    .basic-grid-gallery img {
+        border-top: 10px solid #233500;
+        border-bottom: 10px solid #233500;
+    }
+}
