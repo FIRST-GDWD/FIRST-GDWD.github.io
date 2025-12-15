@@ -1,0 +1,54 @@
+/* transition example related code */
+
+a.simple-example {
+    transition: color 0.5s;
+}
+
+a.simple-example:hover {
+    color: turquoise;
+}
+
+a.bad-example:hover {
+    transition: color 0.5s;
+    color: orange;
+}
+
+p.advanced-example {
+    transition:
+        color 1s,
+        background-color 1s,
+        font-size 1s;
+}
+
+p.advanced-example:hover {
+    color: white;
+    background-color: navy;
+    font-size: 24px;
+}
+
+/* styling related code */
+
+a.no-hover-color:hover {
+    color: revert;
+}
+
+.warning {
+    background-color: orange;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.example-container {
+    border: 3px solid black;   
+    padding: 12px 24px;
+    margin: 36px 0px;
+}
+
+.example-container h5 {
+    margin: 16px 0px;
+}
+
+.example-container h4 {
+    background-color: rgb(223, 233, 222);
+    padding: 24px;
+}

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>transition Property</title>
+        <link href="css/transition.css" rel="stylesheet" data-seasoning>
+        <link href="css/shared.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="recipe-example">
+            <h4>Basic Code Snippets</h4>
+            <code>
+                transition: background-color 0.5s;
+            </code>
+            <br><br>
+            <code>
+                transition: 
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color 1.5s,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size 1.5s;
+            </code>
+            <br><br>
+            <code>
+                transition: 
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;opacity 0.25s,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;visibility 0.25s,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;transform 0.25s;
+            </code>
+            <br>
+        </div>
+        <h4>Additional Examples</h4>
+        <p>
+            The transition property is a very fun CSS Property
+            allows you to add simple animations between different
+            states of an HTML element.
+        </p>
+        <h5>A Preface: HTML Element States</h5>
+        <p>
+            Before we dive into the transition property, we need 
+            to talk briefly about a key term from the introduction
+            above.
+        </p>
+        <p>
+            What do we mean by "different states"? The simplest 
+            example would be something like a hover 
+            state.  
+        </p>
+        <p>
+            Have you noticed that when you hover over a 
+            <a href="" class="no-hover-color">hyperlink</a>
+            the cursor changes to a pointer icon?  That is because 
+            when the anchor enters the hover state, a CSS Property 
+            called "cursor" is changed from its default value to 
+            the "pointer" value.
+        </p>
+        <p>
+            How do we define or set up these different states?
+            While custom states can be defined using JavaScript,
+            the majority of basic HTML Element states can be
+            targeted in CSS using something called 
+            <b>pseudo-classes</b>.
+        </p>
+
+        <h5>Pseudo-classes</h5>
+        <p>
+            <b>Pseudo-classes</b> are special keywords that can be
+            added in CSS to define a CSS Rule targeting an HTML
+            Element in a certain state.
+        </p>
+        <p>
+            They have a bit of a funny syntax using the colon ( : ), 
+            but what's one more symbol added to the two selector 
+            symbols you already know (the hashtag # and dot .)?
+        </p>
+        <p>
+            Let's use our hover state as an example again. Suppose
+            we wanted to change the hover state of ALL anchors on
+            a page so that they turn turquoise when you hover over them.  
+            In that case, we might use some CSS code like this:
+        </p>
+
+        <h4>
+            <code>
+                a:hover { 
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: turquoise;
+                <br>
+                }
+            </code>
+        </h4>
+
+        <p>
+            That code targets ALL anchors on the page, and 
+            tells them to change to the color turquoise on hover.
+        </p>
+
+        <p>
+            Code like this is critical to using the transition 
+            CSS Property.  Animation can only occur if there is 
+            a change of some sort on an HTML Element; otherwise,
+            what would actually be animated?  And pseudo-classes
+            are one of the easiest ways to define different 
+            states for HTML Elements to animate through.
+        </p>
+
+        <p>
+            There are many different pseudo-classes you can use in 
+            your CSS code, some more useful than others. However,
+            they are not the focus of this entry, so we'll just 
+            leave you with some extra additional resources at the 
+            bottom of the page if you're interested to learn more.
+        </p>
+
+        <p>
+            Alright, now let's get into the real meat and potatoes
+            of this entry: the transition property.
+        </p>
+
+        <h5>The Anatomy of the Transition Property</h5>
+        <p>
+            The transition property is one of the more complex 
+            CSS Properties that you'll be learning about.  It's 
+            not too bad once you get the hang of it, but until 
+            you do, it'll look kinda weird. 
+        </p>
+        <p> 
+            To use the transition property, you'll need to 
+            <b>register</b> other CSS properties with it,
+            so that it knows what to animate.
+        </p>
+        <p>
+            To <b>register</b> a CSS Property with the transition 
+            property for animation, you'll need to include 
+            two things:
+        </p>
+        <ol>
+            <li>The name of the CSS Property</li>
+            <li>The duration (in seconds) of the animation</li>
+        </ol>
+        <p>
+            Let's take a look at a basic example, using the same
+            objective we used above, changing anchor to turquoise 
+            when we hover over them:
+        </p>
+
+        <h4>
+            <code>
+                a { 
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;transition: color 0.5s;
+                <br>
+                }
+            </code>
+        </h4>
+
+        <p>
+            Inside there, you can see the two parts we said we 
+            needed above: the name of the property we want to 
+            animate (the color property) and duration we want 
+            the animation to have (0.5s, or in other words, 
+            a half second).
+        </p>
+
+        <p class="warning">
+            CAVEAT: You can't use just any CSS Property with 
+            the transition property. You can only register CSS 
+            Properties that are considered "animatable".  Most
+            of time, if the property accepts color or number 
+            values, then it can be animated.  But more complex 
+            properties, like the display property for example,
+            are not "animatable", so they will not work if 
+            you try to register them with the transition 
+            property.
+        </p>
+
+        <h5>Simple Example: Animating One CSS Property</h5>
+        <p>
+            When we bring that code together with the code we 
+            wrote earlier, we will have all we need to animate 
+            anchors to turquoise on hover!
+        </p>
+
+        <div class="example-container">
+            <h5>EXAMPLE</h5>
+            <h4>
+                <code>
+                    a { 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;transition: color 0.5s;
+                    <br>
+                    }
+                    <br><br>
+                    a:hover { 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;color: turquoise;
+                    <br>
+                    }
+                </code>
+            </h4>
+
+            <p>
+                <a href="" class="simple-example">
+                    <b>Try hovering over this and see!</b>
+                </a>
+            </p>
+        </div>
+
+        <p>
+            The anchor above take a half second to animate
+            smoothly between its normal color in its default
+            state and the red color in its hover state. AND,
+            it also takes a half second to animate back to
+            its default state when you move your cursor off
+            of the anchor.
+        </p>
+
+        <h5>
+            Warning: Be Sure to Set the Transition 
+            Property on the Right State!
+        </h5>
+        <p>
+            If you look closely at the example above, you might 
+            wonder why we didn't just include the transition 
+            property on the hover state.  That seems like it'd 
+            be simpler.
+        </p>
+        <p>
+            Well, let's try it, and see what happens.  We'll add 
+            an extra class and use a different color to separate
+            this example from the previous one.
+        </p>
+
+        <div class="example-container">
+            <h5>EXAMPLE</h5>
+            <h4>
+                <code>
+                    a.bad-example:hover { 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;transition: color 0.5s;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;color: orange;
+                    <br>
+                    }
+                </code>
+            </h4>
+
+            <p>
+                <a href="" class="bad-example">
+                    <b>Hover on and off me!</b>
+                </a>
+            </p>
+        </div>
+
+        <p>
+            When you hover over the hyperlink above, all seems 
+            well!  It seems like nothing is wrong...until you 
+            move your cursor off the anchor. 
+        </p>
+        <p>
+            Did you catch what happens?  It's subtle, but it 
+            didn't animate back to its default state: it just 
+            instantly snapped back.
+        </p>
+        <p>
+            That's because it's doing exactly what we told it to
+            do: we only put the transition property on the hover 
+            state, so it will ONLY transition (animate) when we 
+            hover over it.  As soon as we move the cursor off of 
+            it, there is no transition property set, so it 
+            doesn't animate back.
+        </p>
+        <p>
+            This is an important part to using the transition 
+            property:
+        </p>
+        <p class="warning">
+            <b>
+                Set the transition property on the DEFAULT 
+                state of your HTML Element, NOT on the state 
+                that you're animating to! (in other words, 
+                don't set transition property on the 
+                pseudo-class selector!)
+            </b>
+        </p>
+        <p>
+            There are certain exceptions to this rule when 
+            you're doing complex animations, but most of the
+            time, following this rule will keep your animations
+            working properly!
+        </p>
+
+        <h5>Advanced Example: Animating Multiple CSS Properties</h5>
+        <p>
+            In the examples above, all we did was attempt to 
+            change the color of a hyperlink.
+            But what if we wanted to animate more than one 
+            CSS Property?
+        </p>
+        <p>
+            Well, we can do that too!  All we need to do is 
+            register more properties with the transition
+            property.
+        </p>
+        <p>
+            Not that we'd want to actually do this in reality,
+            but let's say that we want to animate the color,
+            background-color, and font-size when we hover
+            over the next paragraph.
+        </p>
+
+        <div class="example-container">
+            <h5>EXAMPLE</h5>
+            <h4>
+                <code>
+                    p.advanced-example { 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;transition: 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color 1s,
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color 1s,
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size 1s;
+                    <br>
+                    }
+                    <br><br>
+                    p.advanced-example:hover { 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;color: white;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;background-color: navy;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;font-size: 24px;
+                    <br>
+                    }
+                </code>
+            </h4>
+
+            <p class="advanced-example">
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+                Hover over me! Hover over me! Hover over me!
+            </p>
+        </div>
+
+        <p>
+            It works! And this highlights a couple of 
+            important things:
+        </p>
+        <ul>
+            <li>
+                Multiple CSS Properties can be registered 
+                with the transition property (just be sure
+                to separate them with commas and not
+                semicolons!)
+            </li>
+            <li>
+                Anchors are not the only things that can be
+                animated or have hover states! Any HTML 
+                element can use the transition property,
+                and any HTML element can use pseudo-classes
+                like :hover
+            </li>
+            <li>
+                Animating the sizing or spacing of HTML 
+                elements can affect other elements around
+                them.
+            </li>
+        </ul>
+        <p>
+            That last one is important from both a design 
+            and a UI/UX perspective.  Notice how when you
+            hover over that advanced example paragraph,
+            it pushes down everything beneath it?  We 
+            usually want to avoid that.
+        </p>
+        <p>
+            Movement of content can be a bit distracting, but 
+            it doesn't usually affect too much if things
+            grow vertically; however, if things also grow
+            horizontally, it can often mess up your 
+            design, especially in smaller, more compact 
+            parts of your site, like a navbar.
+        </p>        
+        <p>
+            So while it can be fun, just don't go too crazy
+            with transitions when it comes to professional
+            web design!  Subtlety is usually a better approach.
+        </p>
+
+        <div class="resources">
+            <h4>Additional Resources</h4>
+            <a 
+                href="https://www.w3schools.com/css/css_pseudo_classes.asp"
+                target="_blank"
+            >
+                w3schools - pseudo-classes
+            </a>
+            <br>
+            <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes"
+                target="_blank"
+            >
+                mdn web docs - pseudo-classes
+            </a>
+            <br>
+            <a 
+                href="https://www.w3schools.com/css/css3_transitions.asp"
+                target="_blank"
+            >
+                w3schools - transition property
+            </a>
+            <br>
+            <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transition"
+                target="_blank"
+            >
+                mdn web docs - transition property
+            </a>
+            <br>
+        </div>
+    </body>
+</html>

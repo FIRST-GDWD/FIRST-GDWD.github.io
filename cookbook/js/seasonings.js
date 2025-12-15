@@ -106,6 +106,12 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
+        recipeName: "transition",
+        categories: "intermediate",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "transform",
         categories: "advanced",
         pageCount: 1,
