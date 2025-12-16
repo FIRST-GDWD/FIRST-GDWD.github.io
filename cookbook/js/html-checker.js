@@ -133,6 +133,10 @@ function generateReportOnHTML(rawInput) {
             }
         }
 
+        const hasNonTagContentRegex = /^(?!\s*(<[^>]+>\s*)*$).+/;
+        const hasNonTagContent = 
+            hasNonTagContentRegex.test(newLineObject.trimmedInput);
+
         newLineObject.isVoidElement = 
             VOID_ELEMENTS.includes(newLineObject.tagName)
             || (
@@ -170,9 +174,14 @@ function generateReportOnHTML(rawInput) {
         newLineObject.isDirtyClosedSplitTag = 
             closeAfterAttributeRegex.test(newLineObject.trimmedInput);
 
-        const isDirtySplitElementRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
-        newLineObject.isDirtySplitElement =
-            isDirtySplitElementRegex.test(newLineObject.trimmedInput)
+        const hasOpeningTagThenTextRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
+        newLineObject.isDirtyOpeningSplitElement =
+            hasOpeningTagThenTextRegex.test(newLineObject.trimmedInput)
+            && !newLineObject.isVoidElement;
+
+        const hasTextThenClosingTagRegex = /[^<]+\s*<\/\s*[a-zA-Z0-9-]+\s*>$/;
+        newLineObject.isDirtyClosingSplitElement =
+            hasTextThenClosingTagRegex.test(newLineObject.trimmedInput)
             && !newLineObject.isVoidElement;
 
         // const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
@@ -322,7 +331,8 @@ function generateReportOnHTML(rawInput) {
             || line.isNearMissingClosingTags
             || line.hasDirtyAttributes
             || line.isDirtyClosedSplitTag
-            || line.isDirtySplitElement
+            || line.isDirtyOpeningSplitElement
+            || line.isDirtyClosingSplitElement
             || line.hasCaps
             || line.isExcessLineSpace
             || (!line.containsSingleAttribute && line.exceedsCharLimit)
@@ -371,11 +381,18 @@ function generateReportOnHTML(rawInput) {
                     + `and outdented to align with the opening triangle bracket (<) above.\n` 
             }
 
-            if (line.isDirtySplitElement) {
+            if (line.isDirtyOpeningSplitElement) {
                 errorMessage += 
                     `  - Since this element is split across multiple lines, `
                     + `the content following the opening tag `
                     + `should be moved to its own line and indented.\n` 
+            }
+
+            if (line.isDirtyClosingSplitElement) {
+                errorMessage += 
+                    `  - Since this element is split across multiple lines, `
+                    + `the closing tag should be moved to the next line, `
+                    + `and the content left behind should indented relative to the opening tag.\n` 
             }
 
             if (line.hasCaps) {
