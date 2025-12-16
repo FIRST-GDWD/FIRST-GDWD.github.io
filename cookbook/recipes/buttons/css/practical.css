@@ -1,0 +1,188 @@
+/* standard page layout setup */
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section {
+    margin: 36px;
+}
+
+h2 {
+    margin-top: 60px;
+}
+
+/* 
+    Every anchor styled as a button MUST
+    have the following properties set,
+    especially the display property.
+*/ 
+.button {
+    text-decoration: none;
+    color: black; /* pick whatever color you like */
+    display: inline-block;
+    margin: 12px 12px 12px 0px; /* optional, but often useful */
+}
+
+/*
+    Background style buttons are often used as
+    primary button styles, while border style 
+    buttons are often used as secondary button
+    styles.
+
+    However, when a background button is paired 
+    with a border button, you might notice that 
+    they don't QUITE seem the same size.
+
+    That's because the border button is a few
+    pixels taller and wider, due to its border.
+
+    So, we typically want to add a border to
+    the background button as well, so it matches.
+*/
+.primary {
+    background-color: purple;
+    border: 3px solid purple;
+    color: white;
+    padding: 24px 36px;
+    border-radius: 36px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.secondary {
+    color: purple;
+    border: 3px solid purple;
+    padding: 24px;
+    border-radius: 36px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.primary-alt {
+    background-color: green;
+    color: white;
+    padding: 16px;
+    border-radius: 32px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.secondary-alt {
+    color: green;
+    display: inline-block;
+    margin: 12px 12px 12px 0px;
+}
+
+/*
+    If you don't want to put much effort into
+    a hover state, one of the simplest ways
+    to make the button look different is just
+    to change its opacity.
+
+    As long as you have a light background 
+    behind it, the button will appear to 
+    "light up".
+
+    However, this won't work in all situations,
+    especially if you have a colorful background.
+    So don't be TOO lazy with your hover states!
+*/
+.lazy {
+    background-color: firebrick;
+    border: 3px solid firebrick;
+    color: white;
+    padding: 24px 36px;
+    border-radius: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: opacity 0.25s;
+}
+
+/*
+    To target an element in its hover state,
+    we have to use what is called a "pseudo-class".
+
+    In particular, we have to use the hover
+    pseudo-class, which looks like this: 
+
+    :hover 
+
+    We attach that to any selector that we want 
+    to target in its hover state, like you see
+    below.
+
+    Remember, you can use the transition property
+    to animate the change to the hover state,
+    but the transition property should NOT be set
+    on the hover state!
+
+    You should set it on the default state instead.
+*/
+.lazy:hover {
+    opacity: 0.8;
+}
+
+/*
+    Here is a better example of a hover state
+    using a border style button.
+
+    Here, the hover state causes the button to
+    essentially switch over to a background
+    style when hovered over, which is a very
+    aesthetically pleasing effect!
+*/
+.better {
+    color: teal;
+    border: 3px solid teal;
+    padding: 24px;
+    border-radius: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: 
+        background-color 0.25s,
+        color 0.25s;
+}
+
+.better:hover {
+    background-color: teal;
+    color: white;
+}
+
+/*  
+    For this button, we use a gradient to
+    simulate a rounded shape that bulges out.
+
+    As long as the first color is lighter
+    and the second is darker, we'll get that
+    bulging effect!
+*/
+.bulge {
+    background: linear-gradient(
+        skyblue,
+        rgb(81, 125, 143)
+    );
+    color: white;
+    padding: 24px 36px;
+    border-radius: 36px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/*
+    And if we add in an "active" state,
+    using the :active pseudo-class,
+    we can invert the gradient to give 
+    the button the opposite effect,
+    as if it were being pressed inwards.
+*/
+.bulge:active {
+    background: linear-gradient(
+        rgb(81, 125, 143),
+        skyblue
+    );
+}

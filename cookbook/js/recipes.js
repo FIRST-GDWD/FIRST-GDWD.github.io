@@ -4,6 +4,12 @@
 const recipeNames = [];
 const mealPrepRecipes = [
     {
+        recipeName: "buttons",
+        categories: "navigation-layout, miscellaneous",
+        pageCount: 2,
+        hasLocalProject: true,
+    },
+    {
         recipeName: "single-column-left",
         categories: "page-layout, single-column",
         pageCount: 2,

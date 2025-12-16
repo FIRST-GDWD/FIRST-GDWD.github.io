@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Buttons</title>
+        <link href="css/practical.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="section">
+            <h2>
+                Practical examples
+            </h2>
+            <p>
+                In more comprehensive web style guides, 
+                you usually have primary and secondary 
+                button styles defined. Frequently, you'll
+                see border button styles used as secondary 
+                button styles, and background button styles
+                used as primary button styles.
+            </p>
+            <a href="#" class="button secondary">
+                Secondary Button
+            </a>
+            <a href="#" class="button primary">
+                Primary Button
+            </a>
+            <p>
+                Although sometimes, you'll also just see a 
+                custom anchor style paired with a button,
+                where the anchor functions as the secondary
+                style.
+            </p>
+            <a href="#" class="secondary-alt">
+                Learn more
+            </a>
+            <a href="#" class="button primary-alt">
+                Sign up today!
+            </a>
+        </div>
+        <div class="section">
+            <h2>
+                Buttons with hover states
+            </h2>
+            <p>
+                To set up a hover state for a button,
+                you'll have to use the :hover pseudo-class.
+                What style you choose for the hover state is 
+                up to you; as long as there's enough of a
+                visual contrast so that the user notices, 
+                "Hey, something's different; seems like I 
+                can interact with this", then you've probably
+                done your job well.
+            </p>
+            <p>
+                Don't forget that the 
+                <a href="../../seasonings/transition.html">
+                    transition property
+                </a>
+                will make your hover state changes much 
+                smoother and more professional looking!
+                Just make sure you don't set the duration 
+                to be too long. A half second should be 
+                your max duration for a button transition.
+            </p>
+            <a href="#" class="button lazy">
+                Lazy Hover State
+            </a>
+            <a href="#" class="button better">
+                Better Hover State
+            </a>
+        </div>
+        <div class="section">
+            <h2>
+                Gradient Buttons with Click (:active) States
+            </h2>
+            <p>
+                We can use a nifty optical illusion if 
+                we use gradients properly on a button. 
+            </p>
+            <p>
+                Picture something rounded, like a ball.
+                When light is shining down on it, where
+                are the shadows? On the bottom half of the
+                ball. 
+            </p>
+            <p>
+                And if we consider that when setting up 
+                a gradient, setting lighter tones on the 
+                top and darker tones on the bottom, it
+                will make the button appear to bulge out,
+                as if it had depth and dimension!
+            </p>
+            <p>
+                What's more, we can apply the opposite 
+                principle as well.  Imagine the ball
+                from the previous example was squishy,
+                and you pushed into it with your finger.
+                The shadows would now be at the top,
+                while the light would be shining down
+                on the bottom half, under the indentation
+                of your finger.
+            </p>
+            <p>
+                Try clicking (or clicking and holding)
+                on the button below, and you'll see that 
+                it does a passable imitation of that behavior, 
+                making it now seem like that button is
+                being pushed in, the opposite of bulging out.
+            </p>
+            <p>
+                This was achieved by inverting the gradient
+                when the button was in its click state (or
+                more accurately, the "active" state, targeted
+                by using the :active pseudo-class)!
+            </p>
+            <a href="#" class="button bulge">
+                Fake 3D Button
+            </a>
+        </div>
+    </body>
+</html>

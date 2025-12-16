@@ -1,0 +1,107 @@
+/* standard page layout setup */
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section {
+    margin: 36px;
+}
+
+h2 {
+    margin-top: 60px;
+}
+
+/* 
+    Every anchor styled as a button MUST
+    have the following properties set,
+    especially the display property.
+*/ 
+.button {
+    text-decoration: none;
+    color: black; /* pick whatever color you like */
+    display: inline-block;
+    margin: 12px 12px 12px 0px; /* optional, but often useful */
+}
+
+/*
+    A simple button style, just setting a
+    border and background color, rounding the
+    corners, and puffing it up a bit with padding.
+*/
+.simple {
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #E0E0E0;
+}
+
+/*
+    A more interesting button style, focused
+    just on the background, with larger and
+    bolder text.
+*/
+.background {
+    background-color: navy;
+    color: white;
+    padding: 24px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*
+    Another more interesting button style, 
+    focused just on the border, with larger and
+    bolder text.
+*/
+.border {
+    color: crimson;
+    border: 3px solid crimson;
+    padding: 24px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*
+    If you want your buttons to be more standardized
+    in their size, you can use the min-width
+    property.  This will force all buttons to be
+    the same size, unless they have too much
+    content, in which case we let them grow.
+
+    This is often a better solution than using
+    the width property, which will force content
+    to wrap inside the button, and possibly
+    overflow over the button's edges.
+
+    Don't forget to center your content inside
+    the button as well with text-align!
+*/  
+.standardized {
+    width: 250px;
+    text-align: center;
+}
+
+/*
+    If you want your buttons to fill their 
+    container, then you can use the 'block'
+    display value instead of 'inline-block'.
+
+    Alternatively, you could also set their
+    width to 100%.  Both approaches will
+    usually give you the same result. It
+    just comes down to personal preference.
+
+    Don't forget to center your content inside
+    the button as well with text-align!
+*/
+.wide {
+    display: block;
+    text-align: center;
+}
