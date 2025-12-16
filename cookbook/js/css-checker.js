@@ -297,6 +297,11 @@ function generateReportOnCSS(rawInput) {
                 isStrayClosingParen = true;
                 newLineObject.isStrayClosingParen = true;
             }
+
+            if (lastLineObject) {
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isIndentedFunction;
+            }
         }
 
         if (newLineObject.isCommentCloser) {
@@ -345,12 +350,18 @@ function generateReportOnCSS(rawInput) {
                 if (lastLineObject.isCommentOpener) {
                     newLineObject.isInComment = true;
                 }
-            } else if (lastPropertyStart) {
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isIndentedFunction;
+            } else if (lastPropertyStart && !lastLineObject.isInFunction) {
                 indentation = lastPropertyStart.idealIndentation + TAB_LENGTH;
                 newLineObject.isInBlock = lastLineObject.isInBlock;
                 newLineObject.isInFunction = lastLineObject.isInFunction;
                 newLineObject.isInComment = lastLineObject.isInComment;
                 newLineObject.lastPropertyStartLineNumber = lastPropertyStart.lineNumber;
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isPropertyStart 
+                    && !lastLineObject.isFunctionOpener
+                    && newLineObject.isFunctionOpener;
             } else if (
                 lastLineObject.lastPropertyStartLineNumber
                 || lastLineObject.isDirtyClosingBlock
@@ -361,6 +372,20 @@ function generateReportOnCSS(rawInput) {
                 newLineObject.isInComment = lastLineObject.isInComment;
                 newLineObject.isExcessLineSpace = 
                     newLineObject.isEmpty && lastLineObject.isEmpty;
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isIndentedFunction;
+            } else if (
+                lastLineObject.isIndentedFunction
+                && lastLineObject.isFunctionCloser
+            ) {
+                indentation = lastLineObject.idealIndentation - TAB_LENGTH;
+                newLineObject.isInBlock = lastLineObject.isInBlock;
+                newLineObject.isInFunction = lastLineObject.isInFunction;
+                newLineObject.isInComment = lastLineObject.isInComment;
+                newLineObject.isExcessLineSpace = 
+                    newLineObject.isEmpty && lastLineObject.isEmpty;
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isIndentedFunction;
             } else {
                 indentation = lastLineObject.idealIndentation;
                 newLineObject.isInBlock = lastLineObject.isInBlock;
@@ -368,6 +393,8 @@ function generateReportOnCSS(rawInput) {
                 newLineObject.isInComment = lastLineObject.isInComment;
                 newLineObject.isExcessLineSpace = 
                     newLineObject.isEmpty && lastLineObject.isEmpty;
+                newLineObject.isIndentedFunction = 
+                    lastLineObject.isIndentedFunction;
             }
         }
 
