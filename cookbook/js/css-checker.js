@@ -472,7 +472,10 @@ function generateReportOnCSS(rawInput) {
 
         newLineObject.needsCommaSplit = 
             newLineObject.trimmedInput.includes(',')
-            && !newLineObject.trimmedInput.endsWith(',')
+            && (
+                !newLineObject.trimmedInput.endsWith(',')
+                || newLineObject.trimmedInput.split(',').length - 1 > 1
+            )
             && !newLineObject.isPropertyStart
             && !lastPropertyStart
             && !newLineObject.isInComment
