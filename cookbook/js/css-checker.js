@@ -222,7 +222,10 @@ function generateReportOnCSS(rawInput) {
             functionParentStack.push(newLineObject);
         }
 
-        if (newLineObject.isCommentOpener) {
+        if (
+            newLineObject.isCommentOpener 
+            && !newLineObject.isSingleLineComment
+        ) {
             commentParentStack.push(newLineObject);
         }
 
@@ -304,7 +307,10 @@ function generateReportOnCSS(rawInput) {
             }
         }
 
-        if (newLineObject.isCommentCloser) {
+        if (
+            newLineObject.isCommentCloser 
+            && !newLineObject.isSingleLineComment
+        ) {
             let parentsPoppedCount = 0;
             if (commentParentStack.length > 0) {
                 const poppedParent = commentParentStack.pop();
@@ -333,7 +339,7 @@ function generateReportOnCSS(rawInput) {
             if (
                 lastLineObject.isBlockOpener 
                 || lastLineObject.isFunctionOpener
-                || lastLineObject.isCommentOpener
+                || (lastLineObject.isCommentOpener && !lastLineObject.isSingleLineComment)
                 || lastLineObject.isMediaQuery
             ) {
                 indentation = lastLineObject.idealIndentation + TAB_LENGTH;
