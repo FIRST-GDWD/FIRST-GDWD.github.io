@@ -397,7 +397,7 @@ function generateReportOnHTML(rawInput) {
 
             if (!line.isValidOpeningTag) {
                 errorMessage += 
-                    `  - The opening tag name "${line.tagName}" is not a valid HTML tag name.\n`;
+                    `  - The opening tag name "${line.tagName}" is not a valid HTML tag name (or is a more advanced tag name than what is found in the resources of this site).\n`;
             }
 
             if (!line.isValidClosingTag) {
