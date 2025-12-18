@@ -9,12 +9,12 @@ body {
         url("../images/kh_finalworld.jpg");
     background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 #layout {
-    max-width: 1200px;
-    width: 75%;
+    /* max-width: 1200px; */
+    width: 80%;
     margin: 48px auto;
     background-color: #FFFFFF99;
     border: 8px solid navy;
@@ -33,6 +33,10 @@ h1 + h3 {
     margin-bottom: 48px;
 }
 
+h2 {
+    font-size: 40px;
+}
+
 .centered {
     text-align: center;
 }
@@ -46,7 +50,11 @@ h1 + h3 {
 #assignments {
     background-color: azure;
     padding: 36px;
-    flex: 1;
+    flex: 4;
+}
+
+#agenda {
+    flex: 5;
 }
 
 #assignments h2:first-child,
@@ -177,7 +185,7 @@ ul ul li {
 
 .type {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     margin-right: 16px;
 }
 
