@@ -9,13 +9,13 @@ body {
         url("../images/kh_finalworld.jpg");
     background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 #layout {
-    /* max-width: 1200px; */
-    width: 80%;
-    margin: 48px auto;
+    /* max-width: 1400px;
+    width: 75%; */
+    margin: 48px;
     background-color: #FFFFFF99;
     border: 8px solid navy;
     /* border: 8px solid black; */
@@ -47,14 +47,11 @@ h2 {
 }
 
 #agenda,
+#agenda2,
 #assignments {
     background-color: azure;
     padding: 36px;
-    flex: 4;
-}
-
-#agenda {
-    flex: 5;
+    flex: 1;
 }
 
 #assignments h2:first-child,
