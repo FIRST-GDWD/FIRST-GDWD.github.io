@@ -151,12 +151,14 @@ h1 + h3 {
     margin: 0px;
 }
 
-#agenda {
+#agenda,
+#agenda2 {
     display: flex;
     flex-direction: column;
 }
 
-#agenda .wrapper {
+#agenda .wrapper,
+#agenda2 .wrapper {
     flex: 1;
 }
 
@@ -164,6 +166,15 @@ h1 + h3 {
     background-color: skyblue;
     /* background-color: #ff7300d6; */
     padding: 12px 24px;
+}
+
+.wrapper.outline {
+    background-color: transparent;
+    border: 3px solid skyblue;
+}
+
+.wrapper.outline ul {
+    padding-left: 0px;
 }
 
 ul li {
