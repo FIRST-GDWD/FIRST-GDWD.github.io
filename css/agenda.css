@@ -170,7 +170,7 @@ h1 + h3 {
 
 .wrapper.outline {
     background-color: transparent;
-    border: 3px solid skyblue;
+    border: 5px solid skyblue;
 }
 
 .wrapper.outline ul {
