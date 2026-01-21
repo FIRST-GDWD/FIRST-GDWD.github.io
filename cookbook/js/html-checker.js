@@ -145,7 +145,9 @@ function generateReportOnHTML(rawInput) {
                 && !lastLineObject.trimmedInput.includes(">")
             );
         newLineObject.hasClosingVoidTag =
-            newLineObject.isVoidElement && newLineObject.closingTagName;
+            newLineObject.isVoidElement 
+            && newLineObject.closingTagName
+            && newLineObject.tagName == newLineObject.closingTagName;
         newLineObject.isValidOpeningTag = 
             (!newLineObject.tagName || VALID_ELEMENTS.includes(newLineObject.tagName));
         newLineObject.isValidClosingTag = 
