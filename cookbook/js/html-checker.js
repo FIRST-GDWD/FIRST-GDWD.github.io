@@ -179,9 +179,10 @@ function generateReportOnHTML(rawInput) {
             hasOpeningTagThenTextRegex.test(newLineObject.trimmedInput)
             && !newLineObject.isVoidElement;
 
-        const hasTextThenClosingTagRegex = /[^<]+\s*<\/\s*[a-zA-Z0-9-]+\s*>$/;
+        const hasJustTextThenClosingTagRegex = 
+            /^(?!.*<\s*[a-zA-Z0-9-]+)[^<]+\s*<\/\s*[a-zA-Z0-9-]+\s*>$/;
         newLineObject.isDirtyClosingSplitElement =
-            hasTextThenClosingTagRegex.test(newLineObject.trimmedInput)
+            hasJustTextThenClosingTagRegex.test(newLineObject.trimmedInput)
             && !newLineObject.isVoidElement;
 
         // const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
