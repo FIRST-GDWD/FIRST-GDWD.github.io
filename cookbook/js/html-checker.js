@@ -161,6 +161,54 @@ function generateReportOnHTML(rawInput) {
         const incompleteTagRegex = /<[^>]*$/;
         newLineObject.isTagIncomplete = 
             incompleteTagRegex.test(newLineObject.trimmedInput);
+
+        const rawTagRegex = /<\/?[^>]+>/g;
+        const rawTags = newLineObject.trimmedInput.match(rawTagRegex) || [];
+        const rawTagNameRegex = /^<\/?\s*([a-zA-Z0-9-]+)/;
+        const rawTagNames = rawTags.map(rawTag => {
+            const matches = rawTag.match(rawTagNameRegex);
+            return matches ? matches[1].toLowerCase() : null;
+        });
+
+        if (rawTags.length == rawTagNames.length && rawTags.length > 1) {
+            const lineParentStack = [];
+            const unmatchedClosingTags = [];
+            const nonVoidTags = [];
+            for (let i = 0; i < rawTags.length; i++) {
+                const rawTag = rawTags[i];
+                const rawTagName = rawTagNames[i];
+                const isClosingTag = rawTag[1] == '/';
+                const isVoidTag = VOID_ELEMENTS.includes(rawTagName);
+
+                if (!isVoidTag) {
+                    nonVoidTags.push(rawTag);
+                }
+
+                if (!isClosingTag && !isVoidTag) {
+                    lineParentStack.push(rawTagName);
+                }
+
+                if (
+                    isClosingTag 
+                    && !isVoidTag 
+                ) {
+                    if (
+                        lineParentStack.length > 0 
+                        && lineParentStack[lineParentStack.length - 1] == rawTagName
+                    ) {
+                        lineParentStack.pop();
+                    } else {
+                        unmatchedClosingTags.push(rawTag);
+                    }
+                }
+            }
+            
+            newLineObject.hasUnmatchedTagInLine =
+                lineParentStack.length > 0 
+                || nonVoidTags.length % 2 != 0
+                || unmatchedClosingTags.length > 0;
+        }
+
         
         const hasAttributeRegex = /\b[a-zA-Z0-9-]+="[^"]*"/;
         newLineObject.containsAttribute = hasAttributeRegex.test(newLineObject.trimmedInput);
@@ -341,7 +389,8 @@ function generateReportOnHTML(rawInput) {
             || (!line.containsSingleAttribute && line.exceedsCharLimit)
             || !line.isValidOpeningTag
             || !line.isValidClosingTag
-            || line.hasClosingVoidTag;
+            || line.hasClosingVoidTag
+            || line.hasUnmatchedTagInLine;
 
         let errorMessage = ""
         if (line.hasDirtyCode) {
@@ -374,28 +423,28 @@ function generateReportOnHTML(rawInput) {
                 errorMessage += 
                     `  - Since this opening tag is split across multiple lines, `
                     + `the attribute(s) here should be moved to their own lines `
-                    + `and indented.\n` 
+                    + `and indented.\n`;
             }
 
             if (line.isDirtyClosedSplitTag) {
                 errorMessage += 
                     `  - Since this opening tag is split across multiple lines, `
                     + `the closing triangle bracket (>) here should be moved to its own line `
-                    + `and outdented to align with the opening triangle bracket (<) above.\n` 
+                    + `and outdented to align with the opening triangle bracket (<) above.\n`;
             }
 
             if (line.isDirtyOpeningSplitElement) {
                 errorMessage += 
                     `  - Since this element is split across multiple lines, `
                     + `the content following the opening tag `
-                    + `should be moved to its own line and indented.\n` 
+                    + `should be moved to its own line and indented.\n`;
             }
 
             if (line.isDirtyClosingSplitElement) {
                 errorMessage += 
                     `  - Since this element is split across multiple lines, `
                     + `the closing tag should be moved to the next line, `
-                    + `and the content left behind should indented relative to the opening tag.\n` 
+                    + `and the content left behind should indented relative to the opening tag.\n`;
             }
 
             if (line.hasCaps) {
@@ -429,6 +478,15 @@ function generateReportOnHTML(rawInput) {
                 errorMessage += 
                     `  - The closing tag name "${line.closingTagName}" represents a void element. `
                     + ` Void elements should not have closing tags.\n`;
+            }
+
+            if (line.hasUnmatchedTagInLine) {
+                errorMessage += 
+                    `  - This line has multiple tags in it, and at least one `
+                    + `is not matched to an opening or closing tag. `
+                    + `Shift the complete elements of this line to their own lines, `
+                    + `and keep any unmatched opening or closing tags `
+                    + `on their own lines.\n`;
             }
         }
         line.errorMessage = errorMessage;
