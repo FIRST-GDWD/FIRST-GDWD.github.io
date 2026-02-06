@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Importing a Code Template - Appetizers - The Coding Cookbook</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="../css/cookbook.css" rel="stylesheet">
+        <link href="../css/appetizer.css" rel="stylesheet">
+        <link href="../css/lightbox.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="background"></div>
+        <nav>
+            <header id="topHeader">
+                <h2 id="brand"><a href="../">The Coding Cookbook</a></h2>
+                <div id="quote"></div>
+                <div id="navLinks">
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../ingredients.html">
+                                HTML
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../ingredients.html">Elements</a></h2>
+                            <h2><a href="../ingredients-cheatsheet.html">Cheatsheet</a></h2>
+                            <h2><a href="../html-checker.html">Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../seasonings.html">
+                                CSS
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../seasonings.html">Properties</a></h2>
+                            <h2><a href="../seasonings-cheatsheet.html">Cheatsheet</a></h2>
+                            <h2><a href="../css-checker.html">Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../recipes.html">
+                                Layouts
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../recipes.html?category=page-layout">Page Layouts</a></h2>
+                            <h2><a href="../recipes.html?category=content-layout">Content Layouts</a></h2>
+                            <h2><a href="../recipes.html?category=navigation-layout">Navigation</a></h2>
+                            <h2><a href="../recipes.html?category=miscellaneous">Miscellaneous</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../more.html" class="selected">
+                                More
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../appetizers.html" class="selected">Tutorials</a></h2>
+                            <h2 id="demos"><a href="../demos.html">Coding Demos</a></h2>
+                            <h2><a href="../troubleshooting.html">Troubleshooting</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </nav>
+        
+        <header id="title" class="">
+            <h1>Importing a Code Template</h1>
+            <h3>
+                A tutorial showing how to get new code into your repository
+            </h3>
+        </header>
+        
+        <div class="cookbookPage">
+            <p>
+                A couple assignments in this course require you to use 
+                code templates provided for you.  
+            </p>
+            <p>
+                Usually these templates are 
+                either to ensure everyone's working on the same code, or to 
+                give you a more inspiring starting point by using code you 
+                haven't learned yet.
+            </p>
+            <p>
+                However, it can be a little tricky to figure out how to get these 
+                code templates into your code repository if you haven't done it 
+                before (or maybe you did, but forgot!).
+            </p>
+            <p>
+                Either way, read on!  It's not too bad once you do it a few times.
+            </p>
+        </div>
+        
+        <div class="cookbookPage">
+            <h2 id="part1" class="invisibleAnchorTarget"></h2>
+            <h6></h6>
+            <h2>Importing Code</h2>
+            <h4>Moving things from one folder to another</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                First, you'll need to download whatever code 
+                                template you need for your Exercise or Project.
+                            </p>
+                            <p>
+                                We'll use the Bulletin Board project as our
+                                example in this tutorial (bulletin-board.zip).
+                            </p>
+                            <p>
+                                Most likely, your downloaded code template
+                                ended up in the Downloads folder.  It'll be a
+                                .zip file, which is just a compact file format
+                                typically used for sending over multiple files.
+                            </p>
+                            <p class="indent">
+                                (Depending on your computer settings, there's a 
+                                chance you might not see the .zip after the 
+                                file name.  
+                                <br><br>
+                                If so, don't worry; it's still the 
+                                right file.  In that case, you'll just have to
+                                identify the .zip file by its icon or the label 
+                                in the "Kind" column, which would say "ZIP 
+                                archive")
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/template-to-repository-v2/00_zipfile.png" 
+                                alt="Downloaded code template in the Downloads folder"
+                            >
+                            <figcaption>
+                                Downloaded code template in the Downloads folder
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you'll need to unzip the zip file.  This 
+                                process will differ depending on whether you're 
+                                on Mac or PC.
+                            </p>
+                            <h5>Mac</h5>
+                            <p class="indent">
+                                If you're on Mac, you got lucky! Just double-click
+                                on the zip file; the file will get unzipped and a 
+                                new unzipped folder will appear next to it. Done!
+                            </p>
+                            <h5>Windows/PC</h5>
+                            <p class="indent">
+                                If you're on Windows, the process is a bit more 
+                                involved...
+                            </p>
+                            <p class="indent">
+                                Right-click on the zip file, and select "Extract All".
+                            </p>
+                            <p class="indent">
+                                A dialog will pop up.  Just leave the defaults as they
+                                are, and click the "Extract" button.
+                            </p>
+                            <p class="indent">
+                                Then you will have successfully unzipped the zip file!
+                                ...but Windows does something a little weird: 
+                                the actual unzipped folder usually ends up inside 
+                                ANOTHER folder with an identical name as the 
+                                unzipped folder.
+                            </p>
+                            <p class="indent">
+                                Make sure that for the next step, you are working
+                                with the inside folder, not the one that is next 
+                                to the zip file. (And again, this is only for Windows users! Not Mac users!)
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/template-to-repository-v2/01_unzipping.png" 
+                                alt="Unzipping on Windows - Right-click and Extract All"
+                            >
+                            <figcaption>
+                                Unzipping on Windows - Right-click and Extract All
+                            </figcaption>
+                            <img 
+                                src="images/template-to-repository-v2/02_extracting.png" 
+                                alt="Unzipping on Windows - Extraction Dialog"
+                            >
+                            <figcaption>
+                                Unzipping on Windows - Extraction Dialog
+                            </figcaption>
+                            <img 
+                                src="images/template-to-repository-v2/03_extracted.png" 
+                                alt="Unzipping on Windows - Identifying the correct unzipped folder"
+                            >
+                            <figcaption>
+                                Unzipping on Windows - Identifying the correct unzipped folder
+                            </figcaption>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After unzipping the template's zip file, you 
+                                should see a new folder with the same name as 
+                                the zip file.
+                            </p>
+                            <p>
+                                Inside this folder is a set of folders and files,
+                                all of which we need inside of your code 
+                                repository.
+                            </p>
+                            <p>
+                                To achieve this, we need to get your Finder window 
+                                (for Mac users) or your File Explorer window (for Windows/PC users)
+                                on top of Visual Studio Code (or next to).
+                            </p>
+                            <p>
+                                Once you've done this, just click and drag the 
+                                unzipped folder on top of the Projects folder in 
+                                your repository (or whatever other folder you 
+                                want to place it in).
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/template-to-repository-v2/04_importing.png" 
+                                alt="Moving the unzipped folder into the repository" 
+                            >
+                            <figcaption>
+                                Moving the unzipped folder into the repository
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After that, you should see the unzipped folder 
+                                in your repository, and if you open it, you 
+                                should see the usual folders and files you'd 
+                                expect to see inside of your repository.
+                            </p>
+                            <p>
+                                Double-check which files you should be modifying 
+                                for the assignment, preview index.html as usual,
+                                and then get to coding!
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/template-to-repository-v2/05_success.png" 
+                                alt="Code Template Folder successfully moved to repository"
+                            >
+                            <figcaption>
+                                Code Template Folder successfully moved to repository
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>
+                Now you know how to import a code template into your repository! 
+                Good luck in your assignment!
+            </h4>
+        </div>
+
+        <div id="lightboxContainer">
+            <div id="lightboxBackground" class="closer"></div>
+            <img id="lightbox" src="" alt="">
+            <span id="lightboxCloser" class="closer">×</span>
+          </div>
+        <script src="../js/lightbox.js"></script>
+        <script src="../js/hideNav.js"></script>
+    </body>
+</html>

@@ -6,6 +6,10 @@ body {
     font-weight: bold;
 }
 
+.indent {
+    margin-left: 12px;
+}
+
 .cookbookPage {
     position: relative;
 }

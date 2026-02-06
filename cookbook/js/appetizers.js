@@ -82,7 +82,7 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
-        recipeName: "importing-template-to-repository",
+        recipeName: "importing-template-to-repository-v2",
         categories: "setup",
         pageCount: 1,
         hasLocalProject: false,
