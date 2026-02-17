@@ -1,4 +1,7 @@
 const showcaseURLs = [
+    "",
+    "",
+    "",
     "https://starartistgrl25.github.io/projects/product-showcase/",
     "https://ced311.github.io/projects/3-product-showcase-site/",
     "https://maybenhaj.github.io/exercises/product-showcase-site/",
@@ -11,5 +14,6 @@ const showcaseURLs = [
 ];
 
 const labelText = "View Product Showcase";
+const emptyText = "Needs Restocking";
 const showcaseWidth = 225;
 const zCloseness = 490;
