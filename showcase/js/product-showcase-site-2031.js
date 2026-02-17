@@ -14,6 +14,5 @@ const showcaseURLs = [
 ];
 
 const labelText = "View Product Showcase";
-const emptyText = "Needs Restocking";
 const showcaseWidth = 225;
 const zCloseness = 490;

@@ -44,7 +44,7 @@ function generateAndAddShowcase(url) {
             </a>
             <div class="caption">
                 <a href="${url}" target="_blank">
-                    ${labelText}
+                    ${url ? labelText : "Needs Restocking!"}
                 </a>
             </div>
         </div>
