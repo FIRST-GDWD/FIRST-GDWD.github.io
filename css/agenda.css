@@ -139,6 +139,10 @@ h1 + h3 {
     background-color: #000000;
 }
 
+#assignments .img-container.more-space.white {
+    background-color: #FFFFFF;
+}
+
 #assignments .img-container.more-space-offset {
     background-color: #09202f;
     display: flex;
