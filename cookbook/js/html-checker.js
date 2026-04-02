@@ -114,6 +114,9 @@ function generateReportOnHTML(rawInput) {
         const closingTagNameRegex = /<\/\s*([a-zA-Z0-9-]+)\s*>$/;
         const closingTagMatches = 
             newLineObject.trimmedInput.match(closingTagNameRegex);
+
+        newLineObject.isDirtyClosingWithTextAfter = false;
+
         if (closingTagMatches) {
             newLineObject.closingTagName = closingTagMatches[1].toLowerCase();
         } else {
@@ -124,6 +127,15 @@ function generateReportOnHTML(rawInput) {
                 newLineObject.trimmedInput.matchAll(allClosingTagNameRegex);
             for (const match of allClosingTagMatches) {
                 if (match[1] == newLineObject.tagName) {
+                    newLineObject.closingTagName = match[1];
+                    break;
+                }
+
+                const hasClosingTagThenTextRegex = /<\/[a-zA-Z][a-zA-Z0-9]*>\s*.+/;
+                newLineObject.isDirtyClosingWithTextAfter = 
+                    hasClosingTagThenTextRegex.test(newLineObject.trimmedInput)
+                    && !newLineObject.isVoidElement;
+                if (newLineObject.isDirtyClosingWithTextAfter) {
                     newLineObject.closingTagName = match[1];
                     break;
                 }
@@ -384,6 +396,7 @@ function generateReportOnHTML(rawInput) {
             || line.isDirtyClosedSplitTag
             || line.isDirtyOpeningSplitElement
             || line.isDirtyClosingSplitElement
+            || line.isDirtyClosingWithTextAfter
             || line.hasCaps
             || line.isExcessLineSpace
             || (!line.containsSingleAttribute && line.exceedsCharLimit)
@@ -445,6 +458,13 @@ function generateReportOnHTML(rawInput) {
                     `  - Since this element is split across multiple lines, `
                     + `the closing tag should be moved to the next line, `
                     + `and the content left behind should indented relative to the opening tag.\n`;
+            }
+
+            if (line.isDirtyClosingWithTextAfter) {
+                errorMessage += 
+                    `  - Since this element is split across multiple lines, `
+                    + `the closing tag should have its own line, `
+                    + `and the content after should be moved to the next line underneath it.\n`;
             }
 
             if (line.hasCaps) {
