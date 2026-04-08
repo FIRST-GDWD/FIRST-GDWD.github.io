@@ -243,9 +243,16 @@ function generateReportOnHTML(rawInput) {
 
         const hasJustTextThenClosingTagRegex = 
             /^(?!.*<\s*[a-zA-Z0-9-]+)[^<]+\s*<\/\s*[a-zA-Z0-9-]+\s*>$/;
+        const hasJustClosingBracketThenClosingTagRegex = 
+            />\s*<\/[a-zA-Z][a-zA-Z0-9-]*>/;
+        const hasBracketAndClosingTag = 
+            hasJustClosingBracketThenClosingTagRegex.test(newLineObject.trimmedInput);
         newLineObject.isDirtyClosingSplitElement =
             hasJustTextThenClosingTagRegex.test(newLineObject.trimmedInput)
-            && !newLineObject.isVoidElement;
+            && (
+                !newLineObject.isVoidElement
+                || (newLineObject.isVoidElement && hasBracketAndClosingTag)
+            );
 
         // const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>/;
         const containsCapsRegex = /<\/?[a-zA-Z0-9-]*[A-Z][a-zA-Z0-9-]*[^>]*>?/;
@@ -457,7 +464,7 @@ function generateReportOnHTML(rawInput) {
                 errorMessage += 
                     `  - Since this element is split across multiple lines, `
                     + `the closing tag should be moved to the next line, `
-                    + `and the content left behind should indented relative to the opening tag.\n`;
+                    + `and the content left behind should indented relative to the opening and closing tag.\n`;
             }
 
             if (line.isDirtyClosingWithTextAfter) {
