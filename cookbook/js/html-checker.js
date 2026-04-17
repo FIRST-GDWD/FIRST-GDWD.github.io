@@ -80,6 +80,7 @@ function generateReportOnHTML(rawInput) {
         "th",
         "tr",
         "td",
+        "comment",
     ];
     const lineObjects = [];
     const parentStack = [];
@@ -100,6 +101,8 @@ function generateReportOnHTML(rawInput) {
         const matches = newLineObject.trimmedInput.match(tagNameRegex);
         if (matches) {
             newLineObject.tagName = matches[1].toLowerCase();
+        } else if (newLineObject.trimmedInput.startsWith("<!--")) {
+            newLineObject.tagName = "comment";
         } else {
             const firstOpeningTagRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*/;
             const firstOpeningTagMatches = 
@@ -119,6 +122,8 @@ function generateReportOnHTML(rawInput) {
 
         if (closingTagMatches) {
             newLineObject.closingTagName = closingTagMatches[1].toLowerCase();
+        } else if (newLineObject.trimmedInput.endsWith("-->")) {
+            newLineObject.closingTagName = "comment";
         } else {
             // if the closing tag isn't at the end, there could be multiple
             // matches, so try to go through all of them
@@ -234,12 +239,22 @@ function generateReportOnHTML(rawInput) {
 
         const closeAfterAttributeRegex = /^(?!.*<).*[^<]\S.*>$/;
         newLineObject.isDirtyClosedSplitTag = 
-            closeAfterAttributeRegex.test(newLineObject.trimmedInput);
+            closeAfterAttributeRegex.test(newLineObject.trimmedInput)
+            && newLineObject.closingTagName !== "comment";
+
+        newLineObject.hasTextAfterClosedSplitTag = 
+            newLineObject.trimmedInput.startsWith('>')
+            && newLineObject.trimmedInput.length > 1;
 
         const hasOpeningTagThenTextRegex = /<\s*([a-zA-Z0-9-]+)\b[^>]*>\s*[^<]+$/;
         newLineObject.isDirtyOpeningSplitElement =
             hasOpeningTagThenTextRegex.test(newLineObject.trimmedInput)
             && !newLineObject.isVoidElement;
+
+        newLineObject.isDirtyOpeningComment =
+            newLineObject.tagName == "comment"
+            && newLineObject.closingTagName != "comment"
+            && newLineObject.trimmedInput.length > 4;
 
         const hasJustTextThenClosingTagRegex = 
             /^(?!.*<\s*[a-zA-Z0-9-]+)[^<]+\s*<\/\s*[a-zA-Z0-9-]+\s*>$/;
@@ -402,8 +417,10 @@ function generateReportOnHTML(rawInput) {
             || line.hasDirtyAttributes
             || line.isDirtyClosedSplitTag
             || line.isDirtyOpeningSplitElement
+            || line.isDirtyOpeningComment
             || line.isDirtyClosingSplitElement
             || line.isDirtyClosingWithTextAfter
+            || line.hasTextAfterClosedSplitTag
             || line.hasCaps
             || line.isExcessLineSpace
             || (!line.containsSingleAttribute && line.exceedsCharLimit)
@@ -453,10 +470,24 @@ function generateReportOnHTML(rawInput) {
                     + `and outdented to align with the opening triangle bracket (<) above.\n`;
             }
 
+            if (line.hasTextAfterClosedSplitTag) {
+                errorMessage += 
+                    `  - Since this opening tag is split across multiple lines, `
+                    + `the closing triangle bracket (>) here should be on its own line `
+                    + `and the content after should be moved to its own line.\n`;
+            }
+
             if (line.isDirtyOpeningSplitElement) {
                 errorMessage += 
                     `  - Since this element is split across multiple lines, `
                     + `the content following the opening tag `
+                    + `should be moved to its own line and indented.\n`;
+            }
+
+            if (line.isDirtyOpeningComment) {
+                errorMessage += 
+                    `  - Since this comment is split across multiple lines, `
+                    + `the content following the opening <!-- `
                     + `should be moved to its own line and indented.\n`;
             }
 
