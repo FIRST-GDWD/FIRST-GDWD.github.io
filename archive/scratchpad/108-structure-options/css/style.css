@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3, h4, h5 {
+    margin: 0;
+}
+
+.outer-container {
+    max-width: 1000px;
+    margin: 24px auto;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: #EEEEEE;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "w1 w1 w1 w1"
+        "w1d1 w1d2 w1d3 w1d4"
+        "w1d1h1 w1d2h1 w1d3h1 w1d4h1"
+        "w1d1h1 w1d2h2 w1d3h1 w1d4h2"
+        "w1d1h3 w1d2h3 w1d3h3 w1d4h3"
+        "w1d1h3 w1d2h4 w1d3h4 w1d4h4"
+        "w1d1h5 w1d2h5 w1d2h5 w1d2h5"
+        "w1d1h6 w1d1h6 w1d3h6 w1d3h6"
+        "w2 w2 w2 w2"
+        "w2d1 w2d2 w2d3 w2d4"
+        "w2d1h1 w2d2h1 w2d3h1 w2d4h1"
+        "w2d1h2 w2d2h2 w2d3h1 w2d4h2"
+        "w2d1h3 w2d2h3 w2d3h3 w2d4h3"
+        "w2d1h4 w2d2h4 w2d3h4 w2d4h4"
+        "w2d1h5 w2d1h5 w2d1h5 w2d1h5"
+        "w2d1h6 w2d1h6 w2d3h6 w2d3h6"
+        "w3 w3 w3 w3"
+        "w3d1 w3d2 w3d3 w3d4"
+        "w3d1h1 w3d2h1 w3d3h1 w3d4h1"
+        "w3d1h2 w3d2h2 w3d3h2 w3d4h2"
+        "w3d1h3 w3d2h3 w3d3h3 w3d4h3"
+        "w3d1h4 w3d2h4 w3d3h4 w3d4h4"
+        "w3d1h5 w3d1h5 w3d3h5 w3d3h5"
+        "w3d1h6 w3d1h6 w3d3h6 w3d3h6";
+    gap: 0px 6px;
+}
+
+.header1 {
+    grid-area: w1;
+    text-align: center;
+}
+
+.header2 {
+    grid-area: w2;
+    text-align: center;
+}
+
+.header3 {
+    grid-area: w3;
+    text-align: center;
+}
+
+.week {
+    background-color: black;
+    color: white;
+    margin-top: 48px;
+}
+
+.week:first-child {
+    margin-top: 0px;
+}
+
+.day {
+    background-color: #454545;
+    color: white;
+    padding: 8px;
+}
+
+.content,
+.assn,
+.students,
+.instructors {
+    border-radius: 8px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 4px 8px;
+    margin-top: 8px;
+}
+
+.content {
+    background-color: white;
+    border-color: #CCCCCC;
+}
+
+.assn {
+    background-color: lightpink;
+    border-color: crimson;
+}
+
+.planning {
+    background-color: lightgreen;
+    border-color: green;
+}
+
+.students {
+    border-style: dotted;
+    border-width: 3px;
+    margin-top: 36px;
+}
+
+.instructors {
+    border-style: dashed;
+    border-width: 2px;
+    font-style: italic;
+}
+
+.portfolio {
+    background-color: plum;
+    border-color: purple;
+}
+
+.campaign {
+    background-color: lightsalmon;
+    border-color: firebrick;
+}
+
+.support {
+    background-color: lightblue;
+    border-color: darkblue;
+}
+
+.everything {
+    background: linear-gradient(
+        45deg,
+        rgb(253, 130, 130),
+        lightgreen,
+        lightblue,
+        rgb(249, 8, 249)
+    )
+}
+
+.due {
+    border-width: 5px;
+}
+
+.subheader1-1 {
+    grid-area: w1d1;
+}
+
+.subheader1-2 {
+    grid-area: w1d2;
+}
+
+.subheader1-3 {
+    grid-area: w1d3;
+}
+
+.subheader1-4 {
+    grid-area: w1d4;
+}
+
+.subheader2-1 {
+    grid-area: w2d1;
+}
+
+.subheader2-2 {
+    grid-area: w2d2;
+}
+
+.subheader2-3 {
+    grid-area: w2d3;
+}
+
+.subheader2-4 {
+    grid-area: w2d4;
+}
+
+.subheader3-1 {
+    grid-area: w3d1;
+}
+
+.subheader3-2 {
+    grid-area: w3d2;
+}
+
+.subheader3-3 {
+    grid-area: w3d3;
+}
+
+.subheader3-4 {
+    grid-area: w3d4;
+}
+
+.w1-d1-12 {
+    grid-area: w1d1h1;
+    min-height: 100px;
+}
+
+.w1-d1-34 {
+    grid-area: w1d1h3;
+    min-height: 100px;
+}
+
+.w1-d1-5 {
+    grid-area: w1d1h5;
+}
+
+.w1-d12-6 {
+    grid-area: w1d1h6;
+}
+
+.w1-d2-1 {
+    grid-area: w1d2h1;
+}
+
+.w1-d24-5 {
+    grid-area: w1d2h5;
+}
+
+.w1-d3-12 {
+    grid-area: w1d3h1;
+}
+
+.w1-d34-6 {
+    grid-area: w1d3h6;
+}
+
+.w1-d4-1 {
+    grid-area: w1d4h1;
+}
+
+.w2-d14-5 {
+    grid-area: w2d1h5;
+}
+
+.w2-d12-6 {
+    grid-area: w2d1h6;
+}
+
+.w2-d2-1 {
+    grid-area: w2d2h1;
+}
+
+.w2-d3-12 {
+    grid-area: w2d3h1;
+    min-height: 100px;
+}
+
+.w2-d34-6 {
+    grid-area: w2d3h6;
+}
+
+.w2-d4-1 {
+    grid-area: w2d4h1;
+}
+
+.w3-d1-1 {
+    grid-area: w3d1h1;
+}
+
+.w3-d12-5 {
+    grid-area: w3d1h5;
+}
+
+.w3-d12-6 {
+    grid-area: w3d1h6;
+}
+
+.w3-d2-1 {
+    grid-area: w3d2h1;
+}
+
+.w3-d2-2 {
+    grid-area: w3d2h2;
+}
+
+.w3-d3-1 {
+    grid-area: w3d3h1;
+}
+
+.w3-d34-5 {
+    grid-area: w3d3h5;
+}
+
+.w3-d4-1 {
+    grid-area: w3d4h1;
+}
+
+.w3-d34-6 {
+    grid-area: w3d3h6;
+}
