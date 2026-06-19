@@ -236,6 +236,10 @@ h5 {
     padding: 4px;
 }
 
+.header1.week {
+    margin-top: 8px;
+}
+
 .week:first-child {
     margin-top: 0px;
 }
