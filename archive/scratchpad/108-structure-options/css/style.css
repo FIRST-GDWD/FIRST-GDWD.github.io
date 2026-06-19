@@ -62,7 +62,6 @@ h5 {
         "w3p w3p w3p w3p"
         "w3d1h5 w3d1h5 w3d3h5 w3d3h5"
         "w3d1h6 w3d1h6 w3d3h6 w3d3h6";
-    /* gap: 0px 6px; */
 }
 
 .activities,
@@ -71,7 +70,6 @@ h5 {
     background-color: #EEEEEE;
     border-bottom: 1px solid #bbbbbb;
     padding: 8px;
-    margin-bottom: 8px;
 }
 
 .activities {
@@ -285,7 +283,7 @@ h5 {
     border-style: dashed;
     border-width: 3px;
     font-style: italic;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .portfolio {
