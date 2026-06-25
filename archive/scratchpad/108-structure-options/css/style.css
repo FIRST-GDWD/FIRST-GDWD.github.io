@@ -405,6 +405,10 @@ h5 {
     grid-area: w1d4h1;
 }
 
+.w2-d1-1 {
+    grid-area: w2d1h1;
+}
+
 .w2-d14-5 {
     grid-area: w2d1h5;
 }
