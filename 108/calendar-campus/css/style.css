@@ -494,6 +494,10 @@ h5 {
     grid-area: w3d3h1;
 }
 
+.w3-d3-2 {
+    grid-area: w3d3h2;
+}
+
 .w3-d34-5 {
     grid-area: w3d3h5;
 }
