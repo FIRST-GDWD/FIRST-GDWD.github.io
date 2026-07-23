@@ -83,3 +83,41 @@ body {
 .time {
     font-size: 12px;
 }
+
+#music {
+    display: inline-block;
+    margin: 24px;
+}
+
+.featured-album {
+    width: 60px;
+    border-radius: 12px;
+}
+
+img {
+    width: 100px;
+    border-radius: 12px;
+}
+
+.featured {
+    background-color: rgb(253, 142, 161);
+    color: white;
+    border-radius: 16px 16px 0 0;
+    padding: 12px;
+}
+
+.details {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.featured-album,
+.details {
+    vertical-align: top;
+}
+
+.albums {
+    background-color: #a33756;
+    padding: 12px;
+    border-radius: 0 0 16px 16px;
+}
