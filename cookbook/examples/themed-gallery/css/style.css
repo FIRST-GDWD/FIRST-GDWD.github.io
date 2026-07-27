@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -6,6 +8,26 @@ body {
     background-color: #fbfce0;
     margin: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#navbar {
+    background-color: #7d915b;
+    border-bottom: 5px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar a {
+    color: #233500;
+    text-decoration: none;
+    padding: 24px 48px;
+    font-size: 24px;
+}
+
+#navbar a#logo {
+    font-weight: bold;
+    font-family: "Corinthia", cursive;
+    font-size: 32px;
 }
 
 #hero {
