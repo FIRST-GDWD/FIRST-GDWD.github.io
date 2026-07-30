@@ -172,6 +172,11 @@ h1 + h3 {
     padding: 12px 24px;
 }
 
+#assignments ul,
+.wrapper ul {
+    padding-left: 24px;
+}
+
 .wrapper.outline {
     background-color: transparent;
     border: 5px solid skyblue;
