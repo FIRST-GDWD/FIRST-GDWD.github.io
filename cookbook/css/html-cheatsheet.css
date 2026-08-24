@@ -14,6 +14,22 @@ h5 {
     margin-top: 8px;
 }
 
+.figure {
+    margin-bottom: 24px;
+}
+
+.figure h3 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.figure img {
+    width: 100%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+
 .contentContainer {
     display: flex;
 }
