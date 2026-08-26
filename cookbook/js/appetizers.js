@@ -71,7 +71,7 @@ const mealPrepRecipes = [
     },
     {
         recipeName: "submitting-coding-assignments",
-        categories: "vs-code",
+        categories: "vs-code, coding",
         pageCount: 1,
         hasLocalProject: false,
     },
