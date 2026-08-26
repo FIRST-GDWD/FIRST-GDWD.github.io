@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Web Dev Startup - Appetizers - The Coding Cookbook</title>
+        <title>Coding Assignment Submission - Appetizers - The Coding Cookbook</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="../css/cookbook.css" rel="stylesheet">
         <link href="../css/appetizer.css" rel="stylesheet">
@@ -262,7 +262,7 @@
                             <p class="indent">
                                 If this process takes more than 5 minutes and 
                                 you're still waiting, refer to
-                                <a href="../troubleshooting/endless-push.html" target="_blank">
+                                <a href="../troubleshooting.html#endless-push" target="_blank">
                                     this troubleshooting page
                                 </a>
                                 for how to resolve it.
@@ -375,13 +375,15 @@
                             <p class="indent">
                                 If you don't see your commit, wait a minute or so 
                                 and refresh the page.  Your commit simply hasn't been
-                                picked up yet by the deployment process.  Repeat until you see it.
+                                picked up yet by the deployment process.  
+                                Refresh until you see it.
                             </p>
                             <p class="indent">
                                 If you do see your commit, but there's a yellow 
                                 dot or spinning circle next to it, wait a minute or so 
                                 and refresh the page. Your commit is in the middle of 
-                                deployment.  Repeat until you see it.
+                                deployment.  Repeat until you see the green checkmark 
+                                next to it.
                             </p>
                             <p class="indent">
                                 If you do see your commit, but there's a red X 
@@ -410,7 +412,7 @@
                             </p>
                             <p>
                                 If you set up your github repository correctly 
-                                (i.e. your username followed by .github.io)
+                                (i.e. with your username followed by .github.io)
                                 AND you are using the Chrome or Edge browsers, then 
                                 you can take advantage of the 
                                 <a href="#part4">"Shortcut Approach" in Part 4.</a>
@@ -437,7 +439,7 @@
             <h6>PART 4</h6>
             <h2>The Shortcut Approach</h2>
             <h4>
-                The easy way to submit your work
+                The easy way to deliver your work
             </h4>
             <ol>
                 <li>
@@ -615,7 +617,7 @@
             <h2 id="part5" class="invisibleAnchorTarget"></h2>
             <h6>PART 5</h6>
             <h2>The Scenic Route Approach</h2>
-            <h4>For those that walk the path less traveled</h4>
+            <h4>For those that deliver on the path less traveled</h4>
             <ol>
                 <li>
                     <div class="sideBySide">
@@ -645,40 +647,22 @@
                         <div class="textContainer">
                             <p>
                                 This time, we're not here to check if our commit
-                                has been deployed
+                                has been deployed; we're here to grab the
+                                "home page" URL of your GitHub Pages site.
                             </p>
                             <p>
-                                <strong>
-                                    A commit is basically a 
-                                    snapshot of the changes you made, 
-                                    which gets added to the 
-                                    repository's version control.
-                                </strong> 
-                            </p>
-                            <p>
-                                Add a commit Summary in the 
-                                textboxes in the bottom left of the app. 
-                            </p>
-                            <p class="indent">
-                                A commit summary is basically just a note 
-                                to yourself about what code you're saving.
-                                Something like the name of the assignment 
-                                or project, like "code skeleton setup", 
-                                will work just fine.
-                            </p>
-                            <p>
-                                Then click the [Commit to 
-                                <b>main</b>] button to create 
-                                a commit of your changes.
+                                Open the link that leads there in another tab,
+                                and keep that tab open. We're going to come back 
+                                to it in a future step.
                             </p>
                         </div>
                         <div class="imageContainer">
                             <img 
                                 src="images/submitting-coding-assignments/github_scenic_deployments_URL.png" 
-                                alt="GitHub Desktop's commit section"
+                                alt="Opening your GitHub Pages 'Home Page' in another tab"
                             >
                             <figcaption>
-                                GitHub Desktop's commit section
+                                Opening your GitHub Pages 'Home Page' in another tab
                             </figcaption>
                         </div>
                     </div>
@@ -687,60 +671,27 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                                Next, we are going to do 
-                                something called a "push". 
+                                Then, return to the Code part of your repository.You should see all the folders 
+                                at the root level of your repository.
                             </p>
                             <p>
-                                <strong>
-                                    A push is an action that, 
-                                    well, <em>pushes</em> 
-                                    your local commits to the 
-                                    remote server on github.com.
-                                </strong>
+                                Then, navigate to the folder that you want to submit.
+                                
                             </p>
-                            <p>
-                                There are two places you 
-                                start a push in Github Desktop, 
-                                both circled in the screenshot 
-                                below. Choose either option 
-                                and click it.
-                            </p>
-                            <p>
-                                <strong>
-                                    PUSH WARNING 1: Make sure all 
-                                    image files you commit are
-                                    less than 1MB in file size; 
-                                    otherwise, you could 
-                                    cause GitHub to choke 
-                                    when you push your commits.
-                                </strong>
-                            </p>
-                            <p>
-                                <strong>
-                                    PUSH WARNING 2: If you have 
-                                    weak or unstable Wifi, 
-                                    it is strongly recommended 
-                                    that you create separate commits 
-                                    for each image you need to 
-                                    push, rather than including all 
-                                    images in a single commit.  
-                                    <br><br>
-                                    Github Desktop will sometimes 
-                                    stall if you commit and push 
-                                    all your images at once with 
-                                    weak internet, so save yourself 
-                                    the stress, and commit/push 
-                                    images one at a time.
-                                </strong>
+                            <p class="indent">
+                                If you need to submit an exercise, you'll probably 
+                                need to look through the "exercises" folder to find it;
+                                same for submitting a project: you'll need to find 
+                                the folder you want to submit in the "projects" folder.
                             </p>
                         </div>
                         <div class="imageContainer">
                             <img 
-                                src="images/submitting-coding-assignments/pushoptions.png" 
-                                alt="Push options in GitHub Desktop" 
+                                src="images/submitting-coding-assignments/github_findfolder.png" 
+                                alt="Finding the folder you want to submit in your repository code" 
                             >
                             <figcaption>
-                                Push options in GitHub Desktop
+                                Finding the folder you want to submit in your repository code
                             </figcaption>
                         </div>
                     </div>
@@ -749,21 +700,31 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                               Clicking either option will push 
-                               your changes to your website
+                                Once you navigate into the folder you want to
+                                submit, double check that there is an 
+                                index.html file in there.
+                            </p>
+                            <p class="indent">
+                                index.html is a special file; it functions as the 
+                                home page for any folder, meaning it will 
+                                automatically load up that page when you open the 
+                                folder, even if you don't explicitly specify
+                                the file.
                             </p>
                             <p>
-                                If the push was successful, the 
-                                top option should change to "Fetch origin".
+                                Once you're sure index.html is there, click the 
+                                copy icon next to
+                                the trail of breadcrumbs at the top 
+                                of the view
                             </p>
                         </div>
                         <div class="imageContainer">
                             <img 
-                                src="images/submitting-coding-assignments/fetchorigin2.png" 
-                                alt="After a successful push" 
+                                src="images/submitting-coding-assignments/github_scenic_folder_path.png" 
+                                alt="Clicking the Copy icon next to the folder path" 
                             >
                             <figcaption>
-                                After a successful push
+                                Clicking the Copy icon next to the folder path
                             </figcaption>
                         </div>
                     </div>
@@ -772,37 +733,29 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                                Now return to the Github website, 
-                                and go into the repository 
-                                you made earlier with github.io at 
-                                the end of it. Once you navigate 
-                                to the main repository code screen, 
-                                you should see your code-skeleton 
-                                folder that you created in the middle section.
+                                Now return to the Github Pages "Home Page" tab
+                                we had you open earlier.
                             </p>
                             <p>
-                                <strong>
-                                    NOTE: Github pages often times 
-                                    takes 5-10 minutes to actually render 
-                                    out your commit, so you may have 
-                                    to wait and then check to see if 
-                                    your site is live.
-                                </strong>
+                                Click into the URL, add a slash (/) to the end,
+                                and then paste what was copied in the previous 
+                                step.
                             </p>
-                            <br>
                             <p>
-                                Scroll down to the bottom of the 
-                                right sidebar and click on 
-                                "github-pages" under "Deployments".
+                                The result should be a complete URL, leading 
+                                to the assignment folder you want to submit.
+                            </p>
+                            <p>
+                                Go ahead and hit Enter/Return to view it.
                             </p>
                         </div>
                         <div class="imageContainer">
                             <img 
-                                src="images/submitting-coding-assignments/deployments.png" 
-                                alt="The Deployments section in github.com" 
+                                src="images/submitting-coding-assignments/spliturl.png" 
+                                alt="Combining the Home Page URL with the folder path" 
                             >
                             <figcaption>
-                                The Deployments section in github.com
+                                Combining the Home Page URL with the folder path
                             </figcaption>
                         </div>
                     </div>
@@ -811,41 +764,28 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                                From there you will find the 
-                                deployment page. There are many options you can
-                                use to view the current deployment, circled
-                                in the screenshot to the right.
+                                After that, you should see the same thing 
+                                in the new browser tab that you saw in the 
+                                preview in Visual Studio Code.
+                            </p>
+                            <p class="indent">
+                                If not, double check that your latest commit 
+                                was actually deployed (i.e. has a green checkmark 
+                                next to it).  If it does, double check that you 
+                                actually saved all the files and changes that you
+                                expect to see on the screen.
                             </p>
                             <p>
-                                <strong>
-                                    If the icon next to the top deployment is not
-                                    green, then you may have to wait longer.
-                                    <br><br>
-                                    If it is an orange spinning circle, your 
-                                    changes are still being deployed.
-                                    <br><br>
-                                    If it's red, then something went wrong in GitHub;
-                                    you can most likely fix it by committing and pushing again.
-                                </strong>
-                            </p>
-                            <p>
-                                Clicking on any of the circled options will 
-                                take you to your homepage
-                                (which still just displays 
-                                the name of your repository, 
-                                from your README.md file). 
+                                If all is well, move on to the last step!
                             </p>
                         </div>
                         <div class="imageContainer">
                             <img 
-                                src="images/submitting-coding-assignments/deploymentpage_new_v2.png" 
-                                alt="The Deployments page in github.com, where you can access your homepage" 
+                                src="images/submitting-coding-assignments/submit_success.png" 
+                                alt="Confirm that you see the expected results on the webpage" 
                             >
                             <figcaption>
-                                The Deployments page in github.com, 
-                                where you can access your homepage<br>via the 
-                                "popout" icon at the far right of the most 
-                                recent deployment 
+                                Confirm that you see the expected results on the webpage
                             </figcaption>
                         </div>
                     </div>
@@ -854,47 +794,37 @@
                     <div class="sideBySide">
                         <div class="textContainer">
                             <p>
-                                In order to find your code-skeleton 
-                                site (a project nested in your 
-                                main repository) for submission, 
-                                you must add the project folder 
-                                name to the end of the URL of your homepage.
+                                Now that you've confirmed everything you want to 
+                                submit is correct, go back up to the URL bar and 
+                                copy the ENTIRE web address, starting with the 
+                                "https".
+                            </p>
+                            <p class="indent">
+                                What you're copying in this step is different 
+                                from the earlier step (which was a partial web 
+                                address).  This is complete web
+                                address, which is the only thing Canvas 
+                                will allow you to submit.   
                             </p>
                             <p>
-                                <strong>
-                                    And it must match EXACTLY! 
-                                    No differences in case or 
-                                    spacing or spelling.
-                                </strong>
-                            </p>
-                            <p>
-                                Your code-skeleton project folder 
-                                will only display an empty page, 
-                                with the name of "Document" on the tab.
-                                That is expected, since there's no content 
-                                on the page yet.
-                            </p>
-                            <p>
-                                It can sometimes take a couple 
-                                minutes after pushing your code
-                                for it to actually be published 
-                                on the site, so if you get a 
-                                404 error when you first try 
-                                to access the URL, give it another 
-                                minute or two and then try again.
+                                Once copied, go back to the Canvas assignment,
+                                and submit the copied URL!
                             </p>
                         </div>
                         <div class="imageContainer">
-                            <p>
-                                For example:<br><br>
-                                https://username.github.io<b>/code-skeleton/</b>
-                            </p>
+                            <img 
+                                src="images/submitting-coding-assignments/submit_newtabandpaste.png" 
+                                alt="Copying the complete URL address" 
+                            >
+                            <figcaption>
+                                Copying the complete URL address
+                            </figcaption>
                         </div>
                     </div>
                 </li>
                 <h4>
-                    Congratulations! You just pushed your first 
-                    code project to your GitHub Pages site!
+                    Congrats! You have have successfully submitted your coding 
+                assignment using the "Scenic Route" Approach!
                 </h4>
             </ol>
         </div>

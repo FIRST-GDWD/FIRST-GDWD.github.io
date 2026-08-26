@@ -70,6 +70,12 @@ const mealPrepRecipes = [
         hasLocalProject: false,
     },
     {
+        recipeName: "submitting-coding-assignments",
+        categories: "vs-code",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
         recipeName: "previewing-code-basic",
         categories: "vs-code",
         pageCount: 1,
