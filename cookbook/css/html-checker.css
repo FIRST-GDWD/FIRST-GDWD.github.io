@@ -119,23 +119,35 @@ h1 {
 
 #report #overall {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+#report #overall.combined h3 {
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+#report #overall.combined h2 {
+    margin-top: 0;
 }
 
 #report #overall,
 h4,
 #issuesListContainer p,
-#issuesListContainer #issuesList,
+#issuesListContainer #issuesListHTML,
+#issuesListContainer #issuesListCSS,
 #helperContainer {
     padding: 0px 24px;
 }
 
-p:last-of-type {
-    margin-bottom: 36px;
+#issuesListHTML h4,
+#issuesListCSS h4 {
+    padding: 0;
 }
 
-h4 {
-    
+p:last-of-type {
+    margin-bottom: 36px;
 }
 
 h6 {
@@ -151,12 +163,15 @@ h6 {
     font-size: 36px;
 }
 
-#overall #dirtyPercent {
+#overall #dirtyPercentHTML,
+#overall #dirtyPercentCSS,
+#overall #dirtyPercentOverall {
     font-size: 72px;
 }
 
 #overall,
-#issuesList,
+#issuesListHTML,
+#issuesListCSS,
 #legendOuterContainer {
     background-color: white;
     border: 3px solid #ff7050;
@@ -165,12 +180,18 @@ h6 {
     margin: 0px 24px;
 }
 
+#issuesListHTML,
+#issuesListCSS {
+    margin-bottom: 36px;
+}
+
 #legendOuterContainer {
     padding: 24px;
     margin: 0px;
 }
 
-#issuesList .issue {
+#issuesListHTML .issue,
+#issuesListCSS .issue {
     margin: 24px 0px;
 }
 
@@ -204,19 +225,25 @@ h6 {
     flex: 1;
 }
 
-#layout {
+#layout,
+#layoutHTML,
+#layoutCSS {
     display: flex;
     gap: 24px;
 }
 
-#layout > div {
+#layout > div,
+#layoutHTML > div,
+#layoutCSS > div {
     flex: 1;
     overflow-x: scroll;
     padding: 24px;
 }
 
-#rawInput,
-#cleanedInput {
+#rawHTMLInput,
+#cleanedHTMLInput,
+#rawCSSInput,
+#cleanedCSSInput  {
     font-family: monospace;
 }
 
@@ -281,6 +308,18 @@ h6 {
     background-color: rgb(254, 218, 254);
 }
 
+@media screen and (max-width: 1700px) {
+    #overall {
+        gap: 48px;
+    }
+
+    #overall.combined #dirtyPercentHTML,
+    #overall.combined #dirtyPercentCSS,
+    #overall.combined #dirtyPercentOverall {
+        font-size: 60px;
+    }
+}
+
 @media screen and (max-width: 1400px) {
     #layout {
         flex-direction: column;
@@ -288,6 +327,20 @@ h6 {
 
     #overall {
         gap: 36px;
+    }
+
+    #overall.combined #dirtyPercentHTML,
+    #overall.combined #dirtyPercentCSS,
+    #overall.combined #dirtyPercentOverall {
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #overall.combined #dirtyPercentHTML,
+    #overall.combined #dirtyPercentCSS,
+    #overall.combined #dirtyPercentOverall {
+        font-size: 36px;
     }
 }
 
@@ -314,6 +367,10 @@ h6 {
 
     #overall h2 {
         margin-bottom: 0px;
+    }
+
+    #overall.combined div:first-child {
+        margin-bottom: 36px;
     }
 
     #layout > div {
@@ -359,7 +416,8 @@ h6 {
     }
 
     #overall, 
-    #issuesList, 
+    #issuesListHTML, 
+    #issuesListCSS, 
     #legendOuterContainer {
         margin: 0px;
     }

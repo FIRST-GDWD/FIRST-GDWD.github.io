@@ -68,6 +68,7 @@
                             <h2><a href="appetizers.html">Tutorials</a></h2>
                             <h2 id="demos"><a href="demos.html">Coding Demos</a></h2>
                             <h2><a href="troubleshooting.html">Troubleshooting</a></h2>
+                            <h2><a href="html-css-checker.html">HTML+CSS Dirty Code Report</a></h2>
                         </div>
                     </div>
                 </div>
@@ -113,7 +114,7 @@
                         <h3>Lines of incorrect indentation: <span id="badIndentationCount"></span></h3>
                         <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
                     </div>
-                    <h2><span id="dirtyPercent"></span>% DIRTY</h2>
+                    <h2><span id="dirtyPercentCSS"></span>% DIRTY</h2>
                 </div>
 
                 <h4 id="cleanupHelperHeading">Interactive Cleanup Helper</h4>
@@ -180,11 +181,11 @@
                 <div id="layout">
                     <div>
                         <h5>Raw Code Input</h5>
-                        <div id="rawInput" class="code"></DIV>
+                        <div id="rawCSSInput" class="code"></DIV>
                     </div>
                     <div>
                         <h5>Cleaned Code (Indentation Cleanup Only)</h5>
-                        <div id="cleanedInput" class="code"></div>
+                        <div id="cleanedCSSInput" class="code"></div>
                     </div>
                 </div>
 
@@ -209,11 +210,12 @@
                         manual override which allows for CSS Nesting: 
                         ?allowCSSNesting
                     </p>
-                    <div id="issuesList"></div>
+                    <div id="issuesListCSS"></div>
                 </div>
             </div>
         </div>
 
+        <script src="js/css-report-logic.js"></script>
         <script src="js/css-checker.js"></script>
     </body>
 </html>

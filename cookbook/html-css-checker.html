@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" alt="and lots of other stuff">
-        <title>HTML Dirty Code Report</title>
+        <title>HTML & CSS Dirty Code Report</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="css/cookbook.css" rel="stylesheet">
         <link href="css/html-checker.css" rel="stylesheet">
+        <link href="css/css-checker.css" rel="stylesheet">
     </head>
     <body>
         <div id="background"></div>
@@ -17,7 +18,7 @@
                 <div id="navLinks">
                     <div class="dropdown-menu">
                         <h2 class="dropdown-trigger">
-                            <a href="ingredients.html" class="selected">
+                            <a href="ingredients.html">
                                 HTML
                                 <i class="fa-solid fa-chevron-down"></i>
                             </a>
@@ -25,7 +26,7 @@
                         <div class="dropdown-items">
                             <h2><a href="ingredients.html">Elements</a></h2>
                             <h2><a href="ingredients-cheatsheet.html">Cheatsheet</a></h2>
-                            <h2><a href="html-checker.html" class="selected">Dirty Code Report</a></h2>
+                            <h2><a href="html-checker.html">Dirty Code Report</a></h2>
                         </div>
                     </div>
                     <div class="dropdown-menu">
@@ -58,7 +59,7 @@
                     </div>
                     <div class="dropdown-menu">
                         <h2 class="dropdown-trigger">
-                            <a href="more.html">
+                            <a href="more.html" class="selected">
                                 More
                                 <i class="fa-solid fa-chevron-down"></i>
                             </a>
@@ -67,7 +68,7 @@
                             <h2><a href="appetizers.html">Tutorials</a></h2>
                             <h2 id="demos"><a href="demos.html">Coding Demos</a></h2>
                             <h2><a href="troubleshooting.html">Troubleshooting</a></h2>
-                            <h2><a href="html-css-checker.html">HTML+CSS Dirty Code Report</a></h2>
+                            <h2><a href="html-css-checker.html" class="selected">HTML+CSS Dirty Code Report</a></h2>
                         </div>
                     </div>
                 </div>
@@ -75,22 +76,12 @@
         </nav>
         
         <header id="title">
-            <h1>HTML Dirty Code Report
-
-            </h1>
-            <h3>Submit your code below to get your "Dirty Code Report Card"!</h3>
+            <h1>HTML & CSS Dirty Code Report</h1>
+            <h3>Submit your site below to get your "Dirty Code Report Card"!</h3>
         </header>
 
         <div id="inputContainer">
             <form onsubmit="event.preventDefault();">
-                <div id="textInputContainer"> 
-                    <h3>Raw HTML Input</h3>
-                    <textarea 
-                        id="html-input" 
-                        placeholder="Paste your HTML here..."
-                    ></textarea>
-                </div>
-                <div id="orContainer">OR</div>
                 <div id="urlInputContainer">
                     <h3>URL Input</h3>
                     <input 
@@ -110,18 +101,21 @@
             <h2 id="reportHeader">Report Card</h2>
             <div id="innerReportContainer">
                 <h4>Statistics and Score</h4>
-                <div id="overall">
-                    <div id="lineStats">
-                        <h3>Lines of incorrect indentation: <span id="badIndentationCount"></span></h3>
-                        <h3>Lines of overall dirty code: <span id="dirtyCodeCount"></span></h3>
+                <div id="overall" class="combined">
+                    <div>
+                        <h3>HTML</h3>
+                        <h2><span id="dirtyPercentHTML"></span>% DIRTY</h2>
                     </div>
-                    <h2><span id="dirtyPercentHTML"></span>% DIRTY</h2>
+                    <div>
+                        <h3>CSS</h3>
+                        <h2><span id="dirtyPercentCSS"></span>% DIRTY</h2>
+                    </div>
+                    <div>
+                        <h3>Overall</h3>
+                        <h2><span id="dirtyPercentOverall"></span>% DIRTY</h2>
+                    </div>
                 </div>
 
-                <!-- 
-            This is a comment 
-                
-                -->
                 <h4 id="cleanupHelperHeading">Interactive Cleanup Helper</h4>
                 <div id="helperContainer">
                     <p>
@@ -161,7 +155,11 @@
                             </div>
                             <div>
                                 <span class="block purple"></span>
-                                <div>(On Hover) Matching Opening/Closing Tags</div>
+                                <div>(HTML On Hover) Matching Opening/Closing Tags</div>
+                            </div>
+                            <div>
+                                <span class="block purple"></span>
+                                <div>(CSS On Hover) Matching Opening/Closing Brackets</div>
                             </div>
                             <div>
                                 <span class="block pink"></span>
@@ -182,16 +180,28 @@
                         </div>
                     </div>
                 </div>
-                <diV 
-                    id="layout"
+                <div 
+                    id="layoutHTML"
                 >
                     <div>
-                        <h5>Raw Code Input</h5>
+                        <h5>Raw HTML Code Input</h5>
                         <div id="rawHTMLInput" class="code"></DIV>
                     </div>
                     <div>
-                        <h5>Cleaned Code (Indentation Cleanup Only)</h5>
+                        <h5>Cleaned HTML Code (Indentation Cleanup Only)</h5>
                         <div id="cleanedHTMLInput" class="code"></div>
+                    </div>
+                </div>
+                <div 
+                    id="layoutCSS"
+                >
+                    <div>
+                        <h5>Raw CSS Code Input</h5>
+                        <div id="rawCSSInput" class="code"></div>
+                    </div>
+                    <div>
+                        <h5>Cleaned Code (Indentation Cleanup Only)</h5>
+                        <div id="cleanedCSSInput" class="code"></div>
                     </div>
                 </div>
 
@@ -205,13 +215,14 @@
                         other hand, are harder for it to target specifically.
                     </p>
                     <div id="issuesListHTML"></div>
+                    <div id="issuesListCSS"></div>
                 </div>
             </div>
     
         </div>
-    </section>
-
+        <script src="js/html-css-report-logic.js"></script>
         <script src="js/html-report-logic.js"></script>
-        <script src="js/html-checker.js"></script>
-    </boDy>
+        <script src="js/css-report-logic.js"></script>
+        <script src="js/html-css-checker.js"></script>
+    </body>
 </html>

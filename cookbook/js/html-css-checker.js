@@ -1,8 +1,9 @@
-const htmlInput = document.getElementById("css-input");
 const submitButton = document.getElementById("submit");
 const urlInput = document.getElementById("urlInput");
 const urlSubmitButton = document.getElementById("urlSubmit");
 const reportElement = document.getElementById("report");
+const rawHTMLInputElement = document.getElementById("rawHTMLInput");
+const cleanedHTMLInputElement = document.getElementById("cleanedHTMLInput");
 const rawCSSInputElement = document.getElementById("rawCSSInput");
 const cleanedCSSInputElement = document.getElementById("cleanedCSSInput");
 
@@ -10,16 +11,9 @@ submitButton.onclick = () => {
     reportElement.classList.add("hide");
     // add artificial delay, to make a change appear to occur on the page
     setTimeout(() => {
-        if (htmlInput.value) {
-            urlInput.value = "";
-            generateReportOnCSS(htmlInput.value);
-        } else if (urlInput.value) {
+        if (urlInput.value) {
             const url = urlInput.value;
-            if (url.endsWith(".css")) {
-                fetchCSSFromURL(url);
-            } else {
-                fetchHTMLFromURL(url);
-            }
+            fetchHTMLFromURL(url);
         }
     }, 250);
 }
@@ -28,12 +22,14 @@ function fetchHTMLFromURL(url) {
     fetch(url)
         .then(response => response.text())
         .then(html => {
+            generateReportOnHTML(html);
+
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             const links = doc.querySelectorAll('head link[rel=stylesheet]');
             let firstLocalCSSPath = '';
             let preferredLocalCSSPath = '';
-            debugger;
+
             for (let i = 0; i < links.length; i++) {
                 const linkElement = links[i];
                 if (linkElement.href.includes("/css/") || linkElement.href.includes("/CSS/")) {
@@ -74,7 +70,7 @@ function fetchHTMLFromURL(url) {
             }
         })
         .catch(error => {
-            console.log("Error in fetching recipe: ", error);
+            console.log("Error in fetching web page code: ", error);
         });
 }
 
