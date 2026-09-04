@@ -1,13 +1,14 @@
 * {
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box;
 }
 body {
+    margin: 0;
     font-family: sans-serif;
 }
-/* Student Work Below */
 
+/*******************************************************************************
+    WEATHER WIDGET
+*******************************************************************************/
 #weather {
     display: inline-block;
     background-color: #5291ef;
@@ -38,20 +39,27 @@ body {
     font-size: 12px;
 }
 
+/*******************************************************************************
+    CALENDAR WIDGET
+*******************************************************************************/
+
 .calendar {
     border: 1px solid lightgray;
     display: inline-block;
     border-radius: 26px;
     padding: 16px 16px 12px;
-    margin-left: 12px;
+    margin-left: 24px;
 }
 
 .day {
     color: rgb(249, 102, 53);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .date {
     font-size: 36px;
+    margin-top: 0px;
     margin-bottom: 16px;
 }
 
@@ -69,6 +77,8 @@ body {
 
 .event-name {
     color: purple;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .personal .event-name {
@@ -77,12 +87,19 @@ body {
 
 .event-type {
     font-size: 12px;
+    margin-top: 0px;
     margin-bottom: 8px;
 }
 
 .time {
     font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
+
+/*******************************************************************************
+    MUSIC WIDGET
+*******************************************************************************/
 
 #music {
     display: inline-block;
@@ -109,6 +126,12 @@ img {
 .details {
     display: inline-block;
     margin-left: 10px;
+}
+
+.details h3,
+.details p {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .featured-album,
