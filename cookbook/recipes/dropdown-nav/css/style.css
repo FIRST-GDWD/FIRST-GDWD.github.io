@@ -42,10 +42,36 @@ body {
 /*
     Dropdown styling ********************************************
 */
+
+/*
+    Dropdown implementations like this one are 
+    very dependent on a property called "position".
+    The position property is a rather complex one
+    that changes the default behavior of an element
+    AND the elements inside of it, sometimes allowing
+    them to completely disregard the Document Flow
+    of the page.
+
+    When the "relative" value is provided to position,
+    you could think of it as setting a starting point
+    or baseline for elements inside of it with different
+    position values. Without it, the starting point
+    would be the page itself, which often isn't 
+    what we want.
+*/
 .dropdown-container {
     position: relative;
 }
 
+/*
+    When the "absolute" value is provided to position,
+    the element it is attached to becomes like a ghost.
+    It no longer exists in the typical Document Flow, 
+    and elements around it will act as if it doesn't
+    exist.  This allows us to move the element so that
+    it is on top of or behind other elements, relative
+    to the parent (or ancestor) with position: relative;
+*/
 .dropdown-menu {
     position: absolute;
     opacity: 0;
@@ -61,18 +87,6 @@ body {
         closer to you as a viewer.
     */
     z-index: 10;
-}
-
-/*
-    This selector targets dropdown-containers
-    that are the last child of their parent,
-    and looks inside of them for a dropdown-menu.
-
-    If found, we target it and anchor it
-    to the right of its parent container
-*/
-.dropdown-container:last-child .dropdown-menu {
-    right: 0px;
 }
 
 /*
@@ -92,6 +106,12 @@ body {
     visibility: visible;
 }
 
+/*
+    This selector allows us to color and 
+    shape the items in our dropdown menu,
+    which are almost invisible to start
+    with, along with all different sizes.
+*/
 .dropdown-menu a {
     background-color: darkslateblue;
     width: 100%;
@@ -116,4 +136,22 @@ body {
 */
 #navbar .dropdown-menu a:hover {
     background: slateblue;
+}
+
+/*
+    You might have noticed that we have a bit of
+    a problem with the last dropdown...it goes
+    off the edge of the page!
+    
+    This selector targets dropdown-containers
+    that are the last child of their parent,
+    and looks inside of them for a dropdown-menu.
+
+    If found, we target it and anchor it
+    to the right of its parent container,
+    so that it doesn't overflow off the edge of
+    the page.
+*/
+.dropdown-container:last-child .dropdown-menu {
+    right: 0px;
 }
