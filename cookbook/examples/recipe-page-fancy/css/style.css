@@ -12,6 +12,7 @@ body {
 #layout {
     max-width: 1200px;
     margin: 48px auto;
+    padding: 0 36px;
 }
 
 .side-by-side {
@@ -43,11 +44,13 @@ body {
 
 #recipe-intro h1 {
     font-family: serif;
+    margin-top: 12px;
 }
 
 #recipe-intro h5 {
     letter-spacing: 2px;
     font-weight: 100;
+    margin-bottom: 12px;
 }
 
 #recipe-intro .times {
