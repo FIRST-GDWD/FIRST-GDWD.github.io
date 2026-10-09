@@ -44,7 +44,8 @@ body {
 
 #recipe-intro h1 {
     font-family: serif;
-    margin-top: 12px;
+    font-size: 48px;
+    margin: 12px 0 24px;
 }
 
 #recipe-intro h5 {
@@ -120,6 +121,10 @@ body {
 
 .main-content p {
     margin: 28px 0;
+}
+
+.main-content p:first-child {
+    margin-top: 0;
 }
 
 .main-content a {
