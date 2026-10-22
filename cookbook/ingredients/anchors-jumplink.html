@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jump Link &lt;a&gt; (Anchor) Element</title>
+    </head>
+    <body>
+        <h3 id="jumplink">Jump Links</h3>
+        <p>
+            When you click on a jump link, you will stay on the 
+            current page, but will be navigated to a particular HTML element 
+            on a different part of the page.  This type of anchor is often 
+            used for something like a Table of Contents, that enables a website 
+            visitor to jump down to the part of the page they care about.
+        </p>
+        <p>
+            As a bit of interesting trivia, "jump link" is not the formal name 
+            for this type of anchor.  In fact, there is no formal name for this
+            type of anchor! The other types are know as external and internal 
+            hyperlinks, but the poor jump links have no universally accepted 
+            name. As a result, don't be surprised if you see different terms for 
+            these types of anchors online.
+        </p>
+        <h4>Creating a Jump Link</h4>
+        <p>
+            To use anchor elements to create a jump link, 
+            you'll need to do two things:
+        </p>
+        <ol>
+            <li>
+                On the element you want to link to, set up an id attribute.
+                (For example: id="where-i-want-to-jump-to")
+            </li>
+            <li>
+                On the anchor you want to link from, grab the id attribute 
+                value you just set up, set that in the anchor's href 
+                attribute, and put a # in front of it.
+                (For example: href="#where-i-want-to-jump-to")
+            </li>
+        </ol>
+        <h4>Examples</h4>
+        <p>
+            Lower down on this page are three "sections" that we've created, 
+            each with their own id attribute values of "section1", "section2", and 
+            "section3".  We'll use those id values in our example below.
+        </p>
+        <ul>
+            <li>
+                <a href="#section1">Go to Section 1</a>
+            </li>
+            <li>
+                <a href="#section2">Go to Section 2</a>
+            </li>
+            <li>
+                <a href="#section3">Go to Section 3</a>
+            </li>
+        </ul>
+        
+        <p>
+            Notice in the code that the three anchors above have their hrefs 
+            set to "#section1", "#section2", and "#section3" respectively.
+            The hashtag/pound symbol (#) in front of the id values is 
+            <b>REQUIRED</b> in the href if you want to create a jump link; 
+            without that, the code will be interpreted as a 
+            <i>hyperlink</i>, and probably won't work the way you want.
+        </p>
+        <p>
+            And the three h3 headings further down have matching id attribute 
+            values of "section1", "section2", and "section3". 
+            Try clicking on the anchors above and see how they jump you down to
+            the headings with the matching ids.
+        </p>
+        <h5>Structuring a Table of Contents</h5>
+        <p>
+            As a side note, if you have several anchors in a row, in something 
+            like a Table of Contents or some form of navigation, we usually 
+            don't want them all lined up in a row as they would naturally,
+            since they're inline elements.
+            Instead, we probably want them separated in an orderly way,
+            likely on separate lines.
+        </p>
+            Because of this, we often put anchor elements inside of other 
+            elements for better spacing and layouts, such as the Unordered List 
+            element and List Item elements we used in the example above.
+        </p>
+
+        <h3 id="section1">Section 1</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
+            Possimus maxime vero obcaecati facilis dolor ipsum quia<br> 
+            animi veritatis rem, est dolorem cum temporibus?<br>
+            Consequatur id officia reprehenderit accusamus<br>
+            praesentium ipsam.
+        </p>
+        <!-- This is a code comment; they are ignored by the computer, -->
+        <!-- but are great for leaving notes for yourself or others. -->
+        <!-- You can manually type the characters at the beginning -->
+        <!-- and end, and then put the text in the middle. -->
+        <!-- Or, you can type the text first, select it -->
+        <!-- and hit CMD-/ (for Mac) or CTRL-/ (for PC) to create a comment -->
+        
+
+        <!-- Don't ever use the code below on a professional web page... -->
+        <!-- We're just using them for extra space until we learn CSS. -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3 id="section2">Section 2</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
+            Possimus maxime vero obcaecati facilis dolor ipsum quia<br> 
+            animi veritatis rem, est dolorem cum temporibus?<br>
+            Consequatur id officia reprehenderit accusamus<br>
+            praesentium ipsam.
+        </p>
+        
+        <!-- Don't ever use the code below on a professional web page... -->
+        <!-- We're just using them for extra space until we learn CSS. -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <h3 id="section3">Section 3</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
+            Possimus maxime vero obcaecati facilis dolor ipsum quia<br> 
+            animi veritatis rem, est dolorem cum temporibus?<br>
+            Consequatur id officia reprehenderit accusamus<br>
+            praesentium ipsam.
+        </p>
+        
+        <!-- Don't ever use the code below on a professional web page... -->
+        <!-- We're just using them for extra space until we learn CSS. -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <p>
+            Jump links are not only used to jump down the page.
+            They can also be used to get you back to the top!
+        </p>
+        <a href="#jumplink">Jump back to the top</a>
+    </body>
+</html>
