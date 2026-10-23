@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>InfinityFree/WordPress Setup - Appetizers - The Coding Cookbook</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="../css/cookbook.css" rel="stylesheet">
+        <link href="../css/appetizer.css" rel="stylesheet">
+        <link href="../css/lightbox.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="background"></div>
+        <nav>
+            <header id="topHeader">
+                <h2 id="brand"><a href="../">The Coding Cookbook</a></h2>
+                <div id="quote"></div>
+                <div id="navLinks">
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../ingredients.html">
+                                HTML
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../ingredients.html">Elements</a></h2>
+                            <h2><a href="../ingredients-cheatsheet.html">Cheatsheet</a></h2>
+                            <h2><a href="../html-checker.html">Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../seasonings.html">
+                                CSS
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../seasonings.html">Properties</a></h2>
+                            <h2><a href="../seasonings-cheatsheet.html">Cheatsheet</a></h2>
+                            <h2><a href="../css-checker.html">Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../recipes.html">
+                                Layouts
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../recipes.html?category=page-layout">Page Layouts</a></h2>
+                            <h2><a href="../recipes.html?category=content-layout">Content Layouts</a></h2>
+                            <h2><a href="../recipes.html?category=navigation-layout">Navigation</a></h2>
+                            <h2><a href="../recipes.html?category=miscellaneous">Miscellaneous</a></h2>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <h2 class="dropdown-trigger">
+                            <a href="../more.html" class="selected">
+                                More
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                        </h2>
+                        <div class="dropdown-items">
+                            <h2><a href="../appetizers.html" class="selected">Tutorials</a></h2>
+                            <h2 id="demos"><a href="../demos.html">Coding Demos</a></h2>
+                            <h2><a href="../troubleshooting.html">Troubleshooting</a></h2>
+                            <h2><a href="html-css-checker.html">HTML+CSS Dirty Code Report</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <header id="bottomHeader">
+                <div id="cookbookButtons">
+                    <a id="part1Button" href="#part1">Jump to Account Setup</a>
+                    <a id="part2Button" href="#part2">Jump to Hosting Account Setup</a>
+                    <a id="part3Button" href="#part3">Jump to WordPress Setup</a>
+                </div>
+            </header>
+        </nav>
+        
+        <header id="title" class="">
+            <h1>InfinityFree/WordPress Setup Tutorial</h1>
+            <h3>The Appetizer to CMS Week</h3>
+        </header>
+        
+        
+        <div class="cookbookPage">
+            <h2 id="part1" class="invisibleAnchorTarget"></h2>
+            <h6>PART 1</h6>
+            <h2>Creating an InfinityFree Account</h2>
+            <h4>Your Hosting Provider for the Course</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                In order to create a web site on the Internet,
+                                you first need to find someone/something to host it 
+                                for you.
+                            </p>
+                            
+                            <p>
+                                The hosting provider we're going to be using
+                                for this first week of CMS is 
+                                called <b>InfinityFree</b>.
+                            </p>
+                            <p>
+                                As their name implies, they are free! However,
+                                as with many free sites, there are a TON of ads.
+                                In particular, ads that look like buttons to 
+                                click on, to trick you into visiting another 
+                                site. 
+                            </p>
+                            <p>
+                                So be sure to pay close attention to the
+                                screenshots we provide, and close any popups
+                                that show up that don't match!
+                            </p>
+                            <br>
+                            <p>
+                                Start by visiting the following link:
+                            </p>
+                            <p>
+                                <a
+                                    href="https://www.infinityfree.com/"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    https://www.infinityfree.com/
+                                </a> 
+
+                            </p>
+                            <p>
+                                Then, click either of the purple [Register] or 
+                                [Create Free Account] buttons.  Both will 
+                                take you to the same place
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_1.png" 
+                                alt="Click either the 'Register' or 'Create Free Account' button on the InfinityFree home page"
+                            >
+                            <figcaption>
+                                Click either the "Register" or "Create Free Account" button on the InfinityFree home page
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                On the next page, choose [Sign up with Email].
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_2.png" 
+                                alt="Pick Sign up with Email"
+                            >
+                            <figcaption>
+                                Pick Sign up with Email
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Then, on the following form, enter your
+                                school email address, along with a new password.
+                            </p>
+                            <p>
+                                Check the box next to "I've read and agree to
+                                the terms of service".
+                            </p>
+                            <p class="indent">
+                                We always encourage you to actually read the 
+                                terms of service, but for a short summary: 
+                                don't use the site for anything sketchy.
+                            </p>
+                            <p>
+                                Make sure the Captcha check is green, and then
+                                click the purple [Sign up] button.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_3.png" 
+                                alt="Fill out the required data fields to create your account"
+                            >
+                            <figcaption>
+                                Fill out the required data fields to create your account
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, InfinityFree will send a confirmation
+                                email to the email address you specified.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_4.png" 
+                                alt="InfinityFree will send an email to the address you specified"
+                            >
+                            <figcaption>
+                                InfinityFree will send an email to the address you specified
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Open your Inbox to that email address,
+                                and once the email arrives, click on the 
+                                [Verify Email Address] button inside.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_4_email.png" 
+                                alt="Click the [Verify Email Address] button in the email"
+                            >
+                            <figcaption>
+                                Click the [Verify Email Address] button in the email
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2 id="p1_step4" class="invisibleInnerAnchorTarget"></h2>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                By doing so, you will have completed the 
+                                InfinityFree account setup and find yourself
+                                on the Hosting Accounts page.
+                            </p>
+                            <p class="indent">
+                                Note the large ad at the top of the screenshot
+                                that says "PDF" along with tempting CTAs like
+                                "View Template (PDF)" and "Open"?
+                            </p>
+                            <p class="indent">
+                                IGNORE THEM! They have nothing to do with
+                                what we're setting up, and if you can close
+                                the ads that pop up on the screen, even better.
+                            </p>
+                            <p>
+                                You're now done with the first part of 
+                                the setup process.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_5.png" 
+                                alt="The InfinityFree Hosting Accounts page"
+                            >
+                            <figcaption>
+                                The InfinityFree Hosting Accounts page
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>
+                Congrats! You've successfully created your InfinityFree account!
+                Now we can begin creating your very own site on InfinityFree.
+            </h4>
+        </div>
+        <div class="cookbookPage">
+            <h2 id="part2" class="invisibleAnchorTarget"></h2>
+            <h6>PART 2</h6>
+            <h2>Creating an InfinityFree Hosting Account</h2>
+            <h4>Where WordPress will be built</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Now that you have your InfinityFree account setup, 
+                                we can create an InfinityFree hosting account.
+                            </p>
+                            <p class="indent">
+                                Yes, we're aware how confusing that is. But that
+                                is the terminology InfinityFree uses: first you
+                                create an account with them, and then inside of
+                                that, you create a HOSTING account.  Think of it
+                                as creating the website we're going to install
+                                WordPress on.
+                            </p>
+                            <p>
+                                Click the purple [+ Create Account] button to get
+                                started.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_5_arrow.png" 
+                                alt="Clicking the [+ Create Account] button in Hosting Accounts" 
+                            >
+                            <figcaption>Clicking the [+ Create Account] button in Hosting Accounts</figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Once you're on the 'Choose Hosting Plan' page,
+                                find the $0 option, and click the purple 
+                                [Create Now] button at the bottom of it.
+                            </p>
+                            <p class="indent">
+                                Again, IGNORE ANY BUTTONS YOU SEE IN ADS!
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_6.png" 
+                                alt="Selecting the $0 [Create Now] button on the 'Choose Hosting Plan' page" 
+                            >
+                            <figcaption>
+                                Selecting the $0 [Create Now] button on the 'Choose Hosting Plan' page
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                On the next page, you'll be asked to provide 
+                                a subdomain (basically, just a name).
+                            </p>
+                            <p class="indent">
+                                We recommend using your first name and last
+                                name to make it easier for your instructor 
+                                to grade in the next couple weeks.
+                            </p>
+                            <br>
+                            <p>
+                                After typing in your subdomain name, click the
+                                [Check Availability] button.
+                            </p>
+                            <p class="indent">
+                                If your subdomain name is taken, come up with
+                                another one.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_7.png" 
+                                alt="Choosing a subdomain" 
+                            >
+                            <figcaption>
+                                Choosing a subdomain
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Assuming your subdomain was available, you'll
+                                be brought to a new page.
+                            </p>
+                            <p>
+                                On this page, you are provided with a pre-generated 
+                                username and password.  You cannot change the 
+                                username, but we do recommend changing (and saving!)
+                                the password.
+                            </p>
+                            <p class="indent">
+                                We also recommend picking the "I Do Not Approve"
+                                option under "Email Consent" so you don't get
+                                spam emails, but that is up to you.
+                            </p>
+                            <p>
+                                Once you've finished all that, click the purple
+                                [+ Create Account] button.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_8.png" 
+                                alt="Creating your InfinityFree Hosting Account" 
+                            >
+                            <figcaption>
+                                Creating your InfinityFree Hosting Account
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After that, you will need to wait a few minutes
+                                for InfinityFree to set up your Hosting Account.
+                            </p>
+                            <p>
+                                Keep an eye on the section at the bottom of the 
+                                page; while the process is running, you'll
+                                see a blue spinny circle.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_9.png" 
+                                alt="InfinityFree is creating your Hosting Account" 
+                            >
+                            <figcaption>
+                                InfinityFree is creating your Hosting Account
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Once the process is complete, that section at 
+                                the bottom of the page will turn green with 
+                                a new button in it.
+                            </p>
+                            <p>
+                                Click the green [-> Go to Your Account] button.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/infinityfree-wordpress-setup/InfinityFree_10.png" 
+                                alt="Your Hosting Account was created!" 
+                            >
+                            <figcaption>
+                                Your Hosting Account was created!
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                You should now be on the dashboard for your
+                                newly created InfinityFree <b>Hosting Account</b>.
+                            </p>
+                            <p class="indent">
+                                This is going to get confusing later if you
+                                don't pay attention, because we're also
+                                going to have a <b>WordPress</b> Dashboard.
+                            </p>
+                            <p>
+                                You have now completed the second part of the 
+                                setup process.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/infinityfree-wordpress-setup/InfinityFree_11.png"
+                                alt="The dashboard of your InfinityFree Hosting Account"
+                            />
+                            <figcaption>
+                                The dashboard of your InfinityFree Hosting Account
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>
+                Congrats! You have now created a InfinityFree Hosting Account 
+                and are ready to install WordPress on it!
+            </h4>
+        </div>
+        <div class="cookbookPage">
+            <h2 id="part3" class="invisibleAnchorTarget"></h2>
+            <h6>PART 3</h6>
+            <h2>Installing WordPress</h2>
+            <h4>The CMS on your InfinityFree site</h4>
+            <ol>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                By now, you should be on your 
+                                <b>Pantheon Site</b> Dashboard.
+                            </p>
+                            <p class="indent">
+                                If you aren't,
+                                this can be found by clicking on the Sites tab 
+                                in the far left navigation bar, and then 
+                                clicking on the site name you want to access 
+                                the dashboard for.
+                            </p>
+                            <p>
+                                Once on the <b>Pantheon Site</b> Dashboard for 
+                                the site you want to work with, click on the 
+                                [Dev Admin] button underneath the Dev tab,
+                                underneath the name of your site.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/infinityfree-wordpress-setup/InfinityFree_11_arrow.png"
+                                alt="Clicking on the Site Admin button"
+                            />
+                            <figcaption>
+                                Clicking on the Dev Admin button
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2 id="p3_step2" class="invisibleInnerAnchorTarget"></h2>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                You should be taken to the WordPress Install 
+                                Flow.
+                            </p>
+                            <p class="indent">
+                                You may instead be brought to a 404 page, 
+                                with a little cartoon Zeus character.  If this 
+                                happens, just wait a minute or two and refresh
+                                the page.
+                                <br><br>
+                                This just means you were a little too quick,
+                                and there was a little more setup 
+                                that needed to be done behind the scenes before 
+                                you can start installing WordPress.
+                            </p>
+                            <p>
+                                Leave the language as "English (United States)",
+                                and click the blue [Continue] button.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/pantheon-wordpress-setup/10_wordpress_setup_lang.png" 
+                                alt="WordPress Install Flow - Language Selection" 
+                            >
+                            <figcaption>
+                                WordPress Install Flow - Language Selection
+                            </figcaption>
+                        </div>
+                    </div>
+                    
+                </li>
+                <li>
+                    <h2 id="p3_step3" class="invisibleInnerAnchorTarget"></h2>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you'll be brought to a form to fill out 
+                                some information for the WordPress.  Most of it
+                                is unimportant and can be changed later... 
+                                <b>EXCEPT FOR THE USERNAME AND PASSWORD</b>.
+                            </p>
+                            <p class="indent">
+                                If you forget your username and password, the 
+                                usual "Reset my password" link will NOT work 
+                                with Pantheon's version of WordPress.
+                                <br><br>
+                                There is a way to reset it, but it involves
+                                diving deep into the database and modifying 
+                                the data inside, which is a complex and 
+                                somewhat risky process.
+                                <br><br>
+                                So do yourself a favor and 
+                                <b>WRITE DOWN YOUR USERNAME AND PASSWORD!</b>
+                                <br><br>
+                                We also recommend using the same username and 
+                                password when you set up a second WordPress site.
+                            </p>   
+                            <p>
+                                As for the <b>Site Title</b>, 
+                                fill out the text field based on the 
+                                instructions in your assignment.
+                            </p>
+                            <p class="indent">
+                                If you've forgotten what to fill out here,
+                                go back to the assignment!
+                            </p>
+                            <p>
+                                <b>Your Email</b> is not actually used for 
+                                anything, so it doesn't matter what you put
+                                there.
+                            </p>
+                            <p>
+                                Leave the <b>Search Engine Visibility</b> 
+                                checkbox unchecked.
+                            </p>
+                            <p>
+                                Finally, click the [Install Wordpress] button
+                                when you're done.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/pantheon-wordpress-setup/11_wordpress_setup_site_user.png"
+                                alt="WordPress Install Flow - Site Data"
+                            />
+                            <figcaption>
+                                WordPress Install Flow - Site Data
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                Next, you should be brought to a "Success!"
+                                page, which basically just confirms your 
+                                chosen Username.
+                            </p>
+                            <p>
+                                Click the "Log In" link to log into WordPress 
+                                with the credentials you just specified.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img
+                                src="images/pantheon-wordpress-setup/12_wordpress_setup_success.png"
+                                alt="Logging into WordPress"
+                            >
+                            <figcaption>
+                                Logging into WordPress
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2 id="p3_step5" class="invisibleInnerAnchorTarget"></h2>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After logging in, you'll find yourself on
+                                your <b>WordPress</b> Dashboard.
+                            </p>
+                            <p class="indent">
+                                This dashboard is different from your 
+                                <b>Pantheon Site</b> Dashboard. Don't get 
+                                them confused!
+                            </p>
+                            <p>
+                                This is the Dashboard you'll be working in 
+                                for most of the CMS portion of the course. From 
+                                here, you can modify the site settings, add 
+                                content, and change the site's appearance.
+                            </p>
+                            <p class="indent">
+                                The WordPress Dashboard may feel a bit 
+                                overwhelming at first, but you'll get more 
+                                comfortable with it over the course of the week.
+                            </p>
+                            <p>
+                                However, this is only the "backend" of your 
+                                WordPress site, where things take place
+                                behind-the-scenes.
+                            </p> 
+                            <p class="indent">
+                                Only you can access this 
+                                dashboard; if you try to share links to this
+                                page, people won't be able to get in.
+                            </p>
+                            <p>
+                                To access the "frontend" of the WordPress site
+                                (the live version that other people can see),
+                                click on the little home icon at the top left
+                                of the Dashboard, next to the name of your site.
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/pantheon-wordpress-setup/13_wordpress_dashboard.png" 
+                                alt="Your WordPress Dashboard"
+                            >
+                            <figcaption>
+                                Your WordPress Dashboard
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sideBySide">
+                        <div class="textContainer">
+                            <p>
+                                After clicking the home icon, you'll be 
+                                brought to the Home page of your WordPress 
+                                site.
+                            </p>
+                            <p>
+                                This is actually your WordPress site, but
+                                at the moment, there's still a lot of placeholder
+                                content, such as "Mindblown: a blog about 
+                                philosophy" in the screenshot to the right; 
+                                this content is set using the default
+                                WordPress Theme, which changes every year.
+                            </p>
+                            <p class="indent">
+                                Don't worry, as you'll see soon, we can
+                                customize all of this! For now, just ignore 
+                                the default Theme content.
+                            </p>
+                            <p>
+                                Notice how the home icon in the top left 
+                                changed into a little speedometer icon instead.
+                                Clicking on this icon will bring you back to 
+                                the Dashboard.
+                            </p>
+                            <p>
+                                That icon can be helpful in letting 
+                                you know whether you can share a page with
+                                someone else.
+                                <ul>
+                                    <li>
+                                        If it's a speedometer icon (indicating
+                                        you're NOT in the Dashboard), then 
+                                        you can share that URL with other
+                                        people.
+                                    </li>
+                                    <li>
+                                        If it's a home icon (indicating you 
+                                        ARE on the Dashboard), then you can't 
+                                        share that URL with other people, 
+                                        since they won't be able to access it.
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="imageContainer">
+                            <img 
+                                src="images/pantheon-wordpress-setup/14_wordpress_livesite_v2.png" 
+                                alt="The live version of your WordPress site"
+                            >
+                            <figcaption>
+                                The live version of your WordPress site
+                            </figcaption>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <h4>
+                Congrats! You have now created a WordPress site! Go into 
+                the Dashboard and start customizing your site!
+            </h4>
+        </div>
+        <div id="lightboxContainer">
+            <div id="lightboxBackground" class="closer"></div>
+            <img id="lightbox" src="" alt="">
+            <span id="lightboxCloser" class="closer">×</span>
+          </div>
+        <script src="../js/lightbox.js"></script>
+        <script src="../js/hideNav.js"></script>
+    </body>
+</html>
