@@ -4,14 +4,8 @@
 const recipeNames = [];
 const mealPrepRecipes = [
     {
-        recipeName: "pantheon-wordpress-setup",
-        categories: "setup, pantheon, wordpress",
-        pageCount: 1,
-        hasLocalProject: false,
-    },
-    {
-        recipeName: "deleting-a-pantheon-site",
-        categories: "pantheon, wordpress",
+        recipeName: "infinityfree-wordpress-setup",
+        categories: "setup, infinityfree, wordpress",
         pageCount: 1,
         hasLocalProject: false,
     },
@@ -123,6 +117,18 @@ const mealPrepRecipes = [
         pageCount: 1,
         hasLocalProject: false,
     },
+    {
+        recipeName: "pantheon-wordpress-setup",
+        categories: "setup, pantheon, wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
+    {
+        recipeName: "deleting-a-pantheon-site",
+        categories: "pantheon, wordpress",
+        pageCount: 1,
+        hasLocalProject: false,
+    },
 ];
 const categories = [
     {
@@ -130,8 +136,8 @@ const categories = [
         value: "setup",
     },
     {
-        label: "Pantheon",
-        value: "pantheon",
+        label: "InfinityFree",
+        value: "infinityfree",
     },
     {
         label: "WordPress",
@@ -156,6 +162,10 @@ const categories = [
     {
         label: "Video Tutorials",
         value: "video",
+    },
+    {
+        label: "Pantheon",
+        value: "pantheon",
     },
 ];
 const ROOT_RECIPE_FOLDER = "appetizers";
